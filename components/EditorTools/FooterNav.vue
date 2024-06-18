@@ -65,7 +65,7 @@
       <FooterNavPanel :keyword="keyword" :mode="mode" />
     </div>
     <h1 class="text-xs text-cool-500 text-right mt-1">
-      ヒュムノスエディタ by <a href="/" class="text-primary">ヒュムノグラム</a>
+      ヒュムノスエディタ by <nuxt-link href="/" class="text-primary">ヒュムノグラム</nuxt-link>
     </h1>
   </div>
 </template>
