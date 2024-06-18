@@ -4,7 +4,6 @@
       ヒュムノグラム(v3.beta)へようこそ。
     </h2>
     <p class="mb-4">
-      <span class="font-bold">このサイトは現在開発中です！</span><br />
       ヒュムノグラムは、アルトネリコ・サージュコンチェルトシリーズに登場する言語『ヒュムノス語』の非公式辞書サイトです。
       単語データは
       <nuxt-link
@@ -16,6 +15,16 @@
         トリフィラ
       </nuxt-link>
       を元にしています。
+    </p>
+    <h3 class="text-xl font-bold mb-4 text-primary-600">
+      ヒュムノグラム(v3.beta)は現在開発中です
+    </h3>
+    <p class="mb-4">
+      <!--リファラつけて遷移-->
+      <a href="https://fau-varda.net/Hymmnogram" class="text-blue-500" >
+        旧ヒュムノグラム
+      </a>
+      も引き続き利用可能です。バイナスフィア生成等、未実装の機能は旧サイトをご利用ください。
     </p>
     <h3 class="text-xl font-bold mb-4 text-primary-600">お問い合わせ</h3>
     <p>
