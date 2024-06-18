@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Hymmnos";
+  src: url("/fonts/hymmnos.ttf");
+}
+
+@font-face {
+  font-family: "ar-ciela";
+  src: url("/fonts/ar-ciela_compartment.ttf");
+}
+
+.font-hymmnos {
+  font-family: "Hymmnos";
+}
+.font-arciela {
+  font-family: "Hymmnos";
+}
+.text-2xs {
+  font-size: 0.6rem;
+}
+.z--1 {
+  z-index: -1;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+html {
+  touch-action: manipulation;
+}
