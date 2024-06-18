@@ -11,7 +11,7 @@
         'text-xl': !small,
       }"
     >
-      {{ word }}
+      {{ chars.map((c) => c.char.replace(/([\-\!\#\$\%\&\(\'\)])/gi, "")).join("") }}
     </div>
 
     <div
@@ -48,7 +48,7 @@ const { chars } = defineProps<{
   flex: 1 1 auto;
   border-bottom: 1px solid rgb(229, 229, 229);
 }
-.arciela{
+.arciela {
   text-wrap: nowrap;
 }
 .japanese {
