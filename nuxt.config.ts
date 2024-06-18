@@ -32,9 +32,9 @@ export default defineNuxtConfig({
   pwa: {
     registerType: "autoUpdate",
     manifest: {
-      name: "ヒュムノグラム - HYMMNOGRAM",
+      name: "ヒュムノグラム",
       description: "ヒュムノグラムは、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。",
-      theme_color: "#11B981",
+      theme_color: "#ffffff",
       lang: "ja",
       short_name: "ヒュムノグラム",
       start_url: "/",

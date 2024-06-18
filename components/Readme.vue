@@ -95,7 +95,7 @@
     <ul class="list-disc list-inside mb-4">
       <li>
         <nuxt-link
-          to="https://github.com/tyon-tyon/hymnogram"
+          to="https://github.com/tyon-tyon/hymmnogram"
           target="_blank"
           rel="noopener noreferrer"
           class="text-blue-500"
