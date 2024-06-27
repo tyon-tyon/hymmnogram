@@ -28,7 +28,6 @@ export default defineNuxtConfig({
       ],
     }
   },
-  // @ts-ignore
   gtm: {
     id: 'GTM-MXQQRHGG',
   },

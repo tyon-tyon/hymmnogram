@@ -88,7 +88,6 @@ watch(
 );
 
 const search = () => {
-  console.log("search");
   const keyword = props.keyword;
   // ヒュムノスの文章の意味を調べる
   lineWords.value = [];
