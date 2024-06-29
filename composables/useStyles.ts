@@ -60,14 +60,14 @@ export default function () {
       rose: "bg-rose-50",
     };
     const dialectData = dialects.value.find(d => d.name === dialect);
-    if (dialectData) return bgColor[dialectData.color as keyof typeof bgColor];
+    if (dialectData && _dialects.find(d => d.name === dialect)) return bgColor[dialectData.color as keyof typeof bgColor];
     return "bg-white";
   };
 
   const getDiarectJapanese = (dialect: string | null) => {
     const dialectData = dialects.value.find(d => d.name === dialect);
     if (dialectData) return dialectData.japanese;
-    return "不明";
+    return dialect;
   };
 
   const addDialects = (newDialects: TDialectData[]) => {
