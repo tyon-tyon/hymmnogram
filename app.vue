@@ -34,6 +34,25 @@ onMounted(() => {
     }, 1500);
   });
 });
+const { updateWords } = useDictionary();
+const { updateDialects } = useStyles();
+const { updateOriginalWords, updateOriginalDialects } = useOriginal();
+
+onMounted(() => {
+  // ローカルストレージからデータを取得
+  const storage = {
+    words: localStorage.getItem("originalWords") ?? "",
+    delimiter: localStorage.getItem("originalWordsDelimiter") ?? "",
+    dialect: localStorage.getItem("originalDialects") ?? "[]",
+  }
+  // オリジナルデータを更新
+  const originalWords = updateOriginalWords(storage.words, storage.delimiter);
+  const originalDialects = updateOriginalDialects(JSON.parse(storage.dialect));
+
+  // 辞書データを更新
+  updateWords(originalWords);
+  updateDialects(originalDialects);
+});
 </script>
 
 <style>
