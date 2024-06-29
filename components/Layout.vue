@@ -4,10 +4,10 @@
       >HYMMNOGRAM</span
     >
     <UContainer class="relative flex items-center justify-between">
-      <div class="logo">
+      <nuxt-link class="logo" to="/">
         <div class="text-primary-600 text-2xl font-bold">HYMMNOGRAM</div>
         <div class="text-cool-600 text-sm japanese">ヒュムノグラム</div>
-      </div>
+      </nuxt-link>
       <nuxt-link href="/editor" class="text-sm text-primary-600 text-sm"
         >エディタ</nuxt-link
       >
