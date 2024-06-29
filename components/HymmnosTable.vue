@@ -95,7 +95,7 @@ const columns = [
   },
   {
     key: "pronunciation",
-    label: "読み",
+    label: "発音",
   },
   {
     key: "part_of_speech",
