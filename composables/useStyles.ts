@@ -2,7 +2,12 @@ import _dialects from "~/assets/datas/dialects.json";
 import type { TDialectData } from "~/types";
 
 export default function () {
-  const dialects = useState<TDialectData[]>('dialects', () => _dialects as TDialectData[]);
+  // クライアントではない時は空の配列を返す
+  if (process.client === false) return { getDialectTextClass: () => "", getDiarectJapanese: () => "", getDialectBgClass: () => "", addOriginalDialects: () => { }, dialects: { value: [] } };
+
+  const originalDialectsStr = localStorage.getItem('originalDialects');
+  const originalDialects = originalDialectsStr ? JSON.parse(originalDialectsStr) : [];
+  const dialects = useState<TDialectData[]>('dialects', () => [..._dialects, ...originalDialects] as TDialectData[]);
 
   const getDialectTextClass = (dialect: string | null) => {
     const textColor = {
@@ -60,7 +65,7 @@ export default function () {
       rose: "bg-rose-50",
     };
     const dialectData = dialects.value.find(d => d.name === dialect);
-    if (dialectData && _dialects.find(d => d.name === dialect)) return bgColor[dialectData.color as keyof typeof bgColor];
+    if (dialectData && _dialects.find((d: TDialectData) => d.name === dialect)) return bgColor[dialectData.color as keyof typeof bgColor];
     return "bg-white";
   };
 
@@ -70,12 +75,14 @@ export default function () {
     return dialect;
   };
 
-  const addDialects = (newDialects: TDialectData[]) => {
-    dialects.value = [...dialects.value, ...newDialects];
-    // 重複を削除
-    dialects.value = dialects.value.filter((x, i, self) => self.indexOf(x) === i);
+  const addOriginalDialects = (newOriginalDialects: TDialectData[]) => {
+    // ローカルストレージに保存
+    localStorage.setItem('originalDialects', JSON.stringify(newOriginalDialects));
+    dialects.value = [...dialects.value, ...newOriginalDialects];
+    // 重複を削除(nameが同じものを削除)
+    dialects.value = dialects.value.filter((d, i, self) => self.findIndex(s => s.name === d.name) === i);
   };
 
-  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, addDialects, dialects };
+  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, addOriginalDialects, dialects };
 }
 

@@ -4,7 +4,13 @@ import type { TJsonWordData, TWordData, TEmotionVowelMeaning } from "~/types";
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
-  const words = useState<TJsonWordData[]>('words', () => _words as TJsonWordData[]);
+  // クライアントではない時は空の配列を返す
+  if (process.client === false) return { getExactMatch: () => undefined, getPartialMatch: () => [], emptyWordData: {}, addOriginalWord: () => { } };
+
+  // ローカルストレージから単語データを取得
+  const originalWordsStr = localStorage.getItem('originalWords');
+  const originalWords = originalWordsStr ? JSON.parse(originalWordsStr) : [];
+  const words = useState<TJsonWordData[]>('words', () => [..._words, ...originalWords] as TJsonWordData[]);
 
   // 完全一致の単語を取得
   const getExactMatch = (q: string): TWordData | undefined => {
@@ -35,6 +41,19 @@ export default function () {
   };
   const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: null, primaryMeaning: "" };
 
+  const addOriginalWord = (newOriginalWords: TJsonWordData[]) => {
+    localStorage.setItem('originalWords', JSON.stringify(newOriginalWords));
+    const newWords = [...words.value, ...newOriginalWords];
+    // hymmnosとdialectが同じものを削除
+    const uniqueWords = newWords.filter((w, i, self) =>
+      self.findIndex(s => s.hymmnos === w.hymmnos && s.dialect === w.dialect) === i
+    );
+    words.value = uniqueWords;
+  };
+
+  /*
+  ここから下は、関数内でのみ使用される関数
+  */
 
   // 通常の完全一致
   function getWordExactMatch(q: string): TWordData | undefined {
@@ -201,5 +220,5 @@ export default function () {
     return;
   }
 
-  return { getExactMatch, getPartialMatch, emptyWordData };
+  return { getExactMatch, getPartialMatch, emptyWordData, addOriginalWord };
 }
