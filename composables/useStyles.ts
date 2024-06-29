@@ -2,40 +2,63 @@ import _dialects from "~/assets/datas/dialects.json";
 import type { TDialectData } from "~/types";
 
 export default function () {
-  // クライアントではない時は空の配列を返す
-  if (process.client === false) return { getDialectTextClass: () => "", getDiarectJapanese: () => "", getDialectBgClass: () => "", addOriginalDialects: () => { }, dialects: { value: [] } };
-
-  const originalDialectsStr = localStorage.getItem('originalDialects');
-  const originalDialects = originalDialectsStr ? JSON.parse(originalDialectsStr) : [];
-  const dialects = useState<TDialectData[]>('dialects', () => [..._dialects, ...originalDialects] as TDialectData[]);
+  const { originalDialects } = useOriginal();
+  const dialects = useState<TDialectData[]>('dialects', () => [..._dialects, ...originalDialects.value] as TDialectData[]);
 
   const getDialectTextClass = (dialect: string | null) => {
     const textColor = {
-      slate: "text-slate-600",
-      gray: "text-gray-600",
-      zinc: "text-zinc-600",
-      neutral: "text-neutral-600",
-      stone: "text-stone-600",
-      red: "text-red-600",
-      orange: "text-orange-600",
-      amber: "text-amber-600",
-      yellow: "text-yellow-600",
-      lime: "text-lime-600",
-      green: "text-green-600",
-      emerald: "text-emerald-600",
-      teal: "text-teal-600",
-      cyan: "text-cyan-600",
-      sky: "text-sky-600",
-      blue: "text-blue-600",
-      indigo: "text-indigo-600",
-      violet: "text-violet-600",
-      purple: "text-purple-600",
-      fuchsia: "text-fuchsia-600",
-      pink: "text-pink-600",
-      rose: "text-rose-600",
+      slate: "text-slate-700",
+      gray: "text-gray-700",
+      zinc: "text-zinc-700",
+      neutral: "text-neutral-700",
+      stone: "text-stone-700",
+      red: "text-red-700",
+      orange: "text-orange-700",
+      amber: "text-amber-700",
+      yellow: "text-yellow-700",
+      lime: "text-lime-700",
+      green: "text-green-700",
+      emerald: "text-emerald-700",
+      teal: "text-teal-700",
+      cyan: "text-cyan-700",
+      sky: "text-sky-700",
+      blue: "text-blue-700",
+      indigo: "text-indigo-700",
+      violet: "text-violet-700",
+      purple: "text-purple-700",
+      fuchsia: "text-fuchsia-700",
+      pink: "text-pink-700",
+      rose: "text-rose-700",
+    };
+    const textColorLocal = {
+      slate: "text-slate-400",
+      gray: "text-gray-400",
+      zinc: "text-zinc-400",
+      neutral: "text-neutral-400",
+      stone: "text-stone-400",
+      red: "text-red-400",
+      orange: "text-orange-400",
+      amber: "text-amber-400",
+      yellow: "text-yellow-400",
+      lime: "text-lime-400",
+      green: "text-green-400",
+      emerald: "text-emerald-400",
+      teal: "text-teal-400",
+      cyan: "text-cyan-400",
+      sky: "text-sky-400",
+      blue: "text-blue-400",
+      indigo: "text-indigo-400",
+      violet: "text-violet-400",
+      purple: "text-purple-400",
+      fuchsia: "text-fuchsia-400",
+      pink: "text-pink-400",
+      rose: "text-rose-400",
     };
     const dialectData = dialects.value.find(d => d.name === dialect);
-    if (dialectData) return textColor[dialectData.color as keyof typeof textColor];
+    // 登録済みの流派の場合
+    if (dialectData && _dialects.find((d: TDialectData) => d.name === dialect)) return textColor[dialectData.color as keyof typeof textColor];
+    // オリジナルの流派の場合
+    if (dialectData) return textColorLocal[dialectData.color as keyof typeof textColorLocal];
     return "text-black";
   };
 
@@ -75,14 +98,10 @@ export default function () {
     return dialect;
   };
 
-  const addOriginalDialects = (newOriginalDialects: TDialectData[]) => {
-    // ローカルストレージに保存
-    localStorage.setItem('originalDialects', JSON.stringify(newOriginalDialects));
-    dialects.value = [...dialects.value, ...newOriginalDialects];
-    // 重複を削除(nameが同じものを削除)
-    dialects.value = dialects.value.filter((d, i, self) => self.findIndex(s => s.name === d.name) === i);
+  const updateDialects = () => {
+    dialects.value = [..._dialects, ...originalDialects.value];
   };
 
-  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, addOriginalDialects, dialects };
+  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, dialects, updateDialects };
 }
 
