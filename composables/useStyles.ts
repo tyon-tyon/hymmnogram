@@ -2,8 +2,7 @@ import _dialects from "~/assets/datas/dialects.json";
 import type { TDialectData } from "~/types";
 
 export default function () {
-  const { originalDialects } = useOriginal();
-  const dialects = useState<TDialectData[]>('dialects', () => [..._dialects, ...originalDialects.value] as TDialectData[]);
+  const dialects = _dialects as TDialectData[];
 
   const getDialectTextClass = (dialect: string | null) => {
     const textColor = {
@@ -98,8 +97,8 @@ export default function () {
     return dialect;
   };
 
-  const updateDialects = () => {
-    dialects.value = [..._dialects, ...originalDialects.value];
+  const updateDialects = (originalDialects: TDialectData[]) => {
+    dialects.value = [..._dialects, ...originalDialects];
   };
 
   return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, dialects, updateDialects };

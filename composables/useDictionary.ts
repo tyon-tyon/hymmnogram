@@ -5,8 +5,7 @@ const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
   // ローカルストレージから単語データを取得
-  const { originalWords } = useOriginal();
-  const words = useState<TJsonWordData[]>('words', () => [..._words, ...originalWords.value] as TJsonWordData[]);
+  const words = _words as TJsonWordData[];
 
   // 完全一致の単語を取得
   const getExactMatch = (q: string): TWordData | undefined => {
@@ -38,8 +37,8 @@ export default function () {
   const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: null, primaryMeaning: "" };
 
   // 単語データを更新
-  const updateWords = () => {
-    words.value = [..._words, ...originalWords.value];
+  const updateWords = (originalWords: TJsonWordData[]) => {
+    words.value = [..._words, ...originalWords];
   };
 
   /*

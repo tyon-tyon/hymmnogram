@@ -5,6 +5,8 @@ import type { TJsonWordData, TWordData, TDialectData } from "~/types";
 export default function () {
   const originalWords = useState<TJsonWordData[]>('originalWords', () => []);
   const originalDialects = useState<TDialectData[]>('originalDialects', () => []);
+  const originalWordsStr  = useState<string>('originalWordsStr', () => '');
+  const originalDelimiter  = useState<string>('originalDelimiter', () => '');
 
   // テキストから単語データを取得する
   function getWordFromText(text: string, delimiter: string): TWordData[] {
@@ -36,18 +38,21 @@ export default function () {
   };
 
   // オリジナル単語を更新
-  const updateLocalWords = (words: string, delimiter: string): TJsonWordData[] => {
+  const updateOriginalWords = (words: string, delimiter: string): TJsonWordData[] => {
+    originalWordsStr.value = words;
+    originalDelimiter.value = delimiter;
     // 単語データを更新
     originalWords.value = getWordFromText(words, delimiter);
     return originalWords.value;
   };
 
   // オリジナル流派をoriginalStorageに保存
-  const updateLocalDialects = (dialects: TDialectData[]) => {
+  const updateOriginalDialects = (dialects: TDialectData[]) => {
     // 流派データを更新
     originalDialects.value = dialects;
+    return originalDialects.value;
   };
 
-  return { originalWords, originalDialects, getWordFromText, updateLocalWords, updateLocalDialects };
+  return { originalWords, originalDialects,originalDelimiter, originalWordsStr, getWordFromText, updateOriginalWords, updateOriginalDialects };
 }
 
