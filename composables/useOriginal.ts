@@ -53,6 +53,19 @@ export default function () {
     return originalDialects.value;
   };
 
-  return { originalWords, originalDialects,originalDelimiter, originalWordsStr, getWordFromText, updateOriginalWords, updateOriginalDialects };
+  const isOriginalDialect = (dialect: string | null): boolean => {
+    return !!originalDialects.value.find((d) => d.name === dialect);
+  }
+
+  return { 
+    originalWords,
+     originalDialects,
+     originalDelimiter, 
+     originalWordsStr,
+      getWordFromText, 
+      updateOriginalWords, 
+      updateOriginalDialects ,
+      isOriginalDialect
+    };
 }
 

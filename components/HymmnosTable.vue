@@ -21,7 +21,7 @@
       ...(exactWord?[exactWord]:[])
       .map((word: TWordData) => ({...getWordItem(word), class: getWordItem(word).class + ' border-b-4'})),
       ...words
-      .filter((word: TWordData) => includeUnknown || word.dialect !== 'unknown')
+      .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
       .map((word: TWordData) => getWordItem(word))
       ]
     "
@@ -82,6 +82,7 @@ const { words, action } = defineProps<{
 }>();
 const { getDialectTextClass, getDiarectJapanese, getDialectBgClass } =
   useStyles();
+const { isOriginalDialect } = useOriginal();
 
 const columns = [
   {
