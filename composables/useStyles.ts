@@ -2,7 +2,7 @@ import _dialects from "~/assets/datas/dialects.json";
 import type { TDialectData } from "~/types";
 
 export default function () {
-  const dialects = _dialects as TDialectData[];
+  const dialects = useState<TDialectData[]>('dialects', () => _dialects as TDialectData[]);
 
   const getDialectTextClass = (dialect: string | null) => {
     const textColor = {
@@ -29,7 +29,7 @@ export default function () {
       pink: "text-pink-600",
       rose: "text-rose-600",
     };
-    const dialectData = dialects.find(d => d.name === dialect);
+    const dialectData = dialects.value.find(d => d.name === dialect);
     if (dialectData) return textColor[dialectData.color as keyof typeof textColor];
     return "text-black";
   };
@@ -59,17 +59,23 @@ export default function () {
       pink: "bg-pink-50",
       rose: "bg-rose-50",
     };
-    const dialectData = dialects.find(d => d.name === dialect);
+    const dialectData = dialects.value.find(d => d.name === dialect);
     if (dialectData) return bgColor[dialectData.color as keyof typeof bgColor];
     return "bg-white";
   };
 
   const getDiarectJapanese = (dialect: string | null) => {
-    const dialectData = dialects.find(d => d.name === dialect);
+    const dialectData = dialects.value.find(d => d.name === dialect);
     if (dialectData) return dialectData.japanese;
     return "不明";
   };
 
-  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass };
+  const addDialects = (newDialects: TDialectData[]) => {
+    dialects.value = [...dialects.value, ...newDialects];
+    // 重複を削除
+    dialects.value = dialects.value.filter((x, i, self) => self.indexOf(x) === i);
+  };
+
+  return { getDialectTextClass, getDiarectJapanese, getDialectBgClass, addDialects, dialects };
 }
 
