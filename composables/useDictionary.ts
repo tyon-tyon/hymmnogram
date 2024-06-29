@@ -1,10 +1,11 @@
 import _words from "@/assets/datas/words.json";
 import type { TJsonWordData, TWordData, TEmotionVowelMeaning } from "~/types";
 
-const words = _words as TJsonWordData[];
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
+  const words = useState<TJsonWordData[]>('words', () => _words as TJsonWordData[]);
+
   // 完全一致の単語を取得
   const getExactMatch = (q: string): TWordData | undefined => {
     if (!q.length) return undefined;
@@ -24,7 +25,7 @@ export default function () {
   // 部分一致の単語を取得
   const getPartialMatch = (query: string): TWordData[] => {
     const lowerCaseQuery = query.toLowerCase();
-    return words.filter(w =>
+    return words.value.filter(w =>
       w.hymmnos.toLowerCase().includes(lowerCaseQuery) ||
       w.japanese.some(m => m.toLowerCase().includes(lowerCaseQuery)) ||
       w.gerunds?.some(g => g.toLowerCase().includes(lowerCaseQuery)) ||
@@ -34,170 +35,171 @@ export default function () {
   };
   const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: null, primaryMeaning: "" };
 
-  return { getExactMatch, getPartialMatch, emptyWordData };
-}
 
-// 通常の完全一致
-function getWordExactMatch(q: string): TWordData | undefined {
-  const lowerCaseWord = q.toLowerCase();
-  const found = words.filter(w => w.hymmnos.toLowerCase() === lowerCaseWord)[0];
-  // 完全一致の単語が見つかった場合
-  if (found) {
-    let primaryMeaning = "";
-    if (found.part_of_speech === "動詞") {
-      // パスタリエの動詞の場合は、主たる意味をgerunds[0]に設定
-      primaryMeaning = found.gerunds?.[0] ?? found.japanese[0];
-    } else {
-      // それ以外の場合は主たる意味をjapanese[0]に設定
-      primaryMeaning = found.japanese[0];
+  // 通常の完全一致
+  function getWordExactMatch(q: string): TWordData | undefined {
+    const lowerCaseWord = q.toLowerCase();
+    const found = words.value.filter(w => w.hymmnos.toLowerCase() === lowerCaseWord)[0];
+    // 完全一致の単語が見つかった場合
+    if (found) {
+      let primaryMeaning = "";
+      if (found.part_of_speech === "動詞") {
+        // パスタリエの動詞の場合は、主たる意味をgerunds[0]に設定
+        primaryMeaning = found.gerunds?.[0] ?? found.japanese[0];
+      } else {
+        // それ以外の場合は主たる意味をjapanese[0]に設定
+        primaryMeaning = found.japanese[0];
+      }
+      return {
+        ...found,
+        primaryMeaning,
+      };
     }
-    return {
-      ...found,
-      primaryMeaning,
-    };
+    // 単語が見つからない場合は_,=で分割して検索
+    const founds = q.split(/[_=]/g)
+      .map(str => words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0])
+      .filter(w => !!w)
+      .flat();
+    if (founds.length) {
+      // 単語が見つかった場合は複合語として返す
+      return {
+        hymmnos: q,
+        primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
+        japanese: [],
+        pronunciation: "",
+        part_of_speech: "複合語",
+        dialect: "unknown",
+        subWords: founds,
+      };
+    }
   }
-  // 単語が見つからない場合は_,=で分割して検索
-  const founds = q.split(/[_=]/g)
-    .map(str => words.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0])
-    .filter(w => !!w)
-    .flat();
-  if (founds.length) {
-    // 単語が見つかった場合は複合語として返す
+
+  // パスタリエ想音動詞の単語を取得
+  function getWordEmotionVerb(q: string): TWordData | undefined {
+    // 末尾がehの場合は受動態の可能性があるので、ehを抜いて再検索
+    if (q.match(/eh$/)) {
+      const emotionVerb = getWordEmotionVerb(q.replace(/eh$/, ""));
+      if (emotionVerb) {
+        return {
+          ...emotionVerb,
+          hymmnos: q,
+          primaryMeaning: emotionVerb.japanese[0] + " 〜される",
+          voice: "受動",
+        };
+      }
+    }
+    // 末尾がzaの場合は動名詞の可能性があるので、zaを抜いて再検索
+    if (q.match(/za$/)) {
+      const emotionVerb = getWordEmotionVerb(q.replace(/za$/, ""));
+      if (emotionVerb) {
+        return {
+          ...emotionVerb,
+          hymmnos: q,
+          primaryMeaning: emotionVerb.japanese[0] + " 〜すること",
+          voice: "動名詞",
+        };
+      }
+    }
+
+    // パスタリエの動詞を取得
+    const pastalieVerbs = words.value
+      // ピリオドのある動詞のうち
+      .filter(w => w.hymmnos.match(/\./))
+      // ピリオドを抜いた動詞と、想母音を抜いたqが一致するものを取得
+      .filter(w => q.replace(new RegExp(emotionVowels, "g"), "") === w.hymmnos.replace(/\./g, ""));
+
+    for (const pastalieVerb of pastalieVerbs) {
+      // ピリオドを想母音に置き換える
+      const reg = pastalieVerb.hymmnos.replace(/\./g, "(" + emotionVowels + ")?");
+      // qと一致するか
+      const match = q.match(new RegExp("^" + reg + "$"));
+      if (match) {
+        // 想母音を取得
+        const emotionVowels = match.filter((m, i) => i % 2);
+        // 全てundefinedの場合は想音動詞ではない
+        if (emotionVowels.every(v => !v)) return;
+        // 想母音から意味を取得
+        const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowelMeaning(v) : undefined);
+        return {
+          ...pastalieVerb,
+          hymmnos: q,
+          voice: "想音動詞",
+          emotionVowels: emotionVowelMeanings,
+          subWords: [pastalieVerb],
+        };
+      }
+    }
+  }
+
+
+  // パスタリエ所有格の単語を取得
+  function getWordPossessive(q: string): TWordData | undefined {
+    const possessive = q.match(new RegExp(`^(${emotionVowels})([a-zA-Z\.=_]+)$`));
+    let possessiveOwner: TWordData | string | undefined;
+    let possessiveWord: TWordData | undefined;
+    // 所有格の形式に合わない場合
+    if (!possessive) return;
+
+    const emotionVowel = possessive[1]; // 想母音
+    let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
+    if (ownerStr) {
+      // 所有者がいる場合は完全一致で単語を検索
+      possessiveOwner = getWordExactMatch(ownerStr);
+      if (possessiveOwner) {
+        // 所単語が見つかった場合はその意味を設定
+        ownerStr = possessiveOwner.japanese[0];
+      } else {
+        // 単語が見つからない場合はそのまま
+        possessiveOwner = ownerStr;
+      }
+    } else {
+      // 所有者がいない場合は想母音から推測
+      ownerStr = getEmotionVowelMeaning(emotionVowel)?.target ?? "不明";
+    }
+
+    // 単語を取得
+    possessiveWord = getWordExactMatch(wordSrt);
+    // 単語が見つからない場合
+    if (!possessiveWord) return;
+
     return {
       hymmnos: q,
-      primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
       japanese: [],
-      pronunciation: "",
-      part_of_speech: "複合語",
-      dialect: "unknown",
-      subWords: founds,
+      primaryMeaning: ownerStr + "の" + possessiveWord.japanese[0],
+      part_of_speech: "所有格名詞",
+      dialect: "pastalie",
+      possessiveOwner,
+      subWords: possessiveWord.subWords,
     };
-  }
-}
 
-// パスタリエ想音動詞の単語を取得
-function getWordEmotionVerb(q: string): TWordData | undefined {
-  // 末尾がehの場合は受動態の可能性があるので、ehを抜いて再検索
-  if (q.match(/eh$/)) {
-    const emotionVerb = getWordEmotionVerb(q.replace(/eh$/, ""));
-    if (emotionVerb) {
-      return {
-        ...emotionVerb,
-        hymmnos: q,
-        primaryMeaning: emotionVerb.japanese[0] + " 〜される",
-        voice: "受動",
-      };
+  }
+
+  function getEmotionVowelMeaning(emotionVowel: string): TEmotionVowelMeaning | undefined {
+    // 誰を表すか
+    let target = "";
+    if (emotionVowel.match(/^LY/)) {
+      target = "みんな";
+    } else if (emotionVowel.match(/^Y/)) {
+      target = "あなた";
+    } else if (emotionVowel.match(/^[AIUEON]/)) {
+      target = "私";
     }
-  }
-  // 末尾がzaの場合は動名詞の可能性があるので、zaを抜いて再検索
-  if (q.match(/za$/)) {
-    const emotionVerb = getWordEmotionVerb(q.replace(/za$/, ""));
-    if (emotionVerb) {
-      return {
-        ...emotionVerb,
-        hymmnos: q,
-        primaryMeaning: emotionVerb.japanese[0] + " 〜すること",
-        voice: "動名詞",
-      };
+    // どんな感情か
+    if (emotionVowel.match(/A$/)) {
+      return { target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
+    } else if (emotionVowel.match(/I$/)) {
+      return { target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
+    } else if (emotionVowel.match(/U$/)) {
+      return { target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
+    } else if (emotionVowel.match(/E$/)) {
+      return { target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
+    } else if (emotionVowel.match(/O$/)) {
+      return { target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
+    } else if (emotionVowel.match(/N$/)) {
+      return { target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
     }
+    return;
   }
 
-  // パスタリエの動詞を取得
-  const pastalieVerbs = words
-    // ピリオドのある動詞のうち
-    .filter(w => w.hymmnos.match(/\./))
-    // ピリオドを抜いた動詞と、想母音を抜いたqが一致するものを取得
-    .filter(w => q.replace(new RegExp(emotionVowels, "g"), "") === w.hymmnos.replace(/\./g, ""));
-
-  for (const pastalieVerb of pastalieVerbs) {
-    // ピリオドを想母音に置き換える
-    const reg = pastalieVerb.hymmnos.replace(/\./g, "(" + emotionVowels + ")?");
-    // qと一致するか
-    const match = q.match(new RegExp("^" + reg + "$"));
-    if (match) {
-      // 想母音を取得
-      const emotionVowels = match.filter((m, i) => i % 2);
-      // 全てundefinedの場合は想音動詞ではない
-      if (emotionVowels.every(v => !v)) return;
-      // 想母音から意味を取得
-      const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowelMeaning(v) : undefined);
-      return {
-        ...pastalieVerb,
-        hymmnos: q,
-        voice: "想音動詞",
-        emotionVowels: emotionVowelMeanings,
-        subWords: [pastalieVerb],
-      };
-    }
-  }
-}
-
-
-// パスタリエ所有格の単語を取得
-function getWordPossessive(q: string): TWordData | undefined {
-  const possessive = q.match(new RegExp(`^(${emotionVowels})([a-zA-Z\.=_]+)$`));
-  let possessiveOwner: TWordData | string | undefined;
-  let possessiveWord: TWordData | undefined;
-  // 所有格の形式に合わない場合
-  if (!possessive) return;
-
-  const emotionVowel = possessive[1]; // 想母音
-  let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
-  if (ownerStr) {
-    // 所有者がいる場合は完全一致で単語を検索
-    possessiveOwner = getWordExactMatch(ownerStr);
-    if (possessiveOwner) {
-      // 所単語が見つかった場合はその意味を設定
-      ownerStr = possessiveOwner.japanese[0];
-    } else {
-      // 単語が見つからない場合はそのまま
-      possessiveOwner = ownerStr;
-    }
-  } else {
-    // 所有者がいない場合は想母音から推測
-    ownerStr = getEmotionVowelMeaning(emotionVowel)?.target ?? "不明";
-  }
-
-  // 単語を取得
-  possessiveWord = getWordExactMatch(wordSrt);
-  // 単語が見つからない場合
-  if (!possessiveWord) return;
-
-  return {
-    hymmnos: q,
-    japanese: [],
-    primaryMeaning: ownerStr + "の" + possessiveWord.japanese[0],
-    part_of_speech: "所有格名詞",
-    dialect: "pastalie",
-    possessiveOwner,
-    subWords: possessiveWord.subWords,
-  };
-
-}
-
-function getEmotionVowelMeaning(emotionVowel: string): TEmotionVowelMeaning | undefined {
-  // 誰を表すか
-  let target = "";
-  if (emotionVowel.match(/^LY/)) {
-    target = "みんな";
-  } else if (emotionVowel.match(/^Y/)) {
-    target = "あなた";
-  } else if (emotionVowel.match(/^[AIUEON]/)) {
-    target = "私";
-  }
-  // どんな感情か
-  if (emotionVowel.match(/A$/)) {
-    return { target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
-  } else if (emotionVowel.match(/I$/)) {
-    return { target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
-  } else if (emotionVowel.match(/U$/)) {
-    return { target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
-  } else if (emotionVowel.match(/E$/)) {
-    return { target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
-  } else if (emotionVowel.match(/O$/)) {
-    return { target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
-  } else if (emotionVowel.match(/N$/)) {
-    return { target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
-  }
-  return;
+  return { getExactMatch, getPartialMatch, emptyWordData };
 }
