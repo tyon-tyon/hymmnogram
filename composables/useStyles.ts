@@ -1,67 +1,73 @@
-import type { TDialect } from "~/types";
+import _dialects from "~/assets/datas/dialects.json";
+import type { TDialectData } from "~/types";
 
 export default function () {
-  const getDialectTextClass = (dialect: TDialect | null) => {
-    switch (dialect) {
-      case "standard":
-        return "text-rose-600";
-      case "cult_ciel":
-        return "text-lime-600";
-      case "metafalss":
-        return "text-sky-600";
-      case "cluster":
-        return "text-indigo-600";
-      case "pastalie":
-        return "text-amber-600";
-      case "alpha":
-        return "text-purple-600";
-      case "unknown":
-        return "text-gray-500";
-      default:
-        return "text-black";
-    }
+  const dialects = _dialects as TDialectData[];
+
+  const getDialectTextClass = (dialect: string | null) => {
+    const textColor = {
+      slate: "text-slate-600",
+      gray: "text-gray-600",
+      zinc: "text-zinc-600",
+      neutral: "text-neutral-600",
+      stone: "text-stone-600",
+      red: "text-red-600",
+      orange: "text-orange-600",
+      amber: "text-amber-600",
+      yellow: "text-yellow-600",
+      lime: "text-lime-600",
+      green: "text-green-600",
+      emerald: "text-emerald-600",
+      teal: "text-teal-600",
+      cyan: "text-cyan-600",
+      sky: "text-sky-600",
+      blue: "text-blue-600",
+      indigo: "text-indigo-600",
+      violet: "text-violet-600",
+      purple: "text-purple-600",
+      fuchsia: "text-fuchsia-600",
+      pink: "text-pink-600",
+      rose: "text-rose-600",
+    };
+    const dialectData = dialects.find(d => d.name === dialect);
+    if (dialectData) return textColor[dialectData.color as keyof typeof textColor];
+    return "text-black";
   };
 
-  const getDialectBgClass = (dialect: TDialect | null) => {
-    switch (dialect) {
-      case "standard":
-        return "bg-rose-50";
-      case "cult_ciel":
-        return "bg-lime-50";
-      case "metafalss":
-        return "bg-sky-50";
-      case "cluster":
-        return "bg-indigo-50";
-      case "pastalie":
-        return "bg-amber-50";
-      case "alpha":
-        return "bg-purple-50";
-      case "unknown":
-        return "bg-gray-50";
-      default:
-        return "bg-white";
-    }
+  const getDialectBgClass = (dialect: string | null) => {
+    const bgColor = {
+      slate: "bg-slate-50",
+      gray: "bg-gray-50",
+      zinc: "bg-zinc-50",
+      neutral: "bg-neutral-50",
+      stone: "bg-stone-50",
+      red: "bg-red-50",
+      orange: "bg-orange-50",
+      amber: "bg-amber-50",
+      yellow: "bg-yellow-50",
+      lime: "bg-lime-50",
+      green: "bg-green-50",
+      emerald: "bg-emerald-50",
+      teal: "bg-teal-50",
+      cyan: "bg-cyan-50",
+      sky: "bg-sky-50",
+      blue: "bg-blue-50",
+      indigo: "bg-indigo-50",
+      violet: "bg-violet-50",
+      purple: "bg-purple-50",
+      fuchsia: "bg-fuchsia-50",
+      pink: "bg-pink-50",
+      rose: "bg-rose-50",
+    };
+    const dialectData = dialects.find(d => d.name === dialect);
+    if (dialectData) return bgColor[dialectData.color as keyof typeof bgColor];
+    return "bg-white";
   };
 
-  const getDiarectJapanese = (dialect: TDialect | null) => {
-    switch (dialect) {
-      case "standard":
-        return "中央正純律";
-      case "cult_ciel":
-        return "クルトシエール律";
-      case "metafalss":
-        return "古メタファルス律";
-      case "cluster":
-        return "クラスタ律";
-      case "pastalie":
-        return "新約パスタリエ";
-      case "alpha":
-        return "アルファ律";
-      case "unknown":
-        return "ヒュムノサーバー未登録";
-      default:
-        return "不明";
-    }
+  const getDiarectJapanese = (dialect: string | null) => {
+    const dialectData = dialects.find(d => d.name === dialect);
+    if (dialectData) return dialectData.japanese;
+    return "不明";
   };
 
   return { getDialectTextClass, getDiarectJapanese, getDialectBgClass };
