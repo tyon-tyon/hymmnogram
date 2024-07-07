@@ -65,7 +65,7 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
 </template>
 
 <script setup lang="ts">
-const styles = useStyles();
+const { dialects, updateDialects } = useDialect();
 const { updateWords } = useDictionary();
 const {
   updateOriginalWords,
@@ -74,11 +74,10 @@ const {
   originalWordsStr,
   originalDialects,
   originalWordsDelimiter,
-  originalDelimiter,
 } = useOriginal();
 const wordsStr = ref(originalWordsStr);
 // 意味の区切り文字
-const delimiter = ref(originalDelimiter);
+const delimiter = ref(originalWordsDelimiter);
 
 const items = [
   {
@@ -151,25 +150,24 @@ watch(
     const words = updateOriginalWords(wordsStr.value, delimiter.value);
     if (!words) return;
     // 流派データを取得
-    const dialects = Array.from(new Set(words.map((word) => word.dialect))).map(
-      (dialect) => {
-        // 既存の流派とマッチする場合はそのcolorを返す
-        const dialectJapanese = dialect ?? "";
-        const color =
-          styles.dialects.value.find((d) =>
-            dialectJapanese.includes(d.japanese)
-          )?.color ?? "stone";
-        return {
-          name: dialect,
-          color,
-          japanese: dialect,
-        };
-      }
-    );
+    const originalDialects = Array.from(
+      new Set(words.map((word) => word.dialect))
+    ).map((dialect) => {
+      // 既存の流派とマッチする場合はそのcolorを返す
+      const dialectJapanese = dialect ?? "";
+      const color =
+        dialects.value.find((d) => dialectJapanese.includes(d.japanese))
+          ?.color ?? "stone";
+      return {
+        name: dialect,
+        color,
+        japanese: dialect,
+      };
+    });
     // 保存
-    localStorage.setItem("originalDialects", JSON.stringify(dialects));
+    localStorage.setItem("originalDialects", JSON.stringify(originalDialects));
 
-    styles.updateDialects(updateOriginalDialects(dialects));
+    updateDialects(updateOriginalDialects(originalDialects));
     updateWords(words);
   }
 );
@@ -185,7 +183,7 @@ const updateDialect = (color: string) => {
     "originalDialects",
     JSON.stringify(originalDialects.value)
   );
-  styles.updateDialects(originalDialects);
+  updateDialects(originalDialects.value);
 };
 </script>
 

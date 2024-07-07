@@ -35,7 +35,7 @@ onMounted(() => {
   });
 });
 const { updateWords } = useDictionary();
-const { updateDialects } = useStyles();
+const { updateDialects } = useDialect();
 const { updateOriginalWords, updateOriginalDialects } = useOriginal();
 
 onMounted(() => {

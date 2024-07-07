@@ -5,7 +5,7 @@ const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
   // ローカルストレージから単語データを取得
-  const words = _words as TJsonWordData[];
+  const words = useState<TWordData[]>('words', () => _words);
 
   // 完全一致の単語を取得
   const getExactMatch = (q: string): TWordData | undefined => {

@@ -80,8 +80,8 @@ const { words, action } = defineProps<{
   exactWord?: TWordData;
   action?: boolean;
 }>();
-const { getDialectTextClass, getDiarectJapanese, getDialectBgClass } =
-  useStyles();
+const { getDialectTextClass, getDialectBgClass } = useStyles();
+const { getDiarectJapanese } = useDialect();
 const { isOriginalDialect } = useOriginal();
 
 const columns = [
