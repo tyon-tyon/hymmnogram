@@ -1,5 +1,9 @@
 <template>
   <Layout>
+    <h1 class="text-3xl flex justify-between items-center mb-5">
+      オリジナル単語登録
+      <OriginalWordsHelp />
+    </h1>
     <UFormGroup label="単語データ" name="words">
       <UTextarea
         v-model="wordsStr"
@@ -19,10 +23,6 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
       <OriginalDialectTable />
     </UFormGroup>
 
-    <UButton @click="saveLocalStorage" class="mt-5 mb-10" size="xl" block>
-      保存
-    </UButton>
-
     <UAccordion :items="items">
       <template #examples>
         <!-- 冒頭5件だけ表示 -->
@@ -32,6 +32,10 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
         <HymmnosTable :words="originalWords" />
       </template>
     </UAccordion>
+
+    <UButton @click="saveLocalStorage" class="my-10" size="xl" block>
+      保存
+    </UButton>
   </Layout>
 </template>
 
@@ -40,17 +44,12 @@ import type { TDialectData } from "~/types";
 
 const { pureDialects, updateDialects } = useDialect();
 const { updateWords } = useDictionary();
-const {
-  updateOriginalWords,
-  updateOriginalDialects,
-  originalWords,
-  originalWordsStr,
-  originalWordsDelimiter,
-} = useOriginal();
+const { updateOriginalWords, updateOriginalDialects, originalWords } =
+  useOriginal();
 // 単語データ
-const wordsStr = ref(originalWordsStr.value ?? "");
+const wordsStr = ref("");
 // 意味の区切り文字
-const delimiter = ref(originalWordsDelimiter.value ?? "、");
+const delimiter = ref("、");
 // 新規流派
 const newDialects = ref<TDialectData[]>([]);
 
@@ -65,6 +64,18 @@ const items = [
     slot: "all",
   },
 ];
+
+onMounted(() => {
+  // ローカルストレージからデータを取得
+  const storage = {
+    words: localStorage.getItem("originalWords") ?? "",
+    delimiter: localStorage.getItem("originalWordsDelimiter") ?? "",
+    dialect: localStorage.getItem("originalDialects") ?? "[]",
+  };
+  // 辞書データを更新
+  wordsStr.value = storage.words;
+  delimiter.value = storage.delimiter;
+});
 
 watch(
   () => [wordsStr.value, delimiter.value],
@@ -94,11 +105,13 @@ watch(
   }
 );
 
+const toast = useToast();
 const saveLocalStorage = () => {
   // 保存
   localStorage.setItem("originalWords", wordsStr.value);
   localStorage.setItem("originalWordsDelimiter", delimiter.value);
   localStorage.setItem("originalDialects", JSON.stringify(newDialects.value));
+  toast.add({ title: "保存しました" });
 };
 </script>
 

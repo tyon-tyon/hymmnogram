@@ -1,8 +1,8 @@
 <template>
   <UTable
+    v-if="dialectsWithClass.length"
     :rows="dialectsWithClass"
     :columns="columns"
-    :empty-state="{ icon: null, label: null }"
   >
     <template #name-data="{ row }">
       <span :class="row.class">{{ row.japanese }}</span>
@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 const { updateOriginalDialects, originalDialects } = useOriginal();
-const { updateDialects,dialects } = useDialect();
+const { updateDialects, dialects } = useDialect();
 const columns = [
   {
     key: "name",

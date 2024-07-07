@@ -7,6 +7,8 @@
       >{{ key }}</span
     >
     <NuxtPage />
+
+    <UNotifications />
   </div>
 </template>
 
@@ -44,7 +46,7 @@ onMounted(() => {
     words: localStorage.getItem("originalWords") ?? "",
     delimiter: localStorage.getItem("originalWordsDelimiter") ?? "",
     dialect: localStorage.getItem("originalDialects") ?? "[]",
-  }
+  };
   // オリジナルデータを更新
   const originalWords = updateOriginalWords(storage.words, storage.delimiter);
   const originalDialects = updateOriginalDialects(JSON.parse(storage.dialect));
