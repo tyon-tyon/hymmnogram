@@ -8,9 +8,15 @@
         <div class="text-primary-600 text-2xl font-bold">HYMMNOGRAM</div>
         <div class="text-cool-600 text-sm japanese">ヒュムノグラム</div>
       </nuxt-link>
-      <nuxt-link href="/editor" class="text-sm text-primary-600 text-sm"
-        >エディタ</nuxt-link
+      <UButton label="Menu" @click="openDrawer = true" variant="goast" />
+      <USlideover
+        v-model="openDrawer"
+        :ui="{
+          width: 'max-w-64',
+        }"
       >
+        <NavMenu />
+      </USlideover>
     </UContainer>
   </div>
   <UContainer class="container">
@@ -18,7 +24,9 @@
   </UContainer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const openDrawer = ref(false);
+</script>
 
 <style scoped>
 .header-nav {

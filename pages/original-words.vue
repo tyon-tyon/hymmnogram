@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1 class="text-3xl flex justify-between items-center mb-5">
+    <h1 class="text-2xl flex justify-between items-center mb-5">
       オリジナル単語登録
       <OriginalWordsHelp />
     </h1>
