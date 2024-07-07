@@ -1,6 +1,6 @@
-const { getExactMatch } = useDictionary();
-
 export default function () {
+  const { getExactMatch } = useDictionary();
+
   const splitTextIntoLinesAndWords = (text: string): string[][] => {
     const lines = text.split("\n");
     const linesAndWords = lines.map((line) => {
