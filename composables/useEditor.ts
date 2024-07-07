@@ -1,10 +1,10 @@
 import type { TWordData } from "~/types";
 
-const { splitTextIntoLinesAndWords } = useTextProcessor();
-const { getExactMatch, emptyWordData } = useDictionary();
-const { getDialectTextClass } = useStyles();
 
 export default function () {
+  const { splitTextIntoLinesAndWords } = useTextProcessor();
+  const { getExactMatch, emptyWordData } = useDictionary();
+  const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWordData[][]>('editorWords', () => []);
   const selectedLineIndex = useState<number>('selectedLineIndex', () => 0);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
