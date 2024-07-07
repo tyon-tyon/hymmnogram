@@ -68,7 +68,7 @@
     <p class="mb-4">
       自作のヒュムノス語の単語を登録することができます。登録した単語は、ヒュムノス辞書で検索できるようになります。<br />
       登録は
-      <nuxt-link to="/register-word" class="text-blue-500"> こちら </nuxt-link>
+      <nuxt-link to="/original-words" class="text-blue-500"> こちら </nuxt-link>
       から。
     </p>
   </section>

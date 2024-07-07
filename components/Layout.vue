@@ -8,7 +8,7 @@
         <div class="text-primary-600 text-2xl font-bold">HYMMNOGRAM</div>
         <div class="text-cool-600 text-sm japanese">ヒュムノグラム</div>
       </nuxt-link>
-      <UButton label="Menu" @click="openDrawer = true" variant="goast" />
+      <UButton label="Menu" @click="openDrawer = true" variant="ghost" />
       <USlideover
         v-model="openDrawer"
         :ui="{
