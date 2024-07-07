@@ -21,7 +21,7 @@
       ...(exactWord?[exactWord]:[])
       .map((word: TWordData) => ({...getWordItem(word), class: getWordItem(word).class + ' border-b-4'})),
       ...words
-      .filter((word: TWordData) => includeUnknown || word.dialect !== 'unknown')
+      .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
       .map((word: TWordData) => getWordItem(word))
       ]
     "
@@ -80,8 +80,9 @@ const { words, action } = defineProps<{
   exactWord?: TWordData;
   action?: boolean;
 }>();
-const { getDialectTextClass, getDiarectJapanese, getDialectBgClass } =
-  useStyles();
+const { getDialectTextClass, getDialectBgClass } = useStyles();
+const { getDiarectJapanese } = useDialect();
+const { isOriginalDialect } = useOriginal();
 
 const columns = [
   {
@@ -95,7 +96,7 @@ const columns = [
   },
   {
     key: "pronunciation",
-    label: "読み",
+    label: "発音",
   },
   {
     key: "part_of_speech",

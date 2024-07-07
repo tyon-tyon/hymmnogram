@@ -27,9 +27,3 @@ watch(
   }
 );
 </script>
-
-<style scoped>
-.readme {
-  
-}
-</style>

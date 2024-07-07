@@ -21,7 +21,7 @@
     </h3>
     <p class="mb-4">
       <!--リファラつけて遷移-->
-      <a href="https://fau-varda.net/Hymmnogram" class="text-blue-500" >
+      <a href="https://fau-varda.net/Hymmnogram" class="text-blue-500">
         旧ヒュムノグラム
       </a>
       も引き続き利用可能です。バイナスフィア生成等、未実装の機能は旧サイトをご利用ください。
@@ -61,6 +61,16 @@
         公式の用例を、ヒュムノス語と日本語の両方で検索できます。
       </li>
     </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold mb-4 text-primary-600">オリジナル単語登録</h2>
+    <p class="mb-4">
+      自作のヒュムノス語の単語を登録することができます。登録した単語は、ヒュムノス辞書で検索できるようになります。<br />
+      登録は
+      <nuxt-link to="/original-words" class="text-blue-500"> こちら </nuxt-link>
+      から。
+    </p>
   </section>
 
   <section class="mb-10">

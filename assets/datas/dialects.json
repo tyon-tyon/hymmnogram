@@ -1,0 +1,37 @@
+[
+  {
+    "name": "standard",
+    "japanese": "中央正純律",
+    "color": "rose"
+  },
+  {
+    "name": "cult_ciel",
+    "japanese": "クルトシエール律",
+    "color": "lime"
+  },
+  {
+    "name": "metafalss",
+    "japanese": "古メタファルス律",
+    "color": "sky"
+  },
+  {
+    "name": "cluster",
+    "japanese": "クラスタ律",
+    "color": "indigo"
+  },
+  {
+    "name": "pastalie",
+    "japanese": "新約パスタリエ",
+    "color": "amber"
+  },
+  {
+    "name": "alpha",
+    "japanese": "アルファ律",
+    "color": "purple"
+  },
+  {
+    "name": "unknown",
+    "japanese": "ヒュムノサーバー未登録",
+    "color": "slate"
+  }
+]
