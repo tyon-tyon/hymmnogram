@@ -12,10 +12,10 @@ export default defineNuxtConfig({
       },
       charset: 'utf-16',
       viewport: 'width=device-width,initial-scale=1.0,maximum-scale=1.0',
-      title: 'ヒュムノグラム - HYMMNOGRAM',
+      title: 'HYMMNOGRAM',
       meta: [
         { name: "theme-color", content: "#11B981" },
-        { name: 'description', content: 'ヒュムノグラムは、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。' },
+        { name: 'description', content: 'HYMMNOGRAM(ヒュムノグラム)は、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。' },
       ],
       link: [
         {
@@ -34,11 +34,11 @@ export default defineNuxtConfig({
   pwa: {
     registerType: "autoUpdate",
     manifest: {
-      name: "ヒュムノグラム",
-      description: "ヒュムノグラムは、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。",
+      name: "非公式ヒュムノス語辞書 HYMMNOGRAM(ヒュムノグラム)",
+      description: "HYMMNOGRAM(ヒュムノグラム)は、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。",
       theme_color: "#ffffff",
       lang: "ja",
-      short_name: "ヒュムノグラム",
+      short_name: "HYMMNOGRAM",
       start_url: "/",
       display: "standalone",
       background_color: "#ffffff",
