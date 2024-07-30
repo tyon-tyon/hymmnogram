@@ -1,6 +1,6 @@
 <template>
   <UTable
-    :rows="examples"
+    :rows="examples.slice(0, showAll ? undefined : 10)"
     :columns="columns"
     sortable
     :empty-state="{ icon: null, label: '用例が見つかりません...' }"
@@ -10,17 +10,31 @@
         class="text-wrap mb-2"
         v-html="getHilightedHymmnosHtml(row.hymmnos, word)"
       ></div>
-      <div class="text-wrap text-xs leading-4">{{ row.japanese }} - {{ row.title }}</div>
+      <div class="text-wrap text-xs leading-4">
+        {{ row.japanese }} - {{ row.title }}
+      </div>
     </template>
   </UTable>
+  <UButton
+    v-if="examples.length > 10 && !showAll"
+    @click="showAll = !showAll"
+    class="w-full"
+    color="primary"
+    variant="link"
+    size="xl"
+    block
+  >
+    全て表示
+  </UButton>
 </template>
 
 <script setup lang="ts">
 import type { TWordData, TJsonExampleData } from "~/types";
-const { examples } = defineProps<{
+const props = defineProps<{
   word?: TWordData;
   examples: TJsonExampleData[];
 }>();
+const { examples } = toRefs(props);
 
 const { splitTextIntoLinesAndWords } = useTextProcessor();
 const dictionary = useDictionary();
@@ -32,6 +46,15 @@ const columns = [
     class: "bold",
   },
 ];
+
+const showAll = ref<boolean>(false);
+
+watch(
+  () => props.examples,
+  () => {
+    showAll.value = false;
+  }
+);
 
 // HTMLデータ
 const getHilightedHymmnosHtml = (hymmnos: string, word?: TWordData) => {

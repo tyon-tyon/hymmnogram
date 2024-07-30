@@ -17,14 +17,15 @@
   </UButtonGroup>
   <UTable
     :rows="
-    [
-      ...(exactWord?[exactWord]:[])
-      .map((word: TWordData) => ({...getWordItem(word), class: getWordItem(word).class + ' border-b-4'})),
-      ...words
-      .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
-      .map((word: TWordData) => getWordItem(word))
+      [
+        ...(exactWord?[exactWord]:[])
+          .map((word: TWordData) => ({...getWordItem(word), class: getWordItem(word).class + ' border-b-4'})),
+        ...words
+          .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
+          .map((word: TWordData) => getWordItem(word))
       ]
-    "
+      .slice(0, showAll ? undefined : 10)
+      "
     :columns="columns.filter((_, index) => selectedColumns[index])"
     sortable
     :empty-state="{ icon: null, label: '単語が見つかりません...' }"
@@ -71,15 +72,28 @@
       </UButton>
     </template>
   </UTable>
+  <UButton
+    v-if="words.length > 10 && !showAll"
+    @click="showAll = !showAll"
+    class="w-full"
+    color="primary"
+    variant="link"
+    size="xl"
+    block
+  >
+    全て表示
+  </UButton>
 </template>
 
 <script setup lang="ts">
 import type { TWordData } from "~/types";
-const { words, action } = defineProps<{
+const props = defineProps<{
   words: TWordData[];
   exactWord?: TWordData;
   action?: boolean;
 }>();
+const { action } = props;
+const { words, exactWord } = toRefs(props);
 const { getDialectTextClass, getDialectBgClass } = useStyles();
 const { getDiarectJapanese } = useDialect();
 const { isOriginalDialect } = useOriginal();
@@ -115,6 +129,8 @@ const columns = [
   },
 ];
 
+const showAll = ref<boolean>(false);
+
 const selectedColumns = ref(new Array<boolean>(columns.length).fill(true));
 const toggleColumn = (column: any) => {
   const index = columns.indexOf(column);
@@ -123,6 +139,13 @@ const toggleColumn = (column: any) => {
 const includeUnknown = ref(true);
 
 defineEmits(["input-word"]);
+
+watch(
+  () => props.words,
+  () => {
+    showAll.value = false;
+  }
+);
 
 // ウィンドウ幅がスマホサイズの場合は「意味」列を非表示
 onMounted(() => {
