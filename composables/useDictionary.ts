@@ -66,19 +66,25 @@ export default function () {
     }
     // 単語が見つからない場合は_,=で分割して検索
     const founds = q.split(/[_=]/g)
-      .map(str => words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0])
-      .filter(w => !!w)
-      .flat();
+      .map(str => words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0]);
+    // 全ての単語がundefinedの場合は見つからなかったと判断
+    if (founds.every(f => !f)) return;
     if (founds.length) {
+      const subWords = q
+        .split(/[_=]/g)
+        .map(str =>
+          words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0] ??
+          { ...emptyWordData, hymmnos: str, japanese: [str] }
+        );
       // 単語が見つかった場合は複合語として返す
       return {
         hymmnos: q,
-        primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
+        primaryMeaning: subWords.map(f => f.japanese[0]).join("・"),
         japanese: [],
         pronunciation: "",
         part_of_speech: "複合語",
         dialect: "unknown",
-        subWords: founds,
+        subWords: subWords
       };
     }
   }
