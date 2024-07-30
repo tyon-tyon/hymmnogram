@@ -157,10 +157,6 @@ export default function () {
     // 所有格の形式に合わない場合はパスタリエ所有格ではない
     if (!possessive) return;
     const emotionVowel = possessive[1]; // 想母音
-    // 想母音を単語化
-    const emotionVowelWord = getEmotionVowelWord(emotionVowel);
-    // 想母音が見つかった場合はsubWordsに追加
-    if (emotionVowelWord) subWords.push(emotionVowelWord);
 
     let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
 
@@ -230,41 +226,6 @@ export default function () {
     }
     return;
   }
-
-  function getEmotionVowelWord(emotionVowel: string): TWordData | undefined {
-    const meaning = getEmotionVowelMeaning(emotionVowel);
-    if (!meaning) return;
-    const pronunciation = (() => {
-      switch (emotionVowel) {
-        case "LYA": return "リャ";
-        case "LYI": return "リィ";
-        case "LYU": return "リュ";
-        case "LYE": return "リェ";
-        case "LYO": return "リョ";
-        case "LYN": return "リン";
-        case "YA": return "ヤ";
-        case "YI": return "イ";
-        case "YU": return "ユ";
-        case "YE": return "イェ";
-        case "YO": return "ヨ";
-        case "YN": return "ゥン";
-        case "A": return "ア";
-        case "I": return "イ";
-        case "U": return "ウ";
-        case "E": return "エ";
-        case "O": return "オ";
-        case "N": return "ン";
-      }
-    })();
-    return {
-      hymmnos: emotionVowel,
-      japanese: meaning?.emotions,
-      part_of_speech: "想音動詞",
-      dialect: "pastalie",
-      pronunciation
-    };
-  }
-
 
   return { getExactMatch, getPartialMatch, emptyWordData, updateWords };
 }
