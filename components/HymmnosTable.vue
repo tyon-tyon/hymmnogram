@@ -81,7 +81,7 @@
     size="xl"
     block
   >
-    全て表示
+    全て表示({{ words.length }}件)
   </UButton>
 </template>
 

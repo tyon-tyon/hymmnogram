@@ -24,7 +24,7 @@
     size="xl"
     block
   >
-    全て表示
+    全て表示({{ examples.length }}件)
   </UButton>
 </template>
 
