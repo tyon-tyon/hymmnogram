@@ -5,7 +5,7 @@ const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
   // ローカルストレージから単語データを取得
-  const words = useState<TWordData[]>('words', () => _words);
+  const words = useState<TWordData[]>('words', () => _words as TWordData[]);
 
   // 完全一致の単語を取得
   const getExactMatch = (q: string): TWordData | undefined => {
@@ -144,32 +144,47 @@ export default function () {
   // パスタリエ所有格の単語を取得
   function getWordPossessive(q: string): TWordData | undefined {
     const possessive = q.match(new RegExp(`^(${emotionVowels})([a-zA-Z\.=_]+)$`));
-    let possessiveOwner: TWordData | string | undefined;
+    let possessiveOwner: TWordData | undefined;
     let possessiveWord: TWordData | undefined;
-    // 所有格の形式に合わない場合
-    if (!possessive) return;
+    const subWords: TWordData[] = [];
 
+    // 所有格の形式に合わない場合はパスタリエ所有格ではない
+    if (!possessive) return;
     const emotionVowel = possessive[1]; // 想母音
+    // 想母音を単語化
+    const emotionVowelWord = getEmotionVowelWord(emotionVowel);
+    // 想母音が見つかった場合はsubWordsに追加
+    if (emotionVowelWord) subWords.push(emotionVowelWord);
+
     let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
+
+    // 単語を取得
+    possessiveWord = getWordExactMatch(wordSrt);
+    // 単語が見つからない場合はパスタリエ所有格ではない
+    if (!possessiveWord) return;
+    // 単語が見つかった場合はsubWordsに追加
+    subWords.push(possessiveWord);
+
     if (ownerStr) {
       // 所有者がいる場合は完全一致で単語を検索
       possessiveOwner = getWordExactMatch(ownerStr);
       if (possessiveOwner) {
-        // 所単語が見つかった場合はその意味を設定
-        ownerStr = possessiveOwner.japanese[0];
+        // 所有者の単語が見つかった場合はその意味を設定
+        ownerStr = possessiveOwner.primaryMeaning ?? possessiveOwner.japanese[0];
       } else {
-        // 単語が見つからない場合はそのまま
-        possessiveOwner = ownerStr;
+        // 所有者の単語が見つからない場合はEmpyWordDataを設定
+        possessiveOwner = { ...emptyWordData, hymmnos: ownerStr };
+      }
+      // subWordsを設定
+      if (possessiveOwner.subWords) {
+        subWords.push(...possessiveOwner.subWords);
+      } else {
+        subWords.push(possessiveOwner);
       }
     } else {
       // 所有者がいない場合は想母音から推測
       ownerStr = getEmotionVowelMeaning(emotionVowel)?.target ?? "不明";
     }
-
-    // 単語を取得
-    possessiveWord = getWordExactMatch(wordSrt);
-    // 単語が見つからない場合
-    if (!possessiveWord) return;
 
     return {
       hymmnos: q,
@@ -177,8 +192,8 @@ export default function () {
       primaryMeaning: ownerStr + "の" + possessiveWord.japanese[0],
       part_of_speech: "所有格名詞",
       dialect: "pastalie",
-      possessiveOwner,
-      subWords: possessiveWord.subWords,
+      possessiveOwner: possessiveOwner ?? ownerStr,
+      subWords
     };
 
   }
@@ -209,6 +224,41 @@ export default function () {
     }
     return;
   }
+
+  function getEmotionVowelWord(emotionVowel: string): TWordData | undefined {
+    const meaning = getEmotionVowelMeaning(emotionVowel);
+    if (!meaning) return;
+    const pronunciation = (() => {
+      switch (emotionVowel) {
+        case "LYA": return "リャ";
+        case "LYI": return "リィ";
+        case "LYU": return "リュ";
+        case "LYE": return "リェ";
+        case "LYO": return "リョ";
+        case "LYN": return "リン";
+        case "YA": return "ヤ";
+        case "YI": return "イ";
+        case "YU": return "ユ";
+        case "YE": return "イェ";
+        case "YO": return "ヨ";
+        case "YN": return "ゥン";
+        case "A": return "ア";
+        case "I": return "イ";
+        case "U": return "ウ";
+        case "E": return "エ";
+        case "O": return "オ";
+        case "N": return "ン";
+      }
+    })();
+    return {
+      hymmnos: emotionVowel,
+      japanese: meaning?.emotions,
+      part_of_speech: "想音動詞",
+      dialect: "pastalie",
+      pronunciation
+    };
+  }
+
 
   return { getExactMatch, getPartialMatch, emptyWordData, updateWords };
 }
