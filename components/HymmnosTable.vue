@@ -170,7 +170,7 @@ onMounted(() => {
 const getWordItem = (word: TWordData) => {
   return {
     hymmnos: word.hymmnos,
-    japanese: word.japanese.join(", "),
+    japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),
     pronunciation: word.pronunciation,
     part_of_speech: word.part_of_speech,
     dialect: getDiarectJapanese(word.dialect),
