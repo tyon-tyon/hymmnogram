@@ -24,7 +24,7 @@
           .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
           .map((word: TWordData) => getWordItem(word))
       ]
-      .slice(0, showAll ? undefined : 10)
+      .slice(0, showAll ? undefined : defaultRowCount)
       "
     :columns="columns.filter((_, index) => selectedColumns[index])"
     sortable
@@ -73,7 +73,7 @@
     </template>
   </UTable>
   <UButton
-    v-if="words.length > 10 && !showAll"
+    v-if="words.length > defaultRowCount && !showAll"
     @click="showAll = !showAll"
     class="w-full"
     color="primary"
@@ -87,11 +87,18 @@
 
 <script setup lang="ts">
 import type { TWordData } from "~/types";
-const props = defineProps<{
-  words: TWordData[];
-  exactWord?: TWordData;
-  action?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    words: TWordData[];
+    exactWord?: TWordData;
+    action?: boolean;
+    defaultRowCount?: number;
+  }>(),
+  {
+    defaultRowCount: 10,
+    action: false,
+  }
+);
 const { action } = props;
 const { words, exactWord } = toRefs(props);
 const { getDialectTextClass, getDialectBgClass } = useStyles();

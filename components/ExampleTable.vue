@@ -1,6 +1,6 @@
 <template>
   <UTable
-    :rows="examples.slice(0, showAll ? undefined : 10)"
+    :rows="examples.slice(0, showAll ? undefined : defaultRowCount)"
     :columns="columns"
     sortable
     :empty-state="{ icon: null, label: '用例が見つかりません...' }"
@@ -16,7 +16,7 @@
     </template>
   </UTable>
   <UButton
-    v-if="examples.length > 10 && !showAll"
+    v-if="examples.length > defaultRowCount && !showAll"
     @click="showAll = !showAll"
     class="w-full"
     color="primary"
@@ -30,10 +30,16 @@
 
 <script setup lang="ts">
 import type { TWordData, TJsonExampleData } from "~/types";
-const props = defineProps<{
-  word?: TWordData;
-  examples: TJsonExampleData[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    word?: TWordData;
+    examples: TJsonExampleData[];
+    defaultRowCount?: number;
+  }>(),
+  {
+    defaultRowCount: 10,
+  }
+);
 const { examples } = toRefs(props);
 
 const { splitTextIntoLinesAndWords } = useTextProcessor();

@@ -1,6 +1,6 @@
 <template>
   <template v-if="mode === 'hymmnos'">
-    <HymmnosTable :words="words" @input-word="addWord" :action="true" />
+    <HymmnosTable :words="words" @input-word="addWord" :action="true" :defaultRowCount="5"/>
     <ExampleTable :examples="examples" :word="exampleWord" />
   </template>
   <template v-if="mode === 'arciela'">

@@ -26,10 +26,7 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
     <UAccordion :items="items">
       <template #examples>
         <!-- 冒頭5件だけ表示 -->
-        <HymmnosTable :words="originalWords?.slice(0, 5)" />
-      </template>
-      <template #all>
-        <HymmnosTable :words="originalWords" />
+        <HymmnosTable :words="originalWords" :defaultRowCount="5"/>
       </template>
     </UAccordion>
 
