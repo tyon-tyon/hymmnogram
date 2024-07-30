@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxt/ui", "@vite-pwa/nuxt",'@zadigetvoltaire/nuxt-gtm',],
+  modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm',],
   css: [
     '~/public/styles/main.css',
   ],
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     }
   },
   gtm: {
-    id: 'GTM-MXQQRHGG',
+    id: process.env.GTM_ID ?? "",
   },
   pwa: {
     registerType: "autoUpdate",
