@@ -5,28 +5,47 @@ import type { TArcielaCharData } from "~/types";
 export default function () {
   const arciela = _arciela as TArcielaCharData[];
   const emptyArcielaCharData: TArcielaCharData = { input: null, char: "", caption: null, meanings: [] };
+  const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
   const getArcielaWord = (q: string): TArcielaCharData[] => {
-    // コンパートメント記号に変換
-    const text = q
-      .replace(/([\!\#\$\%\&\(\)])([a-z])/gi, "$1|$2")
-      .replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4")
-      .replace(/([a-z])([a-z])/gi, "$1|$2")
-      .replace(/([a-z])([a-z])/gi, "$1|$2");
+    // コンパートメント表記で分割
+    const strChars = [];
+    const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
+    for (const c of compartmentStrs) {
+      // コンパートメント表記を退避
+      const [alphabet, compartment] = c.replace(/([a-z])(\[s\-[0-4](\/(harf|single|dual|quad))?\])/gi, "$1|$2").split("|");
+      // alphabet部分を分割
+      const alphabetChars = alphabet
+        .replace(/([a-z])([\!\#\$\%\&\(\)])/gi, "$1|$2")
+        .replace(/([a-z])([a-z])/gi, "$1|$2")
+        .replace(/([a-z])([a-z])/gi, "$1|$2").split("|");
+      // strCharsを更新
+      for (let i = 0; i < alphabetChars.length; i++) {
+        // 末尾の文字にはコンパートメントを追加
+        if (i === alphabetChars.length - 1 && compartment) {
+          strChars.push(alphabetChars[i] + compartment);
+        } else {
+          strChars.push(alphabetChars[i]);
+        }
+      }
+    }
     // 文字ごとに意味を取得
-    const chars = text.split("|")
-      .map(c => ({ ...getArcielaChar(c), input: c }));
-
+    const chars = strChars.map(c => ({ ...getArcielaChar(c), input: c }));
     return chars;
   };
 
   const getArcielaChar = (input: string): TArcielaCharData => {
     // 表記が正しいかチェック
     if (
-      !input.match(/^[a-z]$/) // 英文字のみでなく
-      && !input.match(/^(?!(a|i|u|e|o|n))[a-z](([\!\#\$\%\&\(\)]{1,2})|\[s\-[0-4](\/(harf|single|dual|quad))?\])$/) // コンパートメント記号が正しくない
-    ) return { ...emptyArcielaCharData, input };
-    const [charStr] = input.replace(/s-1/, '').match(/[a-z]/gi) ?? [];
+      input.match(/^[a-z]$/) // 英文字のみ
+      || input.match(/^[\!\#\$\%\&\(\)]{1,2}[a-z]$/) // 記号表記
+      || input.match(/^[a-z]\[s\-[0-4](\/(harf|single|dual|quad))?\]$/) // コンパートメント記号が正しい
+    ) {
+      // 正
+    } else {
+      return { ...emptyArcielaCharData, input };
+    }
+    const [charStr] = input.replace(/s-[0-4]/, '').match(/[a-z]/gi) ?? [];
     if (!charStr) return emptyArcielaCharData; // 英文字がない場合はスキップ
     const session = (() => {
       if (input.match(/(s-1|\!)/)) return 1;
@@ -44,9 +63,8 @@ export default function () {
     const char = arciela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
     if (!char) return emptyArcielaCharData;// 文字が見つからない場合はスキップ
     // セッション区域の意味を取得
-    const sessionStart = session * 2 - 1 < 0 ? 0 : session * 2 - 1;
-    const sessionEnd = session * 2 + 2 - 1 > char.meanings.length ? char.meanings.length : session * 2 + 2 - 1;
-    const meanings = char.meanings.slice(sessionStart, sessionEnd).filter(s => s.length);
+    const sessions = getSessions(char.meanings);
+    const meanings = sessions[session].filter(s => s.length);
     return {
       input,
       char: charStr,
@@ -70,5 +88,35 @@ export default function () {
     }
   };
 
-  return { getArcielaWord, arcielaChars: arciela, sessionToSymbol, getArcielaChar };
+  const envelopeToSymbol = (envelope: string) => {
+    switch (envelope) {
+      case "harf": return ")";
+      case "single": return "";
+      case "dual": return "(";
+      case "quad": return "&";
+      default: return "";
+    }
+  };
+
+  const getSessions = (meanings: string[]) => {
+    return [
+      meanings.slice(0, 1),
+      meanings.slice(1, 3),
+      meanings.slice(3, 5),
+      meanings.slice(5, 7),
+      meanings.slice(7, 9),
+    ];
+  };
+
+  const getCompartmentStr = (char: TArcielaCharData) => {
+    return `${char.char}[s-${char.session}/${char.envelope}]`;
+  };
+
+  const geFontStr = (char: TArcielaCharData) => {
+    const sessionSimbol = sessionToSymbol(char.session ?? 0);
+    const envelopeSimbol = envelopeToSymbol(char.envelope ?? 'single');
+    return `${sessionSimbol}${envelopeSimbol}${char.char}`;
+  };
+
+  return { getArcielaWord, arcielaChars: arciela, sessionToSymbol, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr };
 };

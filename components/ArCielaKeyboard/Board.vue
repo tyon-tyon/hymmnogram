@@ -106,13 +106,6 @@ const input = ({ char, session }: { char: string; session: number }) => {
 </script>
 
 <style scoped>
-.keyboard {
-  max-width: 720px;
-  box-sizing: content-box;
-  width: calc(100% - 60px);
-  margin: auto;
-  padding-bottom: 34px;
-}
 .key-button {
   aspect-ratio: 1;
   height: auto;

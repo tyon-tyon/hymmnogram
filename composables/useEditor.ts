@@ -11,8 +11,6 @@ export default function () {
   const cursorLine = useState<string>('cursorLine', () => "");
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
-  // 選択中の文字列
-  const selectedText = useState<string>('selectedText', () => "");
 
   const changeTextarea = (text: string) => {
     textareaText.value = text;
@@ -102,10 +100,6 @@ export default function () {
     textarea.blur();
   };
 
-  // 選択中の文字列を設定
-  const setSelectedText = (text: string) => {
-    selectedText.value = text;
-  };
 
-  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
+  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, addWord, addText, deleteText, };
 }
