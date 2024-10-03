@@ -3,6 +3,7 @@
     <div class="display" v-html="lineHtml"></div>
     <textarea
       class="text"
+      wrap="soft"
       v-model="textareaText"
       @input="
         (e) => {
