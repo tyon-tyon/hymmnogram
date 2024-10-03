@@ -19,7 +19,7 @@ const {
   changeTextarea,
   changeCursorPosition,
   textareaText,
-  selectedLineIndex,
+  cursorLineIndex,
   lineHtmls,
 } = useEditor();
 
@@ -45,7 +45,7 @@ const lineHtml = computed(
   () =>
     lineHtmls.value
       .map((lineHtml, index) => {
-        if (index === selectedLineIndex.value)
+        if (index === cursorLineIndex.value)
           return `<span class="selected">${lineHtml}</span>`;
         return lineHtml;
       })
@@ -55,6 +55,9 @@ const lineHtml = computed(
 const updateText = (value: string) => {
   // ローカルストレージに保存
   localStorage.setItem("hymmnos-text", value);
+
+  const cursorPosition = document.querySelector("textarea")?.selectionEnd;
+  if (cursorPosition) changeCursorPosition(cursorPosition);
   changeTextarea(value);
 };
 </script>

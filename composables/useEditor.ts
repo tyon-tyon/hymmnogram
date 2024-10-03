@@ -6,8 +6,9 @@ export default function () {
   const { getExactMatch, emptyWordData } = useDictionary();
   const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWordData[][]>('editorWords', () => []);
-  const selectedLineIndex = useState<number>('selectedLineIndex', () => 0);
+  const cursorLineIndex = useState<number>('cursorLineIndex', () => 0);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
+  const cursorLine = useState<string>('cursorLine', () => "");
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
 
@@ -56,8 +57,11 @@ export default function () {
 
   const changeCursorPosition = (_cursorPosition: number) => {
     cursorPosition.value = _cursorPosition;
-    selectedLineIndex.value =
+    // カーソル位置から行番号を取得
+    cursorLineIndex.value =
       textareaText.value.slice(0, _cursorPosition).split("\n").length - 1;
+    // カーソル位置の行のテキストを取得
+    cursorLine.value = textareaText.value.split("\n")[cursorLineIndex.value];
   };
 
   const addText = (text: string) => {
@@ -90,9 +94,26 @@ export default function () {
     textarea.focus();
     // カーソル位置から1文字削除
     document.execCommand("delete", false);
+    // カーソル位置を更新
+    changeCursorPosition(cursorPosition.value - 1);
     // フォーカスを解除
     textarea.blur();
   };
 
-  return { changeTextarea, changeCursorPosition, editorWords, selectedLineIndex, textareaText, lineHtmls, addWord, addText, deleteText };
+  const replaceText = (start: number, end: number, text: string) => {
+    const before = textareaText.value.slice(0, start);
+    const after = textareaText.value.slice(end);
+    changeTextarea(before + text + after);
+    setTimeout(() => {
+      // フォーカスする
+      const textarea = document.querySelector("textarea");
+      if (!textarea) return;
+      textarea.focus();
+      // カーソル位置を設定
+      textarea.setSelectionRange(start + text.length, start + text.length);
+    }, 1);
+  };
+
+
+  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, addWord, addText, deleteText, replaceText };
 }
