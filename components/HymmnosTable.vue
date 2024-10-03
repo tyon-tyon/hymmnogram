@@ -1,31 +1,53 @@
 <template>
-  <UButtonGroup
-    size="sm"
-    orientation="horizontal"
-    class="w-full flex items-center justify-center"
-  >
-    <UCheckbox v-model="includeUnknown" label="未登録" class="checkbox mr-2" />
-    <UButton
-      v-for="column in columns.filter((c) => c.label)"
-      :key="column.key"
-      :color="selectedColumns[columns.indexOf(column)] ? 'primary' : 'white'"
-      @click="toggleColumn(column)"
-      class="flex-1 items-center justify-center"
+  <!--流派絞り込み-->
+  <div class="flex flex-wrap justify-end">
+    <UPopover overlay>
+      <UButton
+        size="xs"
+        color="white"
+        :label="`表示流派:${showDialects.length}流派`"
+        trailing-icon="i-heroicons-chevron-down-20-solid"
+        class="m-1"
+      />
+      <template #panel>
+        <div class="p-2">
+          <UCheckbox
+            v-for="dialect in dialects"
+            :key="dialect.name"
+            :label="dialect.japanese"
+            :model-value="showDialects.includes(dialect.name)"
+            @change="
+              () => {
+                if (showDialects.includes(dialect.name)) {
+                  showDialects = showDialects.filter((d) => d !== dialect.name);
+                } else {
+                  showDialects.push(dialect.name);
+                }
+              }
+            "
+          />
+        </div>
+      </template>
+    </UPopover>
+    <!--表示カラム-->
+    <UButtonGroup
+      size="xs"
+      orientation="horizontal"
+      class="flex-1 flex items-center justify-center m-1"
     >
-      {{ column.label }}
-    </UButton>
-  </UButtonGroup>
+      <UButton
+        v-for="column in columns.filter((c) => c.label)"
+        :key="column.key"
+        :color="selectedColumns[columns.indexOf(column)] ? 'primary' : 'white'"
+        @click="toggleColumn(column)"
+        class="flex-1 items-center justify-center text-nowrap"
+      >
+        {{ column.label }}
+      </UButton>
+    </UButtonGroup>
+  </div>
   <UTable
-    :rows="
-      [
-        ...(exactWord?[exactWord]:[])
-          .map((word: TWordData) => ({...getWordItem(word), class: getWordItem(word).class + ' border-b-4'})),
-        ...words
-          .filter((word: TWordData) => includeUnknown || (word.dialect !== 'unknown' && !isOriginalDialect(word.dialect)))
-          .map((word: TWordData) => getWordItem(word))
-      ]
-      .slice(0, showAll ? undefined : defaultRowCount)
-      "
+    :rows="rows.slice(0, showAll ? undefined : defaultRowCount)"
     :columns="columns.filter((_, index) => selectedColumns[index])"
     sortable
     :empty-state="{ icon: null, label: '単語が見つかりません...' }"
@@ -73,7 +95,7 @@
     </template>
   </UTable>
   <UButton
-    v-if="words.length > defaultRowCount && !showAll"
+    v-if="rows.length > defaultRowCount && !showAll"
     @click="showAll = !showAll"
     class="w-full"
     color="primary"
@@ -81,7 +103,7 @@
     size="xl"
     block
   >
-    全て表示({{ words.length }}件)
+    全て表示 (全{{ rows.length }}件)
   </UButton>
 </template>
 
@@ -102,8 +124,7 @@ const props = withDefaults(
 const { action } = props;
 const { words, exactWord } = toRefs(props);
 const { getDialectTextClass, getDialectBgClass } = useStyles();
-const { getDiarectJapanese } = useDialect();
-const { isOriginalDialect } = useOriginal();
+const { getDiarectJapanese, dialects } = useDialect();
 
 const columns = [
   {
@@ -143,7 +164,16 @@ const toggleColumn = (column: any) => {
   const index = columns.indexOf(column);
   selectedColumns.value[index] = !selectedColumns.value[index];
 };
-const includeUnknown = ref(true);
+
+const showDialects = ref<string[]>([]);
+const initDialectFilter = () => {
+  showDialects.value = dialects.value
+    .map((dialect) => dialect.name)
+    .filter((name) => name !== "unknown");
+};
+
+
+const rows = ref<any[]>([]);
 
 defineEmits(["input-word"]);
 
@@ -154,8 +184,35 @@ watch(
   }
 );
 
-// ウィンドウ幅がスマホサイズの場合は「意味」列を非表示
+// 流派データが更新されたら表示する流派を再度全選択
+watch(
+  () => dialects.value,
+  () => {
+    initDialectFilter();
+  }
+);
+
+// 表示する単語を更新
+watch(
+  () => [showDialects.value.length, words.value, showAll.value],
+  () => {
+    rows.value = [
+      ...(exactWord.value ? [exactWord.value] : []).map((word: TWordData) => ({
+        ...word,
+        class: " border-b-4",
+      })),
+      ...words.value,
+    ]
+      .filter((word) => {
+        return showDialects.value.includes(word.dialect);
+      })
+      .map(getWordItem);
+  }
+);
+
 onMounted(() => {
+  initDialectFilter();
+  // ウィンドウ幅がスマホサイズの場合は「意味」列を非表示
   if (window.innerWidth < 640)
     selectedColumns.value[2] =
       selectedColumns.value[3] =
@@ -167,14 +224,14 @@ onMounted(() => {
   }
 });
 
-const getWordItem = (word: TWordData) => {
+const getWordItem = (word: TWordData & { class?: string }) => {
   return {
     hymmnos: word.hymmnos,
     japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),
     pronunciation: word.pronunciation,
     part_of_speech: word.part_of_speech,
     dialect: getDiarectJapanese(word.dialect),
-    class: getDialectBgClass(word.dialect),
+    class: getDialectBgClass(word.dialect) + (word.class ?? ""),
     itemClass: getDialectTextClass(word.dialect),
     explanation: word.explanation,
   };
