@@ -3,7 +3,9 @@
     <LanguageSelect v-model="language" />
     <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5">
       <HymmnosWord
-        v-for="(word, index) in cursorLine?.filter((w) => w.hymmnos !== ' ')"
+        v-for="(word, index) in editorWords[selectedLineIndex]?.filter(
+          (w) => w.hymmnos !== ' '
+        )"
         :word="word"
         :key="index"
         small
@@ -11,7 +13,9 @@
     </div>
     <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5">
       <div
-        v-for="(word, index) in cursorLine?.filter((w) => w.hymmnos !== ' ')"
+        v-for="(word, index) in editorWords[selectedLineIndex]?.filter(
+          (w) => w.hymmnos !== ' '
+        )"
         :key="index"
         class="text-black"
       >
@@ -29,7 +33,9 @@
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
       <ArcielaWord
-        v-for="(word, index) in cursorLine?.filter((w) => w.hymmnos !== ' ')"
+        v-for="(word, index) in editorWords[selectedLineIndex]?.filter(
+          (w) => w.hymmnos !== ' '
+        )"
         :word="word.hymmnos"
         :chars="getArcielaWord(word.hymmnos) ?? []"
         :key="index"
@@ -37,14 +43,14 @@
       />
     </div>
     <div v-else class="line pl-2 pr-5">
-      {{ cursorLine?.map((w) => w.hymmnos).join("") }}
+      {{ editorWords[selectedLineIndex]?.map((w) => w.hymmnos).join("") }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import LanguageSelect from "~/components/EditorTools/LanguageSelect.vue";
-const { cursorLine } = useEditor();
+const { editorWords, selectedLineIndex } = useEditor();
 const { getForelunaWord } = useForeluna();
 const { getArcielaWord } = useArciela();
 
@@ -52,10 +58,10 @@ const language = ref("ヒュムノス");
 
 // indexが変わったら言語をチェックする
 watch(
-  () => [cursorLine.value],
+  () => [selectedLineIndex.value],
   () => {
     // 英数字を含むワードのみ抽出
-    const words = cursorLine.value?.filter(
+    const words = editorWords.value[selectedLineIndex.value]?.filter(
       (w) => !w.hymmnos.match(/^[^a-z]+$/)
     );
 
