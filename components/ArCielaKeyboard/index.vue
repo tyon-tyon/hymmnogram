@@ -33,7 +33,7 @@
           </template>
         </UPopover>
       </div>
-      <ArCielaKeyboard-CharDetail
+      <ArCielaKeyboardCharDetail
         v-if="cursorArcielaChar"
         :char="cursorArcielaChar"
         @change="replace"
@@ -41,7 +41,7 @@
       />
     </div>
     <div class="keyboard">
-      <ArCielaKeyboard-Board
+      <ArCielaKeyboardBoard
         :keyword="keyword"
         @input="input"
         @delete="emit('delete')"
