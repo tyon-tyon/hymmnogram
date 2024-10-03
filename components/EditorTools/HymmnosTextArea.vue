@@ -15,13 +15,8 @@
 </template>
 
 <script setup lang="ts">
-const {
-  changeTextarea,
-  changeCursorPosition,
-  textareaText,
-  selectedLineIndex,
-  lineHtmls,
-} = useEditor();
+const { changeTextarea, changeCursorPosition, textareaText, lineHtmls } =
+  useEditor();
 
 onMounted(() => {
   // ローカルストレージからテキストを取得してテキストエリアにセット
@@ -41,16 +36,7 @@ onMounted(() => {
   });
 });
 
-const lineHtml = computed(
-  () =>
-    lineHtmls.value
-      .map((lineHtml, index) => {
-        if (index === selectedLineIndex.value)
-          return `<span class="selected">${lineHtml}</span>`;
-        return lineHtml;
-      })
-      .join(`\n`) + `\n`
-);
+const lineHtml = computed(() => lineHtmls.value.join(`\n`) + `\n`);
 
 const updateText = (value: string) => {
   // ローカルストレージに保存

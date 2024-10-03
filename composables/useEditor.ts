@@ -6,7 +6,7 @@ export default function () {
   const { getExactMatch, emptyWordData } = useDictionary();
   const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWordData[][]>('editorWords', () => []);
-  const selectedLineIndex = useState<number>('selectedLineIndex', () => 0);
+  const cursorLine = useState<TWordData[]>('cursorLine', () => []);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
@@ -56,8 +56,8 @@ export default function () {
 
   const changeCursorPosition = (_cursorPosition: number) => {
     cursorPosition.value = _cursorPosition;
-    selectedLineIndex.value =
-      textareaText.value.slice(0, _cursorPosition).split("\n").length - 1;
+    cursorLine.value =
+      editorWords.value[textareaText.value.slice(0, _cursorPosition).split("\n").length - 1];
   };
 
   const addText = (text: string) => {
@@ -94,5 +94,5 @@ export default function () {
     textarea.blur();
   };
 
-  return { changeTextarea, changeCursorPosition, editorWords, selectedLineIndex, textareaText, lineHtmls, addWord, addText, deleteText };
+  return { changeTextarea, changeCursorPosition, editorWords, cursorLine, textareaText, lineHtmls, addWord, addText, deleteText };
 }
