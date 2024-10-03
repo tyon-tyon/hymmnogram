@@ -46,7 +46,6 @@
 </template>
 
 <script setup lang="ts">
-import type { e } from "@vite-pwa/assets-generator/dist/shared/assets-generator.5e51fd40.mjs";
 import type { TArcielaCharData } from "~/types";
 defineProps<{
   char: TArcielaCharData;

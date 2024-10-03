@@ -98,7 +98,7 @@ const cursorPositionInLine = computed(() => {
   return cursorPosition.value - cursorLineIndex;
 });
 
-//
+// カーソル位置のアルシエラ文字を修正
 const replaceArcielaChar = ({
   start,
   end,

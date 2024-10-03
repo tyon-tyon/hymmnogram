@@ -44,7 +44,7 @@ export type TForelunaWordData = {
 };
 
 export type TArcielaCharData = {
-  input: string | null; // 入力文字
+  input: string; // 入力文字
   char: string; // 文字
   caption: string | null; // 説明
   meanings: string[]; // 意味

@@ -4,7 +4,7 @@ import type { TArcielaCharData } from "~/types";
 
 export default function () {
   const arciela = _arciela as TArcielaCharData[];
-  const emptyArcielaCharData: TArcielaCharData = { input: null, char: "", caption: null, meanings: [] };
+  const emptyArcielaCharData: TArcielaCharData = { input: "", char: "", caption: null, meanings: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
   const getArcielaWord = (q: string): TArcielaCharData[] => {
@@ -69,7 +69,8 @@ export default function () {
       input,
       char: charStr,
       // セッション区域に意味がない場合はキャプションを仮表示
-      caption: meanings.length ? meanings.join("/") : `(${char.caption})`,
+      caption: charStr.match(/^[aiueon]$/i) ? char.caption :
+        meanings.length ? meanings.join("/") : `(${char.caption})`,
       meanings: char.meanings,
       note: char.note,
       session,
@@ -124,5 +125,5 @@ export default function () {
     return `${sessionSimbol}${envelopeSimbol}${char}`;
   };
 
-  return { getArcielaWord, arcielaChars: arciela, sessionToSymbol, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr };
+  return { getArcielaWord, arcielaChars: arciela, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr };
 };

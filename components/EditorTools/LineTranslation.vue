@@ -57,8 +57,8 @@ const hymmnosWords = computed(() => {
 
 // カーソル行のアルシエラワードを取得
 const arcielaWords = computed(() => {
-  // アルシエラは空白のみで文字を区切る
-  return cursorLine.value.split(" ");
+  // アルシエラは空白とカンマとピリオドで区切る
+  return cursorLine.value.split(/[\s,."']/);
 });
 
 // 行番号かテキストエリアの中身が変わったら言語をチェックする
