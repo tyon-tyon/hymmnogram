@@ -6,10 +6,12 @@ export default function () {
   const { getExactMatch, emptyWordData } = useDictionary();
   const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWordData[][]>('editorWords', () => []);
-  const selectedLineIndex = useState<number>('selectedLineIndex', () => 0);
+  const cursorLineIndex = useState<number>('cursorLineIndex', () => 0);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
+  // 選択中の文字列
+  const selectedText = useState<string>('selectedText', () => "");
 
   const changeTextarea = (text: string) => {
     textareaText.value = text;
@@ -56,7 +58,8 @@ export default function () {
 
   const changeCursorPosition = (_cursorPosition: number) => {
     cursorPosition.value = _cursorPosition;
-    selectedLineIndex.value =
+    // カーソル位置から行番号を取得
+    cursorLineIndex.value =
       textareaText.value.slice(0, _cursorPosition).split("\n").length - 1;
   };
 
@@ -96,5 +99,10 @@ export default function () {
     textarea.blur();
   };
 
-  return { changeTextarea, changeCursorPosition, editorWords, selectedLineIndex, textareaText, lineHtmls, addWord, addText, deleteText };
+  // 選択中の文字列を設定
+  const setSelectedText = (text: string) => {
+    selectedText.value = text;
+  };
+
+  return { changeTextarea, changeCursorPosition, editorWords, cursorLineIndex, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
 }
