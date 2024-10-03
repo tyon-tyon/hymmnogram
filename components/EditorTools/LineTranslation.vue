@@ -3,9 +3,7 @@
     <LanguageSelect v-model="language" />
     <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5">
       <HymmnosWord
-        v-for="(word, index) in hymmnosWords.filter(
-          (w) => w.hymmnos !== ' '
-        )"
+        v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')"
         :word="word"
         :key="index"
         small
@@ -13,9 +11,7 @@
     </div>
     <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5">
       <div
-        v-for="(word, index) in hymmnosWords.filter(
-          (w) => w.hymmnos !== ' '
-        )"
+        v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')"
         :key="index"
         class="text-black"
       >
@@ -33,11 +29,9 @@
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
       <ArcielaWord
-        v-for="(word, index) in editorWords[cursorLineIndex]?.filter(
-          (w) => w.hymmnos !== ' '
-        )"
-        :word="word.hymmnos"
-        :chars="getArcielaWord(word.hymmnos) ?? []"
+        v-for="(word, index) in arcielaWords"
+        :word="word"
+        :chars="getArcielaWord(word) ?? []"
         :key="index"
         small
       />
@@ -50,7 +44,7 @@
 
 <script setup lang="ts">
 import LanguageSelect from "~/components/EditorTools/LanguageSelect.vue";
-const { editorWords, cursorLineIndex } = useEditor();
+const { editorWords, cursorLineIndex, cursorLine } = useEditor();
 const { getForelunaWord } = useForeluna();
 const { getArcielaWord } = useArciela();
 
@@ -61,9 +55,15 @@ const hymmnosWords = computed(() => {
   return editorWords.value[cursorLineIndex.value];
 });
 
-// indexが変わったら言語をチェックする
+// カーソル行のアルシエラワードを取得
+const arcielaWords = computed(() => {
+  // アルシエラは空白のみで文字を区切る
+  return cursorLine.value.split(" ");
+});
+
+// 行番号かテキストエリアの中身が変わったら言語をチェックする
 watch(
-  () => [cursorLineIndex.value],
+  () => [cursorLine.value, cursorLineIndex.value],
   () => {
     // 英数字を含むワードのみ抽出
     const words = hymmnosWords.value.filter(

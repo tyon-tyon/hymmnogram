@@ -8,6 +8,7 @@ export default function () {
   const editorWords = useState<TWordData[][]>('editorWords', () => []);
   const cursorLineIndex = useState<number>('cursorLineIndex', () => 0);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
+  const cursorLine = useState<string>('cursorLine', () => "");
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
   // 選択中の文字列
@@ -61,6 +62,8 @@ export default function () {
     // カーソル位置から行番号を取得
     cursorLineIndex.value =
       textareaText.value.slice(0, _cursorPosition).split("\n").length - 1;
+    // カーソル位置の行のテキストを取得
+    cursorLine.value = textareaText.value.split("\n")[cursorLineIndex.value];
   };
 
   const addText = (text: string) => {
@@ -104,5 +107,5 @@ export default function () {
     selectedText.value = text;
   };
 
-  return { changeTextarea, changeCursorPosition, editorWords, cursorLineIndex, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
+  return { changeTextarea, changeCursorPosition, editorWords, cursorLineIndex, cursorLine, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
 }
