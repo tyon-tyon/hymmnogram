@@ -90,6 +90,8 @@ export default function () {
     textarea.focus();
     // カーソル位置から1文字削除
     document.execCommand("delete", false);
+    // カーソル位置を更新
+    changeCursorPosition(cursorPosition.value - 1);
     // フォーカスを解除
     textarea.blur();
   };
