@@ -44,8 +44,9 @@ export type TForelunaWordData = {
 };
 
 export type TArcielaCharData = {
+  input: string | null; // 入力文字
   char: string; // 文字
-  caption: string; // 説明
+  caption: string | null; // 説明
   meanings: string[]; // 意味
   note?: string; // 備考
   session?: number; // セッション番号

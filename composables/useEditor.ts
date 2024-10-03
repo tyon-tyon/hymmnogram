@@ -107,5 +107,5 @@ export default function () {
     selectedText.value = text;
   };
 
-  return { changeTextarea, changeCursorPosition, editorWords, cursorLineIndex, cursorLine, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
+  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, selectedText, addWord, addText, deleteText, setSelectedText };
 }
