@@ -109,6 +109,7 @@ export default function () {
   };
 
   const getCompartmentStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+    char = char.toLowerCase();
     if (char.match(/^[aiueon]$/i)) return char;
     if (session === undefined) return char;
     if (envelope) return `${char}[s-${session}/${envelope}]`;
@@ -116,6 +117,7 @@ export default function () {
   };
 
   const geFontStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+    char = char.toLowerCase();
     if (char.match(/[aiueon]/i)) return char;
     const sessionSimbol = sessionToSymbol(session ?? 0);
     const envelopeSimbol = envelopeToSymbol(envelope ?? 'single');

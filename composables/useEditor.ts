@@ -110,7 +110,7 @@ export default function () {
       if (!textarea) return;
       textarea.focus();
       // カーソル位置を設定
-      textarea.setSelectionRange(start, end);
+      textarea.setSelectionRange(start + text.length, start + text.length);
     }, 1);
   };
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="char?.char" class="char-detail flex w-full px-2">
+  <div v-if="char?.char" class="flex w-full">
     <div class="flex flex-col text-center mr-2 char">
       <div class="font-arciela text-5xl mb-1">
         {{ geFontStr(char.char, char.session, char.envelope) }}
@@ -33,6 +33,7 @@
     </div>
     <div v-else class="flex-1">
       <UButton
+        class="mb-1 mr-1"
         size="xs"
         color="white"
         v-for="meaning in char.meanings"
@@ -57,10 +58,7 @@ const emit = defineEmits(["change"]);
 </script>
 
 <style scoped>
-.char-detail {
-  max-width: 720px;
-}
-.char-detail .char {
+.char {
   min-width: 60px;
 }
 </style>

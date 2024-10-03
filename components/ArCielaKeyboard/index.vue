@@ -1,30 +1,45 @@
 <template>
-  <div class="flex items-center flex-col">
-    <UButtonGroup size="xs" orientation="horizontal" class="mb-1">
-      <UButton
-        :color="mode === 'compartment' ? 'primary' : 'white'"
-        @click="mode = 'compartment'"
-      >
-        コンパートメント
-      </UButton>
-      <UButton
-        :color="mode === 'arciela_font' ? 'primary' : 'white'"
-        @click="mode = 'arciela_font'"
-      >
-        アルシエラフォント
-      </UButton>
-      <UButton
-        :color="mode === 'none' ? 'primary' : 'white'"
-        @click="mode = 'none'"
-      >
-        なし
-      </UButton>
-    </UButtonGroup>
-    <ArCielaKeyboard-CharDetail
-      v-if="cursorArcielaChar"
-      :char="cursorArcielaChar"
-      @change="replace"
-    />
+  <div class="flex flex-col">
+    <div class="control px-2">
+      <div class="flex justify-end mb-2">
+        <UPopover :popper="{ placement: 'top-end' }">
+          <UButton
+            size="xs"
+            color="white"
+            :label="getModeJp(mode)"
+            trailing-icon="i-heroicons-chevron-down-20-solid"
+          />
+          <template #panel>
+            <UButtonGroup size="xs" orientation="horizontal">
+              <UButton
+                :color="mode === 'compartment' ? 'primary' : 'white'"
+                @click="mode = 'compartment'"
+              >
+                コンパートメント
+              </UButton>
+              <UButton
+                :color="mode === 'arciela_font' ? 'primary' : 'white'"
+                @click="mode = 'arciela_font'"
+              >
+                アルシエラフォント
+              </UButton>
+              <UButton
+                :color="mode === 'none' ? 'primary' : 'white'"
+                @click="mode = 'none'"
+              >
+                アルファベット
+              </UButton>
+            </UButtonGroup>
+          </template>
+        </UPopover>
+      </div>
+      <ArCielaKeyboard-CharDetail
+        v-if="cursorArcielaChar"
+        :char="cursorArcielaChar"
+        @change="replace"
+        class="mb-2"
+      />
+    </div>
     <div class="keyboard">
       <ArCielaKeyboard-Board
         :keyword="keyword"
@@ -45,9 +60,19 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits(["input", "delete", "replace"]);
-const { getArcielaWord, getCompartmentStr } = useArciela();
+const { getArcielaWord, getCompartmentStr, geFontStr } = useArciela();
 
 const mode = ref<"none" | "compartment" | "arciela_font">("compartment");
+const getModeJp = (mode: string) => {
+  switch (mode) {
+    case "compartment":
+      return "コンパートメント";
+    case "arciela_font":
+      return "アルシエラフォント";
+    case "none":
+      return "アルファベット";
+  }
+};
 
 const arcielaWords = ref<string[]>([]);
 const cursorWordIndex = ref(0);
@@ -85,6 +110,14 @@ watch(
   () => [props.cursorPosition, props.cursorLine],
   () => {
     const { cursorPosition, cursorLine } = props;
+    // モード修正
+    if (cursorLine.match(/[\!\#\$\%\&\(\)]/)) {
+      mode.value = "arciela_font";
+    } else if (cursorLine.match(/^[a-z,. ]$/)) {
+      mode.value = "none";
+    } else {
+      mode.value = "compartment";
+    }
     // アルシエラ単語ごとに分割
     const line = cursorLine + "\n";
     const chars = line.split("");
@@ -115,9 +148,25 @@ watch(
   }
 );
 
+const getArcielaWordStr = (
+  char: string,
+  session: number,
+  envelope?: TArcielaCharData["envelope"]
+) => {
+  let text = char;
+  switch (mode.value) {
+    case "compartment":
+      text = getCompartmentStr(char, session, envelope);
+      break;
+    case "arciela_font":
+      text = geFontStr(char, session, envelope);
+      break;
+  }
+  return text;
+};
 // キーボード入力
 const input = ({ char, session }: { char: string; session: number }) => {
-  emit("input", char.toLocaleLowerCase());
+  emit("input", getArcielaWordStr(char, session));
 };
 
 // セッション・エンベロープ修正
@@ -140,12 +189,21 @@ const replace = (char: TArcielaCharData) => {
     beforeText += arcielaWords.value[i];
   }
   // セッション・エンベロープを修正
-  const text = getCompartmentStr(char.char, char.session, char.envelope);
-  emit("replace", { start, end, text });
+
+  emit("replace", {
+    start,
+    end,
+    text: getArcielaWordStr(char.char, char.session ?? 0, char.envelope),
+  });
 };
 </script>
 
 <style scoped>
+.control {
+  max-width: 720px;
+  width: 100%;
+  margin: auto;
+}
 .keyboard {
   max-width: 720px;
   box-sizing: content-box;
