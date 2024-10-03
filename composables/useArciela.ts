@@ -88,7 +88,7 @@ export default function () {
     }
   };
 
-  const envelopeToSymbol = (envelope: string) => {
+  const envelopeToSymbol = (envelope: TArcielaCharData['envelope']) => {
     switch (envelope) {
       case "harf": return ")";
       case "single": return "";
@@ -108,14 +108,18 @@ export default function () {
     ];
   };
 
-  const getCompartmentStr = (char: TArcielaCharData) => {
-    return `${char.char}[s-${char.session}/${char.envelope}]`;
+  const getCompartmentStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+    if (char.match(/^[aiueon]$/i)) return char;
+    if (session === undefined) return char;
+    if (envelope) return `${char}[s-${session}/${envelope}]`;
+    return `${char}[s-${session}]`;
   };
 
-  const geFontStr = (char: TArcielaCharData) => {
-    const sessionSimbol = sessionToSymbol(char.session ?? 0);
-    const envelopeSimbol = envelopeToSymbol(char.envelope ?? 'single');
-    return `${sessionSimbol}${envelopeSimbol}${char.char}`;
+  const geFontStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+    if (char.match(/[aiueon]/i)) return char;
+    const sessionSimbol = sessionToSymbol(session ?? 0);
+    const envelopeSimbol = envelopeToSymbol(envelope ?? 'single');
+    return `${sessionSimbol}${envelopeSimbol}${char}`;
   };
 
   return { getArcielaWord, arcielaChars: arciela, sessionToSymbol, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr };

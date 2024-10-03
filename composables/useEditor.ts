@@ -100,6 +100,20 @@ export default function () {
     textarea.blur();
   };
 
+  const replaceText = (start: number, end: number, text: string) => {
+    const before = textareaText.value.slice(0, start);
+    const after = textareaText.value.slice(end);
+    changeTextarea(before + text + after);
+    setTimeout(() => {
+      // フォーカスする
+      const textarea = document.querySelector("textarea");
+      if (!textarea) return;
+      textarea.focus();
+      // カーソル位置を設定
+      textarea.setSelectionRange(start, end);
+    }, 1);
+  };
 
-  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, addWord, addText, deleteText, };
+
+  return { changeTextarea, changeCursorPosition, editorWords, cursorPosition, cursorLineIndex, cursorLine, textareaText, lineHtmls, addWord, addText, deleteText, replaceText };
 }
