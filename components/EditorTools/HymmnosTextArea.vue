@@ -53,10 +53,12 @@ const lineHtml = computed(
       .join(`\n`) + `\n`
 );
 
-const updateText = (value: string) => {
+watch(textareaText, (value) => {
   // ローカルストレージに保存
   localStorage.setItem("hymmnos-text", value);
+});
 
+const updateText = (value: string) => {
   const cursorPosition = document.querySelector("textarea")?.selectionEnd;
   if (cursorPosition) changeCursorPosition(cursorPosition);
   changeTextarea(value);
