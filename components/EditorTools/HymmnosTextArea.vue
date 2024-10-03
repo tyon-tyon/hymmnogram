@@ -73,7 +73,7 @@ const updateText = (value: string) => {
 .display {
   width: 100%;
   pointer-events: none;
-  white-space: pre;
+  white-space: pre-wrap;
   text-wrap: wrap;
 }
 .display .selected {
