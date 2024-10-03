@@ -110,14 +110,6 @@ watch(
   () => [props.cursorPosition, props.cursorLine],
   () => {
     const { cursorPosition, cursorLine } = props;
-    // モード修正
-    if (cursorLine.match(/[\!\#\$\%\&\(\)]/)) {
-      mode.value = "arciela_font";
-    } else if (cursorLine.match(/^[a-z,. ]$/)) {
-      mode.value = "none";
-    } else {
-      mode.value = "compartment";
-    }
     // アルシエラ単語ごとに分割
     const line = cursorLine + "\n";
     const chars = line.split("");
