@@ -47,6 +47,9 @@ const openDrawer = ref(false);
   line-height: 1;
 }
 .bg-logo {
+  color: transparent;
+  text-shadow: 0 0 4px rgb(var(--color-primary-400));
+  opacity: 0.25;
   font-size: 15vw;
   transform: translateY(-50%);
   top: 50%;
