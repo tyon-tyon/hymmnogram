@@ -20,7 +20,7 @@
         word-wrap: normal;
       "
     >
-      {{ keyword.replace(/[^a-z\.\!\?\-\=\/\>\<\_\:\s]+/g, "") }}
+      {{ props.keyword.replace(/[^a-z\.\!\?\-\=\/\>\<\_\:\s]+/g, "") }}
     </div>
   </div>
   <UAccordion v-else multiple :items="items">
@@ -33,7 +33,7 @@
         :word="
           exactMatchWord?.subWords?.length
             ? exactMatchWord?.subWords[0]
-            : exactMatchWord ?? { ...emptyWordData, hymmnos: keyword }
+            : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
         "
       />
     </template>
@@ -41,8 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData } from "~/types";
-
 const props = defineProps<{
   keyword: string;
 }>();
@@ -65,37 +63,14 @@ const items = [
   },
 ];
 
-const partialMatchWords = ref<TWordData[]>([]);
-const exactMatchWord = ref<TWordData | undefined>();
-const foundExamples = ref<any[]>([]);
-const lineWords = ref<TWordData[][]>([]);
-
-let timer: NodeJS.Timeout | undefined;
-watch(
-  () => props.keyword,
-  () => {
-    if (timer) clearTimeout(timer);
-    const keyword = props.keyword;
-    if (!keyword.length) {
-      exactMatchWord.value = undefined;
-      partialMatchWords.value = [];
-      foundExamples.value = [];
-      lineWords.value = [];
-      return;
-    }
-    timer = setTimeout(search, 500);
-  }
-);
-
-const search = () => {
+const lineWords = computed(() => {
   const keyword = props.keyword;
   // ヒュムノスの文章の意味を調べる
-  lineWords.value = [];
   if (keyword.match(/([\!\?\s,]|\/.)/)) {
     // 行と単語に分割
     const lines = splitTextIntoLinesAndWords(keyword);
 
-    lineWords.value = lines.map((line) =>
+    return lines.map((line) =>
       line.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
@@ -110,14 +85,21 @@ const search = () => {
         );
       })
     );
-    return;
   }
-  // 単語検索
-  exactMatchWord.value = dictionary.getExactMatch(keyword);
+  return [];
+});
+
+// 完全一致検索
+const exactMatchWord = computed(() => {
+  return dictionary.getExactMatch(props.keyword);
+});
+
+// 部分一致検索
+const partialMatchWords = computed(() => {
+  // 完全一致と重複しないようにする
   const exactMatchWordBase = exactMatchWord.value?.subWords?.[0]?.hymmnos;
-  // 部分一致検索 完全一致と重複しないようにする
-  partialMatchWords.value = dictionary
-    .getPartialMatch(keyword)
+  return dictionary
+    .getPartialMatch(props.keyword)
     .filter(
       (word) =>
         !(
@@ -126,16 +108,19 @@ const search = () => {
             word.hymmnos == exactMatchWordBase)
         )
     );
-  // 用例検索
+});
+
+// 用例検索
+const foundExamples = computed(() => {
+  // 完全一致を優先させる
+  const exactMatchWordBase = exactMatchWord.value?.subWords?.[0]?.hymmnos;
   const exactMatchExamples = exactMatchWordBase
     ? example.getPartialMatch(exactMatchWordBase)
     : [];
   // 重複を削除
-  foundExamples.value = [
+  return [
     ...exactMatchExamples,
-    ...example.getPartialMatch(keyword),
+    ...example.getPartialMatch(props.keyword),
   ].filter((v, i, a) => a.findIndex((t) => t.hymmnos === v.hymmnos) === i);
-};
+});
 </script>
-
-<style></style>
