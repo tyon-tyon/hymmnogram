@@ -50,7 +50,7 @@
     :rows="rows.slice(0, showAll ? undefined : defaultRowCount)"
     :columns="columns.filter((_, index) => selectedColumns[index])"
     sortable
-    :empty-state="{ icon: null, label: '単語が見つかりません...' }"
+    :empty-state="{ icon: '', label: '単語が見つかりません...' }"
   >
     <template #hymmnos-data="{ row }">
       <span class="font-bold" :class="row.itemClass">
@@ -167,11 +167,8 @@ const toggleColumn = (column: any) => {
 
 const showDialects = ref<string[]>([]);
 const initDialectFilter = () => {
-  showDialects.value = dialects.value
-    .map((dialect) => dialect.name)
-    .filter((name) => name !== "unknown");
+  showDialects.value = dialects.value.map((dialect) => dialect.name);
 };
-
 
 const rows = ref<any[]>([]);
 
