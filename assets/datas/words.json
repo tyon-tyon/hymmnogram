@@ -11932,17 +11932,6 @@
   {
     "hymmnos": "tie",
     "japanese": [
-      "～に対して"
-    ],
-    "pronunciation": "ティエ",
-    "part_of_speech": "副詞",
-    "dialect": "pastalie",
-    "notes": "",
-    "explanation": "対象を特定・指定する。"
-  },
-  {
-    "hymmnos": "tie",
-    "japanese": [
       "捕まえる",
       "拘束する",
       "捉える"
@@ -11952,6 +11941,17 @@
     "dialect": "cult_ciel",
     "notes": "",
     "explanation": ""
+  },
+  {
+    "hymmnos": "tie",
+    "japanese": [
+      "～に対して"
+    ],
+    "pronunciation": "ティエ",
+    "part_of_speech": "副詞",
+    "dialect": "pastalie",
+    "notes": "",
+    "explanation": "対象を特定・指定する。"
   },
   {
     "hymmnos": "tienar",

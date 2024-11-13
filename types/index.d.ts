@@ -4,7 +4,7 @@ export type TJsonWordData = {
   pronunciation?: string | null; // 発音
   gerunds?: string[]; // パスタリエ 名詞化した場合の意味
   part_of_speech: string; // 品詞
-  dialect: TDialect;
+  dialect: string;
   origin?: string; // アルファ律の場合のオリジン
   notes?: string; // 備考
   explanation?: string; // 説明

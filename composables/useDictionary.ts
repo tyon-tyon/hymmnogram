@@ -8,7 +8,7 @@ export default function () {
   const words = useState<TWordData[]>('words', () => _words as TWordData[]);
 
   // 完全一致の単語を取得
-  const getExactMatch = (q: string): TWordData | undefined => {
+  const getExactMatch = (q: string, dialect?: string): TWordData | undefined => {
     if (!q.length) return undefined;
     // パスタリエの所有格
     const possessive = getWordPossessive(q);
@@ -19,7 +19,7 @@ export default function () {
     if (emotionVerb) return emotionVerb;
 
     // 通常の完全一致
-    const exactMatch = getWordExactMatch(q);
+    const exactMatch = getWordExactMatch(q, dialect);
     if (exactMatch) return exactMatch;
   };
 
@@ -34,7 +34,7 @@ export default function () {
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: null, primaryMeaning: "" };
+  const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "" };
 
   // 単語データを更新
   const updateWords = (originalWords: TJsonWordData[]) => {
@@ -46,9 +46,13 @@ export default function () {
   */
 
   // 通常の完全一致
-  function getWordExactMatch(q: string): TWordData | undefined {
+  function getWordExactMatch(q: string, dialect?: string): TWordData | undefined {
     const lowerCaseWord = q.toLowerCase();
-    const found = words.value.filter(w => w.hymmnos.toLowerCase() === lowerCaseWord)[0];
+    const exactMatchFounds = words.value.filter(w => w.hymmnos.toLowerCase() === lowerCaseWord);
+    const found =
+      exactMatchFounds.length === 0 ? undefined : // 見つからなかった場合はundefined
+        exactMatchFounds.length === 1 ? exactMatchFounds[0] : // 1つ見つかった場合はその単語を返す
+          exactMatchFounds.find(w => w.dialect === dialect) ?? exactMatchFounds[0]; // 複数見つかった場合は流派が一致するものを返す
     // 完全一致の単語が見つかった場合
     if (found) {
       let primaryMeaning = "";
@@ -61,6 +65,7 @@ export default function () {
       }
       return {
         ...found,
+        hymmnos: q,
         primaryMeaning,
       };
     }

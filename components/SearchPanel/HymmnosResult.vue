@@ -70,7 +70,7 @@ const lineWords = computed(() => {
     // 行と単語に分割
     const lines = splitTextIntoLinesAndWords(keyword);
 
-    return lines.map((line) =>
+    const words = lines.map((line) =>
       line.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
@@ -83,6 +83,20 @@ const lineWords = computed(() => {
             hymmnos: word,
           }
         );
+      })
+    );
+    // wordsの中にパスタリエがない場合はそのまま返す
+    if (!words.flat().some((word) => word.dialect === "pastalie")) {
+      return words;
+    }
+    // 実質tie専用の対応
+    // パスタリエ指定で単語を再取得
+    return words.map((line) =>
+      line.map((word) => {
+        if (word.hymmnos !== "pastalie") {
+          return dictionary.getExactMatch(word.hymmnos, "pastalie") || word;
+        }
+        return word;
       })
     );
   }
@@ -105,7 +119,8 @@ const partialMatchWords = computed(() => {
         !(
           exactMatchWord.value &&
           (word.hymmnos == exactMatchWord.value.hymmnos ||
-            word.hymmnos == exactMatchWordBase)
+            word.hymmnos == exactMatchWordBase) &&
+          word.dialect == exactMatchWord.value.dialect
         )
     );
 });
