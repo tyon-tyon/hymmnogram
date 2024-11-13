@@ -1,30 +1,23 @@
 <template>
-  <div v-if="lineWords.length">
+  <div v-if="lineWords.length" class="mb-5">
     <div
       v-for="(line, index) in lineWords"
       :key="index"
       style="min-height: 70px"
     >
       <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <HymmnosWord v-for="(word, index) in line" :word="word" :key="index" />
+        <HymmnosWord
+          v-for="(word, index) in line"
+          :word="word"
+          :key="index"
+          hymmnos-font
+        />
         <HymmnosWord :word="emptyWordData" style="flex: 1000 1 auto" />
       </div>
     </div>
-
-    <div
-      class="text-3xl my-2"
-      style="
-        font-family: 'Hymmnos';
-        white-space: pre;
-        text-wrap: wrap;
-        word-wrap: normal;
-      "
-    >
-      {{ props.keyword.replace(/[^a-z\.\!\?\-\=\/\>\<\_\:\s]+/g, "") }}
-    </div>
   </div>
-  <UAccordion v-else multiple :items="items">
-    <template #partial-match>
+  <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
+    <template v-if="!lineWords.length" #partial-match>
       <HymmnosTable :words="partialMatchWords" :exact-word="exactMatchWord" />
     </template>
     <template #examples>
@@ -74,7 +67,7 @@ const lineWords = computed(() => {
       line.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
-          return { ...emptyWordData, word };
+          return { ...emptyWordData, japanese: [word] };
         }
         // 単語検索
         return (

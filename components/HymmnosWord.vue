@@ -5,48 +5,66 @@
       'not-small': !small,
     }"
   >
-    <div
-      class="hymmnos"
-      :class="{
-        'text-xl': !small,
-        [getDialectTextClass(word.dialect)]: word.dialect,
-      }"
-    >
-      {{ word.hymmnos }}
-    </div>
-    <template v-if="word.primaryMeaning">
+    <template v-if="word.hymmnos.length">
       <div
-        class="text-cool-600 japanese"
+        v-if="hymmnosFont"
+        class="font-hymmnos leading-relaxed"
         :class="{
-          'text-sm': !small,
-          'text-2xs': small,
+          'text-2xl': !small,
+          [getDialectTextClass(word.dialect)]: word.dialect,
         }"
       >
-        {{ word.primaryMeaning }}
+        {{ word.hymmnos }}
       </div>
-      <div v-if="!small" class="text-xs text-cool-400">
-        {{
-          [...word.japanese, ...(word.gerunds ?? [])]
-            .filter((m) => m !== word.primaryMeaning)
-            .join(" ")
-        }}
+      <div
+        class="hymmnos"
+        :class="{
+          'text-xl': !small,
+          [getDialectTextClass(word.dialect)]: word.dialect,
+        }"
+      >
+        {{ word.hymmnos }}
       </div>
+      <template v-if="word.primaryMeaning">
+        <div
+          class="text-cool-600 japanese"
+          :class="{
+            'text-sm': !small,
+            'text-2xs': small,
+          }"
+        >
+          {{ word.primaryMeaning }}
+        </div>
+        <div v-if="!small" class="text-xs text-cool-400">
+          {{
+            [...word.japanese, ...(word.gerunds ?? [])]
+              .filter((m) => m !== word.primaryMeaning)
+              .slice(1, 100)
+              .join(" ")
+          }}
+        </div>
+      </template>
+      <template v-else>
+        <div
+          class="text-cool-600 japanese"
+          :class="{
+            'text-sm': !small,
+            'text-2xs': small,
+          }"
+        >
+          {{ word.japanese[0] }}
+        </div>
+        <div
+          v-if="!small && word.japanese.slice(1, 100).length"
+          class="text-xs text-cool-400"
+        >
+          {{ word.japanese.slice(1, 100).join(" ") }}
+        </div>
+      </template>
     </template>
     <template v-else>
-      <div
-        class="text-cool-600 japanese"
-        :class="{
-          'text-sm': !small,
-          'text-2xs': small,
-        }"
-      >
-        {{ word.japanese[0] }}
-      </div>
-      <div
-        v-if="!small && word.japanese.slice(1, 100).length"
-        class="text-xs text-cool-400"
-      >
-        {{ word.japanese.slice(1, 100).join(" ") }}
+      <div v-if="!small" class="text-ms text-cool-500">
+        {{ word.japanese.join("") }}
       </div>
     </template>
   </div>
@@ -57,6 +75,7 @@ import type { TWordData } from "~/types";
 const { word } = defineProps<{
   word: TWordData;
   small?: boolean;
+  hymmnosFont?: boolean;
 }>();
 
 const { getDialectTextClass } = useStyles();
