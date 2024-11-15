@@ -7,7 +7,7 @@ export default function () {
   const emptyArcielaCharData: TArcielaCharData = { input: "", char: "", caption: null, meanings: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
-  const getArcielaWord = (q: string): TArcielaCharData[] => {
+  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaCharData[] => {
     // コンパートメント表記で分割
     const strChars = [];
     const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
@@ -30,16 +30,16 @@ export default function () {
       }
     }
     // 文字ごとに意味を取得
-    const chars = strChars.map(c => ({ ...getArcielaChar(c), input: c }));
+    const chars = strChars.map(c => ({ ...getArcielaChar(c, noCompartment), input: c }));
     return chars;
   };
 
-  const getArcielaChar = (input: string): TArcielaCharData => {
+  const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaCharData => {
     // 表記が正しいかチェック
     if (
-      input.match(/^[a-z]$/) // 英文字のみ
-      || input.match(/^[\!\#\$\%\&\(\)]{1,2}[a-z]$/) // 記号表記
-      || input.match(/^[a-z]\[s\-[0-4](\/(harf|single|dual|quad))?\]$/) // コンパートメント記号が正しい
+      input.match(/^[a-zA-Z]$/) // 英文字のみ
+      || input.match(/^[\!\#\$\%\&\(\)]{1,2}[a-zA-Z]$/) // 記号表記
+      || input.match(/^[a-zA-Z]\[s\-[0-4](\/(harf|single|dual|quad))?\]$/) // コンパートメント記号が正しい
     ) {
       // 正
     } else {
@@ -61,7 +61,15 @@ export default function () {
       return "single";
     })();
     const char = arciela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
+
     if (!char) return emptyArcielaCharData;// 文字が見つからない場合はスキップ
+    // コンパートメントを考慮しない場合はそのまま返す
+    if (noCompartment) return {
+      ...char,
+      input,
+      char: charStr,
+    };
+
     // セッション区域の意味を取得
     const sessions = getSessions(char.meanings);
     const meanings = sessions[session].filter(s => s.length);

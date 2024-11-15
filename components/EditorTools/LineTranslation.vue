@@ -31,7 +31,7 @@
       <ArcielaWord
         v-for="(word, index) in arcielaWords"
         :word="word"
-        :chars="getArcielaWord(word) ?? []"
+        :chars="getArcielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/)) ?? []"
         :key="index"
         small
       />
