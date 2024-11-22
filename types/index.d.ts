@@ -24,14 +24,6 @@ export type TEmotionVowelMeaning = {
   emotions: string[]; // どんな感情か
 };
 
-export type TJsonExampleData = {
-  title: string,
-  hymmnos: string,
-  hymmnos_base: string,
-  japanese: string,
-  japanese_base: string,
-};
-
 export type TLyric = {
   title: string,
   lyric: string,
