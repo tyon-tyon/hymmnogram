@@ -40,10 +40,11 @@ const items = [
     key: "arciela",
     label: "アルシエラ(星語)",
   },
-  {
+  /*{
     key: "foreluna",
     label: "律史前月読(月奏)",
   },
+  */
 ];
 
 </script>
