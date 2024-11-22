@@ -30,8 +30,7 @@
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
       <ArcielaWord
         v-for="(word, index) in arcielaWords"
-        :word="word"
-        :chars="getArcielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/)) ?? []"
+        :word="getArcielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
         :key="index"
         small
       />

@@ -1,18 +1,18 @@
 <template>
   <div
-    class="arciela-word mr-4"
+    class="arciela-word pr-4"
     :class="{
       'not-small': !small,
     }"
   >
     <div class="flex flex-col">
       <div v-if="font" class="font-arciela text-3xl">
-        <span v-for="char in chars" :key="char.char">
+        <span v-for="char in word.chars" :key="char.char">
           {{ geFontStr(char.char, char.session, char.envelope) }}
         </span>
       </div>
       <div class="flex flex-row">
-        <div v-for="char in chars" :key="char.char" class="mx-1">
+        <div v-for="char in word.chars" :key="char.char" class="mx-1">
           <div
             class="arciela"
             :class="{
@@ -39,10 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaCharData } from "~/types";
-const { chars } = defineProps<{
-  word: string;
-  chars: TArcielaCharData[];
+import type { TArcielaWordData } from "~/types";
+const { word } = defineProps<{
+  word: TArcielaWordData;
   small?: boolean;
   font?: boolean;
 }>();

@@ -1,5 +1,5 @@
 import _arciela from "~/assets/datas/arciela.json";
-import type { TArcielaCharData } from "~/types";
+import type { TArcielaCharData, TArcielaWordData } from "~/types";
 
 
 export default function () {
@@ -7,7 +7,7 @@ export default function () {
   const emptyArcielaCharData: TArcielaCharData = { input: "", char: "", caption: null, meanings: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
-  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaCharData[] => {
+  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaWordData => {
     // コンパートメント表記で分割
     const strChars = [];
     const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
@@ -31,7 +31,10 @@ export default function () {
     }
     // 文字ごとに意味を取得
     const chars = strChars.map(c => ({ ...getArcielaChar(c, noCompartment), input: c }));
-    return chars;
+    return {
+      word: q,
+      chars,
+    };
   };
 
   const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaCharData => {
