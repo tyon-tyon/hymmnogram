@@ -32,6 +32,15 @@ export type TJsonExampleData = {
   japanese_base: string,
 };
 
+export type TLyric = {
+  title: string,
+  lyric: string,
+  lyricWords: string,
+  japanese: string,
+  japaneseWords: { basic: string; surface: string; }[],
+  japaneseWordsStr: string,
+};
+
 export type TForelunaCharData = {
   char: string; // 文字
   meaning: string; // 意味
