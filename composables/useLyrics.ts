@@ -9,7 +9,8 @@ const lyricsForeluna = _lyricsForeluna as TLyric[];
 
 export default function useLyrics() {
   const getMatch = (lyrics: TLyric[], q: string) => {
-    q = q.replace(/([\-\.])/, "\\$1");
+    // 正規表現のエスケープ
+    q = q.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
     const reg = new RegExp(q, 'gi');
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
