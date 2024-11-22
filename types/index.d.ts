@@ -37,8 +37,7 @@ export type TLyric = {
   lyric: string,
   lyricWords: string,
   japanese: string,
-  japaneseWords: { basic: string; surface: string; }[],
-  japaneseWordsStr: string,
+  japaneseWords: string,
 };
 
 export type TForelunaCharData = {
