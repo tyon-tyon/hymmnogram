@@ -3,11 +3,12 @@ import type { TForelunaCharData, TForelunaWordData } from "~/types";
 
 export default function () {
   const foreluna = _foreluna as TForelunaCharData[];
+  const emptyForelunaWordData: TForelunaWordData = { word: "", sections: [], type: null };
 
   // 律史前月詠の単語を取得
-  const getForelunaWord = (q: string): TForelunaWordData | undefined => {
+  const getForelunaWord = (q: string): TForelunaWordData => {
     // 英文字だけ処理
-    if (!q.match(/^[a-zA-Z]+$/)) return;
+    if (!q.match(/^[a-zA-Z]+$/)) return { ...emptyForelunaWordData, word: q };
     // 母音でセクションを分割
     const sections = q.replace(/([aiueon]+)/i, " $1 ").replace(/(^ +| +$)/i, "").split(" ");
     // 母音子音セクションごとに意味を取得
@@ -31,5 +32,5 @@ export default function () {
     };
   };
 
-  return { getForelunaWord, forelunaChars: foreluna };
+  return { getForelunaWord, forelunaChars: foreluna, emptyForelunaWordData };
 }

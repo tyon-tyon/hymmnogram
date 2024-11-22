@@ -5,35 +5,45 @@
       'not-small': !small,
     }"
   >
-    <div
-      class="foreluna"
-      :class="{
-        'text-xl': !small,
-      }"
-    >
-      {{ word.word }}
-    </div>
-    <div class="sections" v-if="word.sections.length">
+    <template v-if="word.word.match(/^[a-zA-Z]+$/)">
+      <div v-if="font" class="font-arciela text-3xl">
+        {{ word.word }}
+      </div>
       <div
-        v-for="(chars, index) in word.sections"
-        :key="index"
-        class="text-cool-600 section"
+        class="foreluna"
         :class="{
-          'text-sm': !small,
-          'text-2xs': small,
+          'text-xl': !small,
         }"
       >
-        <span v-for="(c, i) in chars" :key="i">
-          <span
-            :class="{
-              'font-black': !!c.char.match(/[A-Z]/),
-            }"
-          >
-            {{ c.meaning }}
-          </span>{{ i === chars.length - 1 ? "" : "," }}
-        </span>
+        {{ word.word }}
       </div>
-    </div>
+      <div class="sections" v-if="word.sections.length">
+        <div
+          v-for="(chars, index) in word.sections"
+          :key="index"
+          class="text-cool-400 section"
+          :class="{
+            'text-sm': !small,
+            'text-2xs': small,
+          }"
+        >
+          <span v-for="(c, i) in chars" :key="i">
+            <span
+              :class="{
+                'font-black': !!c.char.match(/[A-Z]/),
+              }"
+            >
+              {{ c.meaning }} </span
+            >{{ i === chars.length - 1 ? "" : "," }}
+          </span>
+        </div>
+      </div>
+    </template>
+    <template v-else>
+      <div v-if="!small" class="text-ms text-cool-500">
+        {{ word.word }}
+      </div>
+    </template>
   </div>
 </template>
 
@@ -42,6 +52,7 @@ import type { TForelunaWordData } from "~/types";
 const { word } = defineProps<{
   word: TForelunaWordData;
   small?: boolean;
+  font?: boolean;
 }>();
 </script>
 

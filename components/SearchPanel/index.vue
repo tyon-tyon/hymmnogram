@@ -10,21 +10,14 @@
     <template #default="{ item, selected }">
       <span
         class="truncate"
-        :class="[
-          selected && 'text-primary-500 dark:text-primary-400',
-        ]"
+        :class="[selected && 'text-primary-500 dark:text-primary-400']"
         >{{ item.label }}</span
       >
     </template>
     <template #item="{ item }">
-      <SearchPanelHymmnos
-        v-if="item.key === 'hymmnos'"
-        :keyword="keyword"
-      />
-      <SearchPanelArCiela
-        v-if="item.key === 'arciela'"
-        :keyword="keyword"
-      />
+      <SearchPanelHymmnos v-if="item.key === 'hymmnos'" :keyword="keyword" />
+      <SearchPanelForeluna v-if="item.key === 'foreluna'" :keyword="keyword" />
+      <SearchPanelArCiela v-if="item.key === 'arciela'" :keyword="keyword" />
     </template>
   </UTabs>
 </template>
@@ -37,16 +30,14 @@ const items = [
     label: "ヒュムノス",
   },
   {
-    key: "arciela",
-    label: "アルシエラ(星語)",
-  },
-  /*{
     key: "foreluna",
     label: "律史前月読(月奏)",
   },
-  */
+  {
+    key: "arciela",
+    label: "アルシエラ(星語)",
+  },
 ];
-
 </script>
 
 <style></style>
