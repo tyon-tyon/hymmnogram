@@ -15,12 +15,23 @@
         <div class="flex flex-row">
           <div v-for="char in word.chars" :key="char.char" class="mx-1">
             <div
-              class="arciela"
+              class="arciela flex justify-center"
               :class="{
                 'text-xl': !small,
               }"
             >
-              {{ char.char }}
+              <div>
+                {{ char.char }}
+              </div>
+              <div
+                v-if="char.session !== undefined && char.envelope !== undefined"
+                class="flex flex-col text-left leading-none ml-0.5 justify-center text-cool-400"
+              >
+                <div class="text-2xs">s-{{ char.session }}</div>
+                <div class="text-3xs text-nowrap">
+                  {{ char.envelope }}
+                </div>
+              </div>
             </div>
             <div
               class="text-cool-400 japanese leading-none"

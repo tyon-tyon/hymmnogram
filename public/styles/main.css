@@ -17,6 +17,9 @@
 .text-2xs {
   font-size: 0.6rem;
 }
+.text-3xs {
+  font-size: 0.4rem;
+}
 .z--1 {
   z-index: -1;
 }

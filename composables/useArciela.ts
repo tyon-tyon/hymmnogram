@@ -85,8 +85,8 @@ export default function () {
         meanings.length ? meanings.join("/") : `(${char.caption})`,
       meanings: char.meanings,
       note: char.note,
-      session,
-      envelope,
+      session: charStr.match(/^[aiueon]$/i) ? undefined : session,
+      envelope: charStr.match(/^[aiueon]$/i) ? undefined : envelope,
     };
   };
 
