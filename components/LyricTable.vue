@@ -4,6 +4,11 @@
     :columns="columns"
     sortable
     :empty-state="{ icon: '', label: '用例が見つかりません...' }"
+    :ui="{
+      th: {
+        padding: 'hidden',
+      },
+    }"
   >
     <template #example-data="{ row }">
       <div class="text-wrap mb-2" v-html="getLyricHtml(row.lyric)"></div>
