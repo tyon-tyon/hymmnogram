@@ -1,5 +1,5 @@
 <template>
-  <div v-if="lineWords.length" class="mb-5">
+  <div class="mb-5">
     <div
       v-for="(line, index) in lineWords"
       :key="index"
@@ -9,52 +9,72 @@
         <ArcielaWord
           v-for="(word, index) in line"
           :word="word"
-          :key="index"
+          :key="index+word.word"
           font
         />
-        <ArcielaWord :word="emptyArcielaWordData" style="flex: 1000 1 auto" />
+        <ArcielaWord
+          :word="emptyArcielaWordData"
+          :key="-1"
+          style="flex: 1000 1 auto"
+        />
       </div>
     </div>
   </div>
+  <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
+    <template #lyrics>
+      <LyricTable :lyrics="foundLyrics" :word="keyword" />
+    </template>
+  </UAccordion>
 </template>
 
 <script setup lang="ts">
-import type { TArcielaCharData, TArcielaWordData } from "~/types";
+import type { TArcielaWordData } from "~/types";
 
 const props = defineProps<{
   keyword: string;
 }>();
 
 const arciela = useArciela();
-const { emptyArcielaWordData, emptyArcielaCharData } = arciela;
-const example = useExample();
+const { emptyArcielaWordData } = arciela;
+const lyrics = useLyrics();
 const { splitArCiela } = useTextProcessor();
+
+const items = [
+  {
+    label: "各文字の意味",
+    slot: "characters",
+    defaultOpen: true,
+  },
+  {
+    label: "用例",
+    slot: "lyrics",
+    defaultOpen: true,
+  },
+];
 
 const lineWords = computed((): TArcielaWordData[][] => {
   const keyword = props.keyword;
-  // ヒュムノスの文章の意味を調べる
-  if (keyword.match(/([\!\?\s,]|\/.)/)) {
-    // 行と単語に分割
-    const lines = splitArCiela(keyword);
+  // 行と単語に分割
+  const lines = splitArCiela(keyword);
 
-    console.log(lines);
-    return lines.map((line) =>
-      line.map((word) => {
-        // 日本語が含まれている場合はそのまま表示
-        if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
-          return {
-            ...emptyArcielaWordData,
-            word,
-          };
-        }
-        // 単語検索
-        return arciela.getArcielaWord(
+  return lines.map((line) =>
+    line.map((word) => {
+      // 日本語が含まれている場合はそのまま表示
+      if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
+        return {
+          ...emptyArcielaWordData,
           word,
-          !line.join(" ").match(/[\-\!\#\$\%\&\(\'\)]/)
-        );
-      })
-    );
-  }
-  return [];
+        };
+      }
+      // 単語に変換
+      return arciela.getArcielaWord(
+        word,
+        !line.join(" ").match(/[\-\!\#\$\%\&\(\'\)]/)
+      );
+    })
+  );
 });
+
+// 用例検索
+const foundLyrics = computed(() => lyrics.getMatchForeluna(props.keyword));
 </script>
