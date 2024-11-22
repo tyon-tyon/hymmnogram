@@ -23,8 +23,8 @@ export default function () {
         };
       }).
         filter(c => !!c) as TForelunaCharData[]; // 空の要素を削除
-    });
-
+    })
+      .filter(s => s.length > 0); // 空のセクションを削除
     return {
       word: q,
       sections: sectionChars,
