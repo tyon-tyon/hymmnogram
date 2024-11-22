@@ -16,7 +16,7 @@ export default function useExample() {
   };
 
   const getPartialMatch = (q: string) => {
-    q = q.replace(/([\-\.])/, "\\$1");
+    q = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const reg = new RegExp(q, 'gi');
     // 完全一致の例文を取得
     const hymmnosExactMatch = examples.filter((example) =>

@@ -17,8 +17,12 @@
       >
     </template>
     <template v-if="keyword.length" #item="{ item }">
-      <SearchPanelHymmnosResult
+      <SearchPanelHymmnos
         v-if="item.key === 'hymmnos'"
+        :keyword="keyword"
+      />
+      <SearchPanelArCiela
+        v-if="item.key === 'arciela'"
         :keyword="keyword"
       />
     </template>
@@ -33,21 +37,15 @@ const items = [
     label: "ヒュムノス",
   },
   {
-    key: "foreluna",
-    label: "律史前月読(月奏)",
-  },
-  {
     key: "arciela",
     label: "アルシエラ(星語)",
   },
+  {
+    key: "foreluna",
+    label: "律史前月読(月奏)",
+  },
 ];
 
-const accountForm = reactive({ name: "Benjamin", username: "benjamincanac" });
-const passwordForm = reactive({ currentPassword: "", newPassword: "" });
-
-function onSubmit(form: any) {
-  console.log("Submitted form:", form);
-}
 </script>
 
 <style></style>

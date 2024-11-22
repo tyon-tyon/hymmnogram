@@ -46,6 +46,7 @@ import LanguageSelect from "~/components/EditorTools/LanguageSelect.vue";
 const { editorWords, cursorLineIndex, cursorLine } = useEditor();
 const { getForelunaWord } = useForeluna();
 const { getArcielaWord } = useArciela();
+const { splitArCiela } = useTextProcessor();
 
 const language = ref("ヒュムノス");
 
@@ -57,7 +58,7 @@ const hymmnosWords = computed(() => {
 // カーソル行のアルシエラワードを取得
 const arcielaWords = computed(() => {
   // アルシエラは空白とカンマとピリオドで区切る
-  return cursorLine.value.split(/[\s,."']/);
+  return splitArCiela(cursorLine.value)[0];
 });
 
 // 行番号かテキストエリアの中身が変わったら言語をチェックする

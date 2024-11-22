@@ -3,7 +3,7 @@
     :rows="examples.slice(0, showAll ? undefined : defaultRowCount)"
     :columns="columns"
     sortable
-    :empty-state="{ icon: null, label: '用例が見つかりません...' }"
+    :empty-state="{ icon:  '', label: '用例が見つかりません...' }"
   >
     <template #example-data="{ row }">
       <div
