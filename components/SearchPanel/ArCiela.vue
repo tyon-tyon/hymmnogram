@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-5">
+  <div v-if="keyword.length" class="mb-5">
     <div
       v-for="(line, index) in lineWords"
       :key="index"
@@ -9,7 +9,7 @@
         <ArcielaWord
           v-for="(word, index) in line"
           :word="word"
-          :key="index+word.word"
+          :key="index + word.word"
           font
         />
         <ArcielaWord
@@ -20,7 +20,10 @@
       </div>
     </div>
   </div>
-  <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
+  <UAccordion multiple :items="keyword.length ? items : [items[1]]">
+    <template #characters>
+      <ArCielaTables />
+    </template>
     <template #lyrics>
       <LyricTable :lyrics="foundLyrics" :word="keyword" />
     </template>
@@ -41,13 +44,13 @@ const { splitArCiela } = useTextProcessor();
 
 const items = [
   {
-    label: "各文字の意味",
-    slot: "characters",
+    label: "用例",
+    slot: "lyrics",
     defaultOpen: true,
   },
   {
-    label: "用例",
-    slot: "lyrics",
+    label: "各文字の意味",
+    slot: "characters",
     defaultOpen: true,
   },
 ];

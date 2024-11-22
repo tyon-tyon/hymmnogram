@@ -16,7 +16,7 @@
         >{{ item.label }}</span
       >
     </template>
-    <template v-if="keyword.length" #item="{ item }">
+    <template #item="{ item }">
       <SearchPanelHymmnos
         v-if="item.key === 'hymmnos'"
         :keyword="keyword"
