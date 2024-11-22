@@ -20,9 +20,9 @@
     <template v-if="!lineWords.length" #partial-match>
       <HymmnosTable :words="partialMatchWords" :exact-word="exactMatchWord" />
     </template>
-    <template #examples>
-      <ExampleTable
-        :examples="foundExamples"
+    <template #lyrics>
+      <LyricTable
+        :lyrics="foundLyrics"
         :word="
           exactMatchWord?.subWords?.length
             ? exactMatchWord?.subWords[0]
@@ -40,7 +40,7 @@ const props = defineProps<{
 
 const dictionary = useDictionary();
 const { emptyWordData } = dictionary;
-const example = useExample();
+const lyrics = useLyrics();
 const { splitTextIntoLinesAndWords } = useTextProcessor();
 
 const items = [
@@ -51,7 +51,7 @@ const items = [
   },
   {
     label: "用例",
-    slot: "examples",
+    slot: "lyrics",
     defaultOpen: true,
   },
 ];
@@ -119,16 +119,16 @@ const partialMatchWords = computed(() => {
 });
 
 // 用例検索
-const foundExamples = computed(() => {
+const foundLyrics = computed(() => {
   // 完全一致を優先させる
   const exactMatchWordBase = exactMatchWord.value?.subWords?.[0]?.hymmnos;
-  const exactMatchExamples = exactMatchWordBase
-    ? example.getPartialMatch(exactMatchWordBase)
+  const exactMatchLyrics = exactMatchWordBase
+    ? lyrics.getMatchHymmnos(exactMatchWordBase)
     : [];
   // 重複を削除
   return [
-    ...exactMatchExamples,
-    ...example.getPartialMatch(props.keyword),
-  ].filter((v, i, a) => a.findIndex((t) => t.hymmnos === v.hymmnos) === i);
+    ...exactMatchLyrics,
+    ...lyrics.getMatchHymmnos(props.keyword),
+  ].filter((v, i, a) => a.findIndex((t) => t.lyric === v.lyric) === i);
 });
 </script>

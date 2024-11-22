@@ -6,7 +6,7 @@
       :action="true"
       :defaultRowCount="5"
     />
-    <ExampleTable :examples="examples" :word="exampleWord" />
+    <LyricTable :lyrics="lyrics" :word="lyricWord" />
   </template>
   <template v-if="mode === 'arciela'">
     <ArCielaKeyboard
@@ -28,13 +28,13 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData, TJsonExampleData, TArcielaCharData } from "~/types";
+import type { TWordData, TLyric, TArcielaCharData } from "~/types";
 const props = defineProps<{
   mode: "hymmnos" | "arciela" | "foreluna";
   keyword: string;
 }>();
 const dictionary = useDictionary();
-const example = useExample();
+const lyric = useLyrics();
 const {
   addWord,
   addText,
@@ -47,8 +47,8 @@ const {
 const { emptyWordData } = useDictionary();
 
 const words = ref<TWordData[]>([]);
-const examples = ref<TJsonExampleData[]>([]);
-const exampleWord = ref<TWordData>(emptyWordData);
+const lyrics = ref<TLyric[]>([]);
+const lyricWord = ref<TWordData>(emptyWordData);
 
 let timer: NodeJS.Timeout | undefined;
 watch(
@@ -60,7 +60,7 @@ watch(
 
     if (keyword.length === 0) {
       words.value = [];
-      examples.value = [];
+      lyrics.value = [];
       return;
     }
 
@@ -73,9 +73,9 @@ watch(
 const searchHymmnos = (keyword: string) => {
   // 部分一致検索
   words.value = dictionary.getPartialMatch(keyword);
-  examples.value = example.getPartialMatch(keyword);
+  lyrics.value = lyric.getMatchHymmnos(keyword);
   // 用例で使う単語を取得
-  exampleWord.value =
+  lyricWord.value =
     // 完全一致するヒュムノス単語がある場合はそれを使用
     words.value.find(
       (w) =>

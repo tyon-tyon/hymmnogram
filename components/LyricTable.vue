@@ -1,22 +1,19 @@
 <template>
   <UTable
-    :rows="examples.slice(0, showAll ? undefined : defaultRowCount)"
+    :rows="lyrics.slice(0, showAll ? undefined : defaultRowCount)"
     :columns="columns"
     sortable
-    :empty-state="{ icon:  '', label: '用例が見つかりません...' }"
+    :empty-state="{ icon: '', label: '用例が見つかりません...' }"
   >
     <template #example-data="{ row }">
-      <div
-        class="text-wrap mb-2"
-        v-html="getHilightedHymmnosHtml(row.hymmnos, word)"
-      ></div>
+      <div class="text-wrap mb-2" v-html="getLyricHtml(row.lyric)"></div>
       <div class="text-wrap text-xs leading-4">
-        {{ row.japanese }} - {{ row.title }}
+        <span v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
       </div>
     </template>
   </UTable>
   <UButton
-    v-if="examples.length > defaultRowCount && !showAll"
+    v-if="lyrics.length > defaultRowCount && !showAll"
     @click="showAll = !showAll"
     class="w-full"
     color="primary"
@@ -24,23 +21,23 @@
     size="xl"
     block
   >
-    全て表示({{ examples.length }}件)
+    全て表示({{ lyrics.length }}件)
   </UButton>
 </template>
 
 <script setup lang="ts">
-import type { TWordData, TJsonExampleData } from "~/types";
+import type { TWordData, TLyric } from "~/types";
 const props = withDefaults(
   defineProps<{
     word?: TWordData;
-    examples: TJsonExampleData[];
+    lyrics: TLyric[];
     defaultRowCount?: number;
   }>(),
   {
     defaultRowCount: 10,
   }
 );
-const { examples } = toRefs(props);
+const { lyrics } = toRefs(props);
 
 const { splitTextIntoLinesAndWords } = useTextProcessor();
 const dictionary = useDictionary();
@@ -56,30 +53,58 @@ const columns = [
 const showAll = ref<boolean>(false);
 
 watch(
-  () => props.examples,
+  () => props.lyrics,
   () => {
     showAll.value = false;
   }
 );
 
+const getHilightedText = (text: string, hilighted: string) => {
+  return text.replace(
+    new RegExp("(" + hilighted + ")", "gi"),
+    `<span class="font-bold text-primary-600">$1</span>`
+  );
+};
+
 // HTMLデータ
-const getHilightedHymmnosHtml = (hymmnos: string, word?: TWordData) => {
-  if (!word) return hymmnos;
+const getJapaneseHtml = (lyric: TLyric) => {
+  const { word } = props;
+  if (!word || word.hymmnos.match(/[:]/)) return lyric.japanese;
 
   // word.hymmnosと一致する部分をハイライト
-  const standart = hymmnos.replace(
+  const standart = getHilightedText(lyric.japanese, word?.hymmnos);
+  if (standart !== lyric.japanese) {
+    return standart;
+  }
+
+  // 変化がある場合
+  const match = lyric.japaneseWords.match(
+    new RegExp(word?.hymmnos + "[^:]*:([^: ]+)", "gi")
+  );
+  if (!match) return lyric.japanese;
+  const hilighted = match[0].replace(/[^:]*:([^: ]+)/, "$1");
+  return getHilightedText(lyric.japanese, hilighted);
+};
+
+// HTMLデータ
+const getLyricHtml = (lyric: string) => {
+  const { word } = props;
+  if (!word) return lyric;
+
+  // word.hymmnosと一致する部分をハイライト
+  const standart = lyric.replace(
     new RegExp(
       "(" + (word?.hymmnos.replace(/([\.\-])/g, "\\$1") ?? "") + ")",
       "gi"
     ),
     `<span class="font-bold text-primary-600">$1</span>`
   );
-  if (standart !== hymmnos) {
+  if (standart !== lyric) {
     return standart;
   }
 
   // 変化がある場合
-  const words = splitTextIntoLinesAndWords(hymmnos)[0];
+  const words = splitTextIntoLinesAndWords(lyric)[0];
   const found = words.map((word) => {
     const found = dictionary.getExactMatch(word);
     return found
