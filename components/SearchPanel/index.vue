@@ -6,7 +6,7 @@
     class="mb-4"
     placeholder="ヒュムノス辞書で検索したいキーワードを入力"
   />
-  <SearchPanelHymmnosResult v-if="keyword.length" :keyword="keyword" />
+  <SearchPanelHymmnos v-if="keyword.length" :keyword="keyword" />
 </template>
 
 <script setup lang="ts">
