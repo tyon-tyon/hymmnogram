@@ -1,7 +1,10 @@
+
+import useDictionary from './useDictionary.js';
+
 export default function () {
   const { getExactMatch } = useDictionary();
 
-  const splitTextIntoLinesAndWords = (text: string): string[][] => {
+  const splitHymmnos = (text: string): string[][] => {
     const lines = text.split("\n");
     const linesAndWords = lines.map((line) => {
       const cleanedLine = line
@@ -33,12 +36,12 @@ export default function () {
     return linesAndWords;
   };
 
-  const splitArCiela = (text: string): string[][] => {
-    return text.split("\n").map((line) => line.split(/[\s,."']/));
+  const splitForeluna = (text: string): string[][] => {
+    return text.split("\n").map((line) => line.split(/[\s,."'!?]/));
   };
 
   return {
-    splitTextIntoLinesAndWords,
-    splitArCiela,
+    splitHymmnos,
+    splitForeluna,
   };
 }

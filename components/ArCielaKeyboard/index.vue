@@ -94,8 +94,8 @@ const cursorArcielaChar = computed(() => {
   );
   // カーソル位置の文字を取得
   let arcielaInputLength = 0;
-  for (let i = 0; i < cursorArcielaWord.length; i++) {
-    const char = cursorArcielaWord[i];
+  for (let i = 0; i < cursorArcielaWord.chars.length; i++) {
+    const char = cursorArcielaWord.chars[i];
     arcielaInputLength += (char.input ?? "").length;
     if (cursorInWord.value <= arcielaInputLength) {
       cursorCharIndex.value = i;
@@ -172,7 +172,7 @@ const replace = (char: TArcielaCharData) => {
     if (i === cursorWordIndex.value) {
       const cursorArcielaWord = getArcielaWord(arcielaWords.value[i]);
       for (let j = 0; j < cursorCharIndex.value; j++) {
-        beforeText += cursorArcielaWord[j].input ?? "";
+        beforeText += cursorArcielaWord.chars[j].input ?? "";
       }
       start = beforeText.length;
       end = start + (char.input ?? "").length;

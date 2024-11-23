@@ -53,6 +53,11 @@ export type TArcielaCharData = {
   envelope?: 'quad' | 'dual' | 'single' | 'harf' | null; // エンベロープ
 };
 
+export type TArcielaWordData = {
+  word: string; // 単語
+  chars: TArcielaCharData[]; // 文字
+};
+
 export type TDialectData = {
   name: string;
   japanese: string;

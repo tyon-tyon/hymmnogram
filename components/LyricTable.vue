@@ -4,6 +4,11 @@
     :columns="columns"
     sortable
     :empty-state="{ icon: '', label: '用例が見つかりません...' }"
+    :ui="{
+      th: {
+        padding: 'hidden',
+      },
+    }"
   >
     <template #example-data="{ row }">
       <div class="text-wrap mb-2" v-html="getLyricHtml(row.lyric)"></div>
@@ -26,10 +31,10 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData, TLyric } from "~/types";
+import type { TLyric } from "~/types";
 const props = withDefaults(
   defineProps<{
-    word?: TWordData;
+    word: string;
     lyrics: TLyric[];
     defaultRowCount?: number;
   }>(),
@@ -69,17 +74,17 @@ const getHilightedText = (text: string, hilighted: string) => {
 // HTMLデータ
 const getJapaneseHtml = (lyric: TLyric) => {
   const { word } = props;
-  if (!word || word.hymmnos.match(/[:]/)) return lyric.japanese;
+  if (!word || word.match(/[:]/)) return lyric.japanese;
 
   // word.hymmnosと一致する部分をハイライト
-  const standart = getHilightedText(lyric.japanese, word?.hymmnos);
+  const standart = getHilightedText(lyric.japanese, word);
   if (standart !== lyric.japanese) {
     return standart;
   }
 
   // 変化がある場合
   const match = lyric.japaneseWords.match(
-    new RegExp(word?.hymmnos + "[^:]*:([^: ]+)", "gi")
+    new RegExp(word + "[^:]*:([^: ]+)", "gi")
   );
   if (!match) return lyric.japanese;
   const hilighted = match[0].replace(/[^:]*:([^: ]+)/, "$1");
@@ -94,7 +99,7 @@ const getLyricHtml = (lyric: string) => {
   // word.hymmnosと一致する部分をハイライト
   const standart = lyric.replace(
     new RegExp(
-      "(" + (word?.hymmnos.replace(/([\.\-])/g, "\\$1") ?? "") + ")",
+      "(" + (word.replace(/([\.\-])/g, "\\$1") ?? "") + ")",
       "gi"
     ),
     `<span class="font-bold text-primary-600">$1</span>`
@@ -116,8 +121,8 @@ const getLyricHtml = (lyric: string) => {
     .map((w) => {
       // ハイライト
       if (
-        w.hymmnos === word.hymmnos ||
-        (w.subWords && w.subWords[0].hymmnos === word.hymmnos)
+        w.hymmnos === word ||
+        (w.subWords && w.subWords[0].hymmnos === word)
       ) {
         return `<span class="font-bold text-primary-600">${w.hymmnos}</span>`;
       }

@@ -1,13 +1,14 @@
 import _arciela from "~/assets/datas/arciela.json";
-import type { TArcielaCharData } from "~/types";
+import type { TArcielaCharData, TArcielaWordData } from "~/types";
 
 
 export default function () {
   const arciela = _arciela as TArcielaCharData[];
   const emptyArcielaCharData: TArcielaCharData = { input: "", char: "", caption: null, meanings: [] };
+  const emptyArcielaWordData: TArcielaWordData = { word: "", chars: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
-  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaCharData[] => {
+  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaWordData => {
     // コンパートメント表記で分割
     const strChars = [];
     const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
@@ -31,7 +32,10 @@ export default function () {
     }
     // 文字ごとに意味を取得
     const chars = strChars.map(c => ({ ...getArcielaChar(c, noCompartment), input: c }));
-    return chars;
+    return {
+      word: q,
+      chars,
+    };
   };
 
   const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaCharData => {
@@ -81,8 +85,8 @@ export default function () {
         meanings.length ? meanings.join("/") : `(${char.caption})`,
       meanings: char.meanings,
       note: char.note,
-      session,
-      envelope,
+      session: charStr.match(/^[aiueon]$/i) ? undefined : session,
+      envelope: charStr.match(/^[aiueon]$/i) ? undefined : envelope,
     };
   };
 
@@ -133,5 +137,5 @@ export default function () {
     return `${sessionSimbol}${envelopeSimbol}${char}`;
   };
 
-  return { getArcielaWord, arcielaChars: arciela, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr };
+  return { getArcielaWord, arcielaChars: arciela, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr, emptyArcielaWordData, emptyArcielaCharData };
 };

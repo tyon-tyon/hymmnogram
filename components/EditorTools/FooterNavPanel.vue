@@ -6,7 +6,7 @@
       :action="true"
       :defaultRowCount="5"
     />
-    <LyricTable :lyrics="lyrics" :word="lyricWord" />
+    <LyricTable :lyrics="lyrics" :word="lyricWord.hymmnos" />
   </template>
   <template v-if="mode === 'arciela'">
     <ArCielaKeyboard

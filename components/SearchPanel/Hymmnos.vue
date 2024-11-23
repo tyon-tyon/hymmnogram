@@ -1,36 +1,39 @@
 <template>
-  <div v-if="lineWords.length" class="mb-5">
-    <div
-      v-for="(line, index) in lineWords"
-      :key="index"
-      style="min-height: 70px"
-    >
-      <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <HymmnosWord
-          v-for="(word, index) in line"
-          :word="word"
-          :key="index"
-          hymmnos-font
-        />
-        <HymmnosWord :word="emptyWordData" style="flex: 1000 1 auto" />
+  <template v-if="keyword.length">
+    <div v-if="lineWords.length" class="mb-5">
+      <div
+        v-for="(line, index) in lineWords"
+        :key="index"
+        style="min-height: 70px"
+      >
+        <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
+          <HymmnosWord
+            v-for="(word, index) in line"
+            :word="word"
+            :key="index"
+            hymmnos-font
+          />
+          <HymmnosWord :word="emptyWordData" style="flex: 1000 1 auto" />
+        </div>
       </div>
     </div>
-  </div>
-  <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
-    <template v-if="!lineWords.length" #partial-match>
-      <HymmnosTable :words="partialMatchWords" :exact-word="exactMatchWord" />
-    </template>
-    <template #lyrics>
-      <LyricTable
-        :lyrics="foundLyrics"
-        :word="
-          exactMatchWord?.subWords?.length
-            ? exactMatchWord?.subWords[0]
-            : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
-        "
-      />
-    </template>
-  </UAccordion>
+    <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
+      <template v-if="!lineWords.length" #partial-match>
+        <HymmnosTable :words="partialMatchWords" :exact-word="exactMatchWord" />
+      </template>
+      <template #lyrics>
+        <LyricTable
+          :lyrics="foundLyrics"
+          :word="
+            (exactMatchWord?.subWords?.length
+              ? exactMatchWord?.subWords[0]
+              : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
+            ).hymmnos
+          "
+        />
+      </template>
+    </UAccordion>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -43,18 +46,20 @@ const { emptyWordData } = dictionary;
 const lyrics = useLyrics();
 const { splitTextIntoLinesAndWords } = useTextProcessor();
 
-const items = [
-  {
-    label: "単語",
-    slot: "partial-match",
-    defaultOpen: true,
-  },
-  {
-    label: "用例",
-    slot: "lyrics",
-    defaultOpen: true,
-  },
-];
+const items = computed(() => {
+  return [
+    {
+      label: "単語",
+      slot: "partial-match",
+      defaultOpen: true,
+    },
+    {
+      label: "用例",
+      slot: "lyrics",
+      defaultOpen: true,
+    },
+  ];
+});
 
 const lineWords = computed(() => {
   const keyword = props.keyword;
@@ -126,9 +131,8 @@ const foundLyrics = computed(() => {
     ? lyrics.getMatchHymmnos(exactMatchWordBase)
     : [];
   // 重複を削除
-  return [
-    ...exactMatchLyrics,
-    ...lyrics.getMatchHymmnos(props.keyword),
-  ].filter((v, i, a) => a.findIndex((t) => t.lyric === v.lyric) === i);
+  return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(props.keyword)].filter(
+    (v, i, a) => a.findIndex((t) => t.lyric === v.lyric) === i
+  );
 });
 </script>

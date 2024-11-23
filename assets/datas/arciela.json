@@ -105,7 +105,7 @@
   },
   {
     "char": "D",
-    "caption": "魔法",
+    "caption": "明暗",
     "meanings": [
       "魔",
       "",
@@ -180,7 +180,7 @@
   },
   {
     "char": "K",
-    "caption": "創造",
+    "caption": "刷新",
     "meanings": [
       "",
       "破壊?",
@@ -226,7 +226,7 @@
   },
   {
     "char": "P",
-    "caption": "生死",
+    "caption": "輪廻",
     "meanings": [
       "",
       "死?",
@@ -347,7 +347,7 @@
   },
   {
     "char": "Y",
-    "caption": "光",
+    "caption": "聖邪",
     "meanings": [
       "闇",
       "",
