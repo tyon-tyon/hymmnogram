@@ -32,7 +32,7 @@ const lyricsForeluna: TLyric[] = [];
 const lyricsHymmnos: TLyric[] = [];
 main();
 async function main() {
-  await readLyrics('./in/lyrics');
+  await readLyrics('./lyrics');
   console.log(lyricsForeluna.length, lyricsHymmnos.length);
   fs.writeFileSync('./out/lyrics_foreluna.json', JSON.stringify(lyricsForeluna, null, 2));
   fs.writeFileSync('./out/lyrics_hymmnos.json', JSON.stringify(lyricsHymmnos, null, 2));
