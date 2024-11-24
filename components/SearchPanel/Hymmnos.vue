@@ -19,7 +19,7 @@
     </div>
     <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
       <template v-if="!lineWords.length" #partial-match>
-        <HymmnosTable :words="partialMatchWords" :exact-word="exactMatchWord" />
+        <TableHymmnos :words="partialMatchWords" :exact-word="exactMatchWord" />
       </template>
       <template #lyrics>
         <LyricTable
