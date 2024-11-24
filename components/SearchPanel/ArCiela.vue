@@ -29,7 +29,7 @@
   </div>
   <UAccordion multiple :items="keyword.length ? items : [items[1]]">
     <template #characters>
-      <ArCielaTables />
+      <TableArCiela />
     </template>
     <template #lyrics>
       <LyricTable :lyrics="foundLyrics" :word="keyword" />
