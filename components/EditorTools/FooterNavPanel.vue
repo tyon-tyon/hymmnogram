@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData, TLyric, TArcielaCharData } from "~/types";
+import type { TWord, TLyric, TArcielaChar } from "~/types";
 const props = defineProps<{
   mode: "hymmnos" | "arciela" | "foreluna";
   keyword: string;
@@ -46,9 +46,9 @@ const {
 } = useEditor();
 const { emptyWordData } = useDictionary();
 
-const words = ref<TWordData[]>([]);
+const words = ref<TWord[]>([]);
 const lyrics = ref<TLyric[]>([]);
-const lyricWord = ref<TWordData>(emptyWordData);
+const lyricWord = ref<TWord>(emptyWordData);
 
 let timer: NodeJS.Timeout | undefined;
 watch(

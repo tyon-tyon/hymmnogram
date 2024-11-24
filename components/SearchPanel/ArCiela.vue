@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaWordData } from "~/types";
+import type { TArcielaWord } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -62,7 +62,7 @@ const items = [
   },
 ];
 
-const lineWords = computed((): TArcielaWordData[][] => {
+const lineWords = computed((): TArcielaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
   const lines = splitArCiela(keyword);

@@ -1,15 +1,15 @@
 
-import type { TJsonWordData, TWordData, TDialectData } from "~/types";
+import type { TJsonWord, TWord, TDialect } from "~/types";
 
 
 export default function () {
-  const originalWords = useState<TJsonWordData[]>('originalWords', () => []);
-  const originalDialects = useState<TDialectData[]>('originalDialects', () => []);
+  const originalWords = useState<TJsonWord[]>('originalWords', () => []);
+  const originalDialects = useState<TDialect[]>('originalDialects', () => []);
   const originalWordsStr = useState<string>('originalWordsStr', () => '');
   const originalWordsDelimiter = useState<string>('originalDelimiter', () => '');
 
   // テキストから単語データを取得する
-  function getWordFromText(text: string, delimiter: string): TWordData[] {
+  function getWordFromText(text: string, delimiter: string): TWord[] {
     const wordlines = text.split("\n");
     const delimiterStr = delimiter.length ? delimiter : "、";
     if (wordlines.length === 0) [];
@@ -38,7 +38,7 @@ export default function () {
   };
 
   // オリジナル単語を更新
-  const updateOriginalWords = (words: string, delimiter: string): TJsonWordData[] => {
+  const updateOriginalWords = (words: string, delimiter: string): TJsonWord[] => {
     originalWordsStr.value = words;
     originalWordsDelimiter.value = delimiter;
     // 単語データを更新
@@ -47,7 +47,7 @@ export default function () {
   };
 
   // オリジナル流派をoriginalStorageに保存
-  const updateOriginalDialects = (dialects: TDialectData[]) => {
+  const updateOriginalDialects = (dialects: TDialect[]) => {
     // 流派データを更新
     originalDialects.value = dialects;
     return originalDialects.value;

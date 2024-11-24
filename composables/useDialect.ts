@@ -1,8 +1,8 @@
 import _dialects from "~/assets/datas/dialects.json";
-import type { TDialectData } from "~/types";
+import type { TDialect } from "~/types";
 
 export default function () {
-  const dialects = useState<TDialectData[]>('dialects', () => _dialects);
+  const dialects = useState<TDialect[]>('dialects', () => _dialects);
   const pureDialects = _dialects;
 
   const getDiarectJapanese = (dialect: string | null) => {
@@ -11,7 +11,7 @@ export default function () {
     return dialect;
   };
 
-  const updateDialects = (originalDialects: TDialectData[]) => {
+  const updateDialects = (originalDialects: TDialect[]) => {
     dialects.value = [..._dialects, ...originalDialects];
   };
 

@@ -1,8 +1,8 @@
 import _dialects from "~/assets/datas/dialects.json";
-import type { TDialectData } from "~/types";
+import type { TDialect } from "~/types";
 
 // 登録済みの流派データ
-const pureDialects: TDialectData[] = _dialects;
+const pureDialects: TDialect[] = _dialects;
 export default function () {
   const { dialects } = useDialect();
 
@@ -57,7 +57,7 @@ export default function () {
     };
     const dialectData = dialects.value.find(d => d.name === dialect);
     // 登録済みの流派の場合
-    if (dialectData && pureDialects.find((d: TDialectData) => d.name === dialect)) return textColor[dialectData.color as keyof typeof textColor];
+    if (dialectData && pureDialects.find((d: TDialect) => d.name === dialect)) return textColor[dialectData.color as keyof typeof textColor];
     // オリジナルの流派の場合
     if (dialectData) return textColorLocal[dialectData.color as keyof typeof textColorLocal];
     return "text-black";
@@ -89,7 +89,7 @@ export default function () {
       rose: "bg-rose-50",
     };
     const dialectData = dialects.value.find(d => d.name === dialect);
-    if (dialectData && pureDialects.find((d: TDialectData) => d.name === dialect)) return bgColor[dialectData.color as keyof typeof bgColor];
+    if (dialectData && pureDialects.find((d: TDialect) => d.name === dialect)) return bgColor[dialectData.color as keyof typeof bgColor];
     return "bg-white";
   };
 

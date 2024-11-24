@@ -1,14 +1,14 @@
 import _words from "@/assets/datas/words.json";
-import type { TJsonWordData, TWordData, TEmotionVowelMeaning } from "~/types";
+import type { TJsonWord, TWord, TEmotionVowelMeaning } from "~/types";
 
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
   // ローカルストレージから単語データを取得
-  const words = useState<TWordData[]>('words', () => _words as TWordData[]);
+  const words = useState<TWord[]>('words', () => _words as TWord[]);
 
   // 完全一致の単語を取得
-  const getExactMatch = (q: string, dialect?: string): TWordData | undefined => {
+  const getExactMatch = (q: string, dialect?: string): TWord | undefined => {
     if (!q.length) return undefined;
     // パスタリエの所有格
     const possessive = getWordPossessive(q);
@@ -24,7 +24,7 @@ export default function () {
   };
 
   // 部分一致の単語を取得
-  const getPartialMatch = (query: string): TWordData[] => {
+  const getPartialMatch = (query: string): TWord[] => {
     const lowerCaseQuery = query.toLowerCase();
     return words.value.filter(w =>
       w.hymmnos.toLowerCase().includes(lowerCaseQuery) ||
@@ -34,10 +34,10 @@ export default function () {
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWordData = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "" };
+  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "" };
 
   // 単語データを更新
-  const updateWords = (originalWords: TJsonWordData[]) => {
+  const updateWords = (originalWords: TJsonWord[]) => {
     words.value = [..._words, ...originalWords];
   };
 
@@ -46,7 +46,7 @@ export default function () {
   */
 
   // 通常の完全一致
-  function getWordExactMatch(q: string, dialect?: string): TWordData | undefined {
+  function getWordExactMatch(q: string, dialect?: string): TWord | undefined {
     const lowerCaseWord = q.toLowerCase();
     const exactMatchFounds = words.value.filter(w => w.hymmnos.toLowerCase() === lowerCaseWord);
     const found =
@@ -95,7 +95,7 @@ export default function () {
   }
 
   // パスタリエ想音動詞の単語を取得
-  function getWordEmotionVerb(q: string): TWordData | undefined {
+  function getWordEmotionVerb(q: string): TWord | undefined {
     // 末尾がehの場合は受動態の可能性があるので、ehを抜いて再検索
     if (q.match(/eh$/)) {
       const emotionVerb = getWordEmotionVerb(q.replace(/eh$/, ""));
@@ -153,11 +153,11 @@ export default function () {
 
 
   // パスタリエ所有格の単語を取得
-  function getWordPossessive(q: string): TWordData | undefined {
+  function getWordPossessive(q: string): TWord | undefined {
     const possessive = q.match(new RegExp(`^(${emotionVowels})([a-zA-Z\.=_]+)$`));
-    let possessiveOwner: TWordData | undefined;
-    let possessiveWord: TWordData | undefined;
-    const subWords: TWordData[] = [];
+    let possessiveOwner: TWord | undefined;
+    let possessiveWord: TWord | undefined;
+    const subWords: TWord[] = [];
 
     // 所有格の形式に合わない場合はパスタリエ所有格ではない
     if (!possessive) return;

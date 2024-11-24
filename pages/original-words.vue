@@ -37,7 +37,7 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
 </template>
 
 <script setup lang="ts">
-import type { TDialectData } from "~/types";
+import type { TDialect } from "~/types";
 
 const { pureDialects, updateDialects } = useDialect();
 const { updateWords } = useDictionary();
@@ -48,7 +48,7 @@ const wordsStr = ref("");
 // 意味の区切り文字
 const delimiter = ref("、");
 // 新規流派
-const newDialects = ref<TDialectData[]>([]);
+const newDialects = ref<TDialect[]>([]);
 
 const items = [
   {

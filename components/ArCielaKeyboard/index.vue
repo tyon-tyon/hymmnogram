@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaCharData } from "~/types";
+import type { TArcielaChar } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -143,7 +143,7 @@ watch(
 const getArcielaWordStr = (
   char: string,
   session: number,
-  envelope?: TArcielaCharData["envelope"]
+  envelope?: TArcielaChar["envelope"]
 ) => {
   let text = char;
   switch (mode.value) {
@@ -162,7 +162,7 @@ const input = ({ char, session }: { char: string; session: number }) => {
 };
 
 // セッション・エンベロープ修正
-const replace = (char: TArcielaCharData) => {
+const replace = (char: TArcielaChar) => {
   if (!char.input) return;
   // 開始位置と終了位置を取得
   let beforeText = "";

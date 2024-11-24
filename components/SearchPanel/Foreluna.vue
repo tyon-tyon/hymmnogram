@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TForelunaWordData } from "~/types";
+import type { TForelunaWord } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -55,7 +55,7 @@ const items = [
   },
 ];
 
-const lineWords = computed((): TForelunaWordData[][] => {
+const lineWords = computed((): TForelunaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
   const lines = splitArCiela(keyword);
