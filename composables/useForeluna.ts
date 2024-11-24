@@ -1,12 +1,12 @@
 import _foreluna from "~/assets/datas/foreluna.json";
-import type { TForelunaCharData, TForelunaWordData } from "~/types";
+import type { TForelunaChar, TForelunaWord } from "~/types";
 
 export default function () {
-  const foreluna = _foreluna as TForelunaCharData[];
-  const emptyForelunaWordData: TForelunaWordData = { word: "", sections: [], type: null };
+  const foreluna = _foreluna as TForelunaChar[];
+  const emptyForelunaWordData: TForelunaWord = { word: "", sections: [], type: null };
 
   // 律史前月詠の単語を取得
-  const getForelunaWord = (q: string): TForelunaWordData => {
+  const getForelunaWord = (q: string): TForelunaWord => {
     // 英文字だけ処理
     if (!q.match(/^[a-zA-Z]+$/)) return { ...emptyForelunaWordData, word: q };
     // 母音でセクションを分割
@@ -22,7 +22,7 @@ export default function () {
           meaning: char.meaning,
         };
       }).
-        filter(c => !!c) as TForelunaCharData[]; // 空の要素を削除
+        filter(c => !!c) as TForelunaChar[]; // 空の要素を削除
     })
       .filter(s => s.length > 0); // 空のセクションを削除
     return {

@@ -6,13 +6,13 @@
       style="min-height: 70px"
     >
       <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <ForelunaWord
+        <WordForeluna
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
           font
         />
-        <ForelunaWord
+        <WordForeluna
           :word="emptyForelunaWordData"
           :key="-1"
           style="flex: 1000 1 auto"
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TForelunaWordData } from "~/types";
+import type { TForelunaWord } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -55,7 +55,7 @@ const items = [
   },
 ];
 
-const lineWords = computed((): TForelunaWordData[][] => {
+const lineWords = computed((): TForelunaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
   const lines = splitArCiela(keyword);

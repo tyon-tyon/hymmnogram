@@ -57,9 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaWordData } from "~/types";
+import type { TArcielaWord } from "~/types";
 const { word } = defineProps<{
-  word: TArcielaWordData;
+  word: TArcielaWord;
   small?: boolean;
   font?: boolean;
 }>();

@@ -48,9 +48,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TForelunaWordData } from "~/types";
+import type { TForelunaWord } from "~/types";
 const { word } = defineProps<{
-  word: TForelunaWordData;
+  word: TForelunaWord;
   small?: boolean;
   font?: boolean;
 }>();

@@ -71,9 +71,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData } from "~/types";
+import type { TWord } from "~/types";
 const { word } = defineProps<{
-  word: TWordData;
+  word: TWord;
   small?: boolean;
   hymmnosFont?: boolean;
 }>();

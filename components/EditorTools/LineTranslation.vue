@@ -2,7 +2,7 @@
   <div class="line-translation">
     <LanguageSelect v-model="language" />
     <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5">
-      <HymmnosWord
+      <WordHymmnos
         v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')"
         :word="word"
         :key="index"
@@ -15,7 +15,7 @@
         :key="index"
         class="text-black"
       >
-        <ForelunaWord
+        <WordForeluna
           :word="
             getForelunaWord(word.hymmnos) ?? {
               word: word.hymmnos,
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
-      <ArcielaWord
+      <WordArciela
         v-for="(word, index) in arcielaWords"
         class="mr-3"
         :key="index + word"

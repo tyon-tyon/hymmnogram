@@ -1,4 +1,4 @@
-export type TJsonWordData = {
+export type TJsonWord = {
   hymmnos: string; // 単語
   japanese: string[]; // 意味
   pronunciation?: string | null; // 発音
@@ -9,12 +9,12 @@ export type TJsonWordData = {
   notes?: string; // 備考
   explanation?: string; // 説明
 };
-export type TWordData = TJsonWordData & {
+export type TWord = TJsonWord & {
   // 以下useDictionaryでのみ使用
-  subWords?: TWordData[]; // 下位の単語
+  subWords?: TWord[]; // 下位の単語
   primaryMeaning?: string; // 主たる意味
   emotionVowels?: (TEmotionVowelMeaning | undefined)[]; // 想母音
-  possessiveOwner?: TWordData | string; // 所有者
+  possessiveOwner?: TWord | string; // 所有者
   voice?: string; // 態
 };
 
@@ -32,18 +32,18 @@ export type TLyric = {
   japaneseWords: string,
 };
 
-export type TForelunaCharData = {
+export type TForelunaChar = {
   char: string; // 文字
   meaning: string; // 意味
 };
 
-export type TForelunaWordData = {
+export type TForelunaWord = {
   word: string; // 単語
-  sections: TForelunaCharData[][]; // 文字
+  sections: TForelunaChar[][]; // 文字
   type: 'modifier' | 'executor' | null;
 };
 
-export type TArcielaCharData = {
+export type TArcielaChar = {
   input: string; // 入力文字
   char: string; // 文字
   caption: string | null; // 説明
@@ -53,12 +53,12 @@ export type TArcielaCharData = {
   envelope?: 'quad' | 'dual' | 'single' | 'harf' | null; // エンベロープ
 };
 
-export type TArcielaWordData = {
+export type TArcielaWord = {
   word: string; // 単語
-  chars: TArcielaCharData[]; // 文字
+  chars: TArcielaChar[]; // 文字
 };
 
-export type TDialectData = {
+export type TDialect = {
   name: string;
   japanese: string;
   color: string;

@@ -46,9 +46,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaCharData } from "~/types";
+import type { TArcielaChar } from "~/types";
 defineProps<{
-  char: TArcielaCharData;
+  char: TArcielaChar;
 }>();
 
 const { getSessions, envelopes, getCompartmentStr, geFontStr } = useArciela();

@@ -1,14 +1,14 @@
 import _arciela from "~/assets/datas/arciela.json";
-import type { TArcielaCharData, TArcielaWordData } from "~/types";
+import type { TArcielaChar, TArcielaWord } from "~/types";
 
 
 export default function () {
-  const arciela = _arciela as TArcielaCharData[];
-  const emptyArcielaCharData: TArcielaCharData = { input: "", char: "", caption: null, meanings: [] };
-  const emptyArcielaWordData: TArcielaWordData = { word: "", chars: [] };
+  const arciela = _arciela as TArcielaChar[];
+  const emptyArcielaCharData: TArcielaChar = { input: "", char: "", caption: null, meanings: [] };
+  const emptyArcielaWordData: TArcielaWord = { word: "", chars: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
-  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaWordData => {
+  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaWord => {
     // コンパートメント表記で分割
     const strChars = [];
     const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
@@ -38,7 +38,7 @@ export default function () {
     };
   };
 
-  const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaCharData => {
+  const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaChar => {
     // 表記が正しいかチェック
     if (
       input.match(/^[a-zA-Z]$/) // 英文字のみ
@@ -101,7 +101,7 @@ export default function () {
     }
   };
 
-  const envelopeToSymbol = (envelope: TArcielaCharData['envelope']) => {
+  const envelopeToSymbol = (envelope: TArcielaChar['envelope']) => {
     switch (envelope) {
       case "harf": return ")";
       case "single": return "";
@@ -121,7 +121,7 @@ export default function () {
     ];
   };
 
-  const getCompartmentStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+  const getCompartmentStr = (char: string, session?: number, envelope?: TArcielaChar['envelope']) => {
     char = char.toLowerCase();
     if (char.match(/^[aiueon]$/i)) return char;
     if (session === undefined) return char;
@@ -129,7 +129,7 @@ export default function () {
     return `${char}[s-${session}]`;
   };
 
-  const geFontStr = (char: string, session?: number, envelope?: TArcielaCharData['envelope']) => {
+  const geFontStr = (char: string, session?: number, envelope?: TArcielaChar['envelope']) => {
     char = char.toLowerCase();
     if (char.match(/[aiueon]/i)) return char;
     const sessionSimbol = sessionToSymbol(session ?? 0);

@@ -108,11 +108,11 @@
 </template>
 
 <script setup lang="ts">
-import type { TWordData } from "~/types";
+import type { TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
-    words: TWordData[];
-    exactWord?: TWordData;
+    words: TWord[];
+    exactWord?: TWord;
     action?: boolean;
     defaultRowCount?: number;
   }>(),
@@ -194,7 +194,7 @@ watch(
   () => [showDialects.value.length, words.value, showAll.value],
   () => {
     rows.value = [
-      ...(exactWord.value ? [exactWord.value] : []).map((word: TWordData) => ({
+      ...(exactWord.value ? [exactWord.value] : []).map((word: TWord) => ({
         ...word,
         class: " border-b-4",
       })),
@@ -221,7 +221,7 @@ onMounted(() => {
   }
 });
 
-const getWordItem = (word: TWordData & { class?: string }) => {
+const getWordItem = (word: TWord & { class?: string }) => {
   return {
     hymmnos: word.hymmnos,
     japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),

@@ -13,13 +13,13 @@
       style="min-height: 70px"
     >
       <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <ArcielaWord
+        <WordArciela
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
           font
         />
-        <ArcielaWord
+        <WordArciela
           :word="emptyArcielaWordData"
           :key="-1"
           style="flex: 1000 1 auto"
@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaWordData } from "~/types";
+import type { TArcielaWord } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -62,7 +62,7 @@ const items = [
   },
 ];
 
-const lineWords = computed((): TArcielaWordData[][] => {
+const lineWords = computed((): TArcielaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
   const lines = splitArCiela(keyword);

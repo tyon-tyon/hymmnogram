@@ -1,11 +1,11 @@
-import type { TWordData } from "~/types";
+import type { TWord } from "~/types";
 
 
 export default function () {
   const { splitTextIntoLinesAndWords } = useTextProcessor();
   const { getExactMatch, emptyWordData } = useDictionary();
   const { getDialectTextClass } = useStyles();
-  const editorWords = useState<TWordData[][]>('editorWords', () => []);
+  const editorWords = useState<TWord[][]>('editorWords', () => []);
   const cursorLineIndex = useState<number>('cursorLineIndex', () => 0);
   const cursorPosition = useState<number>('cursorPosition', () => 0);
   const cursorLine = useState<string>('cursorLine', () => "");
@@ -76,7 +76,7 @@ export default function () {
     textarea.blur();
   };
 
-  const addWord = (word: TWordData) => {
+  const addWord = (word: TWord) => {
     addText(
       (
         cursorPosition.value < 1 || textareaText.value.slice(0, cursorPosition.value + 1).match(/^[\s\n]$/)
