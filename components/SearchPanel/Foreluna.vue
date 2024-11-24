@@ -6,13 +6,13 @@
       style="min-height: 70px"
     >
       <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <ForelunaWord
+        <WordForeluna
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
           font
         />
-        <ForelunaWord
+        <WordForeluna
           :word="emptyForelunaWordData"
           :key="-1"
           style="flex: 1000 1 auto"

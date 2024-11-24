@@ -7,13 +7,13 @@
         style="min-height: 70px"
       >
         <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-          <HymmnosWord
+          <WordHymmnos
             v-for="(word, index) in line"
             :word="word"
             :key="index"
             hymmnos-font
           />
-          <HymmnosWord :word="emptyWordData" style="flex: 1000 1 auto" />
+          <WordHymmnos :word="emptyWordData" style="flex: 1000 1 auto" />
         </div>
       </div>
     </div>

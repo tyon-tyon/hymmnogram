@@ -13,13 +13,13 @@
       style="min-height: 70px"
     >
       <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
-        <ArcielaWord
+        <WordArciela
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
           font
         />
-        <ArcielaWord
+        <WordArciela
           :word="emptyArcielaWordData"
           :key="-1"
           style="flex: 1000 1 auto"
