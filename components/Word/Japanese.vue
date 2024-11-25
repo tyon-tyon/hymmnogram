@@ -11,10 +11,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  small: {
-    type: Boolean,
-    default: false,
-  },
-});
+defineProps<{
+  small?: boolean;
+}>();
 </script>
