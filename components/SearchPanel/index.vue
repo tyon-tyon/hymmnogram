@@ -39,5 +39,3 @@ const items = [
   },
 ];
 </script>
-
-<style></style>

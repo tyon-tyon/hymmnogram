@@ -26,7 +26,7 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
     <UAccordion :items="items">
       <template #examples>
         <!-- 冒頭5件だけ表示 -->
-        <TableHymmnos :words="originalWords" :defaultRowCount="5"/>
+        <TableHymmnos :words="originalWords" :defaultRowCount="5" />
       </template>
     </UAccordion>
 
@@ -111,7 +111,3 @@ const saveLocalStorage = () => {
   toast.add({ title: "保存しました" });
 };
 </script>
-
-<style scoped>
-/** */
-</style>

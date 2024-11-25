@@ -4,7 +4,6 @@
       <div
         v-for="(line, index) in lineWords"
         :key="index"
-        style="min-height: 70px"
       >
         <div :rows="lineWords" class="flex flex-wrap">
           <WordHymmnos
