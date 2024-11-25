@@ -25,14 +25,7 @@
             {{ row.color }}
           </UButton>
         </template>
-        <template
-          #item="{ item }"
-          @click="
-            () => {
-              console.log();
-            }
-          "
-        >
+        <template #item="{ item }">
           {{ item.label }}
         </template>
       </UDropdown>

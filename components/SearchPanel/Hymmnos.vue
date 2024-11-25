@@ -6,14 +6,13 @@
         :key="index"
         style="min-height: 70px"
       >
-        <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
+        <div :rows="lineWords" class="flex flex-wrap">
           <WordHymmnos
             v-for="(word, index) in line"
             :word="word"
             :key="index"
-            hymmnos-font
+            class="pr-4 pt-4"
           />
-          <WordHymmnos :word="emptyWordData" style="flex: 1000 1 auto" />
         </div>
       </div>
     </div>
@@ -81,8 +80,8 @@ const lineWords = computed(() => {
             hymmnos: word,
           }
         );
-      })
-    );
+      }).filter((word) => word.hymmnos !== " ")
+    )
     // wordsの中にパスタリエがない場合はそのまま返す
     if (!words.flat().some((word) => word.dialect === "pastalie")) {
       return words;

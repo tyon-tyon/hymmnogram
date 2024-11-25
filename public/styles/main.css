@@ -20,6 +20,9 @@
 .text-3xs {
   font-size: 0.4rem;
 }
+.max-width-content {
+  max-width: calc(100vw - 32px);
+}
 .z--1 {
   z-index: -1;
 }
