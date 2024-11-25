@@ -10,19 +10,13 @@
     <div
       v-for="(line, index) in lineWords"
       :key="index"
-      style="min-height: 70px"
     >
-      <div :rows="lineWords" style="display: flex; flex-wrap: wrap">
+      <div :rows="lineWords" class="flex flex-wrap">
         <WordArciela
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
-          font
-        />
-        <WordArciela
-          :word="emptyArcielaWordData"
-          :key="-1"
-          style="flex: 1000 1 auto"
+          class="pr-4 pt-4"
         />
       </div>
     </div>

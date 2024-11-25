@@ -148,6 +148,7 @@ export default function () {
           voice: "想音動詞",
           emotionVowels: emotionVowelMeanings,
           subWords: [pastalieVerb],
+          primaryMeaning: pastalieVerb.japanese[0],
         };
       }
     }
