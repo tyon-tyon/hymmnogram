@@ -27,8 +27,9 @@ export type TEmotionVowel = {
 
 export type TIdiom = {
   idiom: string[]; // 慣用句
-  japanese: string; // 意味
-  emotionVowel?: T
+  japanese: string[]; // 意味
+  emotionVowelString?: string; // 想母音
+  dialect: string;
 };
 
 export type TLyric = {
