@@ -100,7 +100,7 @@
 </template>
 
 <script setup lang="ts">
-const { arcielaChars } = useArciela();
+const { arcielaChars } = useArCiela();
 
 //母音のカラム
 const columns1 = [

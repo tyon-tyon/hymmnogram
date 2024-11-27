@@ -63,7 +63,7 @@ defineProps<{
   keyword: string;
 }>();
 
-const { arcielaChars } = useArciela();
+const { arcielaChars } = useArCiela();
 const emit = defineEmits(["input", "delete"]);
 const hoverChar = ref("");
 

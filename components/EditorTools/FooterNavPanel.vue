@@ -12,7 +12,7 @@
     <ArCielaKeyboard
       @input="addText"
       @delete="deleteText"
-      @replace="replaceArcielaChar"
+      @replace="replaceArCielaChar"
       :keyword="keyword"
       :cursorLine="cursorLine"
       :cursorPosition="cursorPositionInLine"
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TWord, TLyric, TArcielaChar } from "~/types";
+import type { TWord, TLyric, TArCielaChar } from "~/types";
 const props = defineProps<{
   mode: "hymmnos" | "arciela" | "foreluna";
   keyword: string;
@@ -99,7 +99,7 @@ const cursorPositionInLine = computed(() => {
 });
 
 // カーソル位置のアルシエラ文字を修正
-const replaceArcielaChar = ({
+const replaceArCielaChar = ({
   start,
   end,
   text,

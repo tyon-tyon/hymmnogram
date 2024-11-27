@@ -28,11 +28,11 @@
       </div>
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
-      <WordArciela
+      <WordArCiela
         v-for="(word, index) in arcielaWords"
         class="mr-3"
         :key="index + word"
-        :word="getArcielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
+        :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
         small
       />
     </div>
@@ -46,7 +46,7 @@
 import LanguageSelect from "~/components/EditorTools/LanguageSelect.vue";
 const { editorWords, cursorLineIndex, cursorLine } = useEditor();
 const { getForelunaWord } = useForeluna();
-const { getArcielaWord } = useArciela();
+const { getArCielaWord } = useArCiela();
 const { splitForeluna } = useTextProcessor();
 
 const language = ref("ヒュムノス");

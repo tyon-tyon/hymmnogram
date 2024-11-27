@@ -35,12 +35,12 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaWord } from "~/types";
+import type { TArCielaWord } from "~/types";
 const { word } = defineProps<{
-  word: TArcielaWord;
+  word: TArCielaWord;
   small?: boolean;
   font?: boolean;
 }>();
-const { geFontStr } = useArciela();
+const { geFontStr } = useArCiela();
 const japanese = word.chars.length === 0 ? word.word : undefined;
 </script>

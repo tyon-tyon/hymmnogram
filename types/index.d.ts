@@ -43,7 +43,7 @@ export type TForelunaWord = {
   type: 'modifier' | 'executor' | null;
 };
 
-export type TArcielaChar = {
+export type TArCielaChar = {
   input: string; // 入力文字
   char: string; // 文字
   caption: string | null; // 説明
@@ -53,9 +53,9 @@ export type TArcielaChar = {
   envelope?: 'quad' | 'dual' | 'single' | 'harf' | null; // エンベロープ
 };
 
-export type TArcielaWord = {
+export type TArCielaWord = {
   word: string; // 単語
-  chars: TArcielaChar[]; // 文字
+  chars: TArCielaChar[]; // 文字
 };
 
 export type TDialect = {

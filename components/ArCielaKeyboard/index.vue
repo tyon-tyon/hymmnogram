@@ -34,8 +34,8 @@
         </UPopover>
       </div>
       <ArCielaKeyboardCharDetail
-        v-if="cursorArcielaChar"
-        :char="cursorArcielaChar"
+        v-if="cursorArCielaChar"
+        :char="cursorArCielaChar"
         @change="replace"
         class="mb-2"
       />
@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaChar } from "~/types";
+import type { TArCielaChar } from "~/types";
 
 const props = defineProps<{
   keyword: string;
@@ -60,7 +60,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits(["input", "delete", "replace"]);
-const { getArcielaWord, getCompartmentStr, geFontStr } = useArciela();
+const { getArCielaWord, getCompartmentStr, geFontStr } = useArCiela();
 
 const mode = ref<"none" | "compartment" | "arciela_font">("compartment");
 const getModeJp = (mode: string) => {
@@ -79,7 +79,7 @@ const cursorWordIndex = ref(0);
 const cursorCharIndex = ref(0);
 const cursorInWord = ref(0);
 
-const cursorArcielaChar = computed(() => {
+const cursorArCielaChar = computed(() => {
   // カーソル位置がアルシエラ単語の範囲外の場合
   if (
     cursorWordIndex.value === -1 ||
@@ -89,13 +89,13 @@ const cursorArcielaChar = computed(() => {
     return;
   }
   // カーソル位置のアルシエラ単語を取得
-  const cursorArcielaWord = getArcielaWord(
+  const cursorArCielaWord = getArCielaWord(
     arcielaWords.value[cursorWordIndex.value]
   );
   // カーソル位置の文字を取得
   let arcielaInputLength = 0;
-  for (let i = 0; i < cursorArcielaWord.chars.length; i++) {
-    const char = cursorArcielaWord.chars[i];
+  for (let i = 0; i < cursorArCielaWord.chars.length; i++) {
+    const char = cursorArCielaWord.chars[i];
     arcielaInputLength += (char.input ?? "").length;
     if (cursorInWord.value <= arcielaInputLength) {
       cursorCharIndex.value = i;
@@ -140,10 +140,10 @@ watch(
   }
 );
 
-const getArcielaWordStr = (
+const getArCielaWordStr = (
   char: string,
   session: number,
-  envelope?: TArcielaChar["envelope"]
+  envelope?: TArCielaChar["envelope"]
 ) => {
   let text = char;
   switch (mode.value) {
@@ -158,11 +158,11 @@ const getArcielaWordStr = (
 };
 // キーボード入力
 const input = ({ char, session }: { char: string; session: number }) => {
-  emit("input", getArcielaWordStr(char, session));
+  emit("input", getArCielaWordStr(char, session));
 };
 
 // セッション・エンベロープ修正
-const replace = (char: TArcielaChar) => {
+const replace = (char: TArCielaChar) => {
   if (!char.input) return;
   // 開始位置と終了位置を取得
   let beforeText = "";
@@ -170,9 +170,9 @@ const replace = (char: TArcielaChar) => {
   let end = 0;
   for (let i = 0; i < arcielaWords.value.length; i++) {
     if (i === cursorWordIndex.value) {
-      const cursorArcielaWord = getArcielaWord(arcielaWords.value[i]);
+      const cursorArCielaWord = getArCielaWord(arcielaWords.value[i]);
       for (let j = 0; j < cursorCharIndex.value; j++) {
-        beforeText += cursorArcielaWord.chars[j].input ?? "";
+        beforeText += cursorArCielaWord.chars[j].input ?? "";
       }
       start = beforeText.length;
       end = start + (char.input ?? "").length;
@@ -185,7 +185,7 @@ const replace = (char: TArcielaChar) => {
   emit("replace", {
     start,
     end,
-    text: getArcielaWordStr(char.char, char.session ?? 0, char.envelope),
+    text: getArCielaWordStr(char.char, char.session ?? 0, char.envelope),
   });
 };
 </script>

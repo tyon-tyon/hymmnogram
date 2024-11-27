@@ -46,12 +46,12 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaChar } from "~/types";
+import type { TArCielaChar } from "~/types";
 defineProps<{
-  char: TArcielaChar;
+  char: TArCielaChar;
 }>();
 
-const { getSessions, envelopes, getCompartmentStr, geFontStr } = useArciela();
+const { getSessions, envelopes, getCompartmentStr, geFontStr } = useArCiela();
 
 const emit = defineEmits(["change"]);
 </script>
