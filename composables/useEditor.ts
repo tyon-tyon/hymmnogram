@@ -2,7 +2,7 @@ import type { TWord } from "~/types";
 
 
 export default function () {
-  const { splitTextIntoLinesAndWords } = useTextProcessor();
+  const { splitHymmnos } = useTextProcessor();
   const { getExactMatch, emptyWordData } = useDictionary();
   const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWord[][]>('editorWords', () => []);
@@ -14,7 +14,7 @@ export default function () {
 
   const changeTextarea = (text: string) => {
     textareaText.value = text;
-    const lines = splitTextIntoLinesAndWords(text);
+    const lines = splitHymmnos(text);
     editorWords.value = lines
       .map((words) =>
         words
