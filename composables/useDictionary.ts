@@ -1,5 +1,5 @@
 import _words from "@/assets/datas/words.json";
-import type { TJsonWord, TWord, TEmotionVowelMeaning } from "~/types";
+import type { TJsonWord, TWord, TEmotionVowel } from "~/types";
 
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
@@ -139,7 +139,7 @@ export default function () {
         // 全てundefinedの場合は想音動詞ではない
         if (emotionVowels.every(v => !v)) return;
         // 想母音から意味を取得
-        const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowelMeaning(v) : undefined);
+        const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowel(v) : undefined);
         return {
           ...pastalieVerb,
           hymmnos: q,
@@ -191,7 +191,7 @@ export default function () {
       }
     } else {
       // 所有者がいない場合は想母音から推測
-      ownerStr = getEmotionVowelMeaning(emotionVowel)?.target ?? "不明";
+      ownerStr = getEmotionVowel(emotionVowel)?.target ?? "不明";
     }
 
     return {
@@ -201,12 +201,13 @@ export default function () {
       part_of_speech: "所有格名詞",
       dialect: "pastalie",
       possessiveOwner: possessiveOwner ?? ownerStr,
-      subWords
+      subWords,
+      emotionVowels: [getEmotionVowel(emotionVowel)],
     };
 
   }
 
-  function getEmotionVowelMeaning(emotionVowel: string): TEmotionVowelMeaning | undefined {
+  function getEmotionVowel(emotionVowel: string): TEmotionVowel | undefined {
     // 誰を表すか
     let target = "";
     if (emotionVowel.match(/^LY/)) {
@@ -218,17 +219,17 @@ export default function () {
     }
     // どんな感情か
     if (emotionVowel.match(/A$/)) {
-      return { target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
     } else if (emotionVowel.match(/I$/)) {
-      return { target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
     } else if (emotionVowel.match(/U$/)) {
-      return { target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
     } else if (emotionVowel.match(/E$/)) {
-      return { target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
     } else if (emotionVowel.match(/O$/)) {
-      return { target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
     } else if (emotionVowel.match(/N$/)) {
-      return { target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
     }
     return;
   }
