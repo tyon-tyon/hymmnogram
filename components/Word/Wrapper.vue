@@ -12,11 +12,7 @@
     <slot v-else name="japanese">
       <div
         v-if="!small"
-        class="text-ms text-cool-400"
-        :class="{
-          'text-sm': !small,
-          'text-2xs': small,
-        }"
+        class="text-cool-500"
       >
         {{ japanese }}
       </div>

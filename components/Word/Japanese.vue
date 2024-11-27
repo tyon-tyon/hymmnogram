@@ -1,5 +1,11 @@
 <template>
-  <div class="text-cool-500 leading-none text-nowrap">
+  <div
+    class="text-cool-500 leading-none text-nowrap"
+    :class="{
+      'text-sm': !small,
+      'text-2xs': small,
+    }"
+  >
     <slot></slot>
   </div>
 </template>
