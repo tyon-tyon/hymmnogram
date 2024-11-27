@@ -243,5 +243,15 @@
     ],
     "emotionVowelString": "LYA",
     "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "infel",
+      "yor"
+    ],
+    "japanese": [
+      "ありがとう"
+    ],
+    "dialect": "metafalss"
   }
 ]
