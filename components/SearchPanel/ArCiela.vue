@@ -12,7 +12,7 @@
       :key="index"
     >
       <div :rows="lineWords" class="flex flex-wrap">
-        <WordArciela
+        <WordArCiela
           v-for="(word, index) in line"
           :word="word"
           :key="index + word.word"
@@ -32,16 +32,16 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaWord } from "~/types";
+import type { TArCielaWord } from "~/types";
 
 const props = defineProps<{
   keyword: string;
 }>();
 
-const arciela = useArciela();
-const { emptyArcielaWordData } = arciela;
+const arCiela = useArCiela();
+const { emptyArCielaWordData } = arCiela;
 const lyrics = useLyrics();
-const { splitArCiela } = useTextProcessor();
+const { splitForeluna } = useTextProcessor();
 
 const items = [
   {
@@ -56,22 +56,22 @@ const items = [
   },
 ];
 
-const lineWords = computed((): TArcielaWord[][] => {
+const lineWords = computed((): TArCielaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
-  const lines = splitArCiela(keyword);
+  const lines = splitForeluna(keyword);
 
   return lines.map((line) =>
     line.map((word) => {
       // 日本語が含まれている場合はそのまま表示
       if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
         return {
-          ...emptyArcielaWordData,
+          ...emptyArCielaWordData,
           word,
         };
       }
       // 単語に変換
-      return arciela.getArcielaWord(
+      return arCiela.getArCielaWord(
         word,
         !line.join(" ").match(/[\-\!\#\$\%\&\(\'\)]/)
       );

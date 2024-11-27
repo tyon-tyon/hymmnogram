@@ -28,11 +28,11 @@
       </div>
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
-      <WordArciela
-        v-for="(word, index) in arcielaWords"
+      <WordArCiela
+        v-for="(word, index) in arCielaWords"
         class="mr-3"
         :key="index + word"
-        :word="getArcielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
+        :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
         small
       />
     </div>
@@ -46,8 +46,8 @@
 import LanguageSelect from "~/components/EditorTools/LanguageSelect.vue";
 const { editorWords, cursorLineIndex, cursorLine } = useEditor();
 const { getForelunaWord } = useForeluna();
-const { getArcielaWord } = useArciela();
-const { splitArCiela } = useTextProcessor();
+const { getArCielaWord } = useArCiela();
+const { splitForeluna } = useTextProcessor();
 
 const language = ref("ヒュムノス");
 
@@ -57,9 +57,9 @@ const hymmnosWords = computed(() => {
 });
 
 // カーソル行のアルシエラワードを取得
-const arcielaWords = computed(() => {
+const arCielaWords = computed(() => {
   // アルシエラは空白とカンマとピリオドで区切る
-  return splitArCiela(cursorLine.value)[0];
+  return splitForeluna(cursorLine.value)[0];
 });
 
 // 行番号かテキストエリアの中身が変わったら言語をチェックする

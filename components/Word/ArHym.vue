@@ -4,7 +4,7 @@
     class="text-2xl"
     :class="{
       'font-hymmnos': hymmnos,
-      'font-arciela': arciela,
+      'font-ar-ciela': arCiela,
     }"
   >
     <slot></slot>
@@ -14,6 +14,6 @@
 defineProps<{
   small?: boolean;
   hymmnos?: boolean;
-  arciela?: boolean;
+  arCiela?: boolean;
 }>();
 </script>

@@ -94,9 +94,9 @@
 </template>
 
 <script setup lang="ts">
-import type { TArcielaChar } from "~/types";
+import type { TArCielaChar } from "~/types";
 const props = defineProps<{
-  char: TArcielaChar;
+  char: TArCielaChar;
   highlight?: boolean;
   hoverChar?: string;
 }>();

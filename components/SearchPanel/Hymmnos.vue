@@ -42,7 +42,7 @@ const props = defineProps<{
 const dictionary = useDictionary();
 const { emptyWordData } = dictionary;
 const lyrics = useLyrics();
-const { splitTextIntoLinesAndWords } = useTextProcessor();
+const { splitHymmnos } = useTextProcessor();
 
 const items = computed(() => {
   return [
@@ -64,7 +64,7 @@ const lineWords = computed(() => {
   // ヒュムノスの文章の意味を調べる
   if (keyword.match(/([\!\?\s,]|\/.)/)) {
     // 行と単語に分割
-    const lines = splitTextIntoLinesAndWords(keyword);
+    const lines = splitHymmnos(keyword);
 
     const words = lines.map((line) =>
       line.map((word) => {

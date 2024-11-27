@@ -1,14 +1,14 @@
-import _arciela from "~/assets/datas/arciela.json";
-import type { TArcielaChar, TArcielaWord } from "~/types";
+import _arCiela from "~/assets/datas/arCiela.json";
+import type { TArCielaChar, TArCielaWord } from "~/types";
 
 
 export default function () {
-  const arciela = _arciela as TArcielaChar[];
-  const emptyArcielaCharData: TArcielaChar = { input: "", char: "", caption: null, meanings: [] };
-  const emptyArcielaWordData: TArcielaWord = { word: "", chars: [] };
+  const arCiela = _arCiela as TArCielaChar[];
+  const emptyArCielaCharData: TArCielaChar = { input: "", char: "", caption: null, meanings: [] };
+  const emptyArCielaWordData: TArCielaWord = { word: "", chars: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
   // アルシエラの単語を取得
-  const getArcielaWord = (q: string, noCompartment?: boolean): TArcielaWord => {
+  const getArCielaWord = (q: string, noCompartment?: boolean): TArCielaWord => {
     // コンパートメント表記で分割
     const strChars = [];
     const compartmentStrs = q.replace(/(\[s\-[0-4](\/(harf|single|dual|quad))?\])([a-z])/gi, "$1|$4").split("|");
@@ -31,14 +31,14 @@ export default function () {
       }
     }
     // 文字ごとに意味を取得
-    const chars = strChars.map(c => ({ ...getArcielaChar(c, noCompartment), input: c }));
+    const chars = strChars.map(c => ({ ...getArCielaChar(c, noCompartment), input: c }));
     return {
       word: q,
       chars,
     };
   };
 
-  const getArcielaChar = (input: string, noCompartment?: boolean): TArcielaChar => {
+  const getArCielaChar = (input: string, noCompartment?: boolean): TArCielaChar => {
     // 表記が正しいかチェック
     if (
       input.match(/^[a-zA-Z]$/) // 英文字のみ
@@ -47,10 +47,10 @@ export default function () {
     ) {
       // 正
     } else {
-      return { ...emptyArcielaCharData, input };
+      return { ...emptyArCielaCharData, input };
     }
     const [charStr] = input.replace(/s-[0-4]/, '').match(/[a-z]/gi) ?? [];
-    if (!charStr) return emptyArcielaCharData; // 英文字がない場合はスキップ
+    if (!charStr) return emptyArCielaCharData; // 英文字がない場合はスキップ
     const session = (() => {
       if (input.match(/(s-1|\!)/)) return 1;
       if (input.match(/(s-2|\#)/)) return 2;
@@ -64,9 +64,9 @@ export default function () {
       if (input.match(/(harf|\))/)) return "harf";
       return "single";
     })();
-    const char = arciela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
+    const char = arCiela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
 
-    if (!char) return emptyArcielaCharData;// 文字が見つからない場合はスキップ
+    if (!char) return emptyArCielaCharData;// 文字が見つからない場合はスキップ
     // コンパートメントを考慮しない場合はそのまま返す
     if (noCompartment) return {
       ...char,
@@ -101,7 +101,7 @@ export default function () {
     }
   };
 
-  const envelopeToSymbol = (envelope: TArcielaChar['envelope']) => {
+  const envelopeToSymbol = (envelope: TArCielaChar['envelope']) => {
     switch (envelope) {
       case "harf": return ")";
       case "single": return "";
@@ -121,7 +121,7 @@ export default function () {
     ];
   };
 
-  const getCompartmentStr = (char: string, session?: number, envelope?: TArcielaChar['envelope']) => {
+  const getCompartmentStr = (char: string, session?: number, envelope?: TArCielaChar['envelope']) => {
     char = char.toLowerCase();
     if (char.match(/^[aiueon]$/i)) return char;
     if (session === undefined) return char;
@@ -129,7 +129,7 @@ export default function () {
     return `${char}[s-${session}]`;
   };
 
-  const geFontStr = (char: string, session?: number, envelope?: TArcielaChar['envelope']) => {
+  const geFontStr = (char: string, session?: number, envelope?: TArCielaChar['envelope']) => {
     char = char.toLowerCase();
     if (char.match(/[aiueon]/i)) return char;
     const sessionSimbol = sessionToSymbol(session ?? 0);
@@ -137,5 +137,5 @@ export default function () {
     return `${sessionSimbol}${envelopeSimbol}${char}`;
   };
 
-  return { getArcielaWord, arcielaChars: arciela, getArcielaChar, getSessions, envelopes, getCompartmentStr, geFontStr, emptyArcielaWordData, emptyArcielaCharData };
+  return { getArCielaWord, arCielaChars: arCiela, getArCielaChar, getSessions, envelopes, getCompartmentStr, geFontStr, emptyArCielaWordData, emptyArCielaCharData };
 };
