@@ -8,7 +8,7 @@
     />
     <LyricTable :lyrics="lyrics" :word="lyricWord.hymmnos" />
   </template>
-  <template v-if="mode === 'arciela'">
+  <template v-if="mode === 'arCiela'">
     <ArCielaKeyboard
       @input="addText"
       @delete="deleteText"
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import type { TWord, TLyric, TArCielaChar } from "~/types";
 const props = defineProps<{
-  mode: "hymmnos" | "arciela" | "foreluna";
+  mode: "hymmnos" | "arCiela" | "foreluna";
   keyword: string;
 }>();
 const dictionary = useDictionary();

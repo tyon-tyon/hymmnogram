@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap">
     <Key
-      v-for="char in arcielaChars.slice(0, 6)"
+      v-for="char in arCielaChars.slice(0, 6)"
       :key="char.char"
       :char="char"
       @input="input"
@@ -15,7 +15,7 @@
   </div>
   <div class="flex flex-wrap">
     <Key
-      v-for="char in arcielaChars.slice(6, 100)"
+      v-for="char in arCielaChars.slice(6, 100)"
       :key="char.char"
       :char="char"
       @input="input"
@@ -63,7 +63,7 @@ defineProps<{
   keyword: string;
 }>();
 
-const { arcielaChars } = useArCiela();
+const { arCielaChars } = useArCiela();
 const emit = defineEmits(["input", "delete"]);
 const hoverChar = ref("");
 

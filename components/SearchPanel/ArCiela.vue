@@ -38,8 +38,8 @@ const props = defineProps<{
   keyword: string;
 }>();
 
-const arciela = useArCiela();
-const { emptyArCielaWordData } = arciela;
+const arCiela = useArCiela();
+const { emptyArCielaWordData } = arCiela;
 const lyrics = useLyrics();
 const { splitForeluna } = useTextProcessor();
 
@@ -71,7 +71,7 @@ const lineWords = computed((): TArCielaWord[][] => {
         };
       }
       // 単語に変換
-      return arciela.getArCielaWord(
+      return arCiela.getArCielaWord(
         word,
         !line.join(" ").match(/[\-\!\#\$\%\&\(\'\)]/)
       );

@@ -1,9 +1,9 @@
-import _arciela from "~/assets/datas/arciela.json";
+import _arCiela from "~/assets/datas/arCiela.json";
 import type { TArCielaChar, TArCielaWord } from "~/types";
 
 
 export default function () {
-  const arciela = _arciela as TArCielaChar[];
+  const arCiela = _arCiela as TArCielaChar[];
   const emptyArCielaCharData: TArCielaChar = { input: "", char: "", caption: null, meanings: [] };
   const emptyArCielaWordData: TArCielaWord = { word: "", chars: [] };
   const envelopes = ["harf", "single", "dual", "quad"];
@@ -64,7 +64,7 @@ export default function () {
       if (input.match(/(harf|\))/)) return "harf";
       return "single";
     })();
-    const char = arciela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
+    const char = arCiela.find(f => f.char?.toLowerCase() === charStr.toLowerCase());// 各文字を取得(大文字小文字は問わない)
 
     if (!char) return emptyArCielaCharData;// 文字が見つからない場合はスキップ
     // コンパートメントを考慮しない場合はそのまま返す
@@ -137,5 +137,5 @@ export default function () {
     return `${sessionSimbol}${envelopeSimbol}${char}`;
   };
 
-  return { getArCielaWord, arcielaChars: arciela, getArCielaChar, getSessions, envelopes, getCompartmentStr, geFontStr, emptyArCielaWordData, emptyArCielaCharData };
+  return { getArCielaWord, arCielaChars: arCiela, getArCielaChar, getSessions, envelopes, getCompartmentStr, geFontStr, emptyArCielaWordData, emptyArCielaCharData };
 };

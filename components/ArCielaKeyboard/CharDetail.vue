@@ -1,7 +1,7 @@
 <template>
   <div v-if="char?.char" class="flex w-full">
     <div class="flex flex-col text-center mr-2 char">
-      <div class="font-arciela text-5xl mb-1">
+      <div class="font-ar-ciela text-5xl mb-1">
         {{ geFontStr(char.char, char.session, char.envelope) }}
       </div>
       <div class="text-sm">

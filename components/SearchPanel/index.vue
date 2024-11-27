@@ -17,7 +17,7 @@
     <template #item="{ item }">
       <SearchPanelHymmnos v-if="item.key === 'hymmnos'" :keyword="keyword" />
       <SearchPanelForeluna v-if="item.key === 'foreluna'" :keyword="keyword" />
-      <SearchPanelArCiela v-if="item.key === 'arciela'" :keyword="keyword" />
+      <SearchPanelArCiela v-if="item.key === 'arCiela'" :keyword="keyword" />
     </template>
   </UTabs>
 </template>
@@ -34,7 +34,7 @@ const items = [
     label: "律史前月読(月奏)",
   },
   {
-    key: "arciela",
+    key: "arCiela",
     label: "アルシエラ(星語)",
   },
 ];

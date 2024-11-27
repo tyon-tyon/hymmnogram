@@ -18,8 +18,8 @@
                 コンパートメント
               </UButton>
               <UButton
-                :color="mode === 'arciela_font' ? 'primary' : 'white'"
-                @click="mode = 'arciela_font'"
+                :color="mode === 'arCiela_font' ? 'primary' : 'white'"
+                @click="mode = 'arCiela_font'"
               >
                 アルシエラフォント
               </UButton>
@@ -62,19 +62,19 @@ const props = defineProps<{
 const emit = defineEmits(["input", "delete", "replace"]);
 const { getArCielaWord, getCompartmentStr, geFontStr } = useArCiela();
 
-const mode = ref<"none" | "compartment" | "arciela_font">("compartment");
+const mode = ref<"none" | "compartment" | "arCiela_font">("compartment");
 const getModeJp = (mode: string) => {
   switch (mode) {
     case "compartment":
       return "コンパートメント";
-    case "arciela_font":
+    case "arCiela_font":
       return "アルシエラフォント";
     case "none":
       return "アルファベット";
   }
 };
 
-const arcielaWords = ref<string[]>([]);
+const arCielaWords = ref<string[]>([]);
 const cursorWordIndex = ref(0);
 const cursorCharIndex = ref(0);
 const cursorInWord = ref(0);
@@ -83,21 +83,21 @@ const cursorArCielaChar = computed(() => {
   // カーソル位置がアルシエラ単語の範囲外の場合
   if (
     cursorWordIndex.value === -1 ||
-    arcielaWords.value.length === 0 ||
+    arCielaWords.value.length === 0 ||
     cursorInWord.value === 0
   ) {
     return;
   }
   // カーソル位置のアルシエラ単語を取得
   const cursorArCielaWord = getArCielaWord(
-    arcielaWords.value[cursorWordIndex.value]
+    arCielaWords.value[cursorWordIndex.value]
   );
   // カーソル位置の文字を取得
-  let arcielaInputLength = 0;
+  let arCielaInputLength = 0;
   for (let i = 0; i < cursorArCielaWord.chars.length; i++) {
     const char = cursorArCielaWord.chars[i];
-    arcielaInputLength += (char.input ?? "").length;
-    if (cursorInWord.value <= arcielaInputLength) {
+    arCielaInputLength += (char.input ?? "").length;
+    if (cursorInWord.value <= arCielaInputLength) {
       cursorCharIndex.value = i;
       return char;
     }
@@ -113,8 +113,8 @@ watch(
     // アルシエラ単語ごとに分割
     const line = cursorLine + "\n";
     const chars = line.split("");
-    let arcielaWordsIndex = 0;
-    arcielaWords.value = [""];
+    let arCielaWordsIndex = 0;
+    arCielaWords.value = [""];
     cursorWordIndex.value = -1;
     cursorInWord.value = 0;
     // 区切り文字
@@ -122,8 +122,8 @@ watch(
     for (let i = 0; i < chars.length; i++) {
       if (i === cursorPosition) {
         // カーソル位置の単語と文字位置を設定
-        cursorWordIndex.value = arcielaWordsIndex;
-        cursorInWord.value = arcielaWords.value[arcielaWordsIndex].length;
+        cursorWordIndex.value = arCielaWordsIndex;
+        cursorInWord.value = arCielaWords.value[arCielaWordsIndex].length;
       }
       if (i !== 0) {
         // 前の文字が空白ではなく、現在の文字が空白ならarrayのindexを進める
@@ -131,11 +131,11 @@ watch(
           (!chars[i - 1].match(separator) && chars[i].match(separator)) ||
           (chars[i - 1].match(separator) && !chars[i].match(separator))
         ) {
-          arcielaWordsIndex++;
-          arcielaWords.value[arcielaWordsIndex] = "";
+          arCielaWordsIndex++;
+          arCielaWords.value[arCielaWordsIndex] = "";
         }
       }
-      arcielaWords.value[arcielaWordsIndex] += chars[i];
+      arCielaWords.value[arCielaWordsIndex] += chars[i];
     }
   }
 );
@@ -150,7 +150,7 @@ const getArCielaWordStr = (
     case "compartment":
       text = getCompartmentStr(char, session, envelope);
       break;
-    case "arciela_font":
+    case "arCiela_font":
       text = geFontStr(char, session, envelope);
       break;
   }
@@ -168,9 +168,9 @@ const replace = (char: TArCielaChar) => {
   let beforeText = "";
   let start = 0;
   let end = 0;
-  for (let i = 0; i < arcielaWords.value.length; i++) {
+  for (let i = 0; i < arCielaWords.value.length; i++) {
     if (i === cursorWordIndex.value) {
-      const cursorArCielaWord = getArCielaWord(arcielaWords.value[i]);
+      const cursorArCielaWord = getArCielaWord(arCielaWords.value[i]);
       for (let j = 0; j < cursorCharIndex.value; j++) {
         beforeText += cursorArCielaWord.chars[j].input ?? "";
       }
@@ -178,7 +178,7 @@ const replace = (char: TArCielaChar) => {
       end = start + (char.input ?? "").length;
       break;
     }
-    beforeText += arcielaWords.value[i];
+    beforeText += arCielaWords.value[i];
   }
   // セッション・エンベロープを修正
 

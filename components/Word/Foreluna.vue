@@ -1,6 +1,6 @@
 <template>
   <WordWrapper :small :japanese>
-    <WordArHym :small arciela>
+    <WordArHym :small arCiela>
       {{ word.word }}
     </WordArHym>
     <div class="flex">

@@ -1,6 +1,6 @@
 <template>
   <WordWrapper :small :japanese>
-    <WordArHym :small arciela>
+    <WordArHym :small ar-ciela>
       <span v-for="char in word.chars" :key="char.char">
         {{ geFontStr(char.char, char.session, char.envelope) }}
       </span>

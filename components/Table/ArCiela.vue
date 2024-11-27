@@ -1,6 +1,6 @@
 <template>
   <UTable
-    :rows="arcielaChars.filter((c) => c.char.match(/[aiueon]/i))"
+    :rows="arCielaChars.filter((c) => c.char.match(/[aiueon]/i))"
     :columns="columns1"
     class="w-full"
     :ui="{
@@ -26,7 +26,7 @@
   </UTable>
   <UTable
     :columns="columns2"
-    :rows="arcielaChars.filter((c) => !c.char.match(/[aiueon]/i))"
+    :rows="arCielaChars.filter((c) => !c.char.match(/[aiueon]/i))"
     class="w-full"
     :ui="{
       th: { base: 'text-center rtl:text-right', padding: 'px-2 py-2' },
@@ -100,7 +100,7 @@
 </template>
 
 <script setup lang="ts">
-const { arcielaChars } = useArCiela();
+const { arCielaChars } = useArCiela();
 
 //母音のカラム
 const columns1 = [

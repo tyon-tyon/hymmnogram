@@ -31,10 +31,10 @@
           ヒュ
         </UButton>
         <UButton
-          :color="mode === 'arciela' ? 'primary' : 'white'"
+          :color="mode === 'arCiela' ? 'primary' : 'white'"
           @click="
             () => {
-              mode = 'arciela';
+              mode = 'arCiela';
               toggle = true;
             }
           "
@@ -75,7 +75,7 @@ import FooterNavPanel from "./FooterNavPanel.vue";
 
 const keyword = ref("");
 const toggle = ref(false);
-const mode = ref<"hymmnos" | "arciela" | "foreluna">("hymmnos");
+const mode = ref<"hymmnos" | "arCiela" | "foreluna">("hymmnos");
 
 const clickToggle = () => {
   toggle.value = !toggle.value;

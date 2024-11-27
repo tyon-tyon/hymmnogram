@@ -29,7 +29,7 @@
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
       <WordArCiela
-        v-for="(word, index) in arcielaWords"
+        v-for="(word, index) in arCielaWords"
         class="mr-3"
         :key="index + word"
         :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
@@ -57,7 +57,7 @@ const hymmnosWords = computed(() => {
 });
 
 // カーソル行のアルシエラワードを取得
-const arcielaWords = computed(() => {
+const arCielaWords = computed(() => {
   // アルシエラは空白とカンマとピリオドで区切る
   return splitForeluna(cursorLine.value)[0];
 });
