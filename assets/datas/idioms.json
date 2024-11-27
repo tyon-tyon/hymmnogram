@@ -1,6 +1,17 @@
 [
   {
     "idiom": [
+      "0x",
+      "vvi"
+    ],
+    "japanese": [
+      "想音保証定義",
+      "この想音を保証"
+    ],
+    "dialect": "standard"
+  },
+  {
+    "idiom": [
       "ar",
       "ciel"
     ],
@@ -138,6 +149,17 @@
       "ソル・マルタ"
     ],
     "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "sol",
+      "ciel"
+    ],
+    "japanese": [
+      "ソル・シエール",
+      "世界"
+    ],
+    "dialect": "standard"
   },
   {
     "idiom": [
