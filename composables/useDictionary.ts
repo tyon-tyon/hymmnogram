@@ -157,7 +157,7 @@ export default function () {
 
 
   // ヒムノスを単語に分割
-  function splitHymmnos(text: string): string[] {
+  const splitHymmnos = (text: string): string[] => {
     const cleanedLine = text
       .replace(/([a-z\.])([\!\?,\s\"\(\)『』「」（）])/gi, "$1\r$2") // , と " の前に改行を入れる
       .replace(/([\!\?,\s\"\(\)『』「」（）])/g, "$1\r") // ! ? , " の前に改行を入れる
@@ -374,5 +374,5 @@ export default function () {
     return;
   }
 
-  return { getExactMatch, getPartialMatch, emptyWordData, updateWords, getWords };
+  return { getExactMatch, getPartialMatch, emptyWordData, updateWords, getWords, splitHymmnos };
 };
