@@ -33,12 +33,12 @@ export default function () {
     return linesAndWords;
   };
 
-  const splitArCiela = (text: string): string[][] => {
+  const splitForeluna = (text: string): string[][] => {
     return text.split("\n").map((line) => line.split(/[\s,."']/));
   };
 
   return {
     splitHymmnos,
-    splitArCiela,
+    splitForeluna,
   };
 }

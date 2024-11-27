@@ -34,7 +34,7 @@ const props = defineProps<{
 const foreluna = useForeluna();
 const { emptyForelunaWordData } = foreluna;
 const lyrics = useLyrics();
-const { splitArCiela } = useTextProcessor();
+const { splitForeluna } = useTextProcessor();
 
 const items = [
   {
@@ -52,7 +52,7 @@ const items = [
 const lineWords = computed((): TForelunaWord[][] => {
   const keyword = props.keyword;
   // 行と単語に分割
-  const lines = splitArCiela(keyword);
+  const lines = splitForeluna(keyword);
 
   return lines.map((line) =>
     line.map((word) => {
