@@ -19,10 +19,10 @@ export default function () {
     // パスタリエの想音動詞
     const emotionVerb = getWordEmotionVerb(q);
     if (emotionVerb) return emotionVerb;
-
     // 通常の完全一致
     const exactMatch = getWordExactMatch(q, dialect);
     if (exactMatch) return exactMatch;
+    return { ...emptyWordData, hymmnos: q, primaryMeaning: q };
   };
 
   // 部分一致の単語を取得
@@ -44,7 +44,7 @@ export default function () {
   };
 
   // 解析した文章を取得
-  const getWords = (text: string): TWord[][] => {
+  const getWords = (text: string, isEditor: boolean = false): TWord[][] => {
     const result: TWord[][] = [];
     // 成語の熟語
     const idiomSearchKey = idioms.filter(i => !i.emotionVowelString).map(i => i.idiom.join(" ")).join("|");
@@ -63,7 +63,7 @@ export default function () {
       let hymmnosWords = words.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
-          return { ...emptyWordData, japanese: [word] };
+          return { ...emptyWordData, hymmnos: word };
         }
         // 単語検索
         return (
@@ -72,7 +72,7 @@ export default function () {
             hymmnos: word,
           }
         );
-      }).filter((word) => word.hymmnos !== " ");
+      }).filter((word) => isEditor ? true : word.hymmnos !== " ");
 
       // 実質tie専用の対応
       // wordsの中にパスタリエがある場合は
@@ -91,7 +91,7 @@ export default function () {
       if (idiomMatch) {
         for (const idiom of idiomMatch) {
           // 一致した熟語の単語データを取得
-          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, false);
+          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, false, isEditor);
         }
       }
       // パスタリエで熟語を検索(大文字小文字を区別する)
@@ -99,7 +99,7 @@ export default function () {
       if (idiomMatchPastalie) {
         for (const idiom of idiomMatchPastalie) {
           // 一致した熟語の単語データを取得
-          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, true);
+          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, true, isEditor);
         }
       }
       result.push(hymmnosWords);
@@ -111,8 +111,8 @@ export default function () {
   ここから下は、関数内でのみ使用される関数
   */
 
-  function getWordsWithIdiom(words: TWord[], idiomString: string, pastalie?: boolean): TWord[] {
-    const idiomWordsString = idiomString.split(" ");
+  function getWordsWithIdiom(words: TWord[], idiomString: string, pastalie?: boolean, isEditor: boolean = false): TWord[] {
+    const idiomWordsString = isEditor ? idiomString.replace(/ /g, "| |").split("|") : idiomString.split(" ");
     const index = words.findIndex((word, i) => {
       if (pastalie) {
         // パスタリエ所有格の場合はidiomWordsStringが長さ1
@@ -129,7 +129,7 @@ export default function () {
     if (index === -1) return words;
     // インプットされている単語データを取得
     const idiomWordsWithSubWords = words.slice(index, index + idiomWordsString.length);
-    const idiomWords = getIdiom(idiomWordsWithSubWords);
+    const idiomWords = getIdiom(idiomWordsWithSubWords.filter(w => w.hymmnos !== " "));
     // 熟語の単語データが見つかった場合は
     if (!idiomWords) return words;
     // 非破壊に熟語の単語データに置き換える。
@@ -211,25 +211,22 @@ export default function () {
     }
     // 単語が見つからない場合は_,=で分割して検索
     const founds = q.split(/[_=]/g)
-      .map(str => words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0]);
-    // 全ての単語がundefinedの場合は見つからなかったと判断
-    if (founds.every(f => !f)) return;
+      .map(str =>
+        words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0] ??
+        { ...emptyWordData, hymmnos: str }
+      );
+    // 全ての単語が空の場合は見つからなかったと判断
+    if (founds.every(f => f.japanese.length === 0)) return;
     if (founds.length) {
-      const subWords = q
-        .split(/[_=]/g)
-        .map(str =>
-          words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0] ??
-          { ...emptyWordData, hymmnos: str, japanese: [str] }
-        );
       // 単語が見つかった場合は複合語として返す
       return {
         hymmnos: q,
-        primaryMeaning: subWords.map(f => f.japanese[0]).join("・"),
+        primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
         pronunciation: "",
         part_of_speech: "複合語",
         dialect: "unknown",
-        subWords: subWords
+        subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
       };
     }
   }

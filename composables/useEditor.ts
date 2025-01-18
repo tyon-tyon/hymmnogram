@@ -2,7 +2,7 @@ import type { TWord } from "~/types";
 
 
 export default function () {
-  const { getExactMatch, emptyWordData, splitHymmnos } = useDictionary();
+  const { getWords } = useDictionary();
   const { getDialectTextClass } = useStyles();
   const editorWords = useState<TWord[][]>('editorWords', () => []);
   const cursorLineIndex = useState<number>('cursorLineIndex', () => 0);
@@ -14,16 +14,7 @@ export default function () {
   const changeTextarea = (text: string) => {
     textareaText.value = text;
     // テキストを分割
-    const lines = text.split("\n").map((line) => splitHymmnos(line));
-    editorWords.value = lines
-      .map((words) =>
-        words
-          .map((word) => {
-            const found = getExactMatch(word);
-            return found ? { ...found, hymmnos: word } : { ...emptyWordData, hymmnos: word };
-          })
-      );
-
+    editorWords.value = getWords(text, true);
     // htmlを生成
     lineHtmls.value = editorWords.value.map((words, lineIndex) => {
       return words
