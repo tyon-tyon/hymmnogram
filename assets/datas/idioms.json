@@ -1,0 +1,257 @@
+[
+  {
+    "idiom": [
+      "0x",
+      "vvi"
+    ],
+    "japanese": [
+      "想音保証定義",
+      "この想音を保証"
+    ],
+    "dialect": "standard"
+  },
+  {
+    "idiom": [
+      "ar",
+      "ciel"
+    ],
+    "japanese": [
+      "世界"
+    ],
+    "dialect": "standard"
+  },
+  {
+    "idiom": [
+      "ar",
+      "tonelico"
+    ],
+    "japanese": [
+      "アルトネリコ"
+    ],
+    "dialect": "standard"
+  },
+  {
+    "idiom": [
+      "chronicle",
+      "key"
+    ],
+    "japanese": [
+      "ヒュムノス・クロニクルキー"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "ep",
+      "nova"
+    ],
+    "japanese": [
+      "ヒュムノス・イーピーノヴァ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "rebirthia",
+      "protocol"
+    ],
+    "japanese": [
+      "ヒュムノス・リバーシアプロコトル"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "re",
+      "nation"
+    ],
+    "japanese": [
+      "ヒュムノス・リネイション"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "rig",
+      "veda"
+    ],
+    "japanese": [
+      "ヒュムノス・リグヴェーダ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "sol",
+      "fage"
+    ],
+    "japanese": [
+      "ヒュムノス・ソルフェージュ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "infel",
+      "phira"
+    ],
+    "japanese": [
+      "インフェル・ピラ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "el",
+      "duel"
+    ],
+    "japanese": [
+      "エル・デュエル"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "el",
+      "nemesys"
+    ],
+    "japanese": [
+      "エル・ネメシス"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "meta",
+      "falss"
+    ],
+    "japanese": [
+      "メタ・ファルス"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "sol",
+      "cluster"
+    ],
+    "japanese": [
+      "ソル・クラスタ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "sol",
+      "marta"
+    ],
+    "japanese": [
+      "ソル・マルタ"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "sol",
+      "ciel"
+    ],
+    "japanese": [
+      "ソル・シエール",
+      "世界"
+    ],
+    "dialect": "standard"
+  },
+  {
+    "idiom": [
+      "solin",
+      "falss"
+    ],
+    "japanese": [
+      "ソリン・ファルス"
+    ],
+    "dialect": "unknown"
+  },
+  {
+    "idiom": [
+      "fs"
+    ],
+    "japanese": [
+      "ささやき"
+    ],
+    "emotionVowelString": "E",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "glansee"
+    ],
+    "japanese": [
+      "神"
+    ],
+    "emotionVowelString": "LYA",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "lyuma"
+    ],
+    "japanese": [
+      "澪の御子"
+    ],
+    "emotionVowelString": "LYA",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "qejyu"
+    ],
+    "japanese": [
+      "恋人",
+      "妻",
+      "夫"
+    ],
+    "emotionVowelString": "E",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "qejyu"
+    ],
+    "japanese": [
+      "家族",
+      "身内"
+    ],
+    "emotionVowelString": "YE",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "qejyu"
+    ],
+    "japanese": [
+      "人類皆兄弟"
+    ],
+    "emotionVowelString": "LYE",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "siann"
+    ],
+    "japanese": [
+      "焔の御子"
+    ],
+    "emotionVowelString": "LYA",
+    "dialect": "pastalie"
+  },
+  {
+    "idiom": [
+      "infel",
+      "yor"
+    ],
+    "japanese": [
+      "ありがとう"
+    ],
+    "dialect": "metafalss"
+  }
+]

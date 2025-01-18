@@ -29,7 +29,7 @@
       {{
         [...word.japanese, ...(word.gerunds ?? [])]
           .filter((m) => m !== word.primaryMeaning)
-          .slice(1, 100)
+          .slice(0, 2)
           .join(" ")
       }}
     </div>
