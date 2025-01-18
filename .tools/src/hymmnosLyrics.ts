@@ -1,4 +1,3 @@
-import { TLyric } from '../../types';
 import tokenize from './tokenize.js';
 import useDictionary from './useDictionary.js';
 import fs from 'fs';

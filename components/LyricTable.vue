@@ -43,8 +43,6 @@ const props = withDefaults(
   }
 );
 const { lyrics } = toRefs(props);
-
-const { splitHymmnos } = useTextProcessor();
 const dictionary = useDictionary();
 
 const columns = [
@@ -109,7 +107,7 @@ const getLyricHtml = (lyric: string) => {
   }
 
   // 変化がある場合
-  const words = splitHymmnos(lyric)[0];
+  const words = dictionary.splitHymmnos(lyric);
   const found = words.map((word) => {
     const found = dictionary.getExactMatch(word);
     return found
