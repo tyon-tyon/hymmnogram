@@ -2,10 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
-  modules: ["@nuxt/ui",  '@zadigetvoltaire/nuxt-gtm',],
+  modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm',],
   css: [
     '~/public/styles/main.css',
   ],
+  nitro: {
+    preset: 'netlify-static',
+  },
   app: {
     head: {
       htmlAttrs: {
@@ -32,4 +35,49 @@ export default defineNuxtConfig({
   gtm: {
     id: process.env.GTM_ID ?? "",
   },
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      name: "非公式ヒュムノス語辞書 HYMMNOGRAM(ヒュムノグラム)",
+      description: "HYMMNOGRAM(ヒュムノグラム)は、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。",
+      theme_color: "#ffffff",
+      lang: "ja",
+      short_name: "HYMMNOGRAM",
+      start_url: "/",
+      display: "standalone",
+      background_color: "#ffffff",
+      icons: [
+        {
+          "src": "pwa-64x64.png",
+          "sizes": "64x64",
+          "type": "image/png"
+        },
+        {
+          "src": "pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "src": "pwa-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        },
+        {
+          "src": "maskable-icon-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
+      ],
+    },
+    workbox: {
+      navigateFallback: null,
+      globPatterns: ['**/*.{js,css,html,png,jpg,svg}'], // 必要なパターンのみを指定
+      globIgnores: [
+        '**/node_modules/**/*',
+        'sw.js',
+        'workbox-*.js'
+      ],
+    },
+  }
 });
