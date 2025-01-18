@@ -1,0 +1,9 @@
+[build]
+  command = "yarn generate"
+  publish = "dist"
+  environment = { 
+    NODE_ENV = "production",
+  }
+
+[functions]
+  directory = ".netlify/functions"
