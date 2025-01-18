@@ -13,23 +13,15 @@ export type TWord = TJsonWord & {
   // 以下useDictionaryでのみ使用
   subWords?: TWord[]; // 下位の単語
   primaryMeaning?: string; // 主たる意味
-  emotionVowels?: (TEmotionVowel | undefined)[]; // 想母音
+  emotionVowels?: (TEmotionVowelMeaning | undefined)[]; // 想母音
   possessiveOwner?: TWord | string; // 所有者
   voice?: string; // 態
 };
 
-export type TEmotionVowel = {
-  vowel: string; // 母音,
+export type TEmotionVowelMeaning = {
   target: string; // 誰を表すか
   primaryEmotion: string; // 主たる感情
   emotions: string[]; // どんな感情か
-};
-
-export type TIdiom = {
-  idiom: string[]; // 慣用句
-  japanese: string[]; // 意味
-  emotionVowelString?: string; // 想母音
-  dialect: string;
 };
 
 export type TLyric = {

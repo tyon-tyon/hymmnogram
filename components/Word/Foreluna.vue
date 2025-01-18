@@ -7,7 +7,7 @@
       <div
         v-for="(section, index) in word.sections"
         :key="index + 'section'"
-        class="mx-0.5"
+        class="mx-1"
       >
         <WordAlphabet :small class="flex justify-center">
           {{ section.map((char) => char.char).join("") }}

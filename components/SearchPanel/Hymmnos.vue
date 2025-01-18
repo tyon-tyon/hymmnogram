@@ -1,7 +1,10 @@
 <template>
   <template v-if="keyword.length">
     <div v-if="lineWords.length" class="mb-5">
-      <div v-for="(line, index) in lineWords" :key="index">
+      <div
+        v-for="(line, index) in lineWords"
+        :key="index"
+      >
         <div :rows="lineWords" class="flex flex-wrap">
           <WordHymmnos
             v-for="(word, index) in line"
@@ -39,6 +42,7 @@ const props = defineProps<{
 const dictionary = useDictionary();
 const { emptyWordData } = dictionary;
 const lyrics = useLyrics();
+const { splitHymmnos } = useTextProcessor();
 
 const items = computed(() => {
   return [
@@ -58,7 +62,40 @@ const items = computed(() => {
 const lineWords = computed(() => {
   const keyword = props.keyword;
   // ヒュムノスの文章の意味を調べる
-  if (keyword.match(/([\!\?\s,]|\/.)/)) return dictionary.getWords(keyword);
+  if (keyword.match(/([\!\?\s,]|\/.)/)) {
+    // 行と単語に分割
+    const lines = splitHymmnos(keyword);
+
+    const words = lines.map((line) =>
+      line.map((word) => {
+        // 日本語が含まれている場合はそのまま表示
+        if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
+          return { ...emptyWordData, japanese: [word] };
+        }
+        // 単語検索
+        return (
+          dictionary.getExactMatch(word) || {
+            ...emptyWordData,
+            hymmnos: word,
+          }
+        );
+      }).filter((word) => word.hymmnos !== " ")
+    )
+    // wordsの中にパスタリエがない場合はそのまま返す
+    if (!words.flat().some((word) => word.dialect === "pastalie")) {
+      return words;
+    }
+    // 実質tie専用の対応
+    // パスタリエ指定で単語を再取得
+    return words.map((line) =>
+      line.map((word) => {
+        if (word.hymmnos !== "pastalie") {
+          return dictionary.getExactMatch(word.hymmnos, "pastalie") || word;
+        }
+        return word;
+      })
+    );
+  }
   return [];
 });
 

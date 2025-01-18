@@ -2,22 +2,39 @@
   <div class="line-translation">
     <LanguageSelect v-model="language" />
     <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5">
-      <WordHymmnos v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :word="word" :key="index"
-        small class="mr-2" />
+      <WordHymmnos
+        v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')"
+        :word="word"
+        :key="index"
+        small
+      />
     </div>
     <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5">
-      <div v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :key="index" class="text-black">
-        <WordForeluna :word="getForelunaWord(word.hymmnos) ?? {
-            word: word.hymmnos,
-            sections: [],
-            type: null,
-          }
-          " small class="mr-3" />
+      <div
+        v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')"
+        :key="index"
+        class="text-black"
+      >
+        <WordForeluna
+          :word="
+            getForelunaWord(word.hymmnos) ?? {
+              word: word.hymmnos,
+              sections: [],
+              type: null,
+            }
+          "
+          small
+        />
       </div>
     </div>
     <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
-      <WordArCiela v-for="(word, index) in arCielaWords" class="mr-3" :key="index + word"
-        :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))" small />
+      <WordArCiela
+        v-for="(word, index) in arCielaWords"
+        class="mr-3"
+        :key="index + word"
+        :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))"
+        small
+      />
     </div>
     <div v-else class="line pl-2 pr-5">
       {{ hymmnosWords.map((w) => w.hymmnos).join("") }}
@@ -97,12 +114,13 @@ watch(
   position: relative;
   display: flex;
 }
-
 .line-translation::after {
   content: "";
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 1));
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
   position: absolute;
   z-index: 1;
   width: 40px;
@@ -110,7 +128,6 @@ watch(
   right: 0;
   bottom: 0;
 }
-
 .line {
   display: flex;
   justify-content: start;
@@ -118,7 +135,6 @@ watch(
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 /* Chrome, Safari 対応 */
 .line::-webkit-scrollbar {
   display: none;
