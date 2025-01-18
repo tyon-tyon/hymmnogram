@@ -71,13 +71,7 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      navigateFallback: null,
-      globPatterns: ['**/*.{js,css,html,png,jpg,svg}'], // 必要なパターンのみを指定
-      globIgnores: [
-        '**/node_modules/**/*',
-        'sw.js',
-        'workbox-*.js'
-      ],
+      navigateFallback: null
     },
   }
 });
