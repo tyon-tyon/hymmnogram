@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '~/public/styles/main.css',
   ],
   nitro: {
-    preset: 'netlify',
+    preset: 'static',
   },
   app: {
     head: {
@@ -71,7 +71,13 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      navigateFallback: null
+      navigateFallback: null,
+      globPatterns: ['**/*.{js,css,html,png,jpg,svg}'], // 必要なパターンのみを指定
+      globIgnores: [
+        '**/node_modules/**/*',
+        'sw.js',
+        'workbox-*.js'
+      ],
     },
   }
 });
