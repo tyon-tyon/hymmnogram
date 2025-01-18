@@ -1,6 +1,7 @@
 <template>
-  <WordWrapper :small :japanese>
+  <WordWrapper :small :japanese :lyric>
     <WordArHym
+      v-if="!lyric"
       :small
       hymmnos
       :class="{
@@ -22,7 +23,7 @@
       {{ word.primaryMeaning }}
     </WordJapanese>
     <div
-      v-if="!small"
+      v-if="!small && !lyric"
       class="text-xs text-cool-400 leading-none text-nowrap pt-1"
     >
       {{
@@ -40,6 +41,7 @@ import type { TWord } from "~/types";
 const { word } = defineProps<{
   word: TWord;
   small?: boolean;
+  lyric?: boolean;
   hymmnosFont?: boolean;
 }>();
 

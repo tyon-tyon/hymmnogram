@@ -2,7 +2,7 @@
   <div
     class="flex flex-col flex-none max-width-content"
     :class="{
-      'flex-1 min-height-70 pb-1': !small,
+      'flex-1 min-height-70 pb-1': !small && !lyric,
       'text-center': !japanese,
     }"
   >
@@ -24,6 +24,7 @@
 defineProps<{
   small?: boolean;
   japanese?: string;
+  lyric?: boolean;
 }>();
 </script>
 
