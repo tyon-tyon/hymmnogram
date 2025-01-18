@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   css: [
     '~/public/styles/main.css',
   ],
+  nitro: {
+    preset: 'netlify',
+  },
   app: {
     head: {
       htmlAttrs: {
