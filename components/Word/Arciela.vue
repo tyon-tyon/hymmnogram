@@ -6,7 +6,7 @@
       </span>
     </WordArHym>
     <div class="flex flex-row">
-      <div v-for="char in word.chars" :key="char.char" class="mx-1">
+      <div v-for="char in word.chars" :key="char.char" class="mx-0.5">
         <WordAlphabet :small class="flex justify-center">
           <div>
             {{ char.char }}

@@ -1,11 +1,13 @@
 import _words from "@/assets/datas/words.json";
-import type { TJsonWord, TWord, TEmotionVowelMeaning } from "~/types";
+import _idioms from "@/assets/datas/idioms.json";
+import type { TJsonWord, TWord, TEmotionVowel, TIdiom } from "~/types";
 
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
 export default function () {
   // ローカルストレージから単語データを取得
   const words = useState<TWord[]>('words', () => _words as TWord[]);
+  const idioms = _idioms as TIdiom[];
 
   // 完全一致の単語を取得
   const getExactMatch = (q: string, dialect?: string): TWord | undefined => {
@@ -41,9 +43,147 @@ export default function () {
     words.value = [..._words, ...originalWords];
   };
 
+  // 解析した文章を取得
+  const getWords = (text: string): TWord[][] => {
+    const result: TWord[][] = [];
+    // 成語の熟語
+    const idiomSearchKey = idioms.filter(i => !i.emotionVowelString).map(i => i.idiom.join(" ")).join("|");
+    // パスタリエの熟語
+    const idiomSearchKeyPastalie = idioms.filter(i => i.emotionVowelString).map(i => i.emotionVowelString + i.idiom.join("")).join("|");
+
+    // 行ごとに分割
+    const lines = text.split("\n");
+
+    // 行ごとに
+    for (const line of lines) {
+      // ヒュムノスを単語に分割
+      const words = splitHymmnos(line);
+
+      // 単語を検索
+      let hymmnosWords = words.map((word) => {
+        // 日本語が含まれている場合はそのまま表示
+        if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
+          return { ...emptyWordData, japanese: [word] };
+        }
+        // 単語検索
+        return (
+          getExactMatch(word) || {
+            ...emptyWordData,
+            hymmnos: word,
+          }
+        );
+      }).filter((word) => word.hymmnos !== " ");
+
+      // 実質tie専用の対応
+      // wordsの中にパスタリエがある場合は
+      if (hymmnosWords.flat().some((word) => word.dialect === "pastalie")) {
+        // パスタリエ指定で単語を再取得
+        hymmnosWords = hymmnosWords.map((word) => {
+          if (word.hymmnos !== "pastalie") {
+            return getExactMatch(word.hymmnos, "pastalie") || word;
+          }
+          return word;
+        });
+      }
+
+      // 成語で熟語を検索(大文字小文字を区別しない)
+      const idiomMatch = line.match(new RegExp(`(${idiomSearchKey})`, "gi"));
+      if (idiomMatch) {
+        for (const idiom of idiomMatch) {
+          // 一致した熟語の単語データを取得
+          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, false);
+        }
+      }
+      // パスタリエで熟語を検索(大文字小文字を区別する)
+      const idiomMatchPastalie = line.match(new RegExp(`(${idiomSearchKeyPastalie})`, "g"));
+      if (idiomMatchPastalie) {
+        for (const idiom of idiomMatchPastalie) {
+          // 一致した熟語の単語データを取得
+          hymmnosWords = getWordsWithIdiom(hymmnosWords, idiom, true);
+        }
+      }
+      result.push(hymmnosWords);
+    };
+    return result;
+  };
+
   /*
   ここから下は、関数内でのみ使用される関数
   */
+
+  function getWordsWithIdiom(words: TWord[], idiomString: string, pastalie?: boolean): TWord[] {
+    const idiomWordsString = idiomString.split(" ");
+    const index = words.findIndex((word, i) => {
+      if (pastalie) {
+        // パスタリエ所有格の場合はidiomWordsStringが長さ1
+        if (idiomWordsString.length !== 1) return false;
+        // idiomWordsString[0]とhymmnosが一致するワードのindexを返す
+        return word.hymmnos === idiomWordsString[0] ? i : false;
+      }
+      // idiomWordsStringとhymmnosが一致するワードのindexを返す
+      return words.slice(i, i + idiomWordsString.length).every((w, j) =>
+        w.hymmnos.toLocaleLowerCase() === idiomWordsString[j].toLocaleLowerCase()
+      );
+    });
+    // 一致するワードがない場合はそのまま返す
+    if (index === -1) return words;
+    // インプットされている単語データを取得
+    const idiomWordsWithSubWords = words.slice(index, index + idiomWordsString.length);
+    const idiomWords = getIdiom(idiomWordsWithSubWords);
+    // 熟語の単語データが見つかった場合は
+    if (!idiomWords) return words;
+    // 非破壊に熟語の単語データに置き換える。
+    return [...words.slice(0, index), idiomWords, ...words.slice(index + idiomWordsString.length)];
+  }
+
+  // 扱いは複合語と同じ
+  function getIdiom(idiomWords: TWord[]): TWord | null {
+    const idiom = idioms.find(i =>
+      i.idiom.join(" ").toLocaleLowerCase() === idiomWords.map(w => w.hymmnos).join(" ").toLocaleLowerCase() ||
+      i.emotionVowelString + i.idiom.join(" ") === idiomWords.map(w => w.hymmnos).join(" ")
+    );
+    if (idiom) {
+      return {
+        hymmnos: idiomWords.map(w => w.hymmnos).join(" "),
+        japanese: idiom.japanese,
+        part_of_speech: "慣用句",
+        dialect: idiom.dialect,
+        primaryMeaning: idiom.japanese[0],
+        subWords: idiomWords,
+      };
+    }
+    return null;
+  }
+
+
+  // ヒムノスを単語に分割
+  const splitHymmnos = (text: string): string[] => {
+    const cleanedLine = text
+      .replace(/([a-z\.])([\!\?,\s\"\(\)『』「」（）])/gi, "$1\r$2") // , と " の前に改行を入れる
+      .replace(/([\!\?,\s\"\(\)『』「」（）])/g, "$1\r") // ! ? , " の前に改行を入れる
+      .replace(/(:\/|\/:)/g, "\r$1\r") // :/ と /: の前後に改行を入れる
+      .replace(/Xc= */g, "\rXc=\r") // Xc= の前後に改行を入れる
+      .replace(/([\<\-\>]{2,})/g, "\r$1\r") // コマンドで使われる文字列の前後に改行を入れる
+      .replace(/\/\./g, "\r/.\r") // /. の前後に改行を入れる
+      .replace(/\r+/g, "\r") // 連続する改行を1つにする
+      .replace(/(^\r|\r$)/, ""); // 先頭と末尾の改行を削除
+
+    // 現段階で`x.`が1つの単語として認識される。
+    const words = cleanedLine.split("\r").map((word: string) => {
+      if (word.match(/^[a-z\.]+$/i)) {// ドットと小文字のアルファベットの組み合わせの場合
+        // まずはexactly matchを試みる
+        const exactMatch = getExactMatch(word);
+        // exactMatchがないならドットを分割する
+        if (!exactMatch) {
+          return word.replace(/\./g, "\r.\r") // ドットの前後に改行を入れる
+            .replace(/(^\r|\r$)/, "") // 先頭と末尾の改行を削除
+            .split("\r");
+        }
+      }
+      return word;
+    });
+    return words.flat();
+  };
 
   // 通常の完全一致
   function getWordExactMatch(q: string, dialect?: string): TWord | undefined {
@@ -139,7 +279,7 @@ export default function () {
         // 全てundefinedの場合は想音動詞ではない
         if (emotionVowels.every(v => !v)) return;
         // 想母音から意味を取得
-        const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowelMeaning(v) : undefined);
+        const emotionVowelMeanings = emotionVowels.map((v) => v ? getEmotionVowel(v) : undefined);
         return {
           ...pastalieVerb,
           hymmnos: q,
@@ -191,7 +331,7 @@ export default function () {
       }
     } else {
       // 所有者がいない場合は想母音から推測
-      ownerStr = getEmotionVowelMeaning(emotionVowel)?.target ?? "不明";
+      ownerStr = getEmotionVowel(emotionVowel)?.target ?? "不明";
     }
 
     return {
@@ -201,12 +341,13 @@ export default function () {
       part_of_speech: "所有格名詞",
       dialect: "pastalie",
       possessiveOwner: possessiveOwner ?? ownerStr,
-      subWords
+      subWords,
+      emotionVowels: [getEmotionVowel(emotionVowel)],
     };
 
   }
 
-  function getEmotionVowelMeaning(emotionVowel: string): TEmotionVowelMeaning | undefined {
+  function getEmotionVowel(emotionVowel: string): TEmotionVowel | undefined {
     // 誰を表すか
     let target = "";
     if (emotionVowel.match(/^LY/)) {
@@ -218,20 +359,20 @@ export default function () {
     }
     // どんな感情か
     if (emotionVowel.match(/A$/)) {
-      return { target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "力", emotions: ["力", "懸命", "集中"] };
     } else if (emotionVowel.match(/I$/)) {
-      return { target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "苦痛", emotions: ["苦痛", "逃げたい", "恐怖"] };
     } else if (emotionVowel.match(/U$/)) {
-      return { target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "悲しみ", emotions: ["悲しみ", "憂い", "心配"] };
     } else if (emotionVowel.match(/E$/)) {
-      return { target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "喜び", emotions: ["喜び", "幸せ", "快楽"] };
     } else if (emotionVowel.match(/O$/)) {
-      return { target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "怒り", emotions: ["怒り", "攻撃的", "呪い"] };
     } else if (emotionVowel.match(/N$/)) {
-      return { target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
+      return { vowel: emotionVowel, target, primaryEmotion: "無", emotions: ["無", "放心", "リラックス"] };
     }
     return;
   }
 
-  return { getExactMatch, getPartialMatch, emptyWordData, updateWords };
-}
+  return { getExactMatch, getPartialMatch, emptyWordData, updateWords, getWords, splitHymmnos };
+};
