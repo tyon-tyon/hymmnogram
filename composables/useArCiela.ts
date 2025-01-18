@@ -1,4 +1,4 @@
-import _arCiela from "~/assets/datas/arCiela.json";
+import _arCiela from "~/assets/datas/ar_ciela.json";
 import type { TArCielaChar, TArCielaWord } from "~/types";
 
 
