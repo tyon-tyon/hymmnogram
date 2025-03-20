@@ -3,12 +3,15 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
   modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm',],
+
   css: [
     '~/public/styles/main.css',
   ],
+
   nitro: {
     preset: 'netlify-static',
   },
+
   app: {
     head: {
       htmlAttrs: {
@@ -32,9 +35,11 @@ export default defineNuxtConfig({
       ],
     }
   },
+
   gtm: {
     id: process.env.GTM_ID ?? "",
   },
+
   pwa: {
     registerType: "autoUpdate",
     manifest: {
@@ -79,5 +84,7 @@ export default defineNuxtConfig({
         'workbox-*.js'
       ],
     },
-  }
+  },
+
+  compatibilityDate: "2025-03-20",
 });

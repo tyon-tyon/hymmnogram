@@ -174,10 +174,11 @@ export default function () {
         // まずはexactly matchを試みる
         const exactMatch = getExactMatch(word);
         // exactMatchがないならドットを分割する
-        if (!exactMatch) {
-          return word.replace(/\./g, "\r.\r") // ドットの前後に改行を入れる
+        if (!exactMatch?.japanese.length) {
+          const splitWords = word.replace(/\./g, "\r.\r") // ドットの前後に改行を入れる
             .replace(/(^\r|\r$)/, "") // 先頭と末尾の改行を削除
             .split("\r");
+          return splitWords;
         }
       }
       return word;
