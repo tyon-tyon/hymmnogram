@@ -11,9 +11,16 @@
     }"
   >
     <template #example-data="{ row }">
-      <div class="text-wrap mb-2" v-html="getLyricHtml(row.lyric)"></div>
-      <div class="text-wrap text-xs leading-4">
-        <span v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
+      <div class="mb-2 text-base">
+        <div class="text-wrap" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
+          <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1" disabled/><span v-html="getLyricHtml(row.lyric)"></span>
+        </div>
+        <div v-if="row.correction" class="text-wrap mt-1 mb-2 text-cool-400">
+          <UButton label="修正版" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1" disabled/><span v-html="getLyricHtml(row.correction)"></span>
+        </div>
+      </div>
+      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
+        <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1" disabled/><span v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
       </div>
     </template>
   </UTable>

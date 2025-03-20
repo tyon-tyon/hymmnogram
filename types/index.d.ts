@@ -34,10 +34,20 @@ export type TIdiom = {
 
 export type TLyric = {
   title: string,
+  // 原文
   lyric: string,
   lyricWords: string,
+  // 訂正版
+  correction?: string,
+  correctionWords?: string,
+  // 訳
   japanese: string,
   japaneseWords: string,
+  // 非公式フラグ
+  unofficial?: {
+    lyric: boolean,
+    japanese: boolean,
+  },
 };
 
 export type TForelunaChar = {

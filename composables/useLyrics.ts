@@ -14,12 +14,13 @@ export default function useLyrics() {
     const reg = new RegExp(q, 'gi');
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
-      lyric.lyricWords.match(" " + q.toLocaleLowerCase() + " ")
+      lyric.lyricWords.match(" " + q.toLocaleLowerCase() + " ") ||
+      lyric.correctionWords?.match(" " + q.toLocaleLowerCase() + " ")
     );
     // 部分一致の例文を取得
     const lyricMatch = lyrics.filter(
       (lyric) =>
-        lyric.lyric.match(reg) &&
+        (lyric.lyric.match(reg) || lyric.correction?.match(reg)) &&
         !exactLyricMatch.includes(lyric)
     );
     // 日本語の例文を取得
