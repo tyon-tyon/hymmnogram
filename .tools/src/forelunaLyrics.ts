@@ -42,30 +42,31 @@ const lines = fs.readFileSync
   .map((line: any, index: any, lines: any) => {
     return line.split('\n');
   });
+(async () => {
+  // TLyricの配列に変換
+  const lyrics: TLyric[] = await Promise.all(lines.map(async (line: any) => {
+    const lyric = line[0].match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\uF900-\uFAFF]/) ? line[1] : line[0];
+    const japanese = lyric === line[0] ? line[1] : line[0];
+    const lyricWords = splitForeluna(lyric)[0];
+    const tokens = await tokenize(japanese) as any;
+    const japaneseWords = tokens
+      .map((token: any) => {
+        const basic = token.basic_form === "*" ? token.surface_form : token.basic_form;
+        const surface = token.surface_form;
+        return basic + ":" + surface;
+      })
+      .filter((word: string) => !word.match(/^[\s、。！？\!\?,.（）「」"\(\)]/));
+    return {
+      title,
+      lyric,
+      lyricWords: ' ' + lyricWords.join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
+      japanese,
+      japaneseWords: ' ' + japaneseWords.join(' ').replace(/\s+/gi, ' ') + ' ',
+    } as TLyric;
+  }));
 
-// TLyricの配列に変換
-const lyrics: TLyric[] = await Promise.all(lines.map(async (line: any) => {
-  const lyric = line[0].match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\uF900-\uFAFF]/) ? line[1] : line[0];
-  const japanese = lyric === line[0] ? line[1] : line[0];
-  const lyricWords = splitForeluna(lyric)[0];
-  const tokens = await tokenize(japanese) as any;
-  const japaneseWords = tokens
-    .map((token: any) => {
-      const basic = token.basic_form === "*" ? token.surface_form : token.basic_form;
-      const surface = token.surface_form;
-      return basic + ":" + surface;
-    })
-    .filter((word: string) => !word.match(/^[\s、。！？\!\?,.（）「」"\(\)]/));
-  return {
-    title,
-    lyric,
-    lyricWords: ' ' + lyricWords.join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
-    japanese,
-    japaneseWords: ' ' + japaneseWords.join(' ').replace(/\s+/gi, ' ') + ' ',
-  } as TLyric;
-}));
-
-// outフォルダにjsonファイルを出力
-fs.writeFileSync(`./out/${title}.json`, JSON.stringify(lyrics, null, 2));
+    // outフォルダにjsonファイルを出力
+    fs.writeFileSync(`./out/${title}.json`, JSON.stringify(lyrics, null, 2));
+})();
 
 

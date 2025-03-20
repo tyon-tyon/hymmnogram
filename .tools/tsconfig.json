@@ -1,28 +1,19 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "es2017",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "isolatedModules": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": false,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitOverride": true,
-    "module": "ESNext",
-    "lib": ["ESNext", "dom", "dom.iterable"],
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
-    "types": ["node"],
-    "moduleResolution": "node",
-    "useDefineForClassFields": true,
-    "noImplicitThis": true,
-    "allowSyntheticDefaultImports": true,
-    "outDir": "lib",
+    "module": "CommonJS",
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "sourceMap": true
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/in/*": ["./in/*"]
+    }
   },
   "compileOnSave": true,
   "include": ["src"]
