@@ -339,45 +339,91 @@
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "Rrha ki ra harr exec hymmnos PAJA.",
-    "lyricWords": " rrha ki ra harr exec hymmnos paja . ",
-    "japanese": "彼女はヒュムノスパージャを実行する",
-    "japaneseWords": " 彼女:彼女 は:は ヒュムノスパージャ:ヒュムノスパージャ を:を 実行:実行 する:する "
+    "lyric": "Rrha ki ra harr exec hymmnos PAJA",
+    "lyricWords": " rrha ki ra harr exec hymmnos paja ",
+    "japanese": "彼女はヒュムノス・パージャを実行する",
+    "japaneseWords": " 彼女:彼女 は:は ヒュムノス・パージャ:ヒュムノス・パージャ を:を 実行:実行 する:する ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "Was ki ra selena anw hymmnos PAJA.",
-    "lyricWords": " was ki ra selena anw hymmnos paja . ",
-    "japanese": "ヒュムノスパージャを奏でる",
-    "japaneseWords": " ヒュムノスパージャ:ヒュムノスパージャ を:を 奏でる:奏でる "
+    "lyric": "En yehar",
+    "lyricWords": " en yehar ",
+    "japanese": "そして解き放つ",
+    "japaneseWords": " そして:そして 解き放つ:解き放つ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "En ma i ga chs syec van nel an hymmnos endia.",
-    "lyricWords": " en ma i ga chs syec van nel an hymmnos endia . ",
-    "japanese": "そしてシステムの中であっても0と共に接続が終わりになる",
-    "japaneseWords": " そして:そして システム:システム の:の 中:中 だ:で ある:あっ て:て も:も 0:0 と共に:と共に 接続:接続 が:が 終わる:終わり に:に なる:なる "
+    "lyric": "nha near yor",
+    "lyricWords": " nha near yor ",
+    "japanese": "生命を吹き込む",
+    "japaneseWords": " 生命:生命 を:を 吹き込む:吹き込む ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "En ma ki ra ks syec parge tes ar hymmne mea.",
-    "lyricWords": " en ma ki ra ks syec parge tes ar hymmne mea . ",
-    "japanese": "そしてシステムの切り離しへの唯一の詩を私に暗示する",
-    "japaneseWords": " そして:そして システム:システム の:の 切り離し:切り離し へ:へ の:の 唯一:唯一 の:の 詩:詩 を:を 私:私 に:に 暗示:暗示 する:する "
+    "lyric": "Was ki ra selena anw hymmnos PAJA",
+    "lyricWords": " was ki ra selena anw hymmnos paja ",
+    "japanese": "ヒュムノス・パージャを奏でる",
+    "japaneseWords": " ヒュムノス・パージャ:ヒュムノス・パージャ を:を 奏でる:奏でる ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "Was ki ra exec hymmnos PAJA.",
-    "lyricWords": " was ki ra exec hymmnos paja . ",
-    "japanese": "ヒュムノスパージャを実行",
-    "japaneseWords": " ヒュムノスパージャ:ヒュムノスパージャ を:を 実行:実行 "
+    "lyric": "En ma i ga chs syec van nel an hymme endia",
+    "lyricWords": " en ma i ga chs syec van nel an hymme endia ",
+    "japanese": "謳い終わり無に帰そうとも 私は闇となる",
+    "japaneseWords": " 謳う:謳い 終わる:終わり 無:無 に:に 帰す:帰そ う:う とも:とも 私:私 は:は 闇:闇 と:と なる:なる ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Misya extracting.",
-    "lyric": "Was ki ra exec syec parge tie gott yor!",
-    "lyricWords": " was ki ra exec syec parge tie gott yor ! ",
-    "japanese": "システムが隔離を実行し あなたを排斥する！",
-    "japaneseWords": " システム:システム が:が 隔離:隔離 を:を 実行:実行 する:し あなた:あなた を:を 排斥:排斥 する:する "
+    "lyric": "En ma ki ra ks syec parge tes ar hymmne mea",
+    "lyricWords": " en ma ki ra ks syec parge tes ar hymmne mea ",
+    "japanese": "闇へ切り離す詩を 私の魂に暗示する",
+    "japaneseWords": " 闇:闇 へ:へ 切り離す:切り離す 詩:詩 を:を 私:私 の:の 魂:魂 に:に 暗示:暗示 する:する ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "title": "EXEC_PAJA/. #Misya extracting.",
+    "lyric": "Was ki ra exec hymmnos PAJA",
+    "lyricWords": " was ki ra exec hymmnos paja ",
+    "japanese": "ヒュムノス・パージャを実行する",
+    "japaneseWords": " ヒュムノス・パージャ:ヒュムノス・パージャ を:を 実行:実行 する:する ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "title": "EXEC_PAJA/. #Misya extracting.",
+    "lyric": "Was ki ra exec syec parge tie, gott yor!",
+    "lyricWords": " was ki ra exec syec parge tie , gott yor ! ",
+    "japanese": "闇への隔離を実行し あなたを排斥する",
+    "japaneseWords": " 闇:闇 へ:へ の:の 隔離:隔離 を:を 実行:実行 する:し あなた:あなた を:を 排斥:排斥 する:する ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_HARMONIUS/. ",
