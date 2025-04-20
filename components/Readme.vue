@@ -34,6 +34,16 @@
   </section>
 
   <section class="mb-10">
+    <h2 class="text-2xl font-bold mb-4 text-primary-600">更新履歴</h2>
+    <ul class="list-disc list-inside mb-4">
+      <li v-for="release in releases" :key="release.id">
+        {{ new Date(release.published_at).toLocaleDateString() }}
+        <nuxt-link :to="release.html_url" class="underline">{{ release.name }}</nuxt-link>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
     <h2 class="text-2xl font-bold mb-4 text-primary-600">ヒュムノス辞書</h2>
     <p class="mb-4">
       ヒュムノス語から日本語へ、または日本語からヒュムノス語への単語検索が可能です。ヒュムノサーバー未登録の単語は、流派を「ヒュムノサーバー未登録」と設定しています。
@@ -121,6 +131,19 @@
       </li>
     </ul>
   </section>
+
 </template>
 
-<script setup></script>
+<script setup>
+
+// https://api.github.com/repos/tyon-tyon/hymmnogram/releasesから最新のリリースを取得
+const latestRelease = await fetch('https://api.github.com/repos/tyon-tyon/hymmnogram/releases')
+const latestReleaseData = await latestRelease.json()
+
+//リリースのタイトルを取得
+const releases = computed(() => {
+  // 最新5件を取得
+  return latestReleaseData.slice(0, 5)
+})
+
+</script>
