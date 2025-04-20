@@ -124,15 +124,12 @@ async function convertHymmnos(line: string[]): Promise<TLyric> {
                     wordData.primaryMeaning?.match(/〜される$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'eh'] : // 「〜される」の場合はehを追加
                         wordData.subWords.map((w: any) => w.hymmnos); // それ以外の場合はサブワードを返す
     }) : null;
-    // 日本語訳のルビを削除する
-    const noRuby = japanese.replace(/\[(.+?)\]\(.+?\)/g, '$1');
     const japaneseWords = await getJapaneseWords(japanese);
     return {
         id,
         hymmnos: lyric,
         hymmnosWords: ' ' + lyricWords.flat().join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
-        japanese: noRuby,
-        japaneseRuby: japanese,
+        japanese,
         japaneseWords,
         ...(unofficial.lyric || unofficial.japanese ? { unofficial } : {}),
         ...(correction ? { correction } : {}),
