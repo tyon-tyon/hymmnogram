@@ -4,7 +4,7 @@ import _lyricsForeluna from "@/assets/datas/lyrics_foreluna.json";
 import type { TLyric } from "~/types";
 
 // meaningをmeaningsに変更
-const lyricsHymmnos = _lyricsHymmnos as TLyric[];
+const lyricsHymmnos = (_lyricsHymmnos as TLyric[]).filter(lyric => lyric.hymmnos); // ヒュムノス語歌詞があるもの
 const lyricsForeluna = _lyricsForeluna as TLyric[];
 
 export default function useLyrics() {
@@ -14,20 +14,20 @@ export default function useLyrics() {
     const reg = new RegExp(q, 'gi');
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
-      lyric.lyricWords.match(" " + q.toLocaleLowerCase() + " ") ||
-      lyric.correctionWords?.match(" " + q.toLocaleLowerCase() + " ")
+      lyric.hymmnosWords?.match(" " + q.toLocaleLowerCase() + " ") ||
+      lyric.correctionHymmnos?.match(" " + q.toLocaleLowerCase() + " ")
     );
     // 部分一致の例文を取得
     const lyricMatch = lyrics.filter(
       (lyric) =>
-        (lyric.lyric.match(reg) || lyric.correction?.match(reg)) &&
+        (lyric.hymmnosWords?.match(reg) || lyric.correctionHymmnos?.match(reg)) &&
         !exactLyricMatch.includes(lyric)
     );
     // 日本語の例文を取得
     const japaneseReg = new RegExp(q.replace(/:/, "\\$1"), 'gi');
     const japaneseMatch = lyrics.filter(
       (lyric) =>
-        (lyric.japaneseWords.match(japaneseReg) || lyric.japanese.match(japaneseReg)) &&
+        (lyric.japaneseWords?.match(japaneseReg) || lyric.japanese?.match(japaneseReg)) &&
         !exactLyricMatch.includes(lyric) &&
         !lyricMatch.includes(lyric)
     );

@@ -93,7 +93,7 @@ const foundLyrics = computed(() => {
     : [];
   // 重複を削除
   return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(props.keyword)].filter(
-    (v, i, a) => a.findIndex((t) => t.lyric === v.lyric) === i
+    (v, i, a) => a.findIndex((t) => t.hymmnos === v.hymmnos) === i
   );
 });
 </script>

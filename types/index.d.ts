@@ -34,18 +34,22 @@ export type TIdiom = {
 
 export type TLyric = {
   title: string,
-  // 原文
-  lyric: string,
-  lyricWords: string,
-  // 訂正版
-  correction?: string,
-  correctionWords?: string,
-  // 訳
-  japanese: string,
-  japaneseWords: string,
+  // ヒュムノス語歌詞
+  hymmnos?: string,
+  hymmnosWords?: string,
+  // 訂正版ヒュムノス語歌詞
+  correctionHymmnos?: string,
+  correctionForeluna?: string,
+  // 律史前・星語歌詞
+  foreluna?: string,
+  forelunaWords?: string,
+  // 日本語歌詞
+  japanese?: string,
+  japaneseRuby?: string,
+  japaneseWords?: string,
   // 非公式フラグ
   unofficial?: {
-    lyric: boolean,
+    hymmnos: boolean,
     japanese: boolean,
   },
 };

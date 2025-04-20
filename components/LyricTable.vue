@@ -1,5 +1,5 @@
 <template>
-  <UTable :rows="lyrics.slice(0, showAll ? undefined : defaultRowCount)" :columns="columns" sortable
+  <UTable :rows :columns="columns" sortable
     :empty-state="{ icon: '', label: '用例が見つかりません...' }" :ui="{
       th: {
         padding: 'hidden',
@@ -7,20 +7,21 @@
     }">
     <template #example-data="{ row }">
       <div class="mb-2 text-base">
-        <div class="text-wrap" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
-          <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
-            class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" /><span
-            v-html="getLyricHtml(row.lyric)"></span>
+        <div class="text-wrap" :class="row.unofficial?.hymmnos ? 'text-cool-400' : ''">
+          <UButton v-if="row.unofficial?.hymmnos" label="非公式" size="xs" variant="outline"
+            class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" />
+          <span v-html="getLyricHtml(row.hymmnos)"></span>
         </div>
-        <div v-if="row.correction" class="text-wrap mt-1 mb-2 text-cool-400">
+        <div v-if="row.correctionHymmnos" class="text-wrap mt-1 mb-2 text-cool-400">
           <UButton label="修正版" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1"
-            @click="isOpenCorrection = true" /><span v-html="getLyricHtml(row.correction)"></span>
+            @click="isOpenCorrection = true" />
+          <span v-html="getLyricHtml(row.correctionHymmnos)"></span>
         </div>
       </div>
-      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
-        <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
-          class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" /><span
-          v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
+      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.hymmnos ? 'text-cool-400' : ''">
+        <UButton v-if="row.unofficial?.hymmnos" label="非公式" size="xs" variant="outline"
+          class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" />
+        <span v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
       </div>
     </template>
   </UTable>
@@ -92,6 +93,10 @@ const columns = [
 
 const showAll = ref<boolean>(false);
 
+const rows = computed(() => {
+  return showAll.value ? props.lyrics : props.lyrics.slice(0, props.defaultRowCount);
+});
+
 watch(
   () => props.lyrics,
   () => {
@@ -108,17 +113,18 @@ const getHilightedText = (text: string, hilighted: string) => {
 
 // HTMLデータ
 const getJapaneseHtml = (lyric: TLyric) => {
+  if (!lyric) return '';
   const { word } = props;
   if (!word || word.match(/[:]/)) return lyric.japanese;
 
   // word.hymmnosと一致する部分をハイライト
-  const standart = getHilightedText(lyric.japanese, word);
+  const standart = getHilightedText(lyric.japanese ?? '', word);
   if (standart !== lyric.japanese) {
     return standart;
   }
 
   // 変化がある場合
-  const match = lyric.japaneseWords.match(
+  const match = lyric.japaneseWords?.match(
     new RegExp(word + "[^:]*:([^: ]+)", "gi")
   );
   if (!match) return lyric.japanese;
@@ -128,6 +134,7 @@ const getJapaneseHtml = (lyric: TLyric) => {
 
 // HTMLデータ
 const getLyricHtml = (lyric: string) => {
+  if (!lyric) return '';
   const { word } = props;
   if (!word) return lyric;
 
