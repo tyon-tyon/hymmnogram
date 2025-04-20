@@ -1,25 +1,12 @@
 <template>
   <div class="footer-nav p-1">
     <div class="flex items-center">
-      <UButton
-        :icon="
-          toggle
-            ? 'i-heroicons-chevron-double-down'
-            : 'i-heroicons-chevron-double-up'
-        "
-        size="sm"
-        color="white"
-        square
-        variant="solid"
-        class="mr-2"
-        @click="clickToggle"
-      />
       <UInput
         v-model="keyword"
         class="shadow-none flex-1 mr-2"
         placeholder="ヒュムノス語を検索"
       />
-      <UButtonGroup size="xs">
+      <UButtonGroup size="xs" class="mr-2">
         <UButton
           :color="mode === 'hymmnos' ? 'primary' : 'white'"
           @click="
@@ -53,6 +40,18 @@
           律史前
         </UButton>
       </UButtonGroup>
+      <UButton
+        :icon="
+          toggle
+            ? 'i-heroicons-chevron-double-down'
+            : 'i-heroicons-chevron-double-up'
+        "
+        size="sm"
+        color="white"
+        square
+        variant="solid"
+        @click="clickToggle"
+      />
     </div>
     <div
       class="panel pt-2"
