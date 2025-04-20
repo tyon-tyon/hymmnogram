@@ -6,12 +6,8 @@
     <p class="mb-4">
       ヒュムノグラムは、アルトネリコ・サージュコンチェルトシリーズに登場する言語『ヒュムノス語』の非公式辞書サイトです。
       単語データは
-      <nuxt-link
-        href="https://ux.getuploader.com/hymmnoster/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-500"
-      >
+      <nuxt-link href="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer"
+        class="text-blue-500">
         トリフィラ
       </nuxt-link>
       を元にしています。
@@ -29,13 +25,9 @@
     <h3 class="text-xl font-bold mb-4 text-primary-600">お問い合わせ</h3>
     <p>
       ご不明な点やお問い合わせがある場合は、
-      <nuxt-link
-        to="https://x.com/messages/compose?recipient_id=565191834"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-500"
-      >
-        Twitter DM
+      <nuxt-link to="https://marshmallow-qa.com/bfpkhciwx4ix2d3" target="_blank" rel="noopener noreferrer"
+        class="text-blue-500">
+        マシュマロ(匿名メッセージフォーム)
       </nuxt-link>
       からお気軽にご連絡ください。
     </p>
@@ -104,58 +96,28 @@
     <h2 class="text-2xl font-bold mb-4 text-primary-600">参考リンク</h2>
     <ul class="list-disc list-inside mb-4">
       <li>
-        <nuxt-link
-          to="https://github.com/tyon-tyon/hymmnogram"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >GitHub リポジトリ</nuxt-link
-        >
+        <nuxt-link to="https://github.com/tyon-tyon/hymmnogram" target="_blank" rel="noopener noreferrer"
+          class="text-blue-500">GitHub リポジトリ</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          to="http://game.salburg.com/hymmnoserver/index.php"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >ヒュムノサーバー</nuxt-link
-        >
+        <nuxt-link to="http://game.salburg.com/hymmnoserver/index.php" target="_blank" rel="noopener noreferrer"
+          class="text-blue-500">ヒュムノサーバー</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          to="https://drive.google.com/file/d/1044oHiXZ9-4mrYWc-Cs4eVbnX2TEFW3g/view"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >紡ぐためのヒュムノス語</nuxt-link
-        >
+        <nuxt-link to="https://drive.google.com/file/d/1044oHiXZ9-4mrYWc-Cs4eVbnX2TEFW3g/view" target="_blank"
+          rel="noopener noreferrer" class="text-blue-500">紡ぐためのヒュムノス語</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          to="https://ux.getuploader.com/hymmnoster/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >ヒュムノス関連アップローダ トリフィラ</nuxt-link
-        >
+        <nuxt-link to="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer"
+          class="text-blue-500">ヒュムノス関連アップローダ トリフィラ</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          to="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%A0%E3%83%8E%E3%82%B9%E8%AA%9E"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >ヒュムノス語 - Wikipedia</nuxt-link
-        >
+        <nuxt-link to="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%A0%E3%83%8E%E3%82%B9%E8%AA%9E"
+          target="_blank" rel="noopener noreferrer" class="text-blue-500">ヒュムノス語 - Wikipedia</nuxt-link>
       </li>
       <li>
-        <nuxt-link
-          to="https://w.atwiki.jp/hymm01/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500"
-          >非公式ヒュムノス辞書</nuxt-link
-        >
+        <nuxt-link to="https://w.atwiki.jp/hymm01/" target="_blank" rel="noopener noreferrer"
+          class="text-blue-500">非公式ヒュムノス辞書</nuxt-link>
       </li>
     </ul>
   </section>

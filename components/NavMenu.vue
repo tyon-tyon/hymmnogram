@@ -26,5 +26,10 @@ const links = [
     icon: "i-heroicons-document-text",
     to: "/original-words",
   },
+  {
+    label: "お問合せ",
+    icon: "i-heroicons-chat-bubble-left-right",
+    to: "https://marshmallow-qa.com/bfpkhciwx4ix2d3",
+  },
 ];
 </script>
