@@ -33,11 +33,11 @@
 
         <div class="order-2 md:order-1">
           <div v-for="lyric in lyrics" :key="lyric.id" class="pb-5">
-            <div v-if="lyric.hymmnos" class="flex flex-wrap">
-              <WordHymmnos v-for="(word, index) in getLyricWords(lyric.hymmnos)" :word="word" :key="index" small
+            <div v-if="lyric.lyric" class="flex flex-wrap">
+              <WordHymmnos v-for="(word, index) in getLyricWords(lyric.lyric)" :word="word" :key="index" small
                 class="mr-2" />
             </div>
-            <p v-if="lyric.hymmnos" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</p>
+            <p v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</p>
             <p v-else><span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span></p>
           </div>
         </div>
@@ -48,26 +48,11 @@
 
   <script setup lang="ts">
   const { getWords } = useDictionary();
+  const { getFromMusicKey } = useLyrics();
   // SSRでidを取得
   const key = useRoute().params.key;
 
-  // assets/datas/lyrics_hymmnos.jsonを読み込む
-  const lyricsHymmnos = await import('@/assets/datas/lyrics_hymmnos.json');
-
-  // assets/datas/musics.jsonを読み込む
-  const musics = await import('@/assets/datas/musics.json');
-
-  // データを取得
-  const music = musics.default[key as keyof typeof musics.default];
-  const lyrics = lyricsHymmnos.default.filter((lyric) => lyric.id === music?.id);
-
-  // データが存在しない場合は404
-  if (!lyrics.length) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: 'Not Found',
-    });
-  }
+  const { lyrics, music } = getFromMusicKey(key as string);
 
   // データを表示
   const getLyricWords = (hymmnos: string) => {

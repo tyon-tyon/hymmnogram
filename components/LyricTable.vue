@@ -1,5 +1,5 @@
 <template>
-  <UTable :rows :columns="columns" sortable
+  <UTable :rows="rows" :columns="columns" sortable
     :empty-state="{ icon: '', label: '用例が見つかりません...' }" :ui="{
       th: {
         padding: 'hidden',
@@ -7,19 +7,19 @@
     }">
     <template #example-data="{ row }">
       <div class="mb-2 text-base">
-        <div class="text-wrap" :class="row.unofficial?.hymmnos ? 'text-cool-400' : ''">
-          <UButton v-if="row.unofficial?.hymmnos" label="非公式" size="xs" variant="outline"
+        <div class="text-wrap" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
+          <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
             class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" />
-          <span v-html="getLyricHtml(row.hymmnos)"></span>
+          <span v-html="getLyricHtml(row.lyric)"></span>
         </div>
-        <div v-if="row.correctionHymmnos" class="text-wrap mt-1 mb-2 text-cool-400">
+        <div v-if="row.correctionLyric" class="text-wrap mt-1 mb-2 text-cool-400">
           <UButton label="修正版" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1"
             @click="isOpenCorrection = true" />
-          <span v-html="getLyricHtml(row.correctionHymmnos)"></span>
+          <span v-html="getLyricHtml(row.correctionLyric)"></span>
         </div>
       </div>
-      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.hymmnos ? 'text-cool-400' : ''">
-        <UButton v-if="row.unofficial?.hymmnos" label="非公式" size="xs" variant="outline"
+      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
+        <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
           class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" />
         <span v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
       </div>
@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TLyric } from "~/types";
+import type { TLyric, TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
     word: string;
@@ -157,7 +157,7 @@ const getLyricHtml = (lyric: string) => {
     return found
       ? { ...found, hymmnos: word }
       : { ...dictionary.emptyWordData, hymmnos: word };
-  });
+  }) as TWord[];
 
   return found
     .map((w) => {

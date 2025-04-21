@@ -32,29 +32,6 @@ export type TIdiom = {
   dialect: string;
 };
 
-export type TLyric = {
-  id?: number,
-  title: string,
-  // ヒュムノス語歌詞
-  hymmnos?: string,
-  hymmnosWords?: string,
-  // 訂正版ヒュムノス語歌詞
-  correctionHymmnos?: string,
-  correctionForeluna?: string,
-  // 律史前・星語歌詞
-  foreluna?: string,
-  forelunaWords?: string,
-  // 日本語歌詞
-  japanese?: string,
-  japaneseRuby?: string,
-  japaneseWords?: string,
-  // 非公式フラグ
-  unofficial?: {
-    hymmnos: boolean,
-    japanese: boolean,
-  },
-};
-
 export type TForelunaChar = {
   char: string; // 文字
   meaning: string; // 意味
@@ -86,3 +63,38 @@ export type TDialect = {
   japanese: string;
   color: string;
 };
+
+export type TLyric = {
+  id?: number,
+  musicId?: number,
+  title: string,
+  language?: 'hymmnos' | 'foreluna',
+  // ヒュムノス語歌詞
+  lyric?: string,
+  lyricWords?: string,
+  // 訂正版ヒュムノス語歌詞
+  correctionLyric?: string,
+  // 日本語歌詞
+  japanese?: string,
+  japaneseRuby?: string,
+  japaneseWords?: string,
+  // 非公式フラグ
+  unofficial?: {
+    lyric?: boolean,
+    japanese?: boolean,
+  },
+};
+
+export type TMusic = {
+  id: number;
+  key: string;
+  title: string;
+  singer: string[];
+  lyricist: string[];
+  composer: string[];
+  arranger: string[];
+  releaseDate: string;
+  tags: string[];
+  explanation: string;
+  feeling: string;
+}; 

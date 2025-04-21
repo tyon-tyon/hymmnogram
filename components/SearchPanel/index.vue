@@ -1,18 +1,8 @@
 <template>
-  <UTextarea
-    v-model="keyword"
-    :rows="1"
-    autoresize
-    class="mb-4"
-    placeholder="ヒュムノス辞書で検索したいキーワードを入力"
-  />
-  <UTabs :items="items" class="w-full">
+  <UTextarea v-model="keyword" :rows="1" autoresize class="mb-4" placeholder="ヒュムノス辞書で検索したいキーワードを入力" />
+  <UTabs v-model="tab" :items="items" class="w-full">
     <template #default="{ item, selected }">
-      <span
-        class="truncate"
-        :class="[selected && 'text-primary-500 dark:text-primary-400']"
-        >{{ item.label }}</span
-      >
+      <span class="truncate" :class="[selected && 'text-primary-500 dark:text-primary-400']">{{ item.label }}</span>
     </template>
     <template #item="{ item }">
       <SearchPanelHymmnos v-if="item.key === 'hymmnos'" :keyword="keyword" />
@@ -24,6 +14,7 @@
 
 <script setup lang="ts">
 const keyword = ref("");
+const tab = ref(0);
 const items = [
   {
     key: "hymmnos",
@@ -38,4 +29,22 @@ const items = [
     label: "アルシエラ(星語)",
   },
 ];
+const router = useRouter();
+// 文字が入力されたら?q=を追加
+watch([keyword, tab], (value) => {
+  if (value) {
+    router.replace({ query: { q: value[0], t: value[1] } });
+  }
+});
+// ページが読み込まれたら?keyword=を取得
+onBeforeMount(() => {
+  const q = router.currentRoute.value.query.q;
+  const t = router.currentRoute.value.query.t;
+  if (q) {
+    keyword.value = q as string;
+  }
+  if (t) {
+    tab.value = Number(t);
+  }
+});
 </script>
