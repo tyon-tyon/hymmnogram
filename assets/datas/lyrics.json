@@ -302,7 +302,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Wee ki ra chs Chronicle Key en grandee sos dius yor.",
     "lyricWords": " wee ki ra chs chronicle key en grandee sos dius yor . ",
     "japanese": "尊い貴方を守護る為 クロニクルキーを奏でよう",
@@ -310,7 +310,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Wee ki ra araus tes soare an giue mea iem.",
     "lyricWords": " wee ki ra araus tes soare an giue mea iem . ",
     "japanese": "この身の犠牲と引き換えに 今 この詩を捧げよう",
@@ -318,27 +318,27 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Was au ga whai pauwel ferda enter whou na needle sor,",
     "lyricWords": " was au ga whai pauwel ferda enter whou na needle sor , ",
     "japanese": "何故 力は 無欲な人に宿るのだろう",
     "japaneseWords": " 何故:何故 力:力 は:は 無欲:無欲 だ:な 人:人 に:に 宿る:宿る の:の だ:だろ う:う ",
-    "correction": "Was au ga whai pauwel ferda enter whou na nedle sor,",
-    "correctionWords": " was au ga whai pauwel ferda enter whou na nedle sor , ",
+    "correctionLyric": "Was au ga whai pauwel ferda enter whou na nedle sor,",
+    "correctionLyricWords": " was au ga whai pauwel ferda enter whou na nedle sor , ",
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "en whai pauwel gaunji yasra whou na senjue sor tou zuieg.",
     "lyricWords": " en whai pauwel gaunji yasra whou na senjue sor tou zuieg . ",
     "japanese": "何故 力は 諍い望まぬ優しい人を苛むのだろう",
     "japaneseWords": " 何故:何故 力:力 は:は 諍い:諍い 望む:望ま ぬ:ぬ 優しい:優しい 人:人 を:を 苛む:苛む の:の だ:だろ う:う ",
-    "correction": "en whai pauwel gaunji yasra whou na cenjue sor tou zuieg.",
-    "correctionWords": " en whai pauwel gaunji yasra whou na cenjue sor tou zuieg . ",
+    "correctionLyric": "en whai pauwel gaunji yasra whou na cenjue sor tou zuieg.",
+    "correctionLyricWords": " en whai pauwel gaunji yasra whou na cenjue sor tou zuieg . ",
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Was au ga, Diasee, Pauwee,",
     "lyricWords": " was au ga , diasee , pauwee , ",
     "japanese": "神の子よ 力の子よ",
@@ -346,17 +346,17 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "aiph yos delij zuieg, en needle eterne falfa,",
     "lyricWords": " aiph yos delij zuieg , en needle eterne falfa , ",
     "japanese": "もし貴方が争いを厭い 永久の安寧を求めるのなら",
     "japaneseWords": " もし:もし 貴方:貴方 が:が 争い:争い を:を 厭う:厭い 永久:永久 の:の 安寧:安寧 を:を 求める:求める の:の だ:なら ",
-    "correction": "aiph yos delij zuieg, en nedle eterne falfa,",
-    "correctionWords": " aiph yos delij zuieg , en nedle eterne falfa , ",
+    "correctionLyric": "aiph yos delij zuieg, en nedle eterne falfa,",
+    "correctionLyricWords": " aiph yos delij zuieg , en nedle eterne falfa , ",
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "slepir tes pauwel an hyzik.",
     "lyricWords": " slepir tes pauwel an hyzik . ",
     "japanese": "力と そして肉体を 共に眠りへ就かせなさい",
@@ -364,7 +364,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "fatere tes pauwel chs deleir, en ousye yor.",
     "lyricWords": " fatere tes pauwel chs deleir , en ousye yor . ",
     "japanese": "己が力が禍となり 貴方の身さえも蝕む前に",
@@ -372,7 +372,10 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2
+  },
+  {
+    "musicId": 2,
     "lyric": "Wee ki ra selena anw yasra wiene,",
     "lyricWords": " wee ki ra selena anw yasra wiene , ",
     "japanese": "優しい音色を奏でよう",
@@ -380,7 +383,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "en chs Chronicle Key sos yor.",
     "lyricWords": " en chs chronicle key sos yor . ",
     "japanese": "貴方の為の子守唄",
@@ -388,7 +391,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Wee ki ra araus tes soare an giue mea iem.",
     "lyricWords": " wee ki ra araus tes soare an giue mea iem . ",
     "japanese": "この身の呪縛と引き換えに 今 この詩を捧げよう",
@@ -396,7 +399,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Was au ga, aiph yos delij.",
     "lyricWords": " was au ga , aiph yos delij . ",
     "japanese": "もし貴方が厭うならば",
@@ -408,7 +411,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Was au ga, Diasee, Pauwee,",
     "lyricWords": " was au ga , diasee , pauwee , ",
     "japanese": "神の子よ 力の子よ",
@@ -420,7 +423,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "aiph yos delij zuieg,",
     "lyricWords": " aiph yos delij zuieg , ",
     "japanese": "もし貴方が爭いを厭うならば",
@@ -432,7 +435,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "en nedle eterne falfa,",
     "lyricWords": " en nedle eterne falfa , ",
     "japanese": "永久の安寧を求めるのなら",
@@ -444,7 +447,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "slepir tes pauwel an hyzik.",
     "lyricWords": " slepir tes pauwel an hyzik . ",
     "japanese": "力と そして肉体を 共に眠りへ就かせなさい",
@@ -456,17 +459,17 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "Grandi en eterne slepial,",
     "lyricWords": " grandi en eterne slepial , ",
     "japanese": "貴方の心を守護る為 永い眠りを与えよう",
     "japaneseWords": " 貴方:貴方 の:の 心:心 を:を 守:守 護る:護る 為:為 永い:永い 眠り:眠り を:を 与える:与えよ う:う ",
-    "correction": "Was ki ra grandi en eterne slepial,",
-    "correctionWords": " was ki ra grandi en eterne slepial , ",
+    "correctionLyric": "Was ki ra grandi en eterne slepial,",
+    "correctionLyricWords": " was ki ra grandi en eterne slepial , ",
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "presia aterra cremia sos viuy lonfa,",
     "lyricWords": " presia aterra cremia sos viuy lonfa , ",
     "japanese": "暗く翳した魂を 救済へと誘おう",
@@ -474,7 +477,7 @@
     "language": "hymmnos"
   },
   {
-    "title": "EXEC_CHRONICLE_KEY/.",
+    "musicId": 2,
     "lyric": "yehar lamenza der soare mea.",
     "lyricWords": " yehar lamenza der soare mea . ",
     "japanese": "祈りの言霊 貴方へと紡ぐ 深い嘆きを解き放て",
