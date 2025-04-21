@@ -3,8 +3,7 @@
     v-if="keyword.length"
     class="text-xs text-right opacity-90 mt-0 leading-5"
   >
-    <ULink to="/editor" class="text-blue-500">ヒュムノスエディタ</ULink
-    >ではコンパートメントの編集が可能です。
+    <TypographyLink href="/editor">ヒュムノスエディタ</TypographyLink>ではコンパートメントの編集が可能です。
   </div>
   <div v-if="keyword.length" class="mb-5">
     <div

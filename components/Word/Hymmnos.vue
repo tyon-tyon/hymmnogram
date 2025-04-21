@@ -23,7 +23,7 @@
       }}
     </div>
     <template v-if="(word.subWords?.length ?? 0) > 0">
-      <div v-if="!lyric && small" class="text-2xs text-cool-400 leading-none text-nowrap pt-1">
+      <div v-if="!lyric && !small" class="text-2xs text-cool-400 leading-none text-nowrap pt-1">
         {{
           word.subWords?.map((subWord) => subWord.primaryMeaning).join(" ")
         }}
