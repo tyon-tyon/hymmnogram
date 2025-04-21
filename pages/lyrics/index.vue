@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :breadcrumb-links="[{label: 'ヒュムノス歌詞一覧', to: '/lyrics'}]">
     <AtomH2>ヒュムノス歌詞一覧</AtomH2>
     <div v-if="selectedTag" class="mb-4" id="selected-tag">
       絞り込み条件: #{{ selectedTag }}

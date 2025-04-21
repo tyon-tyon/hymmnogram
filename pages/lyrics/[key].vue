@@ -1,6 +1,5 @@
 <template>
-  <Layout>
-    <UBreadcrumb :links="breadcrumbLinks" class="mb-4" />
+  <Layout :breadcrumb-links="breadcrumbLinks">
     <AtomH2>{{ music?.title }}</AtomH2>
     <div class="md:grid md:grid-cols-[2fr_1fr] md:gap-4">
       <div v-if="music" class="order-1 md:order-2">
