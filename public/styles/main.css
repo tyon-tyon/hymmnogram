@@ -11,24 +11,33 @@
 .font-hymmnos {
   font-family: "Hymmnos";
 }
+
 .font-ar-ciela {
   font-family: "ar-ciela";
 }
+
 .text-2xs {
   font-size: 0.6rem;
 }
+
 .text-3xs {
   font-size: 0.4rem;
 }
+
 .max-width-content {
   max-width: calc(100vw - 32px);
 }
+
 .z--1 {
   z-index: -1;
 }
+
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
+
 html {
   touch-action: manipulation;
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
 }

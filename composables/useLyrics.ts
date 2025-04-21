@@ -1,10 +1,10 @@
 
-import _lyricsHymmnos from "@/assets/datas/lyrics_hymmnos.json";
+import _lyrics from "@/assets/datas/lyrics.json";
 import _musics from "@/assets/datas/musics.json";
 import type { TLyric, TMusic } from "~/types";
 
 // meaningをmeaningsに変更
-const allLyrics = _lyricsHymmnos.map((lyric, id) => ({
+const allLyrics = _lyrics.map((lyric, id) => ({
   ...lyric,
   id,
 })) as TLyric[]; // ヒュムノス語歌詞があるもの
