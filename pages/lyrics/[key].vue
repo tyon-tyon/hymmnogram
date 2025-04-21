@@ -5,6 +5,7 @@
     <div class="md:grid md:grid-cols-[2fr_1fr] md:gap-4">
       <div v-if="music" class="order-1 md:order-2">
         <AtomH3 class="hidden md:block">楽曲情報</AtomH3>
+        <UAlert v-if="music.notice" icon="i-heroicons-exclamation-circle" class="text-sm mb-4" :description="music.notice" />
         <AtomP class="text-sm">
           歌唱：{{ music.singer.join(', ') }}<br>
           作詞：{{ music.lyricist.join(', ') }}<br>
@@ -12,7 +13,6 @@
           編曲：{{ music.arranger.join(', ') }}<br>
           リリース：{{ music.releaseDate }}
         </AtomP>
-
         <div class="flex flex-wrap mb-4">
           <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${tag}`" class="text-sm mr-2">
             #{{ tag }}

@@ -1,16 +1,10 @@
 <template>
   <Layout>
     <AtomH2>歌詞一覧</AtomH2>
-    <UAccordion :items="accordionItems">
-      <template #tags>
-        <div class="flex flex-wrap">
-          <AtomLink v-for="(tag, index) in tags" :key="index" :href="`/lyrics/?tag=${tag}`" class="text-sm mr-2"
-            @click="selectedTag = tag">
-            #{{ tag }}
-          </AtomLink>
-        </div>
-      </template>
-    </UAccordion>
+    <div v-if="selectedTag" class="mb-4" id="selected-tag">
+      絞り込み条件: #{{ selectedTag }}
+      <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
+    </div>
     <UTable :ui="{
       th: {
         padding: 'hidden',
@@ -25,6 +19,16 @@
         </AtomLink>
       </template>
     </UTable>
+    <UAccordion :items="accordionItems" class="mb-4">
+      <template #tags>
+        <div class="flex flex-wrap">
+          <AtomLink v-for="(tag, index) in tags" :key="index" :href="`/lyrics/?tag=${tag}#selected-tag`"
+            class="text-sm mr-2" @click="selectedTag = tag">
+            #{{ tag }}
+          </AtomLink>
+        </div>
+      </template>
+    </UAccordion>
   </Layout>
 </template>
 

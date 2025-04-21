@@ -97,4 +97,5 @@ export type TMusic = {
   tags: string[];
   explanation: string;
   feeling: string;
+  notice?: string;
 }; 
