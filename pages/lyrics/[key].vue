@@ -109,7 +109,7 @@ if (!music) {
 
 const breadcrumbLinks = [
   {
-    label: '歌詞一覧',
+    label: 'ヒュムノス歌詞一覧',
     to: '/lyrics',
   },
   {

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <AtomH2>歌詞一覧</AtomH2>
+    <AtomH2>ヒュムノス歌詞一覧</AtomH2>
     <div v-if="selectedTag" class="mb-4" id="selected-tag">
       絞り込み条件: #{{ selectedTag }}
       <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
@@ -38,6 +38,15 @@ const tags = getMusicTags();
 const route = useRoute();
 const selectedTag = ref<string | null>(route.query.tag as string | null);
 const musics = ref(getMusicByTag(selectedTag.value ?? undefined));
+const title = computed(() => (selectedTag.value ? `${selectedTag.value}の` : '') + 'ヒュムノス歌詞一覧');
+
+useHead({
+  title,
+  meta: [
+    { property: 'og:title', content: title },
+    { name: 'description', content: 'ヒュムノス歌詞一覧' },
+  ],
+});
 
 const columns = [
   {
