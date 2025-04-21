@@ -1,9 +1,9 @@
 <template>
   <Layout>
-    <TypographyH2 class="flex justify-between">
+    <AtomH2 class="flex justify-between">
       オリジナル単語登録
       <OriginalWordsHelp />
-    </TypographyH2>
+    </AtomH2>
     <UFormGroup label="単語データ" name="words">
       <UTextarea
         v-model="wordsStr"
