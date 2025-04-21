@@ -33,6 +33,7 @@ export type TIdiom = {
 };
 
 export type TLyric = {
+  id?: number,
   title: string,
   // ヒュムノス語歌詞
   hymmnos?: string,
