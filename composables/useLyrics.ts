@@ -8,7 +8,7 @@ const allLyrics = _lyricsHymmnos.map((lyric, id) => ({
   ...lyric,
   id,
 })) as TLyric[]; // ヒュムノス語歌詞があるもの
-const musics = _musics as { [key: string]: TMusic; };
+const musics = _musics as TMusic[];
 export default function useLyrics() {
   const getMatch = (lyrics: TLyric[], q: string) => {
     // 正規表現のエスケープ
@@ -38,10 +38,10 @@ export default function useLyrics() {
       index === self.findIndex((t) => t.id === match.id)
     );
     return matches.map((match) => {
-      const musicKey = Object.values(musics).find((music) => music.id === match.id)?.key;
+      const music = musics.find((music) => music.id === match.musicId);
       return {
         ...match,
-        ...(musicKey ? { musicKey } : {}),
+        ...(music ? { musicKey: music.key, title: music.title } : {}),
       };
     });
   };
@@ -56,7 +56,7 @@ export default function useLyrics() {
   };
 
   const getFromMusicKey = (key: string): { lyrics: TLyric[], music: TMusic | null; } => {
-    const music = musics[key as keyof typeof musics];
+    const music = musics.find((music) => music.key === key);
     if (!music) return { lyrics: [], music: null };
     return {
       lyrics: allLyrics.filter(lyric => lyric.musicId === music?.id),

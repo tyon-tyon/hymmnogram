@@ -67,7 +67,7 @@ export type TDialect = {
 export type TLyric = {
   id?: number,
   musicId?: number,
-  title: string,
+  title?: string,
   language?: 'hymmnos' | 'foreluna',
   // ヒュムノス語歌詞
   lyric?: string,
