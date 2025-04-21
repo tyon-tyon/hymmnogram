@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TWord, TLyric, TArCielaChar } from "~/types";
+import type { TWord, TLyric } from "~/types";
 const props = defineProps<{
   mode: "hymmnos" | "arCiela" | "foreluna";
   keyword: string;

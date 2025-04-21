@@ -1,12 +1,14 @@
 
 import _lyricsHymmnos from "@/assets/datas/lyrics_hymmnos.json";
-import _lyricsForeluna from "@/assets/datas/lyrics_foreluna.json";
-import type { TLyric } from "~/types";
+import _musics from "@/assets/datas/musics.json";
+import type { TLyric, TMusic } from "~/types";
 
 // meaningをmeaningsに変更
-const lyricsHymmnos = (_lyricsHymmnos as TLyric[]).filter(lyric => lyric.hymmnos); // ヒュムノス語歌詞があるもの
-const lyricsForeluna = _lyricsForeluna as TLyric[];
-
+const allLyrics = _lyricsHymmnos.map((lyric, id) => ({
+  ...lyric,
+  id,
+})) as TLyric[]; // ヒュムノス語歌詞があるもの
+const musics = _musics as TMusic[];
 export default function useLyrics() {
   const getMatch = (lyrics: TLyric[], q: string) => {
     // 正規表現のエスケープ
@@ -14,13 +16,13 @@ export default function useLyrics() {
     const reg = new RegExp(q, 'gi');
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
-      lyric.hymmnosWords?.match(" " + q.toLocaleLowerCase() + " ") ||
-      lyric.correctionHymmnos?.match(" " + q.toLocaleLowerCase() + " ")
+      lyric.lyricWords?.match(" " + q.toLocaleLowerCase() + " ") ||
+      lyric.correctionLyric?.match(" " + q.toLocaleLowerCase() + " ")
     );
     // 部分一致の例文を取得
     const lyricMatch = lyrics.filter(
       (lyric) =>
-        (lyric.hymmnosWords?.match(reg) || lyric.correctionHymmnos?.match(reg)) &&
+        (lyric.lyricWords?.match(reg) || lyric.correctionLyric?.match(reg)) &&
         !exactLyricMatch.includes(lyric)
     );
     // 日本語の例文を取得
@@ -31,17 +33,36 @@ export default function useLyrics() {
         !exactLyricMatch.includes(lyric) &&
         !lyricMatch.includes(lyric)
     );
-    return [...exactLyricMatch, ...lyricMatch, ...japaneseMatch];
+    // 重複削除
+    const matches = [...exactLyricMatch, ...lyricMatch, ...japaneseMatch].filter((match, index, self) =>
+      index === self.findIndex((t) => t.id === match.id)
+    );
+    return matches.map((match) => {
+      const music = musics.find((music) => music.id === match.musicId);
+      return {
+        ...match,
+        ...(music ? { musicKey: music.key, title: music.title } : {}),
+      };
+    });
   };
 
   const getMatchHymmnos = (q: string) => {
-    return getMatch(lyricsHymmnos, q);
+    return getMatch(allLyrics.filter(lyric => lyric.language === 'hymmnos'), q);
   };
 
 
   const getMatchForeluna = (q: string) => {
-    return getMatch(lyricsForeluna, q);
+    return getMatch(allLyrics.filter(lyric => lyric.language === 'foreluna'), q);
   };
 
-  return { getMatchHymmnos, getMatchForeluna };
+  const getFromMusicKey = (key: string): { lyrics: TLyric[], music: TMusic | null; } => {
+    const music = musics.find((music) => music.key === key);
+    if (!music) return { lyrics: [], music: null };
+    return {
+      lyrics: allLyrics.filter(lyric => lyric.musicId === music?.id),
+      music,
+    };
+  };
+
+  return { getMatchHymmnos, getMatchForeluna, getFromMusicKey };
 }
