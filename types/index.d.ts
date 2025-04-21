@@ -93,7 +93,6 @@ export type TMusic = {
   lyricist: string[];
   composer: string[];
   arranger: string[];
-  releaseDate: string;
   tags: string[];
   explanation: string;
   feeling: string;

@@ -9,8 +9,7 @@
           歌唱：{{ music.singer.join(', ') }}<br>
           作詞：{{ music.lyricist.join(', ') }}<br>
           作曲：{{ music.composer.join(', ') }}<br>
-          編曲：{{ music.arranger.join(', ') }}<br>
-          リリース：{{ music.releaseDate }}
+          編曲：{{ music.arranger.join(', ') }}
         </AtomP>
         <div class="flex flex-wrap mb-4">
           <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${tag}`" class="text-sm mr-2">
