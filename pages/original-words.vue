@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :breadcrumb-links="[{label: 'オリジナル単語登録', to: '/original-words' }]">
     <AtomH2 class="flex justify-between">
       オリジナル単語登録
       <OriginalWordsHelp />
