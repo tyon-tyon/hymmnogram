@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :breadcrumb-links="[]">
     <SearchPanel />
     <div class="pt-4">
       <Readme />

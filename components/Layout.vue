@@ -1,31 +1,35 @@
 <template>
   <div class="header-nav py-2">
-    <span class="bg-logo font-hymmnos text-primary-100 absolute z--1"
-      >HYMMNOGRAM</span
-    >
+    <span class="bg-logo font-hymmnos text-primary-100 absolute z--1">HYMMNOGRAM</span>
     <UContainer class="relative flex items-center justify-between">
       <nuxt-link class="logo" to="/">
         <div class="text-primary-600 text-2xl font-bold">HYMMNOGRAM</div>
         <div class="text-cool-600 text-sm japanese">ヒュムノグラム</div>
       </nuxt-link>
       <UButton label="Menu" @click="openDrawer = true" variant="ghost" />
-      <USlideover
-        v-model="openDrawer"
-        :ui="{
-          width: 'max-w-64',
-        }"
-      >
+      <USlideover v-model="openDrawer" :ui="{
+        width: 'max-w-64',
+      }">
         <NavMenu />
       </USlideover>
     </UContainer>
   </div>
   <UContainer class="container">
-    <slot></slot>
+    <UBreadcrumb v-if="breadcrumbLinks.length > 0" :links="[{ label: 'ホーム', to: '/' }, ...breadcrumbLinks]" class="pt-2" />
+    <div class="pt-4">
+      <slot></slot>
+    </div>
   </UContainer>
 </template>
 
 <script setup lang="ts">
 const openDrawer = ref(false);
+const props = defineProps<{
+  breadcrumbLinks: {
+    label: string;
+    to: string;
+  }[];
+}>();
 </script>
 
 <style scoped>
@@ -40,12 +44,15 @@ const openDrawer = ref(false);
   background: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
+
 .container {
-  margin-top: 70px;
+  margin-top: 55px;
 }
-.logo > * {
+
+.logo>* {
   line-height: 1;
 }
+
 .bg-logo {
   color: transparent;
   text-shadow: 0 0 4px rgb(var(--color-primary-400));

@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  color: string;
+  color: "primary" | "white";
   variant?: "link" | "solid" | "outline" | "soft" | "ghost";
 }>();
 </script>
