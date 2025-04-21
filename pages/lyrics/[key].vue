@@ -1,10 +1,16 @@
 <template>
   <Layout :breadcrumb-links="breadcrumbLinks">
-    <AtomH2>{{ music?.title }}</AtomH2>
+    <AtomH2>
+      <div class="flex items-center justify-between gap-2">
+        {{ music?.title }}
+        <UButton @click="openShareDialog()" color="white" variant="ghost" size="sm" icon="i-heroicons-share" />
+      </div>
+    </AtomH2>
     <div class="md:grid md:grid-cols-[2fr_1fr] md:gap-4">
       <div v-if="music" class="order-1 md:order-2">
         <AtomH3 class="hidden md:block">楽曲情報</AtomH3>
-        <UAlert v-if="music.notice" icon="i-heroicons-exclamation-circle" class="text-sm mb-4" :description="music.notice" />
+        <UAlert v-if="music.notice" icon="i-heroicons-exclamation-circle" class="text-sm mb-4"
+          :description="music.notice" />
         <AtomP class="text-sm">
           歌唱：{{ music.singer.join(', ') }}<br>
           作詞：{{ music.lyricist.join(', ') }}<br>
@@ -39,12 +45,17 @@
           <AtomChipButton v-if="lyric.correctionLyric" @click="openCorrectionDialog(lyric)">
             修正版
           </AtomChipButton>
-          <div v-if="lyric.lyric" class="flex flex-wrap ">
-            <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correctionLyric ?? lyric.lyric)" :word="word"
-              :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+          <div class="hover:bg-cool-50 relative line">
+            <div v-if="lyric.lyric" class="flex flex-wrap ">
+              <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correctionLyric ?? lyric.lyric)" :word="word"
+                :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+            </div>
+            <p v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</p>
+            <p v-else><span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span></p>
+            <UButton v-if="lyric.lyric || lyric.correctionLyric || lyric.japanese" size="sm" color="white"
+              icon="i-heroicons-share" variant="ghost" class="line-share p-0 absolute bottom-0 right-0 opacity-50"
+              @click="openShareDialog(lyric)" />
           </div>
-          <p v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</p>
-          <p v-else><span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span></p>
         </div>
       </div>
     </div>
@@ -67,6 +78,7 @@
         有志による推測によるもののため、間違いがある可能性があります。
       </p>
     </AtomModal>
+    <ShareDialog :text="shareText" :url="shareUrl" v-model:visible="isShareDialogOpen" />
   </Layout>
 </template>
 
@@ -89,8 +101,14 @@ const items = [
 const isUnofficialDialogOpen = ref(false);
 const isCorrectionDialogOpen = ref(false);
 const isWordDialogOpen = ref(false);
+const isShareDialogOpen = ref(false);
+
 const dialogLyric = ref<TLyric | null>(null);
 const dialogWord = ref<TWord | null>(null);
+const shareText = ref('');
+const shareUrl = computed(() => {
+  return `${window.location.origin}/lyrics/${key}`;
+});
 
 const { getWords } = useDictionary();
 const { getFromMusicKey } = useLyrics();
@@ -152,4 +170,26 @@ const openWordDialog = (word: TWord) => {
   dialogWord.value = word;
   isWordDialogOpen.value = true;
 };
+
+const openShareDialog = (lyric?: TLyric) => {
+  if (!lyric) {
+    shareText.value = music?.title;
+  } else {
+    const lyricText = (lyric.correctionLyric ?? lyric.lyric ?? "") + (lyric.correctionLyric || lyric.lyric ? "\n" : "");
+
+    shareText.value =
+      `${lyricText}${lyric.japanese ?? ""} - ${music?.title}`;
+  }
+  isShareDialogOpen.value = true;
+};
 </script>
+
+<style>
+.line .line-share {
+  display: none;
+}
+
+.line:hover .line-share {
+  display: block;
+}
+</style>
