@@ -98,18 +98,6 @@ const items = [
   },
 ];
 
-const isUnofficialDialogOpen = ref(false);
-const isCorrectionDialogOpen = ref(false);
-const isWordDialogOpen = ref(false);
-const isShareDialogOpen = ref(false);
-
-const dialogLyric = ref<TLyric | null>(null);
-const dialogWord = ref<TWord | null>(null);
-const shareText = ref('');
-const shareUrl = computed(() => {
-  return `${window.location.origin}/lyrics/${key}`;
-});
-
 const { getWords } = useDictionary();
 const { getFromMusicKey } = useLyrics();
 // SSRでidを取得
@@ -142,6 +130,18 @@ useHead({
     { property: 'og:url', content: `${window.location.origin}/lyrics/${key}` },
     { property: 'og:description', content: `${music.title}の歌詞` },
   ],
+});
+
+const isUnofficialDialogOpen = ref(false);
+const isCorrectionDialogOpen = ref(false);
+const isWordDialogOpen = ref(false);
+const isShareDialogOpen = ref(false);
+
+const dialogLyric = ref<TLyric | null>(null);
+const dialogWord = ref<TWord | null>(null);
+const shareText = ref('');
+const shareUrl = computed(() => {
+  return `${window.location.origin}/lyrics/${key}`;
 });
 
 //　タグを設定
