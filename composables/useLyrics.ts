@@ -64,5 +64,23 @@ export default function useLyrics() {
     };
   };
 
-  return { getMatchHymmnos, getMatchForeluna, getFromMusicKey };
+  const getMusicTags = () => {
+    const tags = musics.map(music =>
+      [...music.tags, ...music.arranger, ...music.composer, ...music.lyricist]
+    ).flat()
+    return [...new Set(tags)];
+  };
+
+  const getMusicByTag = (tag?: string) => {
+    if (!tag) return musics;
+    return musics.filter(music =>
+      music.tags.includes(tag) ||
+      music.arranger.includes(tag) ||
+      music.composer.includes(tag) ||
+      music.lyricist.includes(tag) ||
+      music.singer.includes(tag)
+    );
+  };
+
+  return { getMatchHymmnos, getMatchForeluna, getFromMusicKey, getMusicTags, getMusicByTag };
 }

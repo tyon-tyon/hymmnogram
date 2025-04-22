@@ -27,7 +27,7 @@
           非公式
         </AtomChipButton>
         <span v-html="getJapaneseHtml(row)"></span> -
-        <AtomLink v-if="row.musicKey" :href="`/lyrics/${row.musicKey}`">{{ row.title }}</AtomLink>
+        <AtomLink v-if="row.musicKey" :href="`/lyrics/${row.musicKey}#lyric-${row.id}`">{{ row.title }}</AtomLink>
         <span v-else>{{ row.title }}</span>
       </div>
     </template>

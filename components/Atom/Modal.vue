@@ -1,5 +1,5 @@
 <template>
-  <UModal v-model="visible">
+  <UModal v-model="visible" :ui="{ container: 'items-center' }">
     <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800',
       header: {
         padding: 'py-2',
