@@ -303,6 +303,14 @@
     "language": "hymmnos"
   },
   {
+    "musicId": 1,
+    "lyric": "Was yea ra chs hymmnos mea.",
+    "lyricWords": " was yea ra chs hymmnos mea . ",
+    "japanese": "私は謳になる\t",
+    "japaneseWords": " 私:私 は:は 謳:謳 に:に なる:なる ",
+    "language": "hymmnos"
+  },
+  {
     "musicId": 2,
     "lyric": "Wee ki ra chs Chronicle Key en grandee sos dius yor.",
     "lyricWords": " wee ki ra chs chronicle key en grandee sos dius yor . ",
