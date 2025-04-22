@@ -36,8 +36,9 @@
   },
   {
     "musicId": 1,
-    "lyric": "Was yea ra Wee yea ra",
-    "lyricWords": " was yea ra wee yea ra ",
+    "lyric": "Was yea ra Was yea ra",
+    "lyricWords": " was yea ra was yea ra ",
+    "correctionLyric": "Was yea ra Wee yea ra",
     "japanese": "嬉しい 嬉しい",
     "japaneseWords": " 嬉しい:嬉しい 嬉しい:嬉しい ",
     "language": "hymmnos"
