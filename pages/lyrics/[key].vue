@@ -184,7 +184,7 @@ const openShareDialog = (lyric?: TLyric) => {
 };
 </script>
 
-<style>
+<style scoped>
 .line .line-share {
   display: none;
 }

@@ -111,7 +111,7 @@ watch(
   bottom: 0;
 }
 
-.line {
+.line-translation .line {
   display: flex;
   justify-content: start;
   overflow-x: scroll;
@@ -120,7 +120,7 @@ watch(
 }
 
 /* Chrome, Safari 対応 */
-.line::-webkit-scrollbar {
+.line-translation .line::-webkit-scrollbar {
   display: none;
 }
 </style>
