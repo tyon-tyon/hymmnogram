@@ -1,54 +1,62 @@
 <template>
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">
+    <AtomH2>
       ヒュムノグラム(v3.beta)へようこそ。
-    </h2>
-    <p class="mb-4">
+    </AtomH2>
+    <AtomP>
       ヒュムノグラムは、アルトネリコ・サージュコンチェルトシリーズに登場する言語『ヒュムノス語』の非公式辞書サイトです。
       単語データは
-      <nuxt-link href="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer"
-        class="text-blue-500">
+      <AtomLink href="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer">
         トリフィラ
-      </nuxt-link>
-      を元にしています。
-    </p>
-    <h3 class="text-xl font-bold mb-4 text-primary-600">
+      </AtomLink>
+      を元に運営者が作成しています。
+    </AtomP>
+    <AtomH3>
       ヒュムノグラム(v3.beta)は現在開発中です
-    </h3>
-    <p class="mb-4">
+    </AtomH3>
+    <AtomP>
       <!--リファラつけて遷移-->
-      <a href="https://fau-varda.net/Hymmnogram" class="text-blue-500">
+      <AtomLink href="https://fau-varda.net/Hymmnogram" target="_blank" rel="noopener noreferrer">
         旧ヒュムノグラム
-      </a>
+      </AtomLink>
       も引き続き利用可能です。バイナスフィア生成等、未実装の機能は旧サイトをご利用ください。
-    </p>
-    <h3 class="text-xl font-bold mb-4 text-primary-600">お問い合わせ</h3>
-    <p>
+    </AtomP>
+    <AtomH3>
+      お問い合わせ
+    </AtomH3>
+    <AtomP>
       ご不明な点やお問い合わせがある場合は、
-      <nuxt-link to="https://marshmallow-qa.com/bfpkhciwx4ix2d3" target="_blank" rel="noopener noreferrer"
-        class="text-blue-500">
+      <AtomLink href="https://marshmallow-qa.com/bfpkhciwx4ix2d3" target="_blank" rel="noopener noreferrer">
         マシュマロ(匿名メッセージフォーム)
-      </nuxt-link>
+      </AtomLink>
       からお気軽にご連絡ください。
-    </p>
+    </AtomP>
   </section>
 
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">更新履歴</h2>
+    <AtomH2>
+      更新履歴
+    </AtomH2>
     <ul class="list-disc list-inside mb-4">
       <li v-for="release in releases" :key="release.id">
         {{ new Date(release.published_at).toLocaleDateString() }}
-        <nuxt-link :to="release.html_url" class="underline">{{ release.name }}</nuxt-link>
+        <AtomLink :href="release.html_url" target="_blank" rel="noopener noreferrer">
+          {{ release.name }}
+        </AtomLink>
       </li>
     </ul>
   </section>
 
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">ヒュムノス辞書</h2>
-    <p class="mb-4">
+    <AtomH2>
+      ヒュムノス辞書
+    </AtomH2>
+    <AtomP>
       ヒュムノス語から日本語へ、または日本語からヒュムノス語への単語検索が可能です。ヒュムノサーバー未登録の単語は、流派を「ヒュムノサーバー未登録」と設定しています。
-    </p>
-    <h3 class="text-xl font-bold mb-2 text-primary-600">機能</h3>
+    </AtomP>
+    <AtomH3>
+      機能
+    </AtomH3>
     <ul class="list-disc list-inside mb-4">
       <li>
         <strong>単語検索</strong>:
@@ -66,25 +74,29 @@
   </section>
 
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">オリジナル単語登録</h2>
-    <p class="mb-4">
+    <AtomH2>
+      オリジナル単語登録
+    </AtomH2>
+    <AtomP>
       自作のヒュムノス語の単語を登録することができます。登録した単語は、ヒュムノス辞書で検索できるようになります。<br />
       登録は
-      <nuxt-link to="/original-words" class="text-blue-500"> こちら </nuxt-link>
+      <AtomLink href="/original-words" class="text-blue-500"> こちら </AtomLink>
       から。
-    </p>
+    </AtomP>
   </section>
 
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">
+    <AtomH2>
       <nuxt-link to="/editor" class="cursor-pointer">
         ヒュムノスエディタ
       </nuxt-link>
-    </h2>
-    <p class="mb-4">
+    </AtomH2>
+    <AtomP>
       ヒュムノス、律史前月読、アルシエラの記述を支援するテキストエディタです。
-    </p>
-    <h3 class="text-xl font-bold mb-2 text-primary-600">機能</h3>
+    </AtomP>
+    <AtomH3>
+      機能
+    </AtomH3>
     <ul class="list-disc list-inside mb-4">
       <li>
         <strong>誤字チェック</strong>:
@@ -103,31 +115,41 @@
   </section>
 
   <section class="mb-10">
-    <h2 class="text-2xl font-bold mb-4 text-primary-600">参考リンク</h2>
+    <AtomH2>
+      参考リンク
+    </AtomH2>
     <ul class="list-disc list-inside mb-4">
       <li>
-        <nuxt-link to="https://github.com/tyon-tyon/hymmnogram" target="_blank" rel="noopener noreferrer"
-          class="text-blue-500">GitHub リポジトリ</nuxt-link>
+        <AtomLink href="https://github.com/tyon-tyon/hymmnogram" target="_blank" rel="noopener noreferrer">
+          GitHub リポジトリ
+        </AtomLink>
       </li>
       <li>
-        <nuxt-link to="http://game.salburg.com/hymmnoserver/index.php" target="_blank" rel="noopener noreferrer"
-          class="text-blue-500">ヒュムノサーバー</nuxt-link>
+        <AtomLink href="http://game.salburg.com/hymmnoserver/index.php" target="_blank" rel="noopener noreferrer">
+          ヒュムノサーバー
+        </AtomLink>
       </li>
       <li>
-        <nuxt-link to="https://drive.google.com/file/d/1044oHiXZ9-4mrYWc-Cs4eVbnX2TEFW3g/view" target="_blank"
-          rel="noopener noreferrer" class="text-blue-500">紡ぐためのヒュムノス語</nuxt-link>
+        <AtomLink href="https://drive.google.com/file/d/1044oHiXZ9-4mrYWc-Cs4eVbnX2TEFW3g/view" target="_blank"
+          rel="noopener noreferrer">
+          紡ぐためのヒュムノス語
+        </AtomLink>
       </li>
       <li>
-        <nuxt-link to="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer"
-          class="text-blue-500">ヒュムノス関連アップローダ トリフィラ</nuxt-link>
+        <AtomLink href="https://ux.getuploader.com/hymmnoster/" target="_blank" rel="noopener noreferrer">
+          ヒュムノス関連アップローダ トリフィラ
+        </AtomLink>
       </li>
       <li>
-        <nuxt-link to="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%A0%E3%83%8E%E3%82%B9%E8%AA%9E"
-          target="_blank" rel="noopener noreferrer" class="text-blue-500">ヒュムノス語 - Wikipedia</nuxt-link>
+        <AtomLink href="https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%A5%E3%83%A0%E3%83%8E%E3%82%B9%E8%AA%9E"
+          target="_blank" rel="noopener noreferrer">
+          ヒュムノス語 - Wikipedia
+        </AtomLink>
       </li>
       <li>
-        <nuxt-link to="https://w.atwiki.jp/hymm01/" target="_blank" rel="noopener noreferrer"
-          class="text-blue-500">非公式ヒュムノス辞書</nuxt-link>
+        <AtomLink href="https://w.atwiki.jp/hymm01/" target="_blank" rel="noopener noreferrer">
+          非公式ヒュムノス辞書
+        </AtomLink>
       </li>
     </ul>
   </section>

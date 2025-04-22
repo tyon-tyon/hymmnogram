@@ -1,9 +1,9 @@
 <template>
-  <Layout>
-    <h1 class="text-2xl flex justify-between items-center mb-5">
+  <Layout :breadcrumb-links="[{label: 'オリジナル単語登録', to: '/original-words' }]">
+    <AtomH2 class="flex justify-between">
       オリジナル単語登録
       <OriginalWordsHelp />
-    </h1>
+    </AtomH2>
     <UFormGroup label="単語データ" name="words">
       <UTextarea
         v-model="wordsStr"
@@ -38,7 +38,9 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
 
 <script setup lang="ts">
 import type { TDialect } from "~/types";
-
+useHead({
+  title: 'オリジナル単語登録',
+});
 const { pureDialects, updateDialects } = useDialect();
 const { updateWords } = useDictionary();
 const { updateOriginalWords, updateOriginalDialects, originalWords } =

@@ -12,6 +12,9 @@
 import HymmnosTextArea from "~/components/EditorTools/HymmnosTextArea.vue";
 import HeaderNav from "~/components/EditorTools/HeaderNav.vue";
 import FooterNav from "~/components/EditorTools/FooterNav.vue";
+useHead({
+  title: 'ヒュムノスエディタ',
+});
 </script>
 
 <style scoped>

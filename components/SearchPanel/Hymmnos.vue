@@ -92,8 +92,6 @@ const foundLyrics = computed(() => {
     ? lyrics.getMatchHymmnos(exactMatchWordBase)
     : [];
   // 重複を削除
-  return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(props.keyword)].filter(
-    (v, i, a) => a.findIndex((t) => t.lyric === v.lyric) === i
-  );
+  return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(props.keyword)];
 });
 </script>

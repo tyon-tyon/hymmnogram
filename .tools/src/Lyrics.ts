@@ -73,7 +73,7 @@ async function addLyrics(filename: string) {
     if (isForeluna) {
       lyricsForeluna.push(lyric);
     }
-    console.log(title, lyric.lyric, lyric.japanese);
+    console.log(title, lyric.hymmnos, lyric.japanese);
   }
 };
 
@@ -89,8 +89,8 @@ async function getLyric(title: string, line: string[]): Promise<{ lyric: TLyric,
   return {
     lyric: {
       title,
-      lyric,
-      lyricWords: ' ' + words.join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
+      hymmnos: lyric,
+      hymmnosWords: ' ' + words.join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
       japanese,
       japaneseWords: ' ' + japaneseWords.join(' ').replace(/\s+/gi, ' ') + ' ',
     },

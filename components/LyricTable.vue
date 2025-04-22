@@ -1,26 +1,34 @@
 <template>
-  <UTable :rows="lyrics.slice(0, showAll ? undefined : defaultRowCount)" :columns="columns" sortable
-    :empty-state="{ icon: '', label: '用例が見つかりません...' }" :ui="{
-      th: {
-        padding: 'hidden',
-      },
-    }">
+  <UTable :rows="rows" :columns="columns" sortable :empty-state="{ icon: '', label: '用例が見つかりません...' }" :ui="{
+    th: {
+      padding: 'hidden',
+    },
+    td: {
+      padding: 'px-0',
+    },
+  }">
     <template #example-data="{ row }">
       <div class="mb-2 text-base">
         <div class="text-wrap" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
-          <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
-            class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" /><span
-            v-html="getLyricHtml(row.lyric)"></span>
+          <AtomChipButton v-if="row.unofficial?.lyric" @click="isOpenUnofficial = true" class="mr-1">
+            非公式
+          </AtomChipButton>
+          <span v-html="getLyricHtml(row.lyric)"></span>
         </div>
-        <div v-if="row.correction" class="text-wrap mt-1 mb-2 text-cool-400">
-          <UButton label="修正版" size="xs" variant="outline" class="text-cool-400 py-1 px-2 mr-1"
-            @click="isOpenCorrection = true" /><span v-html="getLyricHtml(row.correction)"></span>
+        <div v-if="row.correctionLyric" class="text-wrap mt-1 mb-2 text-cool-400">
+          <AtomChipButton @click="isOpenCorrection = true" class="mr-1">
+            修正版
+          </AtomChipButton>
+          <span v-html="getLyricHtml(row.correctionLyric)"></span>
         </div>
       </div>
       <div class="text-wrap text-sm leading-4" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
-        <UButton v-if="row.unofficial?.lyric" label="非公式" size="xs" variant="outline"
-          class="text-cool-400 py-1 px-2 mr-1" @click="isOpenUnofficial = true" /><span
-          v-html="getJapaneseHtml(row)"></span> - {{ row.title }}
+        <AtomChipButton v-if="row.unofficial?.lyric" @click="isOpenUnofficial = true" class="mr-1">
+          非公式
+        </AtomChipButton>
+        <span v-html="getJapaneseHtml(row)"></span> -
+        <AtomLink v-if="row.musicKey" :href="`/lyrics/${row.musicKey}#lyric-${row.id}`">{{ row.title }}</AtomLink>
+        <span v-else>{{ row.title }}</span>
       </div>
     </template>
   </UTable>
@@ -28,45 +36,23 @@
     variant="link" size="xl" block>
     全て表示({{ lyrics.length }}件)
   </UButton>
-  <UModal v-model="isOpenUnofficial">
-    <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-      <template #header>
-        <div class="flex items-center justify-between">
-          <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-            非公式タグについて
-          </h3>
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
-            @click="isOpenUnofficial = false" />
-        </div>
-      </template>
-      <p class="p-2 text-sm text-gray-500">
-        公式の歌詞カードにない歌詞です。<br />
-        歌詞カードにないだけで、公式から言及されている可能性があります。<br />
-        有志による推測によるものは、間違いがある可能性があります。
-      </p>
-    </UCard>
-  </UModal>
-  <UModal v-model="isOpenCorrection">
-    <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-      <template #header>
-        <div class="flex items-center justify-between">
-          <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-            修正版について
-          </h3>
-          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
-            @click="isOpenUnofficial = false" />
-        </div>
-      </template>
-      <p class="p-2 text-sm text-gray-500">
-        公式の歌詞カードに書かれている歌詞の誤字を修正したものです。<br />
-        有志による推測によるもののため、間違いがある可能性があります。
-      </p>
-    </UCard>
-  </UModal>
+  <AtomModal v-model:visible="isOpenUnofficial" title="非公式タグについて">
+    <p class="p-2 text-sm text-cool-500">
+      公式の歌詞カードにない歌詞です。<br />
+      歌詞カードにないだけで、公式から言及されている可能性があります。<br />
+      有志による推測によるものは、間違いがある可能性があります。
+    </p>
+  </AtomModal>
+  <AtomModal v-model:visible="isOpenCorrection" title="修正版について">
+    <p class="p-2 text-sm text-cool-500">
+      公式の歌詞カードに書かれている歌詞の誤字を修正したものです。<br />
+      有志による推測によるもののため、間違いがある可能性があります。
+    </p>
+  </AtomModal>
 </template>
 
 <script setup lang="ts">
-import type { TLyric } from "~/types";
+import type { TLyric, TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
     word: string;
@@ -92,6 +78,10 @@ const columns = [
 
 const showAll = ref<boolean>(false);
 
+const rows = computed(() => {
+  return showAll.value ? props.lyrics : props.lyrics.slice(0, props.defaultRowCount);
+});
+
 watch(
   () => props.lyrics,
   () => {
@@ -108,17 +98,18 @@ const getHilightedText = (text: string, hilighted: string) => {
 
 // HTMLデータ
 const getJapaneseHtml = (lyric: TLyric) => {
+  if (!lyric) return '';
   const { word } = props;
   if (!word || word.match(/[:]/)) return lyric.japanese;
 
   // word.hymmnosと一致する部分をハイライト
-  const standart = getHilightedText(lyric.japanese, word);
+  const standart = getHilightedText(lyric.japanese ?? '', word);
   if (standart !== lyric.japanese) {
     return standart;
   }
 
   // 変化がある場合
-  const match = lyric.japaneseWords.match(
+  const match = lyric.japaneseWords?.match(
     new RegExp(word + "[^:]*:([^: ]+)", "gi")
   );
   if (!match) return lyric.japanese;
@@ -128,6 +119,7 @@ const getJapaneseHtml = (lyric: TLyric) => {
 
 // HTMLデータ
 const getLyricHtml = (lyric: string) => {
+  if (!lyric) return '';
   const { word } = props;
   if (!word) return lyric;
 
@@ -150,7 +142,7 @@ const getLyricHtml = (lyric: string) => {
     return found
       ? { ...found, hymmnos: word }
       : { ...dictionary.emptyWordData, hymmnos: word };
-  });
+  }) as TWord[];
 
   return found
     .map((w) => {

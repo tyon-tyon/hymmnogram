@@ -1,11 +1,8 @@
 <template>
   <NuxtPwaManifest />
   <div class="app text-cool-700">
-    <span
-      class="bg-hymmnos font-hymmnos text-cool-50"
-      :style="{ opacity: opacity, transition: transition }"
-      >{{ key }}</span
-    >
+    <span class="bg-hymmnos font-hymmnos text-cool-50" :style="{ opacity: opacity, transition: transition }">{{ key
+      }}</span>
     <NuxtPage />
 
     <UNotifications />
@@ -18,6 +15,13 @@ const opacity = ref<number>(0);
 const transition = ref<string>("1s");
 let timer: NodeJS.Timeout | null = null;
 let timer1: NodeJS.Timeout | null = null;
+
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - HYMMNOGRAM` : 'HYMMNOGRAM';
+  }
+});
+
 onMounted(() => {
   // キーが押されたら、そのキーを取得してkeyにセット
   window.addEventListener("keydown", (e) => {
