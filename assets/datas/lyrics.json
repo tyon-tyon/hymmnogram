@@ -928,196 +928,499 @@
     "japaneseWords": " 我が:我が 定め:定め "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura yerwe murfan anw sol ciel.",
     "lyricWords": " faura yerwe murfan anw sol ciel . ",
-    "japanese": "小鳥は啼く世界を想い",
-    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 啼く 世界を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura sonwe murfan anw sol ciel ee.",
     "lyricWords": " faura sonwe murfan anw sol ciel ee . ",
-    "japanese": "小鳥は謳う人々を想い",
-    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 謳う 人々を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura yerwe murfan anw sol ciel.",
+    "lyricWords": " faura yerwe murfan anw sol ciel . ",
+    "japanese": "小鳥は 啼く 世界を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura sonwe murfan anw sol ciel ee.",
+    "lyricWords": " faura sonwe murfan anw sol ciel ee . ",
+    "japanese": "小鳥は 謳う 人々を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Ridalnae sol ciel yanyaue manaf.",
     "lyricWords": " ridalnae sol ciel yanyaue manaf . ",
-    "japanese": "掛け替えの無い世界貴き生命たち",
-    "japaneseWords": " 掛け替え:掛け替え の:の 無い:無い 世界:世界 貴い:貴き 生命:生命 たち:たち ",
-    "language": "hymmnos"
+    "japanese": "掛け替えの無い世界 貴き生命達",
+    "japaneseWords": " 掛け替え:掛け替え の:の 無い:無い 世界:世界 貴い:貴き 生命:生命 達:達 "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Presia yasra lusye enclone anw omnis.",
     "lyricWords": " presia yasra lusye enclone anw omnis . ",
-    "japanese": "慈しみの先溢れる日を願い",
-    "japaneseWords": " 慈しむ:慈しみ の:の 先:先 溢れる:溢れる 日:日 を:を 願う:願い ",
-    "language": "hymmnos"
+    "japanese": "慈しみの光 溢れる日を 願い",
+    "japaneseWords": " 慈しむ:慈しみ の:の 光:光 溢れる:溢れる 日:日 を:を 願い:願い "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura selena anw Metafalica.",
     "lyricWords": " faura selena anw metafalica . ",
-    "japanese": "小鳥は奏でる冀望の詩を",
-    "japaneseWords": " 小鳥:小鳥 は:は 奏でる:奏でる 冀:冀 望:望 の:の 詩:詩 を:を ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 奏でる “冀望の詩”(きぼうのうた)を",
+    "japaneseWords": " 小鳥:小鳥 は:は 奏でる:奏でる “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた を:を "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Was ki ra revatail whou Metafalica crushue, mule,",
     "lyricWords": " was ki ra revatail whou metafalica crushue , mule , ",
-    "japanese": "冀望の詩紡いだレーヴァテイルミュールよ",
-    "japaneseWords": " 冀:冀 望:望 の:の 詩:詩 紡ぐ:紡い だ:だ レーヴァテイルミュール:レーヴァテイルミュール よ:よ ",
-    "language": "hymmnos"
+    "japanese": "\"冀望の詩”紡いだレーヴァテイル ミュールよ",
+    "japaneseWords": " 冀:冀 望:望 の:の 詩:詩 ”:” 紡ぐ:紡い だ:だ レーヴァテイル:レーヴァテイル ミュール:ミュール よ:よ "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Presia kiafa sarla mea.",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
     "lyricWords": " presia kiafa sarla mea . ",
-    "japanese": "希わくはこの詩を御身の耳に受け止めて",
-    "japaneseWords": " 希:希 わく:わく は:は この:この 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受け止める:受け止め て:て ",
-    "language": "hymmnos"
+    "japanese": "希わくは 此の詩を 御身の耳に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受ける:受け 留める:留め て:て "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia firle sarla mea.",
+    "lyricWords": " presia firle sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の心に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 心:心 に:に 受ける:受け 留める:留め て:て "
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Van fandel viega heighte mea,",
     "lyricWords": " van fandel viega heighte mea , ",
-    "japanese": "喩え数多の刃にうたれる時も",
-    "japaneseWords": " 喩え:喩え 数多:数多 の:の 刃:刃 に:に うつ:うた れる:れる 時:時 も:も ",
-    "language": "hymmnos"
+    "japanese": "喩え 数多の刃に うたれる時も",
+    "japaneseWords": " 喩え:喩え 数多:数多 の:の 刃:刃 に:に うつ:うた れる:れる 時:時 も:も "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Van fandel wis lurrea,",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "van fandel wis lurrea,",
     "lyricWords": " van fandel wis lurrea , ",
-    "japanese": "数多の恐怖に慄く時も",
-    "japaneseWords": " 数多:数多 の:の 恐怖:恐怖 に:に 慄:慄 く:く 時:時 も:も ",
-    "language": "hymmnos"
+    "japanese": "数多の恐怖に 慄く時も",
+    "japaneseWords": " 数多:数多 の:の 恐怖:恐怖 に:に 慄:慄 く:く 時:時 も:も "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Van fandel crudea ousye,",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "van fandel crudea ousye,",
     "lyricWords": " van fandel crudea ousye , ",
     "japanese": "数多の苦難に喘ぐ時も",
-    "japaneseWords": " 数多:数多 の:の 苦難:苦難 に:に 喘ぐ:喘ぐ 時:時 も:も ",
-    "language": "hymmnos"
+    "japaneseWords": " 数多:数多 の:の 苦難:苦難 に:に 喘ぐ:喘ぐ 時:時 も:も "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Van fandel deleir ousye,",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "van fandel deleir ousye,",
     "lyricWords": " van fandel deleir ousye , ",
-    "japanese": "数多の禍に追われる時も",
-    "japaneseWords": " 数多:数多 の:の 禍:禍 に:に 追う:追わ れる:れる 時:時 も:も ",
-    "language": "hymmnos"
+    "japanese": "数多の禍に 追われる時も ",
+    "japaneseWords": " 数多:数多 の:の 禍:禍 に:に 追う:追わ れる:れる 時:時 も:も "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Van fandel gauzewiga der lamenza,",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "van fandel gauzewiga der lamenza,",
     "lyricWords": " van fandel gauzewiga der lamenza , ",
-    "japanese": "数多の嘆きが絶望へと歪む時も",
-    "japaneseWords": " 数多:数多 の:の 嘆き:嘆き が:が 絶望:絶望 へ:へ と:と 歪む:歪む 時:時 も:も ",
-    "language": "hymmnos"
+    "japanese": "数多の嘆きが 絶望へと歪む時も",
+    "japaneseWords": " 数多:数多 の:の 嘆き:嘆き が:が 絶望:絶望 へ:へ と:と 歪む:歪む 時:時 も:も "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Was ki ra tasyue eterne sarla yor.",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "was ki ra tasyue eterne sarla yor.",
     "lyricWords": " was ki ra tasyue eterne sarla yor . ",
-    "japanese": "決して途絶えぬ詩を御身へと捧げん",
-    "japaneseWords": " 決して:決して 途絶える:途絶え ぬ:ぬ 詩:詩 を:を 御身:御身 へ:へ と:と 捧げる:捧げ ん:ん ",
-    "language": "hymmnos"
+    "japanese": "決して 途絶えぬ詩を 御身へと捧げん",
+    "japaneseWords": " 決して:決して 途絶える:途絶え ぬ:ぬ 詩:詩 を:を 御身:御身 へ:へ と:と 捧げる:捧げ ん:ん "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Alroetsue kierre iem,",
     "lyricWords": " alroetsue kierre iem , ",
-    "japanese": "今が贖罪の刻",
-    "japaneseWords": " 今:今 が:が 贖罪:贖罪 の:の 刻:刻 ",
-    "language": "hymmnos"
+    "japanese": "今が 贖罪の刻",
+    "japaneseWords": " 今:今 が:が 贖罪:贖罪 の:の 刻:刻 "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Fandel zadius, hierle melifan, iem endia.",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "fandel zadius, hierle melifan, iem endia.",
     "lyricWords": " fandel zadius , hierle melifan , iem endia . ",
-    "japanese": "憎悪の連鎖嘆きの歴史を今断たん",
-    "japaneseWords": " 憎悪:憎悪 の:の 連鎖:連鎖 嘆き:嘆き の:の 歴史:歴史 を:を 今:今 断つ:断た ん:ん ",
-    "language": "hymmnos"
+    "japanese": "憎悪の連鎖 嘆きの歴史を 今 断たん",
+    "japaneseWords": " 憎悪:憎悪 の:の 連鎖:連鎖 嘆き:嘆き の:の 歴史:歴史 を:を 今:今 断つ:断た ん:ん "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Presia kiafa sarla mea.",
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Was ki ra revatail whou Metafalica crushue, mule,",
+    "lyricWords": " was ki ra revatail whou metafalica crushue , mule , ",
+    "japanese": "“冀望の詩”(きぼうのうた)紡いだ レーヴァテイル ミュールよ",
+    "japaneseWords": " “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 紡ぐ:紡い だ:だ レーヴァテイル:レーヴァテイル ミュール:ミュール よ:よ "
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
     "lyricWords": " presia kiafa sarla mea . ",
-    "japanese": "希わくはこの詩をその耳に留め",
-    "japaneseWords": " 希:希 わく:わく は:は この:この 詩:詩 を:を その:その 耳:耳 に:に 留める:留め ",
-    "language": "hymmnos"
+    "japanese": "希わくは 此の詩を 其の耳に留め",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 其の:其の 耳:耳 に:に 留める:留め "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Presia kiafa zadius rum ferda yor der sarla mea.",
-    "lyricWords": " presia kiafa zadius rum ferda yor der sarla mea . ",
-    "japanese": "希わくは御身を誡める憎しみの炎をその耳に留め",
-    "japaneseWords": " 希:希 わく:わく は:は 御身:御身 を:を 誡:誡 め:め り:る 憎しみ:憎しみ の:の 炎:炎 を:を その:その 耳:耳 に:に 留める:留め ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Presia yehar zadius rum ferda yor der sarla mea.",
     "lyricWords": " presia yehar zadius rum ferda yor der sarla mea . ",
-    "japanese": "希わくは御身を誡める憎しみの炎より解き放たれ",
-    "japaneseWords": " 希:希 わく:わく は:は 御身:御身 を:を 誡:誡 め:め り:る 憎しみ:憎しみ の:の 炎:炎 より:より 解き放つ:解き放た れる:れ ",
-    "language": "hymmnos"
+    "japanese": "希わくは 御身を誡める 憎しみの炎より解き放たれ",
+    "japaneseWords": " 希:希 わく:わく は:は 御身:御身 を:を 誡:誡 め:め る:る 憎しみ:憎しみ の:の 炎:炎 より:より 解き放つ:解き放た れる:れ "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
-    "lyric": "Presia Metafalica rifaien tou yor sphilar.",
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia yehar zadius rum ferda yor der sarla mea.",
+    "lyricWords": " presia yehar zadius rum ferda yor der sarla mea . ",
+    "japanese": "希わくは 御身を誡める 憎しみの炎より解き放たれ",
+    "japaneseWords": " 希:希 わく:わく は:は 御身:御身 を:を 誡:誡 め:め る:る 憎しみ:憎しみ の:の 炎:炎 より:より 解き放つ:解き放た れる:れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia metafalica rifaien tou yor sphilar.",
     "lyricWords": " presia metafalica rifaien tou yor sphilar . ",
-    "japanese": "希わくはその心に冀望の詩が甦らんことを",
-    "japaneseWords": " 希:希 わく:わく は:は その:その 心:心 に:に 冀:冀 望:望 の:の 詩:詩 が:が 甦る:甦ら ん:ん こと:こと を:を ",
-    "language": "hymmnos"
+    "japanese": "希わくは　其の心に　“冀望の詩”(きぼうのうた)甦らんことを",
+    "japaneseWords": " 希:希 わく:わく は:は 其の:其の 心:心 に:に “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 甦る:甦ら ん:ん こと:こと を:を "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura yerwe murfan anw sol ciel.",
+    "lyricWords": " faura yerwe murfan anw sol ciel . ",
+    "japanese": "小鳥は 啼く 世界を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura sonwe murfan anw sol ciel ee.",
+    "lyricWords": " faura sonwe murfan anw sol ciel ee . ",
+    "japanese": "小鳥は 謳う 人々を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Was ki ra revatail whou Metafalica crushue, mule,",
+    "lyricWords": " was ki ra revatail whou metafalica crushue , mule , ",
+    "japanese": "“冀望の詩”(きぼうのうた)紡いだ レーヴァテイル ミュールよ",
+    "japaneseWords": " “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 紡ぐ:紡い だ:だ レーヴァテイル:レーヴァテイル ミュール:ミュール よ:よ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
+    "lyricWords": " presia kiafa sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の耳に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia firle sarla mea.",
+    "lyricWords": " presia firle sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の心に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 心:心 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
+    "lyricWords": " presia kiafa sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の耳に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia firle sarla mea.",
+    "lyricWords": " presia firle sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の心に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 心:心 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia.",
+    "lyricWords": " presia . ",
+    "japanese": "希わくは",
+    "japaneseWords": " 希:希 わく:わく は:は ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Was ki ra revatail whou Metafalica crushue, mule,",
+    "lyricWords": " was ki ra revatail whou metafalica crushue , mule , ",
+    "japanese": "“冀望の詩”(きぼうのうた)紡いだ レーヴァテイル ミュールよ",
+    "japaneseWords": " “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 紡ぐ:紡い だ:だ レーヴァテイル:レーヴァテイル ミュール:ミュール よ:よ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
+    "lyricWords": " presia kiafa sarla mea . ",
+    "japanese": "希わくは 此の詩を 其の耳に留め",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 其の:其の 耳:耳 に:に 留める:留め ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia yehar zadius rum ferda yor der sarla mea.",
+    "lyricWords": " presia yehar zadius rum ferda yor der sarla mea . ",
+    "japanese": "希わくは 御身を誡める 憎しみの炎より解き放たれ",
+    "japaneseWords": " 希:希 わく:わく は:は 御身:御身 を:を 誡:誡 め:め る:る 憎しみ:憎しみ の:の 炎:炎 より:より 解き放つ:解き放た れる:れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia kiafa sarla mea.",
+    "lyricWords": " presia kiafa sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の耳に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Presia metafalica rifaien tou yor sphilar.",
+    "lyricWords": " presia metafalica rifaien tou yor sphilar . ",
+    "japanese": "希わくは　其の心に　“冀望の詩”(きぼうのうた)甦らんことを",
+    "japaneseWords": " 希:希 わく:わく は:は 其の:其の 心:心 に:に “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 甦る:甦ら ん:ん こと:こと を:を ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura yerwe murfan anw sol ciel.",
+    "lyricWords": " faura yerwe murfan anw sol ciel . ",
+    "japanese": "小鳥は 啼く 世界を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い "
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura sonwe murfan anw sol ciel ee.",
+    "lyricWords": " faura sonwe murfan anw sol ciel ee . ",
+    "japanese": "小鳥は 謳う 人々を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い "
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura yerwe wis enclone tou marta.",
     "lyricWords": " faura yerwe wis enclone tou marta . ",
-    "japanese": "小鳥は啼く母の胸に抱かれ",
-    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 母:母 の:の 胸:胸 に:に 抱く:抱か れる:れ ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 啼く 母の胸に抱かれ",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 母:母 の:の 胸:胸 に:に 抱く:抱か れる:れ "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura sonwe murfan anw fatele.",
     "lyricWords": " faura sonwe murfan anw fatele . ",
-    "japanese": "小鳥は謳う父を想い",
-    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 父:父 を:を 想う:想い ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 謳う 父を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 父:父 を:を 想う:想い "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Ridalnae ture inferiare manaf.",
     "lyricWords": " ridalnae ture inferiare manaf . ",
-    "japanese": "掛け替えの無い絆信じ愛しあえる生命たち",
-    "japaneseWords": " 掛け替え:掛け替え の:の 無い:無い 絆:絆 信じる:信じ 愛しい:愛し あえる:あえる 生命:生命 たち:たち ",
-    "language": "hymmnos"
+    "japanese": "掛け替えの無い絆 信じ愛し合える生命達",
+    "japaneseWords": " 掛け替え:掛け替え の:の 無い:無い 絆:絆 信じる:信じ 愛し合える:愛し合える 生命:生命 達:達 "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Presia briyante enclone anw sol ciel.",
     "lyricWords": " presia briyante enclone anw sol ciel . ",
-    "japanese": "歓びの声充ちる大地を願い",
-    "japaneseWords": " 歓び:歓び の:の 声:声 充ちる:充ちる 大地:大地 を:を 願う:願い ",
-    "language": "hymmnos"
+    "japanese": "歓びの声 充ちる大地を 願い",
+    "japaneseWords": " 歓び:歓び の:の 声:声 充ちる:充ちる 大地:大地 を:を 願い:願い "
   },
   {
-    "title": "EXEC_HARMONIUS/. ",
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
     "lyric": "Faura selena anw Metafalica.",
     "lyricWords": " faura selena anw metafalica . ",
-    "japanese": "小鳥は奏でる冀望の詩を",
-    "japaneseWords": " 小鳥:小鳥 は:は 奏でる:奏でる 冀:冀 望:望 の:の 詩:詩 を:を ",
-    "language": "hymmnos"
+    "japanese": "小鳥は 奏でる “冀望の詩”(きぼうのうた)を",
+    "japaneseWords": " 小鳥:小鳥 は:は 奏でる:奏でる “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた を:を "
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura selena anw Metafalica.",
+    "lyricWords": " faura selena anw metafalica . ",
+    "japanese": "小鳥は 奏でる “冀望の詩”(きぼうのうた)を",
+    "japaneseWords": " 小鳥:小鳥 は:は 奏でる:奏でる “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた を:を ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Was ki ra revatail whou Metafalica crushue, mule,",
+    "lyricWords": " was ki ra revatail whou metafalica crushue , mule , ",
+    "japanese": "“冀望の詩”(きぼうのうた)紡いだ レーヴァテイル ミュールよ",
+    "japaneseWords": " “:“ 冀:冀 望:望 の:の 詩:詩 ”:” き:き ぼう:ぼう の:の うた:うた 紡ぐ:紡い だ:だ レーヴァテイル:レーヴァテイル ミュール:ミュール よ:よ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "presia kiafa sarla mea.",
+    "lyricWords": " presia kiafa sarla mea . ",
+    "japanese": "希わくは 此の詩を 御身の耳に受け留めて",
+    "japaneseWords": " 希:希 わく:わく は:は 此:此 の:の 詩:詩 を:を 御身:御身 の:の 耳:耳 に:に 受ける:受け 留める:留め て:て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura yerwe murfan anw sol ciel.",
+    "lyricWords": " faura yerwe murfan anw sol ciel . ",
+    "japanese": "小鳥は 啼く 世界を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 啼く:啼く 世界:世界 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 4,
+    "language": "hymmnos",
+    "lyric": "Faura sonwe murfan anw sol ciel ee.",
+    "lyricWords": " faura sonwe murfan anw sol ciel ee . ",
+    "japanese": "小鳥は 謳う 人々を想い",
+    "japaneseWords": " 小鳥:小鳥 は:は 謳う:謳う 人々:人々 を:を 想う:想い ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "星詠 ～ホシヨミ～",
