@@ -9,6 +9,7 @@ import { TLyric, TMusic } from '@/types/index';
 非公式フラグ *
 訂正フラグ !
 律史前フラグ @
+未歌唱フラグ _
 */
 
 
@@ -34,92 +35,139 @@ const lyrics: TLyric[] = [];
     for (const i in lines) {
         const line = lines[i];
         console.log(line[0]);
-        // 行数が1行の場合で
-        if (line.length == 1) {
+        // 1行目に日本語があれば日本語歌詞
+        if (isJapanese(line[0])) {
+            // 日本語の場合は日本語歌詞を追加
+            lyrics.push(await convertJapanese(line));
+        } else if (line[0].match(/[a-zA-Z0-9]/)) {
+            // ヒュムノス歌詞
+            lyrics.push(await convertHymmnos(line));
+        } else {
             // 空行の場合はスキップ
             if (line[0].match(/^[\s\n]*$/gi)) {
                 lyrics.push({
                     musicId: id
                 });
+            }
+        }
+    }
+    // outフォルダにjsonファイルを出力
+    fs.writeFileSync(`./out/${id}_lyrics.json`, JSON.stringify(lyrics, null, 2));
+})();
+
+async function convertJapanese(line: string[]): Promise<TLyric> {
+    // 訂正
+    let correction: TLyric['correction'] | null = null;
+    // 非公式
+    let unofficial: TLyric['unofficial'] | null = null;
+    // 未歌唱フラグ
+    const unperformed = !!line[0].match(/^_/);
+    let japaneseRuby = line[0].replace(/^_/, '');
+    for (let l of line) {
+        if (l.match(/^!/)) {
+            correction = correction ?? {};
+            l = l.replace(/^!/, '');
+            correction.japanese = getNoRuby(l);
+            correction.japaneseRuby = l;
+        } else {
+            if (l.match(/^\*/)) {
+                unofficial = unofficial ?? {};
+                unofficial.japanese = true;
+                japaneseRuby = l.replace(/^\*/, '');
             } else {
-                // 日本語の場合は日本語歌詞を追加
-                const noRuby = line[0].replace(/\[(.+?)\]\(.+?\)/g, '$1');
-                lyrics.push({
-                    musicId: id,
-                    language: 'hymmnos',
-                    japanese: noRuby,
-                    japaneseRuby: line[0],
-                    japaneseWords: await getJapaneseWords(noRuby),
-                });
+                japaneseRuby = l;
+            }
+        }
+    }
+    const noRuby = getNoRuby(japaneseRuby);
+    return {
+        musicId: id,
+        language: 'japanese',
+        japanese: noRuby,
+        japaneseRuby: japaneseRuby,
+        japaneseWords: await getJapaneseWords(noRuby),
+        ...(correction ? { correction } : {}),
+        ...(unofficial ? { unofficial } : {}),
+        ...(unperformed ? { unperformed } : {}),
+    };
+}
+
+async function convertHymmnos(line: string[]): Promise<TLyric> {
+    // 未歌唱フラグ
+    const unperformed = !!line[0].match(/^_/);
+    line[0] = line[0].replace(/^_/, '');
+
+    // 言語
+    const language = line[0].match(/^@/) ? 'foreluna' : 'hymmnos';
+
+    let lyric: string = '';
+    let japanese: string = '';
+    let correction: TLyric['correction'] | null = null;
+    let unofficial: { lyric?: boolean, japanese?: boolean; } | null = null;
+    for (const l of line) {
+        // 日本語がマッチしたら日本語歌詞または訳
+        if (isJapanese(l)) {
+            if (l.match(/^!/)) {
+                // 訂正フラグがある場合は訂正フラグを削除して訂正歌詞を追加
+                correction = correction ?? {};
+                correction.japanese = l.replace(/^!/, '');
+            } else {
+                if (l.match(/^\*/)) {
+                    // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
+                    unofficial = unofficial ?? {};
+                    unofficial.japanese = true;
+                    japanese = l.replace(/^\*/, '');
+                } else {
+                    // 非公式フラグがない場合は日本語歌詞を追加
+                    japanese = l;
+                }
             }
         } else {
-            lyrics.push(await convertHymmnos(line));
+            // ヒュムノス歌詞
+            if (l.match(/^!/)) {
+                // 訂正フラグがある場合は訂正フラグを削除して訂正歌詞を追加
+                correction = correction ?? {};
+                correction.lyric = l.replace(/^!/, '');
+            } else {
+                if (l.match(/^\*/)) {
+                    // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
+                    unofficial = unofficial ?? {};
+                    unofficial.lyric = true;
+                    lyric = l.replace(/^\*/, '');
+                } else {
+                    // 非公式フラグがない場合はヒュムノス歌詞を追加
+                    lyric = l;
+                }
+            }
         }
     }
 
-    // outフォルダにjsonファイルを出力
-    fs.writeFileSync(`./out/${id}_lyrics.json`, JSON.stringify(lyrics, null, 2));
-    fs.writeFileSync(`./out/${id}_music.json`, JSON.stringify(musicData, null, 2));
-
-    /*
-    fs.writeFileSync(`./out/examples_1.json`, JSON.stringify(lyrics.map(l => (
-        {
-            "title": l.title,
-            "hymmnos": l.lyric,
-            "hymmnos_base": l.lyricWords,
-            "japanese": l.japanese,
-            "japanese_base": l.japaneseWords.replace(/:[^\s]+/gi, ''),
-        })), null, 2));
-    */
-})();
-
-async function convertHymmnos(line: string[]): Promise<TLyric> {
-    let lyric = line[0];
-    let japanese = line[1];
-    // 非公式フラグ
-    const unofficial = {
-        lyric: !!lyric.match(/^\*/),
-        japanese: !!japanese.match(/^\*/),
-    };
-    const language = !!lyric.match(/^\@/) ? 'foreluna' : 'hymmnos';
-    lyric = lyric.replace(/^\*/g, '');
-    japanese = japanese.replace(/^\*/g, '');
-    // 誤字修正版
-    const correction = !!lyric.match(/^!/) ? lyric.replace(/^!/, '') : null;
-    if (correction) {
-        lyric = line[1];
-        japanese = line[2];
+    // ヒュムノス歌詞を分割
+    const lyricWords = getLyricWords(lyric);
+    // ヒュムノス訂正歌詞を分割  
+    if (correction?.lyric) {
+        correction.lyricWords = getLyricWords(correction.lyric);
     }
-    // 歌詞を分割
-    const lyricWords = splitHymmnos(lyric).map((word) => {
-        const wordData = getExactMatch(word);
-        return !wordData ? word : // 単語が見つからない場合はそのまま返す
-            !wordData.subWords?.length ? wordData.hymmnos : // サブワードがない場合は結果を返す
-                wordData.primaryMeaning?.match(/〜すること$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'za'] : // 「〜すること」の場合はzaを追加
-                    wordData.primaryMeaning?.match(/〜される$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'eh'] : // 「〜される」の場合はehを追加
-                        wordData.subWords.map((w: any) => w.hymmnos); // それ以外の場合はサブワードを返す
-    });
-    const correctionWords = correction ? splitHymmnos(correction).map((word) => {
-        const wordData = getExactMatch(word);
-        return !wordData ? word : // 単語が見つからない場合はそのまま返す
-            !wordData.subWords?.length ? wordData.hymmnos : // サブワードがない場合は結果を返す
-                wordData.primaryMeaning?.match(/〜すること$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'za'] : // 「〜すること」の場合はzaを追加
-                    wordData.primaryMeaning?.match(/〜される$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'eh'] : // 「〜される」の場合はehを追加
-                        wordData.subWords.map((w: any) => w.hymmnos); // それ以外の場合はサブワードを返す
-    }) : null;
+    // 日本語を分割
     const japaneseWords = await getJapaneseWords(japanese);
+    // 日本語訂正を分割
+    if (correction?.japanese) {
+        const correctionJapaneseWords = await getJapaneseWords(correction.japanese);
+        correction.japaneseWords = correctionJapaneseWords;
+    }
     return {
         musicId: id,
+        language,
         lyric,
-        lyricWords: ' ' + lyricWords.flat().join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ',
+        lyricWords,
         japanese,
         japaneseWords,
-        ...(unofficial.lyric || unofficial.japanese ? { unofficial } : {}),
-        ...(correction ? { correctionLyric: correction } : {}),
-        ...(correctionWords ? { correctionLyricWords: ' ' + correctionWords.flat().join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + ' ' } : {}),
-        language,
+        ...(correction ? { correction } : {}),
+        ...(unofficial ? { unofficial } : {}),
+        ...(unperformed ? { unperformed } : {}),
     } as TLyric;
 }
+
 // 日本語の単語一覧を返す
 async function getJapaneseWords(japanese: string) {
     const noRuby = japanese.replace(/\[(.+?)\]\(.+?\)/g, '$1');
@@ -134,3 +182,24 @@ async function getJapaneseWords(japanese: string) {
         .join(' ');
     return " " + japaneseWords + " ";
 }
+
+// ヒュムノス歌詞を単語で分割する
+function getLyricWords(lyric: string) {
+    const words = splitHymmnos(lyric).map((word) => {
+        const wordData = getExactMatch(word);
+        return !wordData ? word : // 単語が見つからない場合はそのまま返す
+            !wordData.subWords?.length ? wordData.hymmnos : // サブワードがない場合は結果を返す
+                wordData.primaryMeaning?.match(/〜すること$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'za'] : // 「〜すること」の場合はzaを追加
+                    wordData.primaryMeaning?.match(/〜される$/) ? [...wordData.subWords.map((w: any) => w.hymmnos), 'eh'] : // 「〜される」の場合はehを追加
+                        wordData.subWords.map((w: any) => w.hymmnos); // それ以外の場合はサブワードを返す
+    });
+    return " " + words.flat().join(' ').toLocaleLowerCase().replace(/\s+/gi, ' ') + " ";
+}
+
+function isJapanese(line: string) {
+    return line.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3400-\u4DBF]/);
+}
+
+function getNoRuby(japanese: string) {
+    return japanese.replace(/\[(.+?)\]\(.+?\)/g, '$1');
+} 

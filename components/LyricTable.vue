@@ -8,27 +8,37 @@
     },
   }">
     <template #example-data="{ row }">
-      <div class="mb-2 text-base">
+      <div class="mb-1 text-base">
         <div class="text-wrap" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
           <AtomChipButton v-if="row.unofficial?.lyric" @click="isOpenUnofficial = true" class="mr-1">
             非公式
           </AtomChipButton>
           <span v-html="getLyricHtml(row.lyric)"></span>
         </div>
-        <div v-if="row.correctionLyric" class="text-wrap mt-1 mb-2 text-cool-400">
+        <div v-if="row.correction?.lyric" class="text-wrap mt-1 mb-2 text-cool-400">
           <AtomChipButton @click="isOpenCorrection = true" class="mr-1">
             修正版
           </AtomChipButton>
-          <span v-html="getLyricHtml(row.correctionLyric)"></span>
+          <span v-html="getLyricHtml(row.correction?.lyric)"></span>
         </div>
       </div>
-      <div class="text-wrap text-sm leading-4" :class="row.unofficial?.lyric ? 'text-cool-400' : ''">
-        <AtomChipButton v-if="row.unofficial?.lyric" @click="isOpenUnofficial = true" class="mr-1">
-          非公式
-        </AtomChipButton>
-        <span v-html="getJapaneseHtml(row)"></span> -
+      <div class="text-wrap text-sm leading-4 mb-2">
+        <div class="text-wrap" :class="row.unofficial?.japanese ? 'text-cool-400' : ''">
+          <AtomChipButton v-if="row.unofficial?.japanese" @click="isOpenUnofficial = true" class="mr-1">
+            非公式
+          </AtomChipButton>
+          <span v-html="getJapaneseHtml(row.japanese)"></span>
+        </div>
+        <div v-if="row.correction?.japanese" class="text-wrap mt-1 mb-2 text-cool-400">
+          <AtomChipButton @click="isOpenCorrection = true" class="mr-1">
+            修正版
+          </AtomChipButton>
+          <span v-html="getJapaneseHtml(row.correction?.japanese)"></span>
+        </div>
+      </div>
+      <div class="flex justify-end text-wrap text-xs">
         <AtomLink v-if="row.musicKey" :href="`/lyrics/${row.musicKey}#lyric-${row.id}`">{{ row.title }}</AtomLink>
-        <span v-else>{{ row.title }}</span>
+        <span class="opacity-80" v-else>{{ row.title }}</span>
       </div>
     </template>
   </UTable>
@@ -97,24 +107,20 @@ const getHilightedText = (text: string, hilighted: string) => {
 };
 
 // HTMLデータ
-const getJapaneseHtml = (lyric: TLyric) => {
-  if (!lyric) return '';
-  const { word } = props;
-  if (!word || word.match(/[:]/)) return lyric.japanese;
-
+const getJapaneseHtml = (japanese: string) => {
   // word.hymmnosと一致する部分をハイライト
-  const standart = getHilightedText(lyric.japanese ?? '', word);
-  if (standart !== lyric.japanese) {
+  const standart = getHilightedText(japanese, props.word);
+  if (standart !== japanese) {
     return standart;
   }
 
   // 変化がある場合
-  const match = lyric.japaneseWords?.match(
-    new RegExp(word + "[^:]*:([^: ]+)", "gi")
+  const match = japanese.match(
+    new RegExp(props.word + "[^:]*:([^: ]+)", "gi")
   );
-  if (!match) return lyric.japanese;
+  if (!match) return japanese;
   const hilighted = match[0].replace(/[^:]*:([^: ]+)/, "$1");
-  return getHilightedText(lyric.japanese, hilighted);
+  return getHilightedText(japanese, hilighted);
 };
 
 // HTMLデータ

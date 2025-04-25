@@ -17,7 +17,7 @@ const links = [
     to: "/",
   },
   {
-    label: "ヒュムノス歌詞一覧",
+    label: "歌詞一覧",
     icon: "i-heroicons-book-open",
     to: "/lyrics",
   },
