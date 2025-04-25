@@ -38,31 +38,46 @@
         </UAccordion>
       </div>
       <div class="order-2 md:order-1">
-        <div v-for="lyric in lyrics" :key="lyric.id" class="pb-8" :id="`lyric-${lyric.id}`">
-          <AtomChipButton v-if="lyric.unofficial?.lyric" @click="openUnofficialDialog(lyric)">
-            非公式
-          </AtomChipButton>
-          <AtomChipButton v-if="lyric.correctionLyric" @click="openCorrectionDialog(lyric)">
-            修正版
-          </AtomChipButton>
-          <div class="hover:bg-cool-50 relative line">
-            <div v-if="lyric.lyric" class="flex flex-wrap ">
-              <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correctionLyric ?? lyric.lyric)" :word="word"
-                :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
-            </div>
-            <AtomP v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</AtomP>
-            <div v-else>
-              <AtomChipButton v-if="lyric.unofficial?.japanese" @click="openUnofficialDialog(lyric)">
-                非公式
-              </AtomChipButton>
-              <AtomP>
-                <span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span>
-              </AtomP>
-            </div>
-            <UButton v-if="lyric.lyric || lyric.correctionLyric || lyric.japanese" size="sm" color="white"
-              icon="i-heroicons-share" variant="ghost" class="line-share p-0 absolute bottom-0 right-0 opacity-50"
-              @click="openShareDialog(lyric)" />
+        <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
+          class="hover:bg-cool-50 relative line mb-8">
+          <!-- タグ表示 -->
+          <div class="flex flex-wrap gap-2">
+            <AtomChipButton v-if="lyric.unperformed">
+              未歌唱
+            </AtomChipButton>
+            <AtomChipButton v-if="lyric.unofficial?.lyric || lyric.unofficial?.japanese"
+              @click="openUnofficialDialog(lyric)">
+              非公式
+            </AtomChipButton>
+            <AtomChipButton v-if="lyric.correction?.lyric || lyric.correction?.japanese"
+              @click="openCorrectionDialog(lyric)">
+              修正版
+            </AtomChipButton>
           </div>
+
+          <!-- ヒュムノス歌詞 -->
+          <div v-if="lyric.lyric" :class="{ 'opacity-50': lyric.unperformed }">
+            <!-- ヒュムノス語 -->
+            <div class="flex flex-wrap">
+              <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
+                :word="word" :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+            </div>
+            <!-- 日本語 -->
+            <AtomP class="text-sm text-cool-500 mt-1">
+              <span v-html="getJapaneseRuby(lyric.correction?.japanese ?? lyric.japanese ?? '')"></span>
+            </AtomP>
+          </div>
+
+          <!-- 日本語歌詞 -->
+          <div v-else-if="lyric.japanese" :class="{ 'opacity-50': lyric.unperformed }">
+            <AtomP>
+              <span v-html="getJapaneseRuby(lyric.correction?.japaneseRuby ?? lyric.japaneseRuby ?? '')"></span>
+            </AtomP>
+          </div>
+
+
+          <UButton v-if="lyric.lyric || lyric.japanese" size="sm" color="white" icon="i-heroicons-share" variant="ghost"
+            class="line-share p-0 absolute bottom-0 right-0 opacity-50" @click="openShareDialog(lyric)" />
         </div>
       </div>
     </div>
@@ -75,9 +90,21 @@
     </AtomModal>
     <AtomModal v-model:visible="isCorrectionDialogOpen" title="修正前の歌詞">
       <div v-if="dialogLyric" class="mb-4">
-        <div v-if="dialogLyric.correctionLyric" class="flex flex-wrap ">
-          <WordHymmnos v-for="(word, index) in getLyricWords(dialogLyric.lyric ?? '')" :word="word" :key="index" small
-            class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+        <!-- ヒュムノス歌詞 -->
+        <div v-if="dialogLyric.lyric">
+          <div class="flex flex-wrap">
+            <WordHymmnos v-for="(word, index) in getLyricWords(dialogLyric.lyric)" :word="word" :key="index" small
+              class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+          </div>
+          <AtomP class="text-sm text-cool-500 mt-1">
+            <span v-html="getJapaneseRuby(dialogLyric.japanese ?? '')"></span>
+          </AtomP>
+        </div>
+        <!-- 日本語歌詞 -->
+        <div v-else-if="dialogLyric.japanese">
+          <AtomP>
+            <span v-html="getJapaneseRuby(dialogLyric.japaneseRuby ?? '')"></span>
+          </AtomP>
         </div>
       </div>
       <p class="text-sm text-cool-500">
@@ -183,7 +210,7 @@ const openShareDialog = (lyric?: TLyric) => {
   if (!lyric) {
     shareText.value = music?.title;
   } else {
-    const lyricText = (lyric.correctionLyric ?? lyric.lyric ?? "") + (lyric.correctionLyric || lyric.lyric ? "\n" : "");
+    const lyricText = (lyric.correction?.lyric ?? lyric.lyric ?? "") + (lyric.correction?.lyric || lyric.lyric ? "\n" : "");
 
     shareText.value =
       `${lyricText}${lyric.japanese ?? ""} - ${music?.title}`;

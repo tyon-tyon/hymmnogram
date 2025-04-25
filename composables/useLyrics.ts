@@ -17,19 +17,27 @@ export default function useLyrics() {
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
       lyric.lyricWords?.match(" " + q.toLocaleLowerCase() + " ") ||
-      lyric.correctionLyric?.match(" " + q.toLocaleLowerCase() + " ")
+      lyric.correction?.lyric?.match(" " + q.toLocaleLowerCase() + " ")
     );
     // 部分一致の例文を取得
     const lyricMatch = lyrics.filter(
       (lyric) =>
-        (lyric.lyricWords?.match(reg) || lyric.correctionLyric?.match(reg)) &&
+        (
+          lyric.lyricWords?.match(reg) ||
+          lyric.correction?.lyricWords?.match(reg)
+        ) &&
         !exactLyricMatch.includes(lyric)
     );
     // 日本語の例文を取得
     const japaneseReg = new RegExp(q.replace(/:/, "\\$1"), 'gi');
     const japaneseMatch = lyrics.filter(
       (lyric) =>
-        (lyric.japaneseWords?.match(japaneseReg) || lyric.japanese?.match(japaneseReg)) &&
+        (
+          lyric.japaneseWords?.match(japaneseReg) ||
+          lyric.correction?.japaneseWords?.match(japaneseReg) ||
+          lyric.japanese?.match(japaneseReg) ||
+          lyric.correction?.japanese?.match(japaneseReg)
+        ) &&
         !exactLyricMatch.includes(lyric) &&
         !lyricMatch.includes(lyric)
     );
@@ -67,7 +75,7 @@ export default function useLyrics() {
   const getMusicTags = () => {
     const tags = musics.map(music =>
       [...music.tags, ...music.arranger, ...music.composer, ...music.lyricist]
-    ).flat()
+    ).flat();
     return [...new Set(tags)];
   };
 

@@ -72,17 +72,25 @@ export type TLyric = {
   // ヒュムノス語歌詞
   lyric?: string,
   lyricWords?: string,
-  // 訂正版ヒュムノス語歌詞
-  correctionLyric?: string,
   // 日本語歌詞
   japanese?: string,
   japaneseRuby?: string,
   japaneseWords?: string,
+  // 訂正版
+  correction?: {
+    lyric?: string,
+    lyricWords?: string,
+    japanese?: string,
+    japaneseRuby?: string,
+    japaneseWords?: string,
+  },
   // 非公式フラグ
   unofficial?: {
     lyric?: boolean,
     japanese?: boolean,
   },
+  // 未歌唱フラグ
+  unperformed?: boolean,
 };
 
 export type TMusic = {
