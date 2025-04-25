@@ -1,8 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import _musics from './assets/datas/musics.json';
+import type { TMusic } from './types';
+const musics = _musics as TMusic[];
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
-  modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm',],
+  modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm', '@nuxtjs/sitemap'],
 
   css: [
     '~/public/styles/main.css',
@@ -83,6 +87,24 @@ export default defineNuxtConfig({
         'sw.js',
         'workbox-*.js'
       ],
+    },
+  },
+
+  site: {
+    url: 'https://hymmnogram.fau-varda.net',
+    name: 'HYMMNOGRAM',
+  },
+  sitemap: {
+    urls: () => {
+      const urls = [
+        '/',
+        '/lyrics',
+        '/editor',
+      ];
+      musics.forEach(music => {
+        urls.push(`/lyrics/${music.key}`);
+      });
+      return urls;
     },
   },
 
