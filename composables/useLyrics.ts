@@ -1,4 +1,3 @@
-
 import _lyrics from "@/assets/datas/lyrics.json";
 import _musics from "@/assets/datas/musics.json";
 import type { TLyric, TMusic } from "~/types";
@@ -43,7 +42,14 @@ export default function useLyrics() {
     );
     // 重複削除
     const matches = [...exactLyricMatch, ...lyricMatch, ...japaneseMatch].filter((match, index, self) =>
-      index === self.findIndex((t) => t.id === match.id)
+      index === self.findIndex((t) =>
+        t.id === match.id ||
+        (t.lyric === match.lyric &&
+          t.correction?.lyric === match.correction?.lyric &&
+          t.japanese === match.japanese &&
+          t.correction?.japanese === match.correction?.japanese &&
+          t.musicId === match.musicId)
+      )
     );
     return matches.map((match) => {
       const music = musics.find((music) => music.id === match.musicId);
