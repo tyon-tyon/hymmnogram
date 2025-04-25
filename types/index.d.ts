@@ -68,7 +68,7 @@ export type TLyric = {
   id?: number,
   musicId?: number,
   title?: string,
-  language?: 'hymmnos' | 'foreluna',
+  language?: 'hymmnos' | 'foreluna' | 'japanese',
   // ヒュムノス語歌詞
   lyric?: string,
   lyricWords?: string,
@@ -94,7 +94,7 @@ export type TMusic = {
   composer: string[];
   arranger: string[];
   tags: string[];
-  explanation: string;
-  feeling: string;
+  explanation?: string;
+  feeling?: string;
   notice?: string;
 }; 

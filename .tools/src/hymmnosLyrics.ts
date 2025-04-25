@@ -43,13 +43,20 @@ const lyrics: TLyric[] = [];
                 });
             } else {
                 // 日本語の場合は日本語歌詞を追加
-                const noRuby = line[0].replace(/\[(.+?)\]\(.+?\)/g, '$1');
+                // 非公式フラグ
+                const unofficial = {
+                    japanese: !!line[0].match(/^\*/),
+                };
+                // 非公式フラグを削除
+                const japanese = line[0].replace(/^\*/g, '');
+                const noRuby = japanese.replace(/\[(.+?)\]\(.+?\)/g, '$1');
                 lyrics.push({
                     musicId: id,
-                    language: 'hymmnos',
+                    language: 'japanese',
                     japanese: noRuby,
-                    japaneseRuby: line[0],
+                    japaneseRuby: japanese,
                     japaneseWords: await getJapaneseWords(noRuby),
+                    ...(unofficial.japanese ? { unofficial } : {}),
                 });
             }
         } else {
