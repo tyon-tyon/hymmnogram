@@ -25,12 +25,12 @@
         <UAccordion class="mb-4" multiple :items="items">
           <template #explanation>
             <AtomP class="whitespace-pre-wrap text-sm">
-              {{ music.explanation }}
+              {{ music.explanation ?? "" }}
             </AtomP>
           </template>
           <template #feeling>
             <AtomP class="text-sm">
-              <p v-for="line in music.feeling.split('\n')" :key="line" class="mb-2">
+              <p v-for="line in music.feeling?.split('\n') ?? []" :key="line" class="mb-2">
                 {{ line }}
               </p>
             </AtomP>
@@ -50,8 +50,15 @@
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correctionLyric ?? lyric.lyric)" :word="word"
                 :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
             </div>
-            <p v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</p>
-            <p v-else><span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span></p>
+            <AtomP v-if="lyric.lyric" class="text-sm text-cool-500 mt-1">{{ lyric.japanese }}</AtomP>
+            <div v-else>
+              <AtomChipButton v-if="lyric.unofficial?.japanese" @click="openUnofficialDialog(lyric)">
+                非公式
+              </AtomChipButton>
+              <AtomP>
+                <span v-html="getJapaneseRuby(lyric.japaneseRuby ?? lyric.japanese ?? '')"></span>
+              </AtomP>
+            </div>
             <UButton v-if="lyric.lyric || lyric.correctionLyric || lyric.japanese" size="sm" color="white"
               icon="i-heroicons-share" variant="ghost" class="line-share p-0 absolute bottom-0 right-0 opacity-50"
               @click="openShareDialog(lyric)" />
@@ -85,19 +92,6 @@
 <script setup lang="ts">
 import type { TLyric, TWord } from '@/types';
 
-const items = [
-  {
-    label: "解説",
-    slot: "explanation",
-    defaultOpen: false,
-  },
-  {
-    label: "詩の想い",
-    slot: "feeling",
-    defaultOpen: false,
-  },
-];
-
 const { getWords } = useDictionary();
 const { getFromMusicKey } = useLyrics();
 // SSRでidを取得
@@ -110,6 +104,20 @@ if (!music) {
     statusMessage: 'Music not found',
   });
 }
+
+const items = [
+  ...(music.explanation ? [{
+    label: "解説",
+    slot: "explanation",
+    defaultOpen: false,
+  }
+  ] : []),
+  ...(music.feeling ? [{
+    label: "詩の想い",
+    slot: "feeling",
+    defaultOpen: false,
+  }] : []),
+];
 
 const breadcrumbLinks = [
   {
