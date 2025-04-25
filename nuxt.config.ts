@@ -96,15 +96,9 @@ export default defineNuxtConfig({
   },
   sitemap: {
     urls: () => {
-      const urls = [
-        '/',
-        '/lyrics',
-        '/editor',
-      ];
-      musics.forEach(music => {
-        urls.push(`/lyrics/${music.key}`);
+      return musics.map(music => {
+        return `/lyrics/${music.key}`;
       });
-      return urls;
     },
   },
 
