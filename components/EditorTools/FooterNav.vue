@@ -1,10 +1,10 @@
 <template>
   <div class="footer-nav p-1">
-    <div class="flex items-center">
+    <UContainer class="containe flex items-center p-0">
       <UInput
         v-model="keyword"
         class="shadow-none flex-1 mr-2"
-        placeholder="ヒュムノス語を検索"
+        placeholder="辞書(意味を調べる)"
       />
       <UButtonGroup size="xs" class="mr-2">
         <UButton
@@ -52,7 +52,7 @@
         variant="solid"
         @click="clickToggle"
       />
-    </div>
+    </UContainer>
     <div
       class="panel pt-2"
       :style="{
@@ -61,7 +61,9 @@
         'scrollbar-width': mode === 'hymmnos' ? 'auto' : 'none',
       }"
     >
-      <FooterNavPanel :keyword="keyword" :mode="mode" />
+      <UContainer class="container p-0">
+        <FooterNavPanel :keyword="keyword" :mode="mode" />
+      </UContainer>
     </div>
     <h1 class="text-xs text-cool-500 text-right mt-1">
       ヒュムノスエディタ by <nuxt-link href="/" class="text-primary">ヒュムノグラム</nuxt-link>

@@ -11,6 +11,7 @@
           updateText(textarea.value);
         }
       "
+      placeholder="テキストを入力してください"
     ></textarea>
   </div>
 </template>
