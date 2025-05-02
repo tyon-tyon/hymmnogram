@@ -159,9 +159,9 @@ const breadcrumbLinks = [
 
 // OGタグを設定
 useHead({
-  title: music?.title,
+  title: "[歌詞]" + music?.title,
   meta: [
-    { property: 'og:title', content: music.title },
+    { property: 'og:title', content: "[歌詞]" + music.title },
     { property: 'og:url', content: `${window.location.origin}/lyrics/${key}` },
     { property: 'og:description', content: `${music.title}の歌詞` },
   ],
