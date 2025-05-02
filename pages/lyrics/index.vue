@@ -1,6 +1,10 @@
 <template>
   <Layout :breadcrumb-links="[{label: '歌詞一覧', to: '/lyrics'}]">
     <AtomH2>歌詞一覧</AtomH2>
+    <AtomP class="text-sm">
+      アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。<br/>
+      ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。
+    </AtomP>
     <div v-if="selectedTag" class="mb-4" id="selected-tag">
       絞り込み条件: #{{ selectedTag }}
       <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
