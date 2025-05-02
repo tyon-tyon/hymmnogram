@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!small"
-    class="text-2xl"
+    class="text-2xl leading-none"
     :class="{
       'font-hymmnos': hymmnos,
       'font-ar-ciela': arCiela,
