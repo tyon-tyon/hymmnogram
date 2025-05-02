@@ -1426,68 +1426,289 @@
     }
   },
   {
-    "title": "星詠 ～ホシヨミ～",
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "Wee yea ra ene foul enrer",
+    "lyricWords": " wee yea ra ene foul enrer ",
+    "japanese": "詩は不思議だといつも思う",
+    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う "
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "Wee yea ra ene hymme syec mea",
+    "lyricWords": " wee yea ra ene hymme syec mea ",
+    "japanese": "詩は何よりも心の奥底を振るわせるものだと",
+    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "とり残された瞳の奥に",
+    "japaneseRuby": "とり[残](のこ)された[瞳](ひとみ)の[奥](おく)に",
+    "japaneseWords": " とる:とり 残す:残さ れる:れ た:た 瞳:瞳 の:の 奥:奥 に:に "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "孤独を抱いて生きる少女は",
+    "japaneseRuby": "[孤独](こどく)を[抱](だ)いて[生](い)きる[少女](しょうじょ)は",
+    "japaneseWords": " 孤独:孤独 を:を 抱く:抱い て:て 生きる:生きる 少女:少女 は:は "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "はぐれた星の光を数え",
+    "japaneseRuby": "はぐれた[星](ほし)の[光](ひかり)を[数](かぞ)え",
+    "japaneseWords": " はぐれる:はぐれ た:た 星:星 の:の 光:光 を:を 数える:数え "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "夜の闇に身を震わせた",
+    "japaneseRuby": "[夜](よる)の[闇](やみ)に[身](み)を[震](ふる)わせた",
+    "japaneseWords": " 夜:夜 の:の 闇:闇 に:に 身:身 を:を 震わせる:震わせ た:た "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "優しく髪を撫でて",
+    "japaneseRuby": "[優](やさ)しく[髪](かみ)を[撫](な)でて",
+    "japaneseWords": " 優しい:優しく 髪:髪 を:を 撫でる:撫で て:て "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "あなたは言った",
+    "japaneseRuby": "あなたは[言](い)った",
+    "japaneseWords": " あなた:あなた は:は 言う:言っ た:た "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "その涙を拭って さあ詩を謳ってごらん",
+    "japaneseRuby": "その[涙](なみだ)を[拭](ぬぐ)って さあ[詩](うた)を[謳](うた)ってごらん",
+    "japaneseWords": " その:その 涙:涙 を:を 拭う:拭っ て:て さあ:さあ 詩:詩 を:を 謳う:謳っ て:て ごらん:ごらん "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "星空に響き渡る清らかな調べ",
+    "japaneseRuby": "[星空](ほしぞら)に[響](ひび)き[渡](わた)る[清](きよ)らかな[調](しら)べ",
+    "japaneseWords": " 星空:星空 に:に 響く:響き 渡る:渡る 清らか:清らか だ:な 調べ:調べ "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "あなたの名前は旋律",
+    "japaneseRuby": "あなたの[名前](なまえ)は[旋律](メロディー)",
+    "japaneseWords": " あなた:あなた の:の 名前:名前 は:は 旋律:旋律 "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "心にさす光",
+    "japaneseRuby": "[心](こころ)にさす[光](ひかり)",
+    "japaneseWords": " 心:心 に:に さす:さす 光:光 "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "哀しみを包み込んで",
+    "japaneseRuby": "[哀](かな)しみを[包](つつ)み[込](こ)んで",
+    "japaneseWords": " 哀しみ:哀しみ を:を 包み込む:包み込ん で:で "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "夢を紡ぎ出す",
+    "japaneseRuby": "[夢](ゆめ)を[紡](つむ)ぎ[出](だ)す",
+    "japaneseWords": " 夢:夢 を:を 紡ぐ:紡ぎ 出す:出す "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "神様の贈り物",
+    "japaneseRuby": "[神様](かみさま)の[贈](おく)り[物](もの)",
+    "japaneseWords": " 神様:神様 の:の 贈り物:贈り物 "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "形の無い魂",
+    "japaneseRuby": "[形](かたち)の[無](な)い[魂](いのち)",
+    "japaneseWords": " 形:形 の:の 無い:無い 魂:魂 "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "Was yea ra hymme mea ks maya gyen yeal",
+    "lyricWords": " was yea ra hymme mea ks maya gyen yeal ",
+    "japanese": "幸せの魔法紡ぐように私の琴線かき鳴らす",
+    "japaneseWords": " 幸せ:幸せ の:の 魔法:魔法 紡ぐ:紡ぐ よう:よう に:に 私:私 の:の 琴線:琴線 かき鳴らす:かき鳴らす "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "人は想いを伝える為に",
+    "japaneseRuby": "[人](ひと)は[想](おも)いを[伝](つた)える[為](ため)に",
+    "japaneseWords": " 人:人 は:は 想い:想い を:を 伝える:伝える 為:為 に:に "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "風に乗せて歌い続ける",
+    "japaneseRuby": "[風](かぜ)に[乗](の)せて[歌](うた)い[続](つづ)ける",
+    "japaneseWords": " 風:風 に:に 乗せる:乗せ て:て 歌う:歌い 続ける:続ける "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "優しく微笑みかけ",
+    "japaneseRuby": "[優](やさ)しく[微笑](ほほえ)みかけ",
+    "japaneseWords": " 優しい:優しく 微笑む:微笑み かける:かけ "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "あなたは言った",
+    "japaneseRuby": "あなたは[言](い)った",
+    "japaneseWords": " あなた:あなた は:は 言う:言っ た:た "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "希望を忘れたなら ほら耳を澄ましてごらん",
+    "japaneseRuby": "[希望](きぼう)を[忘](わす)れたなら ほら[耳](みみ)を[澄](す)ましてごらん",
+    "japaneseWords": " 希望:希望 を:を 忘れる:忘れ た:た だ:なら ほら:ほら 耳:耳 を:を 澄ます:澄まし て:て ごらん:ごらん "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "どこからか聞こえて来る懐かしい調べ",
+    "japaneseRuby": "どこからか[聞](き)こえて[来](く)る[懐](なつ)かしい[調](しら)べ",
+    "japaneseWords": " どこ:どこ から:から か:か 聞こえる:聞こえ て:て 来る:来る 懐かしい:懐かしい 調べ:調べ "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "あなたの名前は旋律",
+    "japaneseRuby": "あなたの[名前](なまえ)は[旋律](メロディー)",
+    "japaneseWords": " あなた:あなた の:の 名前:名前 は:は 旋律:旋律 "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "心繋ぐ光",
+    "japaneseRuby": "[心繋](こころつな)ぐ[光](ひかり)",
+    "japaneseWords": " 心:心 繋ぐ:繋ぐ 光:光 "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "あなたがそっと囁いた 時間の忘れ物",
+    "japaneseRuby": "あなたがそっと[囁](ささや)いた [時間](とき)の[忘](わす)れ[物](もの)",
+    "japaneseWords": " あなた:あなた が:が そっと:そっと 囁く:囁い た:た 時間:時間 の:の 忘れ物:忘れ物 "
+  },
+  {
+    "musicId": 5,
+    "language": "japanese",
+    "japanese": "ささやかな幸せはいつでも此処にある",
+    "japaneseRuby": "ささやかな[幸](しあわ)せはいつでも[此処](ここ)にある",
+    "japaneseWords": " ささやか:ささやか だ:な 幸せ:幸せ は:は いつ:いつ でも:でも 此処:此処 に:に ある:ある "
+  },
+  {
+    "musicId": 5
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "Was yea ra Was yea ra",
+    "lyricWords": " was yea ra was yea ra ",
+    "japanese": "嬉しい 嬉しい",
+    "japaneseWords": " 嬉しい:嬉しい 嬉しい:嬉しい ",
+    "correction": {
+      "lyric": "Was yea ra Wee yea ra",
+      "lyricWords": " was yea ra wee yea ra "
+    }
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "chs hymme",
+    "lyricWords": " chs hymme ",
+    "japanese": "波になれること",
+    "japaneseWords": " 波:波 に:に なれる:なれる こと:こと "
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "chs frawr",
+    "lyricWords": " chs frawr ",
+    "japanese": "花になれること",
+    "japaneseWords": " 花:花 に:に なれる:なれる こと:こと "
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "chs yor",
+    "lyricWords": " chs yor ",
+    "japanese": "貴方になれること",
+    "japaneseWords": " 貴方:貴方 に:に なれる:なれる こと:こと "
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
+    "lyric": "en chs ar ciel ya",
+    "lyricWords": " en chs ar ciel ya ",
+    "japanese": "世界になれること",
+    "japaneseWords": " 世界:世界 に:に なれる:なれる こと:こと "
+  },
+  {
+    "musicId": 5,
+    "language": "hymmnos",
     "lyric": "Wee yea ra ene foul enrer",
     "lyricWords": " wee yea ra ene foul enrer ",
     "japanese": "詩は不思議だといつも思う",
     "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true
+    }
   },
   {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "Wee yea ra ene hymme syec mea",
-    "lyricWords": " wee yea ra ene hymme syec mea ",
-    "japanese": "詩は何よりも心の奥底を振るわせるものだと",
-    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "Was yea ra hymme mea ks maya gyen yeal",
-    "lyricWords": " was yea ra hymme mea ks maya gyen yeal ",
-    "japanese": "幸せの魔法紡ぐように私の琴線かき鳴らす",
-    "japaneseWords": " 幸せ:幸せ の:の 魔法:魔法 紡ぐ:紡ぐ よう:よう に:に 私:私 の:の 琴線:琴線 かき鳴らす:かき鳴らす ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "Was yea ra Wee yea ra",
-    "lyricWords": " was yea ra wee yea ra ",
-    "japanese": "嬉しい 嬉しい",
-    "japaneseWords": " 嬉しい:嬉しい 嬉しい:嬉しい ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "chs hymme",
-    "lyricWords": " chs hymme ",
-    "japanese": "波になれること",
-    "japaneseWords": " 波:波 に:に なれる:なれる こと:こと ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "chs frawr",
-    "lyricWords": " chs frawr ",
-    "japanese": "花になれること",
-    "japaneseWords": " 花:花 に:に なれる:なれる こと:こと ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
-    "lyric": "chs yor",
-    "lyricWords": " chs yor ",
-    "japanese": "貴方になれること",
-    "japaneseWords": " 貴方:貴方 に:に なれる:なれる こと:こと ",
-    "language": "hymmnos"
-  },
-  {
-    "title": "星詠 ～ホシヨミ～",
+    "musicId": 5,
+    "language": "hymmnos",
     "lyric": "en chs ar ciel ya",
     "lyricWords": " en chs ar ciel ya ",
     "japanese": "世界になれること",
     "japaneseWords": " 世界:世界 に:に なれる:なれる こと:こと ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true
+    }
   },
   {
     "title": "EXEC_LINCA/. ",
