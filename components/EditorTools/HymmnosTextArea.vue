@@ -66,7 +66,7 @@ const updateText = (value: string) => {
 };
 </script>
 
-<style>
+<style scoped>
 .editor-base {
   position: relative;
   min-height: 100%;

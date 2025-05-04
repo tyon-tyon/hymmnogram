@@ -10,7 +10,7 @@ import LineTranslation from "./LineTranslation.vue";
 
 <style>
 .header-nav {
-  position: fixed;
+  position: sticky;
   z-index: 1;
   top: 0;
   left: 0;

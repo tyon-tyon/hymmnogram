@@ -1,11 +1,15 @@
 <template>
-  <HeaderNav />
-  <div class="editor">
-    <UContainer class="textarea">
-      <HymmnosTextArea />
-    </UContainer>
-    <FooterNav />
-  </div>
+  <UContainer class="editor flex px-0 sm:px-0 md:px-0 lg:px-0 xl:px-0 flex-col md:flex-row absolute inset-0">
+    <div class="w-full flex-1 max-h-[100vh] overflow-y-auto">
+      <HeaderNav />
+      <UContainer class="textarea flex-1 py-2">
+        <HymmnosTextArea />
+      </UContainer>
+    </div>
+    <div class="w-full md:w-[400px] md:border-l">
+      <FooterNav />
+    </div>
+  </UContainer>
 </template>
 
 <script setup lang="ts">
@@ -15,22 +19,7 @@ import FooterNav from "~/components/EditorTools/FooterNav.vue";
 useHead({
   title: 'ヒュムノスエディタ',
 });
+const isMobile = computed(() => {
+  return window.innerWidth < 768;
+});
 </script>
-
-<style scoped>
-.editor {
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-}
-.textarea {
-  flex: 1;
-  overflow: auto;
-  width: 100%;
-}
-</style>

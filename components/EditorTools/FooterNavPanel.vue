@@ -5,6 +5,7 @@
       @input-word="addWord"
       :action="true"
       :defaultRowCount="5"
+      :showColumns="['hymmnos', 'japanese', 'actions']"
     />
     <LyricTable :lyrics="lyrics" :word="lyricWord.hymmnos" />
   </template>

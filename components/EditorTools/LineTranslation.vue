@@ -1,11 +1,11 @@
 <template>
   <div class="line-translation">
     <LanguageSelect v-model="language" />
-    <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5">
+    <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5 flex items-center whitespace-nowrap">
       <WordHymmnos v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :word="word" :key="index"
         small class="mr-2" />
     </div>
-    <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5">
+    <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5 flex items-center whitespace-nowrap">
       <div v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :key="index" class="text-black">
         <WordForeluna :word="getForelunaWord(word.hymmnos) ?? {
             word: word.hymmnos,
@@ -15,7 +15,7 @@
           " small class="mr-3" />
       </div>
     </div>
-    <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5">
+    <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5 flex items-center whitespace-nowrap">
       <WordArCiela v-for="(word, index) in arCielaWords" class="mr-3" :key="index + word"
         :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))" small />
     </div>
@@ -112,8 +112,6 @@ watch(
 }
 
 .line-translation .line {
-  display: flex;
-  justify-content: start;
   overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;

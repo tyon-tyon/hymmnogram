@@ -115,6 +115,7 @@ const props = withDefaults(
     exactWord?: TWord;
     action?: boolean;
     defaultRowCount?: number;
+    showColumns?: string[];
   }>(),
   {
     defaultRowCount: 10,
@@ -209,6 +210,13 @@ watch(
 
 onMounted(() => {
   initDialectFilter();
+  if (props.showColumns) {
+    // 表示する列が指定されている場合はその列を表示
+    selectedColumns.value = columns.map((column) =>
+      !!props.showColumns?.includes(column.key)
+    );
+    return;
+  }
   // ウィンドウ幅がスマホサイズの場合は「意味」列を非表示
   if (window.innerWidth < 640)
     selectedColumns.value[2] =

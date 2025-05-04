@@ -192,12 +192,10 @@ const replace = (char: TArCielaChar) => {
 
 <style scoped>
 .control {
-  max-width: 720px;
   width: 100%;
   margin: auto;
 }
 .keyboard {
-  max-width: 720px;
   box-sizing: content-box;
   width: calc(100% - 60px);
   margin: auto;

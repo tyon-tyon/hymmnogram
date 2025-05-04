@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div class="max-w-[720px] mx-auto px-[10vw] box-content">
+    <div class="mx-auto box-content">
       <UButtonGroup size="xs" orientation="horizontal" class="mb-1">
         <UButton
           :color="mode === 'upper' ? 'primary' : 'white'"
