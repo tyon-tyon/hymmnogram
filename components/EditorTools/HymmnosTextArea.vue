@@ -1,5 +1,5 @@
 <template>
-  <div class="editor-base">
+  <div class="editor-base relative">
     <div class="display" v-html="lineHtml"></div>
     <textarea
       class="text"
@@ -67,10 +67,6 @@ const updateText = (value: string) => {
 </script>
 
 <style scoped>
-.editor-base {
-  position: relative;
-  min-height: 100%;
-}
 .display {
   width: 100%;
   pointer-events: none;

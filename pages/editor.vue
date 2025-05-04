@@ -1,9 +1,9 @@
 <template>
   <UContainer class="editor flex px-0 sm:px-0 md:px-0 lg:px-0 xl:px-0 flex-col md:flex-row absolute inset-0">
-    <div class="w-full flex-1 max-h-[100vh] overflow-y-auto">
+    <div class="w-full flex-1 max-h-[100vh] overflow-y-auto flex flex-col">
       <HeaderNav />
-      <UContainer class="textarea flex-1 py-2">
-        <HymmnosTextArea />
+      <UContainer class="flex-1 flex flex-col w-full py-2">
+        <HymmnosTextArea class="flex-1 w-full" />
       </UContainer>
     </div>
     <div class="w-full md:w-[400px] md:border-l">
