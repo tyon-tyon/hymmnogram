@@ -1,7 +1,7 @@
 <template>
   <div class="footer-nav overflow-y-auto relative transition-all duration-300 md:h-full md:max-h-[100vh]" :class="{
     'max-h-[68px]': !toggle,
-    'max-h-[80vh]': toggle && mode !== 'hymmnos',
+    'max-h-[71vh]': toggle && mode !== 'hymmnos',
     'max-h-[50vh]': toggle && mode === 'hymmnos',
   }">
     <div class="p-2 sticky top-0 z-10 bg-white/90 dark:bg-black/90">
@@ -39,7 +39,7 @@
           " size="sm" color="white" square variant="solid" @click="clickToggle" />
       </div>
     </div>
-    <div class="p-2 pb-8">
+    <div class="px-2">
       <FooterNavPanel :keyword="keyword" :mode="mode" />
     </div>
     <h1 class="text-xs text-cool-500 text-right p-1 sticky bottom-0 left-0 right-0 bg-white/90 dark:bg-black/90">
