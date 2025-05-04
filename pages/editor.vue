@@ -17,7 +17,7 @@ import HymmnosTextArea from "~/components/EditorTools/HymmnosTextArea.vue";
 import HeaderNav from "~/components/EditorTools/HeaderNav.vue";
 import FooterNav from "~/components/EditorTools/FooterNav.vue";
 useHead({
-  title: 'ヒュムノスエディタ',
+  title: 'ヒュムネエディタ',
 });
 const isMobile = computed(() => {
   return window.innerWidth < 768;

@@ -22,7 +22,7 @@ const links = [
     to: "/lyrics",
   },
   {
-    label: "ヒュムノスエディタ",
+    label: "ヒュムネエディタ",
     icon: "i-heroicons-pencil",
     to: "/editor",
   },

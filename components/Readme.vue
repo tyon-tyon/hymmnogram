@@ -94,7 +94,7 @@
   <section class="mb-10">
     <AtomH2>
       <nuxt-link to="/editor" class="cursor-pointer">
-        ヒュムノスエディタ
+        ヒュムネエディタ
       </nuxt-link>
     </AtomH2>
     <AtomP>
