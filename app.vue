@@ -1,7 +1,7 @@
 <template>
   <NuxtPwaManifest />
   <div class="app text-cool-700 dark:text-cool-300 bg-white/90 dark:bg-black/90">
-    <span class="bg-hymmnos font-hymmnos text-cool-50 mix-blend-multiply dark:text-cool-900 dark:mix-blend-screen" :style="{ opacity: opacity, transition: transition }">{{ key
+    <span class="bg-hymmnos font-hymmnos text-cool-50 mix-blend-multiply dark:text-cool-950 dark:mix-blend-screen" :style="{ opacity: opacity, transition: transition }">{{ key
       }}</span>
     <NuxtPage />
 

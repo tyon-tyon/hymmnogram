@@ -1,5 +1,6 @@
 <template>
-  <UContainer class="editor flex px-0 sm:px-0 md:px-0 lg:px-0 xl:px-0 flex-col md:flex-row absolute inset-0">
+  <UContainer
+    class="editor flex px-0 sm:px-0 md:px-0 lg:px-0 xl:px-0 flex-col md:flex-row absolute inset-0  bg-white/90 dark:bg-black/90">
     <div class="w-full flex-1 max-h-[100vh] overflow-y-auto flex flex-col">
       <HeaderNav />
       <UContainer class="flex-1 flex flex-col w-full py-2">
@@ -24,8 +25,5 @@ useHead({
       content: 'ヒュムノス、律史前月読、アルシエラの記述を支援するテキストエディタです。',
     },
   ],
-});
-const isMobile = computed(() => {
-  return window.innerWidth < 768;
 });
 </script>
