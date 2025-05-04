@@ -163,7 +163,7 @@ useHead({
   meta: [
     { property: 'og:title', content: "[歌詞]" + music.title },
     { property: 'og:url', content: `${window.location.origin}/lyrics/${key}` },
-    { property: 'og:description', content: `${music.title}の歌詞` },
+    { property: 'og:description', content: `${music.title}の歌詞と単語の意味です` },
   ],
 });
 

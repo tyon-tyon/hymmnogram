@@ -18,6 +18,12 @@ import HeaderNav from "~/components/EditorTools/HeaderNav.vue";
 import FooterNav from "~/components/EditorTools/FooterNav.vue";
 useHead({
   title: 'ヒュムネエディタ',
+  meta: [
+    {
+      name: 'description',
+      content: 'ヒュムノス、律史前月読、アルシエラの記述を支援するテキストエディタです。',
+    },
+  ],
 });
 const isMobile = computed(() => {
   return window.innerWidth < 768;
