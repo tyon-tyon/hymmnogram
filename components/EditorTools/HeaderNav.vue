@@ -1,5 +1,5 @@
 <template>
-  <div class="header-nav p-1">
+  <div class="header-nav p-1 bg-white/90 dark:bg-black/90">
     <LineTranslation />
   </div>
 </template>
@@ -17,6 +17,5 @@ import LineTranslation from "./LineTranslation.vue";
   right: 0;
   border-bottom: 1px solid #e2e8f0;
   min-height: 10px;
-  background: rgba(255, 255, 255, 0.9);
 }
 </style>

@@ -25,7 +25,7 @@ export default function () {
               /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/
             )
           ) {
-            return `<span class="text-black">` + word.hymmnos + `</span>`;
+            return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
           }
           const dialectClass = getDialectTextClass(word?.dialect ?? null);
 
@@ -36,11 +36,11 @@ export default function () {
           // 英字が含まれている場合は誤字として表示
           if (word.hymmnos.match(/^[A-Za-z\=\-\>]+$/))
             return (
-              `<span class="text-black bg-cool-300 ">` + word.hymmnos + `</span>`
+              `<span class="text-black dark:text-white bg-cool-300 dark:bg-cool-700">` + word.hymmnos + `</span>`
             );
 
           // それ以外は黒文字で表示
-          return `<span class="text-black">` + word.hymmnos + `</span>`;
+          return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
         })
         .join("");
     });

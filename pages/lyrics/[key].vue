@@ -39,7 +39,7 @@
       </div>
       <div class="order-2 md:order-1">
         <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
-          class="hover:bg-cool-50 relative line mb-8">
+          class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2">
             <AtomChipButton v-if="lyric.unperformed">

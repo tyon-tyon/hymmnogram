@@ -1,12 +1,12 @@
 <template>
   <div class="line-translation">
-    <LanguageSelect v-model="language" />
-    <div v-if="language === 'ヒュムノス'" class="line pl-4 pr-5 flex items-center whitespace-nowrap">
+    <LanguageSelect v-model="language" class="mr-2" />
+    <div v-if="language === 'ヒュムノス'" class="line pr-5 flex items-center whitespace-nowrap">
       <WordHymmnos v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :word="word" :key="index"
         small class="mr-2" />
     </div>
     <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5 flex items-center whitespace-nowrap">
-      <div v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :key="index" class="text-black">
+      <div v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :key="index">
         <WordForeluna :word="getForelunaWord(word.hymmnos) ?? {
             word: word.hymmnos,
             sections: [],
@@ -100,9 +100,6 @@ watch(
 
 .line-translation::after {
   content: "";
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 1));
   position: absolute;
   z-index: 1;
   width: 40px;
