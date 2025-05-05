@@ -1,27 +1,28 @@
 <template>
-  <div class="line-translation">
+  <div class="line-translation relative flex flex-row">
     <LanguageSelect v-model="language" class="mr-2" />
-    <div v-if="language === 'ヒュムノス'" class="line pr-5 flex items-center whitespace-nowrap">
+    <div v-if="language === 'ヒュムノス'" class="line flex-1 pr-10 flex items-center whitespace-nowrap">
       <WordHymmnos v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :word="word" :key="index"
         small class="mr-2" />
     </div>
-    <div v-else-if="language === '律史前月読'" class="line pl-2 pr-5 flex items-center whitespace-nowrap">
+    <div v-else-if="language === '律史前月読'" class="line flex-1 pl-2 pr-10 flex items-center whitespace-nowrap">
       <div v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :key="index">
         <WordForeluna :word="getForelunaWord(word.hymmnos) ?? {
-            word: word.hymmnos,
-            sections: [],
-            type: null,
-          }
+          word: word.hymmnos,
+          sections: [],
+          type: null,
+        }
           " small class="mr-3" />
       </div>
     </div>
-    <div v-else-if="language === 'アルシエラ'" class="line pl-2 pr-5 flex items-center whitespace-nowrap">
+    <div v-else-if="language === 'アルシエラ'" class="line flex-1 pl-2 pr-10 flex items-center whitespace-nowrap">
       <WordArCiela v-for="(word, index) in arCielaWords" class="mr-3" :key="index + word"
         :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))" small />
     </div>
-    <div v-else class="line pl-2 pr-5">
-      {{ hymmnosWords.map((w) => w.hymmnos).join("") }}
+    <div v-else class="line pl-2 pr-10">
+      {{hymmnosWords.map((w) => w.hymmnos).join("")}}
     </div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-white/90 dark:to-black/90"></div>
   </div>
 </template>
 
@@ -92,22 +93,6 @@ watch(
 </script>
 
 <style>
-/* 右端に白いグラデーションを表示 */
-.line-translation {
-  position: relative;
-  display: flex;
-}
-
-.line-translation::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 40px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .line-translation .line {
   overflow-x: scroll;
   -ms-overflow-style: none;
