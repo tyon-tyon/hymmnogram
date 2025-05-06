@@ -22,20 +22,22 @@
             #{{ tag }}
           </AtomLink>
         </div>
-        <UAccordion class="mb-4" multiple :items="items">
-          <template #explanation>
-            <AtomP class="whitespace-pre-wrap text-sm">
-              {{ music.explanation ?? "" }}
-            </AtomP>
-          </template>
-          <template #feeling>
-            <AtomP class="text-sm">
-              <p v-for="line in music.feeling?.split('\n') ?? []" :key="line" class="mb-2">
-                {{ line }}
-              </p>
-            </AtomP>
-          </template>
-        </UAccordion>
+        <ClientOnly>
+          <UAccordion class="mb-4" multiple :items="items" :ui="{ wrapper: 'w-full flex flex-col' }">
+            <template #explanation>
+              <AtomP class="whitespace-pre-wrap text-sm">
+                {{ music.explanation ?? "" }}
+              </AtomP>
+            </template>
+            <template #feeling>
+              <AtomP class="text-sm">
+                <p v-for="line in music.feeling?.split('\n') ?? []" :key="line" class="mb-2">
+                  {{ line }}
+                </p>
+              </AtomP>
+            </template>
+          </UAccordion>
+        </ClientOnly>
       </div>
       <div class="order-2 md:order-1">
         <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"

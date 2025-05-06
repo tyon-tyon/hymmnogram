@@ -1,6 +1,8 @@
 <template>
   <Layout :breadcrumb-links="[]">
-    <SearchPanel />
+    <ClientOnly>
+      <SearchPanel />
+    </ClientOnly>
     <div class="pt-4">
       <Readme />
     </div>
