@@ -62,7 +62,7 @@
             <!-- ヒュムノス語 -->
             <div class="flex flex-wrap">
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
-                :word="word" :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+                :word="word" :key="index" small pronunciation class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
             </div>
             <!-- 日本語 -->
             <AtomP class="text-sm text-cool-500 mt-1">
