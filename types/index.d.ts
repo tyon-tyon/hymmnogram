@@ -1,7 +1,7 @@
 export type TJsonWord = {
   hymmnos: string; // 単語
   japanese: string[]; // 意味
-  pronunciation?: string | null; // 発音
+  pronunciation?: string[]; // 発音
   gerunds?: string[]; // パスタリエ 名詞化した場合の意味
   part_of_speech: string; // 品詞
   dialect: string;
@@ -29,7 +29,7 @@ export type TIdiom = {
   idiom: string[]; // 慣用句
   japanese: string[]; // 意味
   emotionVowelString?: string; // 想母音
-  pronunciation?: string; // 発音
+  pronunciation?: string[]; // 発音
   dialect: string;
 };
 

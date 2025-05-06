@@ -27,20 +27,21 @@ export default function () {
 
   // 部分一致の単語を取得
   const getPartialMatch = (query: string): TWord[] => {
+    if (!query) return [];
     const lowerCaseQuery = query.toLowerCase();
     return words.value.filter(w =>
       w.hymmnos.toLowerCase().includes(lowerCaseQuery) ||
       w.japanese.some(m => m.toLowerCase().includes(lowerCaseQuery)) ||
       w.gerunds?.some(g => g.toLowerCase().includes(lowerCaseQuery)) ||
-      w.pronunciation?.toLowerCase().includes(lowerCaseQuery) ||
+      w.pronunciation?.some(p => p?.toLowerCase().includes(lowerCaseQuery)) ||
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: "" };
+  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: [] };
 
   // 単語データを更新
   const updateWords = (originalWords: TJsonWord[]) => {
-    words.value = [..._words, ...originalWords];
+    words.value = [..._words as TWord[], ...originalWords];
   };
 
   // 解析した文章を取得
@@ -145,9 +146,9 @@ export default function () {
       return {
         hymmnos: idiomWords.map(w => w.hymmnos).join(" "),
         japanese: idiom.japanese,
-        pronunciation: idiom.pronunciation ?? idiomWords.map(w => w.pronunciation).join(" "),
+        pronunciation: idiom.pronunciation ?? [idiomWords.map(w => w.pronunciation?.[0]).join(" ")],
         part_of_speech: "慣用句",
-        dialect: idiom.dialect,
+        dialect: idiom.dialect ?? "unknown",
         primaryMeaning: idiom.japanese[0],
         subWords: idiomWords,
       };
@@ -225,7 +226,7 @@ export default function () {
         hymmnos: q,
         primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
-        pronunciation: founds.map(f => f.pronunciation).join(" "),
+        pronunciation: [founds.map(f => f.pronunciation?.[0]).join(" ")],
         part_of_speech: "複合語",
         dialect: "unknown",
         subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
@@ -244,7 +245,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜される",
           voice: "受動",
-          pronunciation: ""
+          pronunciation: []
         };
       }
     }
@@ -257,7 +258,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜すること",
           voice: "動名詞",
-          pronunciation: ""
+          pronunciation: []
         };
       }
     }
@@ -288,7 +289,7 @@ export default function () {
           emotionVowels: emotionVowelMeanings,
           subWords: [pastalieVerb],
           primaryMeaning: pastalieVerb.japanese[0],
-          pronunciation: ""
+          pronunciation: []
         };
       }
     }
@@ -345,7 +346,7 @@ export default function () {
       possessiveOwner: possessiveOwner ?? ownerStr,
       subWords,
       emotionVowels: [getEmotionVowel(emotionVowel)],
-      pronunciation: ""
+      pronunciation: []
     };
 
   }

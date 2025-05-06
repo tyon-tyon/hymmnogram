@@ -5,7 +5,7 @@
       'text-3xs': small,
       [getDialectTextClass(word.dialect)]: word.dialect,
     }">
-      {{ !word.pronunciation ? "　" : word.pronunciation?.match(/^\s*$/g) ? "　" : word.pronunciation }}
+      {{ word.pronunciation?.[0] ?? "　" }}
     </div>
     <WordArHym :small hymmnos :class="{
       [getDialectTextClass(word.dialect)]: word.dialect,
