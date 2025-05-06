@@ -10,22 +10,20 @@
         絞り込み条件: #{{ selectedTag }}
         <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
       </div>
-    </ClientOnly>
-    <UTable :ui="{
-      th: {
-        padding: 'hidden',
-      },
-      td: {
-        padding: 'px-0',
-      },
-    }" :columns="columns" :rows="musics">
-      <template #title-data="{ row }">
-        <AtomLink :href="`/lyrics/${row.key}`">
-          {{ row.title }}
-        </AtomLink>
-      </template>
-    </UTable>
-    <ClientOnly>
+      <UTable :ui="{
+        th: {
+          padding: 'hidden',
+        },
+        td: {
+          padding: 'px-0',
+        },
+      }" :columns="columns" :rows="musics">
+        <template #title-data="{ row }">
+          <AtomLink :href="`/lyrics/${row.key}`">
+            {{ row.title }}
+          </AtomLink>
+        </template>
+      </UTable>
       <UAccordion :items="accordionItems" class="mb-4" :ui="{ wrapper: 'w-full flex flex-col' }">
         <template #tags>
           <div class="flex flex-wrap gap-2">
