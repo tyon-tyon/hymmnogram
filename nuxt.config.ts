@@ -5,7 +5,6 @@ const musics = _musics as TMusic[];
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  ssr: false,
   modules: ["@nuxt/ui", "@vite-pwa/nuxt", '@zadigetvoltaire/nuxt-gtm', '@nuxtjs/sitemap'],
 
   css: [
