@@ -18,7 +18,7 @@
           編曲：{{ music.arranger.join(', ') }}
         </AtomP>
         <div class="flex flex-wrap mb-4">
-          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${tag}`" class="text-sm mr-2">
+          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm mr-2">
             #{{ tag }}
           </AtomLink>
         </div>

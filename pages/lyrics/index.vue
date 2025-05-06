@@ -26,7 +26,7 @@
     <UAccordion :items="accordionItems" class="mb-4">
       <template #tags>
         <div class="flex flex-wrap">
-          <AtomLink v-for="(tag, index) in tags" :key="index" :href="`/lyrics/?tag=${tag}#selected-tag`"
+          <AtomLink v-for="(tag, index) in tags" :key="index" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`"
             class="text-sm mr-2" @click="selectedTag = tag">
             #{{ tag }}
           </AtomLink>
@@ -58,6 +58,7 @@ watch(selectedTag, () => {
     meta: [
       { property: 'og:title', content: title },
       { name: 'description', content: '歌詞一覧' },
+      { property: 'og:url', content: selectedTag.value ? `/lyrics/?tag=${encodeURIComponent(selectedTag.value)}` : '/lyrics' },
     ],
   });
 });

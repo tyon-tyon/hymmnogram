@@ -95,9 +95,17 @@ export default defineNuxtConfig({
   },
   sitemap: {
     urls: () => {
-      return musics.map(music => {
+      const urls = musics.map(music => {
         return `/lyrics/${music.key}`;
       });
+      // タグを追加
+      musics.forEach(music => {
+        music.tags.forEach(tag => {
+          const encodedTag = encodeURIComponent(tag);
+          urls.push(`/lyrics/?tag=${encodedTag}`);
+        });
+      });
+      return urls;
     },
   },
 
