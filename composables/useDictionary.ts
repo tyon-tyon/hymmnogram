@@ -36,7 +36,7 @@ export default function () {
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "" };
+  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: "" };
 
   // 単語データを更新
   const updateWords = (originalWords: TJsonWord[]) => {
