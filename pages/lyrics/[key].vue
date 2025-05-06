@@ -18,7 +18,8 @@
           編曲：{{ music.arranger.join(', ') }}
         </AtomP>
         <div class="flex flex-wrap mb-4">
-          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm mr-2">
+          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`"
+            class="text-sm mr-2">
             #{{ tag }}
           </AtomLink>
         </div>
@@ -43,7 +44,10 @@
         <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
           class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
           <!-- タグ表示 -->
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2 items-center">
+            <div v-if="lyric.chorus" class="text-cool-400 text-xs">
+              コーラス{{ lyric.chorus }}
+            </div>
             <AtomChipButton v-if="lyric.unperformed">
               未歌唱
             </AtomChipButton>
@@ -58,11 +62,12 @@
           </div>
 
           <!-- ヒュムノス歌詞 -->
-          <div v-if="lyric.lyric" :class="{ 'opacity-50': lyric.unperformed }">
+          <div v-if="lyric.lyric" :class="{ 'opacity-70': lyric.chorus, 'opacity-40': lyric.unperformed }">
             <!-- ヒュムノス語 -->
             <div class="flex flex-wrap">
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
-                :word="word" :key="index" small pronunciation class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+                :word="word" :key="index" small pronunciation class="mr-2 cursor-pointer"
+                @click="openWordDialog(word)" />
             </div>
             <!-- 日本語 -->
             <AtomP class="text-sm text-cool-500 mt-1">
@@ -71,7 +76,7 @@
           </div>
 
           <!-- 日本語歌詞 -->
-          <div v-else-if="lyric.japanese" :class="{ 'opacity-50': lyric.unperformed }">
+          <div v-else-if="lyric.japanese" :class="{ 'opacity-70': lyric.chorus, 'opacity-40': lyric.unperformed }">
             <AtomP>
               <span v-html="getJapaneseRuby(lyric.correction?.japaneseRuby ?? lyric.japaneseRuby ?? '')"></span>
             </AtomP>

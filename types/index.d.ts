@@ -92,6 +92,8 @@ export type TLyric = {
   },
   // 未歌唱フラグ
   unperformed?: boolean,
+  // コーラス番号
+  chorus?: number,
 };
 
 export type TMusic = {
