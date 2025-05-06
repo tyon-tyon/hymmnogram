@@ -6,6 +6,22 @@
       ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。
     </AtomP>
     <ClientOnly>
+      <template #fallback>
+        <UTable :ui="{
+          th: {
+            padding: 'hidden',
+          },
+          td: {
+            padding: 'px-0',
+          },
+        }" :columns="columns" :rows="musics">
+          <template #title-data="{ row }">
+            <AtomLink :href="`/lyrics/${row.key}`">
+              {{ row.title }}
+            </AtomLink>
+          </template>
+        </UTable>
+      </template>
       <div v-if="selectedTag" class="mb-4" id="selected-tag">
         絞り込み条件: #{{ selectedTag }}
         <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
