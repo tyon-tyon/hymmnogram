@@ -157,15 +157,10 @@
 </template>
 
 <script setup>
-
-// https://api.github.com/repos/tyon-tyon/hymmnogram/releasesから最新のリリースを取得
-const latestRelease = await fetch('https://api.github.com/repos/tyon-tyon/hymmnogram/releases')
-const latestReleaseData = await latestRelease.json()
-
-//リリースのタイトルを取得
-const releases = computed(() => {
+const { data: releases } = await useAsyncData('releases', async () => {
+  const response = await fetch('https://api.github.com/repos/tyon-tyon/hymmnogram/releases')
+  const data = await response.json()
   // 最新5件を取得
-  return latestReleaseData.slice(0, 5)
+  return data.slice(0, 5)
 })
-
 </script>
