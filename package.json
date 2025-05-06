@@ -23,6 +23,7 @@
     "string-width": "4.2.3"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.2",
     "@nuxtjs/sitemap": "^7.2.10",
     "string-width": "7.2.0",
     "strip-ansi": "7.1.0"
