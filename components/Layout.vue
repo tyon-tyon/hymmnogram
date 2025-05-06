@@ -1,10 +1,10 @@
 <template>
-  <div class="header-nav py-2">
-    <span class="bg-logo font-hymmnos text-primary-100 absolute z--1">HYMMNOGRAM</span>
-    <UContainer class="relative flex items-center justify-between">
-      <nuxt-link class="logo" to="/">
-        <div class="text-primary-600 text-2xl font-bold">HYMMNOGRAM</div>
-        <div class="text-cool-600 text-sm japanese">ヒュムノグラム</div>
+  <div class="fixed top-0 left-0 right-0 z-10 min-h-[10px] overflow-hidden border-b border-gray-200 bg-white/90 dark:bg-black/90">
+    <span class="absolute -z-10 left-[-2vw] top-1/2 -translate-y-1/2 text-[15vw] text-transparent opacity-25 mix-blend-multiply dark:mix-blend-screen font-hymmnos text-primary-100 [text-shadow:0_0_4px_rgb(var(--color-primary-400))]">HYMMNOGRAM</span>
+    <UContainer class="relative flex items-center justify-between py-2">
+      <nuxt-link class="flex flex-col leading-none" to="/">
+        <div class="text-2xl font-bold text-primary-600 leading-none">HYMMNOGRAM</div>
+        <div class="text-sm text-cool-600 dark:text-cool-400 japanese leading-none">ヒュムノグラム</div>
       </nuxt-link>
       <UButton label="Menu" @click="openDrawer = true" variant="ghost" />
       <USlideover v-model="openDrawer" :ui="{
@@ -14,7 +14,7 @@
       </USlideover>
     </UContainer>
   </div>
-  <UContainer class="container">
+  <UContainer class="mt-[55px] pb-16">
     <UBreadcrumb v-if="breadcrumbLinks.length > 0" :links="[{ label: 'ホーム', to: '/' }, ...breadcrumbLinks]" class="pt-2" />
     <div class="pt-4">
       <slot></slot>
@@ -33,34 +33,7 @@ const props = defineProps<{
 </script>
 
 <style scoped>
-.header-nav {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-bottom: 1px solid #e2e8f0;
-  min-height: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  overflow: hidden;
-}
-
-.container {
-  margin-top: 55px;
-}
-
 .logo>* {
   line-height: 1;
-}
-
-.bg-logo {
-  color: transparent;
-  text-shadow: 0 0 4px rgb(var(--color-primary-400));
-  opacity: 0.25;
-  font-size: 15vw;
-  transform: translateY(-50%);
-  top: 50%;
-  left: -2vw;
-  mix-blend-mode: multiply;
 }
 </style>

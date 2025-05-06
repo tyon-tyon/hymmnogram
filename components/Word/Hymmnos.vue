@@ -1,5 +1,10 @@
 <template>
   <WordWrapper :small :japanese :lyric>
+    <div v-if="!small && !lyric" class="text-2xs" :class="{
+      [getDialectTextClass(word.dialect)]: word.dialect,
+    }">
+      {{ word.pronunciation }}
+    </div>
     <WordArHym v-if="!lyric" :small hymmnos :class="{
       [getDialectTextClass(word.dialect)]: word.dialect,
     }">
@@ -29,7 +34,7 @@
         }}
       </div>
       <div v-else-if="!lyric && !small" class="flex flex-wrap justify-center">
-        <WordHymmnos v-for="subWord in word.subWords" :key="subWord.hymmnos" :word="subWord" small class="mr-1"/>
+        <WordHymmnos v-for="subWord in word.subWords" :key="subWord.hymmnos" :word="subWord" small class="mr-1" />
       </div>
     </template>
   </WordWrapper>

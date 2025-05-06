@@ -37,14 +37,14 @@
     <AtomH2>
       更新履歴
     </AtomH2>
-    <ul class="list-disc list-inside mb-4">
+    <AtomUL>
       <li v-for="release in releases" :key="release.id">
         {{ new Date(release.published_at).toLocaleDateString() }}
         <AtomLink :href="release.html_url" target="_blank" rel="noopener noreferrer">
           {{ release.name }}
         </AtomLink>
       </li>
-    </ul>
+    </AtomUL>
   </section>
 
   <section class="mb-10">
@@ -57,7 +57,7 @@
     <AtomH3>
       機能
     </AtomH3>
-    <ul class="list-disc list-inside mb-4">
+    <AtomUL>
       <li>
         <strong>単語検索</strong>:
         ヒュムノス語やその意味だけでなく、品詞や発音による検索が可能です。
@@ -70,7 +70,7 @@
         <strong>用例検索</strong>:
         公式の用例を、ヒュムノス語と日本語の両方で検索できます。
       </li>
-    </ul>
+    </AtomUL>
   </section>
 
   <section class="mb-10">
@@ -88,7 +88,7 @@
   <section class="mb-10">
     <AtomH2>
       <nuxt-link to="/editor" class="cursor-pointer">
-        ヒュムノスエディタ
+        ヒュムネエディタ
       </nuxt-link>
     </AtomH2>
     <AtomP>
@@ -97,7 +97,7 @@
     <AtomH3>
       機能
     </AtomH3>
-    <ul class="list-disc list-inside mb-4">
+    <AtomUL>
       <li>
         <strong>誤字チェック</strong>:
         リアルタイムでテキストの誤字をチェックし、間違いがある場合はハイライト表示します。
@@ -111,14 +111,14 @@
         <strong>入力支援</strong>:
         画面下部に「ヒュムノス辞書」「アルシエラキーボード」「律史前月読キーボード」を備えています。ヒュムノス語の単語をクリックすると、その単語を挿入できます。
       </li>
-    </ul>
+    </AtomUL>
   </section>
 
   <section class="mb-10">
     <AtomH2>
       参考リンク
     </AtomH2>
-    <ul class="list-disc list-inside mb-4">
+    <AtomUL>
       <li>
         <AtomLink href="https://github.com/tyon-tyon/hymmnogram" target="_blank" rel="noopener noreferrer">
           GitHub リポジトリ
@@ -151,7 +151,7 @@
           非公式ヒュムノス辞書
         </AtomLink>
       </li>
-    </ul>
+    </AtomUL>
   </section>
 
 </template>

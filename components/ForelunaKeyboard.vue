@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div class="keyboard">
+    <div class="mx-auto box-content">
       <UButtonGroup size="xs" orientation="horizontal" class="mb-1">
         <UButton
           :color="mode === 'upper' ? 'primary' : 'white'"
@@ -17,7 +17,7 @@
       </UButtonGroup>
       <div class="flex flex-wrap">
         <div
-          class="key-button relative"
+          class="h-auto w-[60px] max-w-[16.666667%] leading-none "
           v-for="(char, i) in forelunaChars"
           :key="i"
         >
@@ -35,25 +35,25 @@
           </KeyButton>
         </div>
         <KeyButton
-          class="key-button"
+          class="aspect-square h-auto w-[60px] max-w-[16.666667%] leading-none"
           @click="$emit('input-char', ' ')"
           color="white"
         >
-          <div class="text-2xs">空白</div>
+          <div class="text-2xs leading-[1.5]">空白</div>
         </KeyButton>
         <KeyButton
-          class="key-button"
+          class="aspect-square h-auto w-[60px] max-w-[16.666667%] leading-none"
           @click="$emit('input-char', '\n')"
           color="white"
         >
-          <div class="text-2xs">改行</div>
+          <div class="text-2xs leading-[1.5]">改行</div>
         </KeyButton>
         <KeyButton
-          class="key-button"
+          class="aspect-square h-auto w-[60px] max-w-[16.666667%] leading-none"
           @click="$emit('delete-char')"
           color="white"
         >
-          <div class="text-2xs">←</div>
+          <div class="text-2xs leading-[1.5]">←</div>
         </KeyButton>
       </div>
     </div>
@@ -75,23 +75,3 @@ const adjustCase = (str: string) => {
   return str.toUpperCase();
 };
 </script>
-
-<style scoped>
-.keyboard {
-  max-width: 720px;
-  box-sizing: content-box;
-  margin: auto;
-  padding: 0 calc(100vw / 10);
-}
-
-.key-button {
-  aspect-ratio: 1;
-  height: auto;
-  width: 60px;
-  max-width: calc(100% / 6);
-  line-height: 1;
-}
-.text-2xs {
-  line-height: 1.5;
-}
-</style>

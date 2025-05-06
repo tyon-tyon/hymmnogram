@@ -1,14 +1,12 @@
 <template>
   <template v-if="keyword.length">
     <div v-if="lineWords.length" class="mb-5">
+      <div v-if="lineWords.flat().length > 5" class="text-sm">
+        長文の意味を調べる場合は<AtomLink href="/editor">ヒュムネエディタ</AtomLink>がおすすめです。
+      </div>
       <div v-for="(line, index) in lineWords" :key="index">
         <div :rows="lineWords" class="flex flex-wrap">
-          <WordHymmnos
-            v-for="(word, index) in line"
-            :word="word"
-            :key="index"
-            class="pr-4 pt-4"
-          />
+          <WordHymmnos v-for="(word, index) in line" :word="word" :key="index" class="pr-4 pt-4" />
         </div>
       </div>
     </div>
@@ -17,15 +15,11 @@
         <TableHymmnos :words="partialMatchWords" :exact-word="exactMatchWord" />
       </template>
       <template #lyrics>
-        <LyricTable
-          :lyrics="foundLyrics"
-          :word="
-            (exactMatchWord?.subWords?.length
-              ? exactMatchWord?.subWords[0]
-              : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
-            ).hymmnos
-          "
-        />
+        <LyricTable :lyrics="foundLyrics" :word="(exactMatchWord?.subWords?.length
+            ? exactMatchWord?.subWords[0]
+            : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
+          ).hymmnos
+          " />
       </template>
     </UAccordion>
   </template>

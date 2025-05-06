@@ -5,7 +5,7 @@
   "scripts": {
     "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/icon.png",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 3001",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

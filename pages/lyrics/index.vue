@@ -1,8 +1,8 @@
 <template>
-  <Layout :breadcrumb-links="[{label: '歌詞一覧', to: '/lyrics'}]">
+  <Layout :breadcrumb-links="[{ label: '歌詞一覧', to: '/lyrics' }]">
     <AtomH2>歌詞一覧</AtomH2>
     <AtomP class="text-sm">
-      アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。<br/>
+      アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。<br />
       ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。
     </AtomP>
     <div v-if="selectedTag" class="mb-4" id="selected-tag">
@@ -42,16 +42,25 @@ const tags = getMusicTags();
 const route = useRoute();
 const selectedTag = ref<string | null>(route.query.tag as string | null);
 const musics = ref(getMusicByTag(selectedTag.value ?? undefined));
-const title = computed(() => (selectedTag.value ? `${selectedTag.value}の` : '') + '歌詞一覧');
+const title = computed(() => (selectedTag.value ? `#${selectedTag.value} の` : '') + '歌詞一覧');
 
 useHead({
-  title: '歌詞一覧',
+  title: title,
   meta: [
     { property: 'og:title', content: title },
-    { name: 'description', content: '歌詞一覧' },
+    { name: 'description', content: 'アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。' },
   ],
 });
 
+watch(selectedTag, () => {
+  useHead({
+    title: title,
+    meta: [
+      { property: 'og:title', content: title },
+      { name: 'description', content: '歌詞一覧' },
+    ],
+  });
+});
 const columns = [
   {
     label: 'タイトル',
@@ -63,6 +72,7 @@ const accordionItems = [
   {
     label: '絞り込みタグ一覧',
     slot: "tags",
+    defaultOpen: true,
   },
 ];
 

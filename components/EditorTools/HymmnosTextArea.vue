@@ -1,8 +1,8 @@
 <template>
-  <div class="editor-base">
-    <div class="display" v-html="lineHtml"></div>
+  <div class="editor-base relative">
+    <div class="display dark:text-cool-300" v-html="lineHtml"></div>
     <textarea
-      class="text"
+      class="text caret-primary"
       wrap="soft"
       v-model="textareaText"
       @input="
@@ -11,6 +11,7 @@
           updateText(textarea.value);
         }
       "
+      placeholder="テキストを入力してください"
     ></textarea>
   </div>
 </template>
@@ -65,11 +66,7 @@ const updateText = (value: string) => {
 };
 </script>
 
-<style>
-.editor-base {
-  position: relative;
-  min-height: 100%;
-}
+<style scoped>
 .display {
   width: 100%;
   pointer-events: none;
@@ -92,7 +89,6 @@ const updateText = (value: string) => {
 
 .text {
   outline: none;
-  caret-color: black;
   color: rgba(0, 0, 0, 0.05);
   background-color: transparent;
   position: absolute;

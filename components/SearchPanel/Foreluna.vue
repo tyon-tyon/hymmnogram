@@ -1,5 +1,8 @@
 <template>
   <div v-if="keyword.length" class="mb-5">
+    <div v-if="lineWords.flat().length > 4" class="text-sm">
+      長文の意味を調べる場合は<AtomLink href="/editor">ヒュムネエディタ</AtomLink>がおすすめです。
+    </div>
     <div
       v-for="(line, index) in lineWords"
       :key="index"

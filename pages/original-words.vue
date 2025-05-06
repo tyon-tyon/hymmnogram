@@ -40,6 +40,12 @@ dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル
 import type { TDialect } from "~/types";
 useHead({
   title: 'オリジナル単語登録',
+  meta: [
+    {
+      name: 'description',
+      content: 'オリジナル単語をヒュムノス語として登録することができます。',
+    },
+  ],
 });
 const { pureDialects, updateDialects } = useDialect();
 const { updateWords } = useDictionary();

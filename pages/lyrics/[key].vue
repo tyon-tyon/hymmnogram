@@ -39,7 +39,7 @@
       </div>
       <div class="order-2 md:order-1">
         <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
-          class="hover:bg-cool-50 relative line mb-8">
+          class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2">
             <AtomChipButton v-if="lyric.unperformed">
@@ -163,7 +163,7 @@ useHead({
   meta: [
     { property: 'og:title', content: "[歌詞]" + music.title },
     { property: 'og:url', content: `${window.location.origin}/lyrics/${key}` },
-    { property: 'og:description', content: `${music.title}の歌詞` },
+    { property: 'og:description', content: `${music.title}の歌詞と単語の意味です` },
   ],
 });
 
