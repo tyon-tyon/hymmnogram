@@ -37,14 +37,16 @@
     <AtomH2>
       更新履歴
     </AtomH2>
-    <AtomUL>
-      <li v-for="release in releases" :key="release.id">
-        {{ new Date(release.published_at).toLocaleDateString() }}
-        <AtomLink :href="release.html_url" target="_blank" rel="noopener noreferrer">
-          {{ release.name }}
-        </AtomLink>
-      </li>
-    </AtomUL>
+    <ClientOnly>
+      <AtomUL>
+        <li v-for="release in releases" :key="release.id">
+          {{ new Date(release.published_at).toLocaleDateString() }}
+          <AtomLink :href="release.html_url" target="_blank" rel="noopener noreferrer">
+            {{ release.name }}
+          </AtomLink>
+        </li>
+      </AtomUL>
+    </ClientOnly>
   </section>
 
   <section class="mb-10">
