@@ -102,4 +102,8 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-03-20",
+
+  routeRules: {
+    "/lyrics/**": { ssr: true },
+  },
 });

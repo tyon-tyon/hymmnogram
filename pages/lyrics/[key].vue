@@ -162,7 +162,7 @@ useHead({
   title: "[歌詞]" + music?.title,
   meta: [
     { property: 'og:title', content: "[歌詞]" + music.title },
-    { property: 'og:url', content: `${window.location.origin}/lyrics/${key}` },
+    { property: 'og:url', content: `/lyrics/${key}` },
     { property: 'og:description', content: `${music.title}の歌詞と単語の意味です` },
   ],
 });
@@ -176,7 +176,7 @@ const dialogLyric = ref<TLyric | null>(null);
 const dialogWord = ref<TWord | null>(null);
 const shareText = ref('');
 const shareUrl = computed(() => {
-  return `${window.location.origin}/lyrics/${key}`;
+  return `/lyrics/${key}`;
 });
 
 //　タグを設定
