@@ -29,6 +29,7 @@ export type TIdiom = {
   idiom: string[]; // 慣用句
   japanese: string[]; // 意味
   emotionVowelString?: string; // 想母音
+  pronunciation?: string; // 発音
   dialect: string;
 };
 

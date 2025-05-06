@@ -114,17 +114,16 @@ export default function () {
   function getWordsWithIdiom(words: TWord[], idiomString: string, pastalie?: boolean, isEditor: boolean = false): TWord[] {
     const idiomWordsString = isEditor ? idiomString.replace(/ /g, "| |").split("|") : idiomString.split(" ");
     const index = words.findIndex((word, i) => {
-      if (pastalie) {
-        // パスタリエ所有格の場合はidiomWordsStringが長さ1
-        if (idiomWordsString.length !== 1) return false;
+      if (pastalie && idiomWordsString.length === 1) {
         // idiomWordsString[0]とhymmnosが一致するワードのindexを返す
-        return word.hymmnos === idiomWordsString[0] ? i : false;
+        return word.hymmnos === idiomWordsString[0];
       }
       // idiomWordsStringとhymmnosが一致するワードのindexを返す
       return words.slice(i, i + idiomWordsString.length).every((w, j) =>
         w.hymmnos.toLocaleLowerCase() === idiomWordsString[j].toLocaleLowerCase()
       );
     });
+    console.log(index);
     // 一致するワードがない場合はそのまま返す
     if (index === -1) return words;
     // インプットされている単語データを取得
@@ -146,6 +145,7 @@ export default function () {
       return {
         hymmnos: idiomWords.map(w => w.hymmnos).join(" "),
         japanese: idiom.japanese,
+        pronunciation: idiom.pronunciation ?? idiomWords.map(w => w.pronunciation).join(" "),
         part_of_speech: "慣用句",
         dialect: idiom.dialect,
         primaryMeaning: idiom.japanese[0],
@@ -225,7 +225,7 @@ export default function () {
         hymmnos: q,
         primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
-        pronunciation: "",
+        pronunciation: founds.map(f => f.pronunciation).join(" "),
         part_of_speech: "複合語",
         dialect: "unknown",
         subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
@@ -244,6 +244,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜される",
           voice: "受動",
+          pronunciation: ""
         };
       }
     }
@@ -256,6 +257,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜すること",
           voice: "動名詞",
+          pronunciation: ""
         };
       }
     }
@@ -286,6 +288,7 @@ export default function () {
           emotionVowels: emotionVowelMeanings,
           subWords: [pastalieVerb],
           primaryMeaning: pastalieVerb.japanese[0],
+          pronunciation: ""
         };
       }
     }
@@ -342,6 +345,7 @@ export default function () {
       possessiveOwner: possessiveOwner ?? ownerStr,
       subWords,
       emotionVowels: [getEmotionVowel(emotionVowel)],
+      pronunciation: ""
     };
 
   }

@@ -38,6 +38,7 @@
     "japanese": [
       "ヒュムノス・クロニクルキー"
     ],
+    "pronunciation": "クロニクルキー",
     "dialect": "unknown"
   },
   {
@@ -48,6 +49,7 @@
     "japanese": [
       "ヒュムノス・イーピーノヴァ"
     ],
+    "pronunciation": "イーピーノヴァ",
     "dialect": "unknown"
   },
   {
@@ -58,6 +60,7 @@
     "japanese": [
       "ヒュムノス・リバーシアプロコトル"
     ],
+    "pronunciation": "リバーシアプロコトル",
     "dialect": "unknown"
   },
   {
@@ -68,6 +71,7 @@
     "japanese": [
       "ヒュムノス・リネイション"
     ],
+    "pronunciation": "リネイション",
     "dialect": "unknown"
   },
   {
@@ -78,6 +82,7 @@
     "japanese": [
       "ヒュムノス・リグヴェーダ"
     ],
+    "pronunciation": "リグヴェーダ",
     "dialect": "unknown"
   },
   {
@@ -88,6 +93,7 @@
     "japanese": [
       "ヒュムノス・ソルフェージュ"
     ],
+    "pronunciation": "ソルフェージュ",
     "dialect": "unknown"
   },
   {
@@ -98,6 +104,7 @@
     "japanese": [
       "インフェル・ピラ"
     ],
+    "pronunciation": "インフェル・ピラ",
     "dialect": "unknown"
   },
   {
@@ -108,6 +115,7 @@
     "japanese": [
       "エル・デュエル"
     ],
+    "pronunciation": "エル・デュエル",
     "dialect": "unknown"
   },
   {
@@ -118,6 +126,7 @@
     "japanese": [
       "エル・ネメシス"
     ],
+    "pronunciation": "エル・ネメシス",
     "dialect": "unknown"
   },
   {
@@ -128,6 +137,7 @@
     "japanese": [
       "メタ・ファルス"
     ],
+    "pronunciation": "メタ・ファルス",
     "dialect": "unknown"
   },
   {
@@ -138,6 +148,7 @@
     "japanese": [
       "ソル・クラスタ"
     ],
+    "pronunciation": "ソル・クラスタ",
     "dialect": "unknown"
   },
   {
@@ -148,6 +159,7 @@
     "japanese": [
       "ソル・マルタ"
     ],
+    "pronunciation": "ソル・マルタ",
     "dialect": "unknown"
   },
   {
@@ -169,6 +181,7 @@
     "japanese": [
       "ソリン・ファルス"
     ],
+    "pronunciation": "ソリン・ファルス",
     "dialect": "unknown"
   },
   {
@@ -178,6 +191,7 @@
     "japanese": [
       "ささやき"
     ],
+    "pronunciation": "エフス",
     "emotionVowelString": "E",
     "dialect": "pastalie"
   },
@@ -188,6 +202,7 @@
     "japanese": [
       "神"
     ],
+    "pronunciation": "リャグランズィ",
     "emotionVowelString": "LYA",
     "dialect": "pastalie"
   },
@@ -198,6 +213,7 @@
     "japanese": [
       "澪の御子"
     ],
+    "pronunciation": "リャリュマ",
     "emotionVowelString": "LYA",
     "dialect": "pastalie"
   },
@@ -210,6 +226,7 @@
       "妻",
       "夫"
     ],
+    "pronunciation": "エケジェウ",
     "emotionVowelString": "E",
     "dialect": "pastalie"
   },
@@ -221,6 +238,7 @@
       "家族",
       "身内"
     ],
+    "pronunciation": "イェケジェウ",
     "emotionVowelString": "YE",
     "dialect": "pastalie"
   },
@@ -231,6 +249,7 @@
     "japanese": [
       "人類皆兄弟"
     ],
+    "pronunciation": "リェケジェウ",
     "emotionVowelString": "LYE",
     "dialect": "pastalie"
   },
@@ -241,6 +260,7 @@
     "japanese": [
       "焔の御子"
     ],
+    "pronunciation": "リャシャン",
     "emotionVowelString": "LYA",
     "dialect": "pastalie"
   },
