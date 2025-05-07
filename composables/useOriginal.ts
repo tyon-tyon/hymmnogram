@@ -29,7 +29,9 @@ export default function () {
         japanese: (japanese && japanese.length ? japanese : "").split(
           delimiterStr
         ),
-        pronunciation: pronunciation ?? "error!",
+        pronunciation: pronunciation ? pronunciation.split(
+          delimiterStr
+        ) : [],
         part_of_speech: part_of_speech ?? "error!",
         dialect: dialect ?? "error!",
         explanation: explanation ?? "",

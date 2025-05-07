@@ -3,6 +3,7 @@
     :class="{
       'text-xl': !small,
     }"
+    class="leading-none mb-2"
   >
     <slot></slot>
   </div>

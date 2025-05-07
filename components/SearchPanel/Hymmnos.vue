@@ -6,7 +6,7 @@
       </div>
       <div v-for="(line, index) in lineWords" :key="index">
         <div :rows="lineWords" class="flex flex-wrap">
-          <WordHymmnos v-for="(word, index) in line" :word="word" :key="index" class="pr-4 pt-4" />
+          <WordHymmnos v-for="(word, index) in line" :word="word" :key="index" class="pr-4 pt-4" pronunciation/>
         </div>
       </div>
     </div>

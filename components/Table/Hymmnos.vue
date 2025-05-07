@@ -233,7 +233,7 @@ const getWordItem = (word: TWord & { class?: string }) => {
   return {
     hymmnos: word.hymmnos,
     japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),
-    pronunciation: word.pronunciation,
+    pronunciation: word.pronunciation?.join(", "),
     part_of_speech: word.part_of_speech,
     dialect: getDiarectJapanese(word.dialect),
     class: getDialectBgClass(word.dialect) + (word.class ?? ""),
