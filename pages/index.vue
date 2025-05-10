@@ -10,7 +10,18 @@
 </template>
 
 <script setup lang="ts">
+const title = "ヒュムノグラム – ヒュムノス語辞書・歌詞データベース";
+const description = "ヒュムノグラムは、アルトネリコ・サージュコンチェルトシリーズに登場する言語『ヒュムノス語』の非公式辞書サイトです。 単語データは トリフィラ を元に運営者が作成しています。";
 useHead({
-  title: null,
+  title,
+  meta: [
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: "https://hymmnogram.fau-varda.net" },
+  ],
+  link: [
+    { rel: "canonical", href: "https://hymmnogram.fau-varda.net" },
+  ],
 });
 </script>

@@ -164,13 +164,25 @@ const breadcrumbLinks = [
   },
 ];
 
+const title = computed(() => {
+  return "[歌詞]" + music?.title;
+});
+
+const description = computed(() => {
+  return `${music.title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
+});
+
 // OGタグを設定
 useHead({
-  title: "[歌詞]" + music?.title,
+  title: title,
   meta: [
-    { property: 'og:title', content: "[歌詞]" + music.title },
+    { name: "description", content: description },
+    { property: 'og:title', content: title },
     { property: 'og:url', content: `/lyrics/${key}` },
-    { property: 'og:description', content: `${music.title}の歌詞と単語の意味です` },
+    { property: 'og:description', content: description },
+  ],
+  link: [
+    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}` },
   ],
 });
 

@@ -52,6 +52,11 @@ useHead({
   meta: [
     { property: 'og:title', content: title },
     { name: 'description', content: 'アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。' },
+    { property: 'og:description', content: 'アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。' },
+    { property: 'og:url', content: 'https://hymmnogram.fau-varda.net/lyrics' },
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net/lyrics' },
   ],
 });
 

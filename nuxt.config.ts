@@ -26,6 +26,11 @@ export default defineNuxtConfig({
       meta: [
         { name: "theme-color", content: "#11B981" },
         { name: 'description', content: 'HYMMNOGRAM(ヒュムノグラム)は、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。' },
+        { property: 'og:site_name', content: 'HYMMNOGRAM' },
+        { property: 'og:title', content: 'HYMMNOGRAM' },
+        { property: 'og:description', content: 'HYMMNOGRAM(ヒュムノグラム)は、トリフィラのデータを使用した非公式ヒュムノス辞書サイトです。' },
+        { property: 'og:image', content: 'https://hymmnogram.fau-varda.net/icon.png' },
+        { property: 'og:url', content: 'https://hymmnogram.fau-varda.net' },
       ],
       link: [
         {
@@ -34,7 +39,8 @@ export default defineNuxtConfig({
           crossorigin: "",
         },
         { rel: 'icon', href: `/favicon.ico`, sizes: "16x16" },
-        { rel: 'apple-touch-icon', href: `/apple-touch-icon-180x180.png` }
+        { rel: 'apple-touch-icon', href: `/apple-touch-icon-180x180.png` },
+        { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net' },
       ],
     }
   },
