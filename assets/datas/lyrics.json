@@ -172,7 +172,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -185,7 +185,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -198,7 +198,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -211,7 +211,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1
@@ -251,7 +251,7 @@
     "lyricWords": " wee yea ra ene foul enrer ",
     "japanese": "詩は不思議だといつも思う",
     "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -260,7 +260,7 @@
     "lyricWords": " hymme syec mea ",
     "japanese": "詩は何よりも心の奥底を振るわせるものだと",
     "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -269,7 +269,7 @@
     "lyricWords": " wee yea ra ene foul enrer ",
     "japanese": "詩は不思議だといつも思う",
     "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -278,7 +278,7 @@
     "lyricWords": " pomb yor en yor ",
     "japanese": "詩はなによりも記憶の宝石箱を作るもの",
     "japaneseWords": " 詩:詩 は:は なに:なに より:より も:も 記憶:記憶 の:の 宝石:宝石 箱:箱 を:を 作る:作る もの:もの ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1
@@ -304,7 +304,7 @@
     "lyricWords": " was num ra haf ar ciel sara , dorn , fhyu , hymma . ",
     "japanese": "草や木、風や小鳥 この世界の全てが持ち",
     "japaneseWords": " 草:草 や:や 木:木 風:風 や:や 小鳥:小鳥 この:この 世界:世界 の:の 全て:全て が:が 持つ:持ち ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -313,7 +313,7 @@
     "lyricWords": " en hymmne leat mea en ciel harmon en mea ",
     "japanese": "そして奏でる共通の調べ それこそが詩\t",
     "japaneseWords": " そして:そして 奏でる:奏でる 共通:共通 の:の 調べ:調べ それ:それ こそ:こそ が:が 詩:詩 ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 1,
@@ -478,7 +478,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 2,
@@ -491,7 +491,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 2,
@@ -857,7 +857,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 3,
@@ -870,7 +870,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 3,
@@ -883,7 +883,7 @@
       "lyric": true,
       "japanese": true
     },
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 3,
@@ -954,7 +954,7 @@
     "japanese": "尽き世の哀を",
     "japaneseRuby": "[尽](つき)き[世](よ)の[哀](あわれ)を",
     "japaneseWords": " 尽き:尽き 世:世 の:の 哀:哀 を:を ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 3,
@@ -962,7 +962,7 @@
     "japanese": "詩に宿すが",
     "japaneseRuby": "[詩](うた)に[宿](やど)すが",
     "japaneseWords": " 詩:詩 に:に 宿す:宿す が:が ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 3,
@@ -970,7 +970,7 @@
     "japanese": "我が定め",
     "japaneseRuby": "[我](わ)が[定](さだ)め",
     "japaneseWords": " 我が:我が 定め:定め ",
-    "chorus": 1
+    "sub": true
   },
   {
     "musicId": 4,
