@@ -1,21 +1,4 @@
-{
-  "id": 1,
-  "key": "eolia",
-  "title": "謳う丘 ～Harmonics EOLIA～",
-  "singer": ["志方あきこ"],
-  "lyricist": ["土屋暁"],
-  "composer": ["土屋暁"],
-  "arranger": ["土屋暁"],
-  "releaseDate": "2006/01/25",
-  "tags": [
-    "アルトネリコ ヒュムノスコンサート サイド 蒼",
-    "謳う丘",
-    "アルトネリコ 世界の終わりで詩い続ける少女",
-    "オープニング"
-  ],
-  "explanation": "アルトネリコのメインテーマ。ソルシエールで『詩の力』はどのようなものなのか、この世界の人たちは『詩』をどうとらえているのかが、この詩に込められている。",
-  "feeling": "もし貴方が嬉しさに溢れているとき\nその気持ちを詩にして聴かせて\n今のまぶしさをフィドルに込めて\nその光が世界を照らし皆を暖めるように\nもし貴方が涙に伏せていたなら\nその切なさを詩にして聴かせて\n移ろいゆく刻をリュートに忍ばせて\nゆらぐ想いを１つずつ噛みしめながら\nどこかの誰かが貴方の心に共鳴し\nひとつに繋がり大きな輪となる\n貴方の想いが風に乗り　海を駆け\n遠くの街まで繋がっていくから\n安らぎの平野　涙のガラス\n記憶の箱　想いの生糸\n一言ずつにその力を込め\n重なり合い　流れ渡り　絡み合う精霊の息吹\nその唇振るわせ耳元で囁く旋律\n鼓動を静め瞼を閉じ体全てで感じてる\n溶け合いひとつになる心に"
-}
+{"id": 1}
 
 Rrha ki ra tie yor ini en nha
 ここへおいで
@@ -77,16 +60,16 @@ innna ar hopb syec mea ya. ya!
 
 [飛翔](はばた)く [祈](いの)りの[謳](うた) [纏](まと)ひて
 
-*Was yea ra chs hymmnos yorr en chsee fwal fwal
+-*Was yea ra chs hymmnos yorr en chsee fwal fwal
 *貴方は詩になり、その身に双翼をまとう
 
-*yor exec drone hymmnos enter
+-*yor exec drone hymmnos enter
 *貴方にこの詩を入力し、ダウンロードします
 
-*Ma num ra flip 0x1011001001 yor
+-*Ma num ra flip 0x1011001001 yor
 *貴方をフリップフロップ変換し
 
-*enter ar hymmnos ar ciel exec enter ar tonelico
+-*enter ar hymmnos ar ciel exec enter ar tonelico
 *世界で唯一の詩にしてアルトネリコへ入力します
 
 
@@ -99,16 +82,16 @@ innna ar hopb syec mea ya. ya!
 
 [魂](たましい)の[根](ね) [結](むす)び[繋](つな)ぐ
 
-Wee yea ra ene foul enrer
+-Wee yea ra ene foul enrer
 詩は不思議だといつも思う
 
-hymme syec mea
+-hymme syec mea
 詩は何よりも心の奥底を振るわせるものだと
 
-Wee yea ra ene foul enrer
+-Wee yea ra ene foul enrer
 詩は不思議だといつも思う
 
-pomb yor en yor
+-pomb yor en yor
 詩はなによりも記憶の宝石箱を作るもの
 
 
@@ -117,10 +100,10 @@ pomb yor en yor
 
 [溶](と)け[結](ゆ)ふ[真荼羅](まだら)に [謳](うた)ひの[御子](みこ)あれ
 
-Was num ra haf ar ciel sara, dorn, fhyu, hymma.
+-Was num ra haf ar ciel sara, dorn, fhyu, hymma.
 草や木、風や小鳥 この世界の全てが持ち
 
-En hymmne leat mea en ciel harmon en mea
+-En hymmne leat mea en ciel harmon en mea
 そして奏でる共通の調べ それこそが詩	
 
 _Was yea ra chs hymmnos mea.

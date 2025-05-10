@@ -45,8 +45,9 @@
           class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2 items-center">
-            <div v-if="lyric.chorus" class="text-cool-400 text-xs">
-              コーラス{{ lyric.chorus }}
+            <div v-if="lyric.part && part(lyric.part)"
+              :class="'text-xs ' + part(lyric.part)?.class">
+              {{ part(lyric.part)?.name }}
             </div>
             <AtomChipButton v-if="lyric.unperformed">
               未歌唱
@@ -62,7 +63,7 @@
           </div>
 
           <!-- ヒュムノス歌詞 -->
-          <div v-if="lyric.lyric" :class="{ 'opacity-70': lyric.chorus, 'opacity-40': lyric.unperformed }">
+          <div v-if="lyric.lyric" :class="{ 'opacity-60': lyric.sub, 'opacity-40': lyric.unperformed }">
             <!-- ヒュムノス語 -->
             <div class="flex flex-wrap">
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
@@ -76,7 +77,7 @@
           </div>
 
           <!-- 日本語歌詞 -->
-          <div v-else-if="lyric.japanese" :class="{ 'opacity-70': lyric.chorus, 'opacity-40': lyric.unperformed }">
+          <div v-else-if="lyric.japanese" :class="{ 'opacity-60': lyric.sub, 'opacity-40': lyric.unperformed }">
             <AtomP>
               <span v-html="getJapaneseRuby(lyric.correction?.japaneseRuby ?? lyric.japaneseRuby ?? '')"></span>
             </AtomP>
@@ -172,6 +173,9 @@ const description = computed(() => {
   return `${music.title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
 });
 
+const part = (part: number) => {
+  return music.parts?.[part - 1];
+};
 // OGタグを設定
 useHead({
   title: title,

@@ -6,11 +6,12 @@ import { TLyric, TMusic } from '@/types/index';
 /*
 各フラグ
 
+未歌唱フラグ _
+メインの歌唱ではないフラグ -
+パートフラグ [1], [2], [3], ...
 非公式フラグ *
 訂正フラグ !
 律史前フラグ @
-未歌唱フラグ _
-コーラスフラグ [1], [2], [3], ...
 */
 
 
@@ -57,17 +58,25 @@ const lyrics: TLyric[] = [];
 })();
 
 async function convertJapanese(line: string[]): Promise<TLyric> {
+    // 全角スペースを半角スペースに変換
+    for (let i in line) {
+        line[i] = line[i].replace(/[^\S]/g, ' ');
+    }
     // 訂正
     let correction: TLyric['correction'] | null = null;
     // 非公式
     let unofficial: TLyric['unofficial'] | null = null;
-    // コーラスフラグ
-    const chorus = line[0].match(/^\[[1-9]\]/)?.[0].replace(/[\[\]]/gi, '');
-    line[0] = line[0].replace(/\[[1-9]\]/, '');
     // 未歌唱フラグ
     const unperformed = !!line[0].match(/^_/);
-    let japaneseRuby = line[0].replace(/^_/, '');
-    line[0] = line[0].replace(/^[1-9]/, '');
+    line[0] = line[0].replace(/^_/, '');
+    // メインの歌唱ではないフラグ
+    const sub = !!line[0].match(/^-/);
+    line[0] = line[0].replace(/^-/, '');
+    // パートフラグ
+    const part = line[0].match(/^\[[1-9]\]/)?.[0].replace(/[\[\]]/gi, '');
+    line[0] = line[0].replace(/^\[[1-9]\]/, '');
+
+    let japaneseRuby = line[0];
     for (let l of line) {
         if (l.match(/^!/)) {
             correction = correction ?? {};
@@ -94,18 +103,25 @@ async function convertJapanese(line: string[]): Promise<TLyric> {
         ...(correction ? { correction } : {}),
         ...(unofficial ? { unofficial } : {}),
         ...(unperformed ? { unperformed } : {}),
-        ...(chorus ? { chorus: Number(chorus) } : {}),
+        ...(part ? { part: Number(part) } : {}),
+        ...(sub ? { sub } : {}),
     };
 }
 
 async function convertHymmnos(line: string[]): Promise<TLyric> {
-    // コーラスフラグ
-    const chorus = line[0].match(/^\[[1-9]\]/)?.[0].replace(/[\[\]]/gi, '');
-    line[0] = line[0].replace(/^\[[1-9]\]/, '');
-    console.log(chorus);
+    // 全角スペースを半角スペースに変換
+    for (let i in line) {
+        line[i] = line[i].replace(/[^\S]/g, ' ');
+    }
     // 未歌唱フラグ
     const unperformed = !!line[0].match(/^_/);
     line[0] = line[0].replace(/^_/, '');
+    // メインの歌唱ではないフラグ
+    const sub = !!line[0].match(/^-/);
+    line[0] = line[0].replace(/^-/, '');
+    // パートフラグ
+    const part = line[0].match(/^\[[1-9]\]/)?.[0].replace(/[\[\]]/gi, '');
+    line[0] = line[0].replace(/^\[[1-9]\]/, '');
 
     // 言語
     const language = line[0].match(/^@/) ? 'foreluna' : 'hymmnos';
@@ -175,7 +191,8 @@ async function convertHymmnos(line: string[]): Promise<TLyric> {
         ...(correction ? { correction } : {}),
         ...(unofficial ? { unofficial } : {}),
         ...(unperformed ? { unperformed } : {}),
-        ...(chorus ? { chorus: Number(chorus) } : {}),
+        ...(part ? { part: Number(part) } : {}),
+        ...(sub ? { sub } : {}),
     } as TLyric;
 }
 

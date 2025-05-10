@@ -92,8 +92,10 @@ export type TLyric = {
   },
   // 未歌唱フラグ
   unperformed?: boolean,
-  // コーラス番号
-  chorus?: number,
+  // パートのインデックス
+  part?: number,
+  // メインの歌唱ではないフラグ
+  sub?: boolean,
 };
 
 export type TMusic = {
@@ -108,4 +110,9 @@ export type TMusic = {
   explanation?: string;
   feeling?: string;
   notice?: string;
+  // パート設定
+  parts?: {
+    name: string,
+    class: string,
+  }[];
 }; 
