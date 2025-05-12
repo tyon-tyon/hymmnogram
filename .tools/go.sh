@@ -1,0 +1,1 @@
+node lib/src/hymmnosLyrics lyrics/exec.hym

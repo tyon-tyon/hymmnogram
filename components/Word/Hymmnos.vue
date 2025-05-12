@@ -1,11 +1,13 @@
 <template>
-  <WordWrapper :small :japanese :lyric>
-    <div v-if="!small && !lyric" class="text-2xs" :class="{
+  <WordWrapper :small :japanese>
+    <div v-if="pronunciation" :class="{
+      'text-2xs': !small,
+      'text-3xs': small,
       [getDialectTextClass(word.dialect)]: word.dialect,
     }">
-      {{ word.pronunciation }}
+      {{ word.pronunciation?.[0] ?? "　" }}
     </div>
-    <WordArHym v-if="!lyric" :small hymmnos :class="{
+    <WordArHym :small hymmnos :class="{
       [getDialectTextClass(word.dialect)]: word.dialect,
     }">
       {{ word.hymmnos }}
@@ -19,7 +21,7 @@
     <WordJapanese :small>
       {{ word.primaryMeaning }}
     </WordJapanese>
-    <div v-if="!small && !lyric" class="text-xs text-cool-400 leading-none text-nowrap pt-1">
+    <div v-if="!small" class="text-xs text-cool-400 leading-none text-nowrap pt-1">
       {{
         [...word.japanese, ...(word.gerunds ?? [])]
           .filter((m) => m !== word.primaryMeaning)
@@ -28,12 +30,12 @@
       }}
     </div>
     <template v-if="(word.subWords?.length ?? 0) > 0">
-      <div v-if="!lyric && !small" class="text-2xs text-cool-400 leading-none text-nowrap pt-1">
+      <div v-if="!small" class="text-2xs text-cool-400 leading-none text-nowrap pt-1">
         {{
           word.subWords?.map((subWord) => subWord.primaryMeaning).join(" ")
         }}
       </div>
-      <div v-else-if="!lyric && !small" class="flex flex-wrap justify-center">
+      <div v-else-if="!small" class="flex flex-wrap justify-center">
         <WordHymmnos v-for="subWord in word.subWords" :key="subWord.hymmnos" :word="subWord" small class="mr-1" />
       </div>
     </template>
@@ -45,7 +47,7 @@ import type { TWord } from "~/types";
 const { word } = defineProps<{
   word: TWord;
   small?: boolean;
-  lyric?: boolean;
+  pronunciation?: boolean;
   hymmnosFont?: boolean;
 }>();
 

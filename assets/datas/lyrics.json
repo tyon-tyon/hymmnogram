@@ -171,7 +171,8 @@
     "unofficial": {
       "lyric": true,
       "japanese": true
-    }
+    },
+    "sub": true
   },
   {
     "musicId": 1,
@@ -183,7 +184,8 @@
     "unofficial": {
       "lyric": true,
       "japanese": true
-    }
+    },
+    "sub": true
   },
   {
     "musicId": 1,
@@ -195,7 +197,8 @@
     "unofficial": {
       "lyric": true,
       "japanese": true
-    }
+    },
+    "sub": true
   },
   {
     "musicId": 1,
@@ -207,7 +210,8 @@
     "unofficial": {
       "lyric": true,
       "japanese": true
-    }
+    },
+    "sub": true
   },
   {
     "musicId": 1
@@ -246,7 +250,8 @@
     "lyric": "Wee yea ra ene foul enrer",
     "lyricWords": " wee yea ra ene foul enrer ",
     "japanese": "詩は不思議だといつも思う",
-    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う "
+    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
+    "sub": true
   },
   {
     "musicId": 1,
@@ -254,7 +259,8 @@
     "lyric": "hymme syec mea",
     "lyricWords": " hymme syec mea ",
     "japanese": "詩は何よりも心の奥底を振るわせるものだと",
-    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と "
+    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と ",
+    "sub": true
   },
   {
     "musicId": 1,
@@ -262,7 +268,8 @@
     "lyric": "Wee yea ra ene foul enrer",
     "lyricWords": " wee yea ra ene foul enrer ",
     "japanese": "詩は不思議だといつも思う",
-    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う "
+    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
+    "sub": true
   },
   {
     "musicId": 1,
@@ -270,7 +277,8 @@
     "lyric": "pomb yor en yor",
     "lyricWords": " pomb yor en yor ",
     "japanese": "詩はなによりも記憶の宝石箱を作るもの",
-    "japaneseWords": " 詩:詩 は:は なに:なに より:より も:も 記憶:記憶 の:の 宝石:宝石 箱:箱 を:を 作る:作る もの:もの "
+    "japaneseWords": " 詩:詩 は:は なに:なに より:より も:も 記憶:記憶 の:の 宝石:宝石 箱:箱 を:を 作る:作る もの:もの ",
+    "sub": true
   },
   {
     "musicId": 1
@@ -295,7 +303,8 @@
     "lyric": "Was num ra haf ar ciel sara, dorn, fhyu, hymma.",
     "lyricWords": " was num ra haf ar ciel sara , dorn , fhyu , hymma . ",
     "japanese": "草や木、風や小鳥 この世界の全てが持ち",
-    "japaneseWords": " 草:草 や:や 木:木 風:風 や:や 小鳥:小鳥 この:この 世界:世界 の:の 全て:全て が:が 持つ:持ち "
+    "japaneseWords": " 草:草 や:や 木:木 風:風 や:や 小鳥:小鳥 この:この 世界:世界 の:の 全て:全て が:が 持つ:持ち ",
+    "sub": true
   },
   {
     "musicId": 1,
@@ -303,7 +312,8 @@
     "lyric": "En hymmne leat mea en ciel harmon en mea",
     "lyricWords": " en hymmne leat mea en ciel harmon en mea ",
     "japanese": "そして奏でる共通の調べ それこそが詩\t",
-    "japaneseWords": " そして:そして 奏でる:奏でる 共通:共通 の:の 調べ:調べ それ:それ こそ:こそ が:が 詩:詩 "
+    "japaneseWords": " そして:そして 奏でる:奏でる 共通:共通 の:の 調べ:調べ それ:それ こそ:こそ が:が 詩:詩 ",
+    "sub": true
   },
   {
     "musicId": 1,
@@ -424,6 +434,30 @@
   {
     "musicId": 2,
     "language": "hymmnos",
+    "lyric": "Was au ga whai pauwel ferda enter whou na nedle sor,",
+    "lyricWords": " was au ga whai pauwel ferda enter whou na nedle sor , ",
+    "japanese": "何故 力は 無欲な人に宿るのだろう",
+    "japaneseWords": " 何故:何故 力:力 は:は 無欲:無欲 だ:な 人:人 に:に 宿る:宿る の:の だ:だろ う:う ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
+    "lyric": "en whai pauwel gaunji yasra whou na cenjue sor tou zuieg.",
+    "lyricWords": " en whai pauwel gaunji yasra whou na cenjue sor tou zuieg . ",
+    "japanese": "何故 力は 諍い望まぬ優しい人を苛むのだろう",
+    "japaneseWords": " 何故:何故 力:力 は:は 諍い:諍い 望む:望ま ぬ:ぬ 優しい:優しい 人:人 を:を 苛む:苛む の:の だ:だろ う:う ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
     "lyric": "Was au ga, aiph yos delij.",
     "lyricWords": " was au ga , aiph yos delij . ",
     "japanese": "もし貴方が厭うならば",
@@ -436,26 +470,15 @@
   {
     "musicId": 2,
     "language": "hymmnos",
-    "lyric": "Was au ga, Diasee, Pauwee,",
-    "lyricWords": " was au ga , diasee , pauwee , ",
-    "japanese": "神の子よ 力の子よ",
-    "japaneseWords": " 神:神 の:の 子:子 よ:よ 力:力 の:の 子:子 よ:よ ",
+    "lyric": "Was au ga, Diasee, Pauwee, aiph yos delij zuieg,",
+    "lyricWords": " was au ga , diasee , pauwee , aiph yos delij zuieg , ",
+    "japanese": "神の子よ 力の子よ もし貴方が爭いを厭うならば",
+    "japaneseWords": " 神:神 の:の 子:子 よ:よ 力:力 の:の 子:子 よ:よ もし:もし 貴方:貴方 が:が 爭:爭 い:い を:を 厭う:厭う だ:なら ば:ば ",
     "unofficial": {
       "lyric": true,
       "japanese": true
-    }
-  },
-  {
-    "musicId": 2,
-    "language": "hymmnos",
-    "lyric": "aiph yos delij zuieg,",
-    "lyricWords": " aiph yos delij zuieg , ",
-    "japanese": "もし貴方が爭いを厭うならば",
-    "japaneseWords": " もし:もし 貴方:貴方 が:が 爭:爭 い:い を:を 厭う:厭う だ:なら ば:ば ",
-    "unofficial": {
-      "lyric": true,
-      "japanese": true
-    }
+    },
+    "sub": true
   },
   {
     "musicId": 2,
@@ -508,6 +531,33 @@
     "lyricWords": " yehar lamenza der soare mea . ",
     "japanese": "祈りの言霊 貴方へと紡ぐ 深い嘆きを解き放て",
     "japaneseWords": " 祈り:祈り の:の 言霊:言霊 貴方:貴方 へ:へ と:と 紡ぐ:紡ぐ 深い:深い 嘆き:嘆き を:を 解き放つ:解き放て "
+  },
+  {
+    "musicId": 2
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
+    "lyric": "presia aterra cremia sos viuy lonfa,",
+    "lyricWords": " presia aterra cremia sos viuy lonfa , ",
+    "japanese": "暗く翳した魂を 救済へと誘おう",
+    "japaneseWords": " 暗い:暗く 翳す:翳し た:た 魂:魂 を:を 救済:救済 へ:へ と:と 誘う:誘お う:う ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
+    "lyric": "yehar lamenza der soare mea.",
+    "lyricWords": " yehar lamenza der soare mea . ",
+    "japanese": "祈りの言霊 貴方へと紡ぐ 深い嘆きを解き放て",
+    "japaneseWords": " 祈り:祈り の:の 言霊:言霊 貴方:貴方 へ:へ と:と 紡ぐ:紡ぐ 深い:深い 嘆き:嘆き を:を 解き放つ:解き放て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "musicId": 3,
@@ -812,6 +862,45 @@
   },
   {
     "musicId": 3,
+    "language": "hymmnos",
+    "lyric": "Was ki ra selena anw hymmnos PAJA.",
+    "lyricWords": " was ki ra selena anw hymmnos paja . ",
+    "japanese": "ヒュムノス・パージャを奏でる",
+    "japaneseWords": " ヒュムノス・パージャ:ヒュムノス・パージャ を:を 奏でる:奏でる ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    },
+    "sub": true
+  },
+  {
+    "musicId": 3,
+    "language": "hymmnos",
+    "lyric": "En ma i ga chs syec van nel an hymme endia.",
+    "lyricWords": " en ma i ga chs syec van nel an hymme endia . ",
+    "japanese": "謳い終わり無に帰そうとも 私は闇となる",
+    "japaneseWords": " 謳う:謳い 終わる:終わり 無:無 に:に 帰す:帰そ う:う とも:とも 私:私 は:は 闇:闇 と:と なる:なる ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    },
+    "sub": true
+  },
+  {
+    "musicId": 3,
+    "language": "hymmnos",
+    "lyric": "En ma ki ra ks syec parge tes ar hymmne mea.",
+    "lyricWords": " en ma ki ra ks syec parge tes ar hymmne mea . ",
+    "japanese": "闇へ切り離す詩を 私の魂に暗示する",
+    "japaneseWords": " 闇:闇 へ:へ 切り離す:切り離す 詩:詩 を:を 私:私 の:の 魂:魂 に:に 暗示:暗示 する:する ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    },
+    "sub": true
+  },
+  {
+    "musicId": 3,
     "language": "japanese",
     "japanese": "今際の刻みを",
     "japaneseRuby": "[今際](いまわ)の[刻](きざ)みを",
@@ -837,42 +926,6 @@
     "japaneseRuby": "[我](わ)が[定](さだ)め",
     "japaneseWords": " 我が:我が 定め:定め ",
     "unofficial": {
-      "japanese": true
-    }
-  },
-  {
-    "musicId": 3,
-    "language": "hymmnos",
-    "lyric": "Was ki ra selena anw hymmnos PAJA.",
-    "lyricWords": " was ki ra selena anw hymmnos paja . ",
-    "japanese": "ヒュムノス・パージャを奏でる",
-    "japaneseWords": " ヒュムノス・パージャ:ヒュムノス・パージャ を:を 奏でる:奏でる ",
-    "unofficial": {
-      "lyric": true,
-      "japanese": true
-    }
-  },
-  {
-    "musicId": 3,
-    "language": "hymmnos",
-    "lyric": "En ma i ga chs syec van nel an hymme endia.",
-    "lyricWords": " en ma i ga chs syec van nel an hymme endia . ",
-    "japanese": "謳い終わり無に帰そうとも 私は闇となる",
-    "japaneseWords": " 謳う:謳い 終わる:終わり 無:無 に:に 帰す:帰そ う:う とも:とも 私:私 は:は 闇:闇 と:と なる:なる ",
-    "unofficial": {
-      "lyric": true,
-      "japanese": true
-    }
-  },
-  {
-    "musicId": 3,
-    "language": "hymmnos",
-    "lyric": "En ma ki ra ks syec parge tes ar hymmne mea.",
-    "lyricWords": " en ma ki ra ks syec parge tes ar hymmne mea . ",
-    "japanese": "闇へ切り離す詩を 私の魂に暗示する",
-    "japaneseWords": " 闇:闇 へ:へ 切り離す:切り離す 詩:詩 を:を 私:私 の:の 魂:魂 に:に 暗示:暗示 する:する ",
-    "unofficial": {
-      "lyric": true,
       "japanese": true
     }
   },
@@ -914,21 +967,24 @@
     "language": "japanese",
     "japanese": "尽き世の哀を",
     "japaneseRuby": "[尽](つき)き[世](よ)の[哀](あわれ)を",
-    "japaneseWords": " 尽き:尽き 世:世 の:の 哀:哀 を:を "
+    "japaneseWords": " 尽き:尽き 世:世 の:の 哀:哀 を:を ",
+    "sub": true
   },
   {
     "musicId": 3,
     "language": "japanese",
     "japanese": "詩に宿すが",
     "japaneseRuby": "[詩](うた)に[宿](やど)すが",
-    "japaneseWords": " 詩:詩 に:に 宿す:宿す が:が "
+    "japaneseWords": " 詩:詩 に:に 宿す:宿す が:が ",
+    "sub": true
   },
   {
     "musicId": 3,
     "language": "japanese",
     "japanese": "我が定め",
     "japaneseRuby": "[我](わ)が[定](さだ)め",
-    "japaneseWords": " 我が:我が 定め:定め "
+    "japaneseWords": " 我が:我が 定め:定め ",
+    "sub": true
   },
   {
     "musicId": 4,

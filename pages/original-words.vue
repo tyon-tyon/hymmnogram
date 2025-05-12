@@ -41,10 +41,13 @@ import type { TDialect } from "~/types";
 useHead({
   title: 'オリジナル単語登録',
   meta: [
-    {
-      name: 'description',
-      content: 'オリジナル単語をヒュムノス語として登録することができます。',
-    },
+    { name: "description", content: 'オリジナル単語をヒュムノス語として登録することができます。' },
+    { property: 'og:title', content: 'オリジナル単語登録' },
+    { property: 'og:description', content: 'オリジナル単語をヒュムノス語として登録することができます。' },
+    { property: 'og:url', content: 'https://hymmnogram.fau-varda.net/original-words' },
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net/original-words' },
   ],
 });
 const { pureDialects, updateDialects } = useDialect();

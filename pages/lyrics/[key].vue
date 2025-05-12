@@ -18,7 +18,8 @@
           編曲：{{ music.arranger.join(', ') }}
         </AtomP>
         <div class="flex flex-wrap mb-4">
-          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm mr-2">
+          <AtomLink v-for="tag in tags" :key="tag" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`"
+            class="text-sm mr-2">
             #{{ tag }}
           </AtomLink>
         </div>
@@ -40,10 +41,14 @@
         </ClientOnly>
       </div>
       <div class="order-2 md:order-1">
-        <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
-          class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
+        <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`" class="relative line mb-4"
+          :class="{ 'hover:bg-cool-50 dark:hover:bg-cool-900': lyric?.lyric || lyric?.japanese }">
+          <span v-if="!lyric?.lyric && !lyric?.japanese">&nbsp;</span>
           <!-- タグ表示 -->
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2 items-center">
+            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + part(lyric.part)?.class">
+              {{ part(lyric.part)?.name }}
+            </div>
             <AtomChipButton v-if="lyric.unperformed">
               未歌唱
             </AtomChipButton>
@@ -58,11 +63,12 @@
           </div>
 
           <!-- ヒュムノス歌詞 -->
-          <div v-if="lyric.lyric" :class="{ 'opacity-50': lyric.unperformed }">
+          <div v-if="lyric.lyric" :class="{ 'opacity-70': lyric.sub, 'opacity-40': lyric.unperformed }">
             <!-- ヒュムノス語 -->
             <div class="flex flex-wrap">
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
-                :word="word" :key="index" small class="mr-2 cursor-pointer" @click="openWordDialog(word)" />
+                :word="word" :key="index" small pronunciation class="mr-2 cursor-pointer"
+                @click="openWordDialog(word)" />
             </div>
             <!-- 日本語 -->
             <AtomP class="text-sm text-cool-500 mt-1">
@@ -71,7 +77,7 @@
           </div>
 
           <!-- 日本語歌詞 -->
-          <div v-else-if="lyric.japanese" :class="{ 'opacity-50': lyric.unperformed }">
+          <div v-else-if="lyric.japanese" :class="{ 'opacity-70': lyric.sub, 'opacity-40': lyric.unperformed }">
             <AtomP>
               <span v-html="getJapaneseRuby(lyric.correction?.japaneseRuby ?? lyric.japaneseRuby ?? '')"></span>
             </AtomP>
@@ -120,11 +126,25 @@
 
 <script setup lang="ts">
 import type { TLyric, TWord } from '@/types';
+import { useRoute } from 'vue-router';
+import _musics from '~/assets/datas/musics.json';
+import type { TMusic } from '~/types';
+
+const musics = _musics as TMusic[];
+const route = useRoute();
+const key = route.params.key as string;
+
+definePageMeta({
+  ssr: true,
+  generateStaticParams: () => {
+    return musics.map(music => ({
+      key: music.key
+    }));
+  }
+});
 
 const { getWords } = useDictionary();
 const { getFromMusicKey } = useLyrics();
-// SSRでidを取得
-const key = useRoute().params.key;
 const { lyrics, music } = getFromMusicKey(key as string);
 
 if (!music) {
@@ -159,13 +179,28 @@ const breadcrumbLinks = [
   },
 ];
 
+const title = computed(() => {
+  return "[歌詞]" + music?.title;
+});
+
+const description = computed(() => {
+  return `${music.title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
+});
+
+const part = (part: number) => {
+  return music.parts?.[part - 1];
+};
 // OGタグを設定
 useHead({
-  title: "[歌詞]" + music?.title,
+  title: title,
   meta: [
-    { property: 'og:title', content: "[歌詞]" + music.title },
+    { name: "description", content: description },
+    { property: 'og:title', content: title },
     { property: 'og:url', content: `/lyrics/${key}` },
-    { property: 'og:description', content: `${music.title}の歌詞と単語の意味です` },
+    { property: 'og:description', content: description },
+  ],
+  link: [
+    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}` },
   ],
 });
 

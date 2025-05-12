@@ -3,7 +3,7 @@
     <span class="absolute -z-10 left-[-2vw] top-1/2 -translate-y-1/2 text-[15vw] text-transparent opacity-25 mix-blend-multiply dark:mix-blend-screen font-hymmnos text-primary-100 [text-shadow:0_0_4px_rgb(var(--color-primary-400))]">HYMMNOGRAM</span>
     <UContainer class="relative flex items-center justify-between py-2">
       <nuxt-link class="flex flex-col leading-none" to="/">
-        <div class="text-2xl font-bold text-primary-600 leading-none">HYMMNOGRAM</div>
+        <h1 class="text-2xl font-bold text-primary-600 leading-none">HYMMNOGRAM</h1>
         <div class="text-sm text-cool-600 dark:text-cool-400 japanese leading-none">ヒュムノグラム</div>
       </nuxt-link>
       <UButton label="Menu" @click="openDrawer = true" variant="ghost" />

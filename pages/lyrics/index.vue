@@ -3,7 +3,8 @@
     <AtomH2>歌詞一覧</AtomH2>
     <AtomP class="text-sm">
       アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。<br />
-      ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。
+      ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。<br />
+      ヒュムノス語は意味と読みを併記しています。<br />
     </AtomP>
     <ClientOnly>
       <template #fallback>
@@ -67,6 +68,11 @@ useHead({
   meta: [
     { property: 'og:title', content: title },
     { name: 'description', content: 'アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。' },
+    { property: 'og:description', content: 'アルトネリコおよびサージュコンチェルトシリーズの楽曲の歌詞の一覧（途中）です。ヒュムノス語、律史前月読、アルシエラが使用されている楽曲を優先して公開しています。' },
+    { property: 'og:url', content: 'https://hymmnogram.fau-varda.net/lyrics' },
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net/lyrics' },
   ],
 });
 

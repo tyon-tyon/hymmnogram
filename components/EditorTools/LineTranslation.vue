@@ -1,5 +1,5 @@
 <template>
-  <div class="line-translation relative flex flex-row">
+  <div class="line-translation relative flex flex-row p-1 bg-white/90 dark:bg-black/90 border-b border-gray-200 dark:border-gray-800">
     <LanguageSelect v-model="language" class="mr-2" />
     <div v-if="language === 'ヒュムノス'" class="line flex-1 pr-10 flex items-center whitespace-nowrap">
       <WordHymmnos v-for="(word, index) in hymmnosWords?.filter((w) => w.hymmnos !== ' ')" :word="word" :key="index"
