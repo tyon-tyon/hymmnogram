@@ -124,7 +124,6 @@ export default function () {
         w.hymmnos.toLocaleLowerCase() === idiomWordsString[j].toLocaleLowerCase()
       );
     });
-    console.log(index);
     // 一致するワードがない場合はそのまま返す
     if (index === -1) return words;
     // インプットされている単語データを取得

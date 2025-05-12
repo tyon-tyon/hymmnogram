@@ -126,11 +126,25 @@
 
 <script setup lang="ts">
 import type { TLyric, TWord } from '@/types';
+import { useRoute } from 'vue-router';
+import _musics from '~/assets/datas/musics.json';
+import type { TMusic } from '~/types';
+
+const musics = _musics as TMusic[];
+const route = useRoute();
+const key = route.params.key as string;
+
+definePageMeta({
+  ssr: true,
+  generateStaticParams: () => {
+    return musics.map(music => ({
+      key: music.key
+    }));
+  }
+});
 
 const { getWords } = useDictionary();
 const { getFromMusicKey } = useLyrics();
-// SSRでidを取得
-const key = useRoute().params.key;
 const { lyrics, music } = getFromMusicKey(key as string);
 
 if (!music) {

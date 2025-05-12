@@ -13,6 +13,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'netlify-static',
+    prerender: {
+      routes: ['/lyrics']
+    }
   },
 
   app: {
@@ -119,5 +122,9 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/lyrics/**": { ssr: true },
+  },
+
+  generate: {
+    routes: musics.map(music => `/lyrics/${music.key}`)
   },
 });
