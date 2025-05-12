@@ -41,12 +41,12 @@
         </ClientOnly>
       </div>
       <div class="order-2 md:order-1">
-        <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`"
-          class="hover:bg-cool-50 dark:hover:bg-cool-900 relative line mb-8">
+        <div v-for="lyric in lyrics" :key="lyric.id" :id="`lyric-${lyric.id}`" class="relative line mb-4"
+          :class="{ 'hover:bg-cool-50 dark:hover:bg-cool-900': lyric?.lyric || lyric?.japanese }">
+          <span v-if="!lyric?.lyric && !lyric?.japanese">&nbsp;</span>
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2 items-center">
-            <div v-if="lyric.part && part(lyric.part)"
-              :class="'text-xs ' + part(lyric.part)?.class">
+            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + part(lyric.part)?.class">
               {{ part(lyric.part)?.name }}
             </div>
             <AtomChipButton v-if="lyric.unperformed">

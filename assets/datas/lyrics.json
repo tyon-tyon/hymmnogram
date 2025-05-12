@@ -337,12 +337,18 @@
     "japaneseWords": " 尊い:尊い 貴方:貴方 を:を 守:守 護る:護る 為:為 クロニクル:クロニクル キー:キー を:を 奏でる:奏でよ う:う "
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "Wee ki ra araus tes soare an giue mea iem.",
     "lyricWords": " wee ki ra araus tes soare an giue mea iem . ",
     "japanese": "この身の犠牲と引き換えに 今 この詩を捧げよう",
     "japaneseWords": " この:この 身:身 の:の 犠牲:犠牲 と:と 引き換え:引き換え に:に 今:今 この:この 詩:詩 を:を 捧げる:捧げよ う:う "
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -357,6 +363,9 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "en whai pauwel gaunji yasra whou na senjue sor tou zuieg.",
@@ -369,12 +378,18 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "Was au ga, Diasee, Pauwee,",
     "lyricWords": " was au ga , diasee , pauwee , ",
     "japanese": "神の子よ 力の子よ",
     "japaneseWords": " 神:神 の:の 子:子 よ:よ 力:力 の:の 子:子 よ:よ "
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -389,12 +404,18 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "slepir tes pauwel an hyzik.",
     "lyricWords": " slepir tes pauwel an hyzik . ",
     "japanese": "力と そして肉体を 共に眠りへ就かせなさい",
     "japaneseWords": " 力:力 と:と そして:そして 肉体:肉体 を:を 共に:共に 眠り:眠り へ:へ 就く:就か せる:せ なさる:なさい "
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -408,12 +429,7 @@
     "musicId": 2
   },
   {
-    "musicId": 2,
-    "language": "hymmnos",
-    "lyric": "Wee ki ra selena anw yasra wiene,",
-    "lyricWords": " wee ki ra selena anw yasra wiene , ",
-    "japanese": "優しい音色を奏でよう",
-    "japaneseWords": " 優しい:優しい 音色:音色 を:を 奏でる:奏でよ う:う "
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -424,12 +440,18 @@
     "japaneseWords": " 貴方:貴方 の:の 為:為 の:の 子守:子守 唄:唄 "
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "Wee ki ra araus tes soare an giue mea iem.",
     "lyricWords": " wee ki ra araus tes soare an giue mea iem . ",
     "japanese": "この身の呪縛と引き換えに 今 この詩を捧げよう",
     "japaneseWords": " この:この 身:身 の:の 呪縛:呪縛 と:と 引き換え:引き換え に:に 今:今 この:この 詩:詩 を:を 捧げる:捧げよ う:う "
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -444,6 +466,9 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "en whai pauwel gaunji yasra whou na cenjue sor tou zuieg.",
@@ -454,6 +479,9 @@
       "lyric": true,
       "japanese": true
     }
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -494,6 +522,9 @@
     "sub": true
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "en nedle eterne falfa,",
@@ -504,6 +535,9 @@
       "lyric": true,
       "japanese": true
     }
+  },
+  {
+    "musicId": 2
   },
   {
     "musicId": 2,
@@ -518,6 +552,9 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "Grandi en eterne slepial,",
@@ -530,6 +567,9 @@
     }
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "presia aterra cremia sos viuy lonfa,",
@@ -538,12 +578,48 @@
     "japaneseWords": " 暗い:暗く 翳す:翳し た:た 魂:魂 を:を 救済:救済 へ:へ と:と 誘う:誘お う:う "
   },
   {
+    "musicId": 2
+  },
+  {
     "musicId": 2,
     "language": "hymmnos",
     "lyric": "yehar lamenza der soare mea.",
     "lyricWords": " yehar lamenza der soare mea . ",
     "japanese": "祈りの言霊 貴方へと紡ぐ 深い嘆きを解き放て",
     "japaneseWords": " 祈り:祈り の:の 言霊:言霊 貴方:貴方 へ:へ と:と 紡ぐ:紡ぐ 深い:深い 嘆き:嘆き を:を 解き放つ:解き放て "
+  },
+  {
+    "musicId": 2
+  },
+  {
+    "musicId": 2
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
+    "lyric": "presia aterra cremia sos viuy lonfa,",
+    "lyricWords": " presia aterra cremia sos viuy lonfa , ",
+    "japanese": "暗く翳した魂を 救済へと誘おう",
+    "japaneseWords": " 暗い:暗く 翳す:翳し た:た 魂:魂 を:を 救済:救済 へ:へ と:と 誘う:誘お う:う ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 2
+  },
+  {
+    "musicId": 2,
+    "language": "hymmnos",
+    "lyric": "yehar lamenza der soare mea.",
+    "lyricWords": " yehar lamenza der soare mea . ",
+    "japanese": "祈りの言霊 貴方へと紡ぐ 深い嘆きを解き放て",
+    "japaneseWords": " 祈り:祈り の:の 言霊:言霊 貴方:貴方 へ:へ と:と 紡ぐ:紡ぐ 深い:深い 嘆き:嘆き を:を 解き放つ:解き放て ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "musicId": 3,
