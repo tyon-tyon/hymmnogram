@@ -63,7 +63,7 @@
           </div>
 
           <!-- ヒュムノス歌詞 -->
-          <div v-if="lyric.lyric" :class="{ 'opacity-60': lyric.sub, 'opacity-40': lyric.unperformed }">
+          <div v-if="lyric.lyric" :class="{ 'opacity-70': lyric.sub, 'opacity-40': lyric.unperformed }">
             <!-- ヒュムノス語 -->
             <div class="flex flex-wrap">
               <WordHymmnos v-for="(word, index) in getLyricWords(lyric.correction?.lyric ?? lyric.lyric ?? '')"
@@ -77,7 +77,7 @@
           </div>
 
           <!-- 日本語歌詞 -->
-          <div v-else-if="lyric.japanese" :class="{ 'opacity-60': lyric.sub, 'opacity-40': lyric.unperformed }">
+          <div v-else-if="lyric.japanese" :class="{ 'opacity-70': lyric.sub, 'opacity-40': lyric.unperformed }">
             <AtomP>
               <span v-html="getJapaneseRuby(lyric.correction?.japaneseRuby ?? lyric.japaneseRuby ?? '')"></span>
             </AtomP>
