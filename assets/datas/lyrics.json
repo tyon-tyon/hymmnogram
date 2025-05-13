@@ -1767,108 +1767,528 @@
     }
   },
   {
-    "title": "EXEC_LINCA/. ",
-    "lyric": "Was yant gagis chs hymmnos mea.",
-    "lyricWords": " was yant gagis chs hymmnos mea . ",
-    "japanese": "私は謳になる",
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Was yant gagis chs hymnos mea.",
+    "lyricWords": " was yant gagis chs hymnos mea . ",
+    "japanese": "私は謳になる。",
     "japaneseWords": " 私:私 は:は 謳:謳 に:に なる:なる ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "Was yant gagis chs hymmnos mea.",
+      "japanese": "私は詩になる。",
+      "lyricWords": " was yant gagis chs hymmnos mea . ",
+      "japaneseWords": " 私:私 は:は 詩:詩 に:に なる:なる "
+    }
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "En chsee fwal fwal mea.",
     "lyricWords": " en chsee fwal fwal mea . ",
-    "japanese": "そして、2つの翼を纏う",
-    "japaneseWords": " そして:そして 2:2 つ:つ の:の 翼:翼 を:を 纏う:纏う ",
-    "language": "hymmnos"
+    "japanese": "そして、2つの翼を纏う。",
+    "japaneseWords": " そして:そして 2:2 つ:つ の:の 翼:翼 を:を 纏う:纏う "
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Fou paks ra, diasee, sarrifis hyzik tes dius yor...",
     "lyricWords": " fou paks ra , diasee , sarrifis hyzik tes dius yor . . . ",
     "japanese": "神よ、尊い貴方に私の体を捧げます。",
-    "japaneseWords": " 神:神 よ:よ 尊い:尊い 貴方:貴方 に:に 私:私 の:の 体:体 を:を 捧げる:捧げ ます:ます ",
-    "language": "hymmnos"
+    "japaneseWords": " 神:神 よ:よ 尊い:尊い 貴方:貴方 に:に 私:私 の:の 体:体 を:を 捧げる:捧げ ます:ます "
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Rrha ki ra tek wim tes yor.",
     "lyricWords": " rrha ki ra tek wim tes yor . ",
     "japanese": "1人の娘が貴方のところに参ります。",
     "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "en weel waath dius manaf, Yat!",
     "lyricWords": " en weel waath dius manaf , yat ! ",
     "japanese": "さあ、尊き命よ蘇れ。",
     "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "及ばぬ空果つ 眼を閉じて繰れば",
+    "japaneseRuby": "[及](およ)ばぬ[空](そら)[果](は)つ [眼](まなこ)を[閉](と)じて[繰](く)れば",
+    "japaneseWords": " 及ぶ:及ば ぬ:ぬ 空:空 果:果 つ:つ 眼:眼 を:を 閉じる:閉じ て:て 繰る:繰れ ば:ば "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "深き闇の底より 目覚むる光よ",
+    "japaneseRuby": "[深](ふか)き[闇](やみ)の[底](そこ)より [目覚](めざ)むる[光](ひかり)よ",
+    "japaneseWords": " 深い:深き 闇:闇 の:の 底:底 より:より 目覚:目覚 むる:むる 光:光 よ:よ "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "風間の終 聞こゆる声 解きて",
+    "japaneseRuby": "[風間](かざま)の[終](つい) [聞](き)こゆる[声](こえ) [解](ほど)きて",
+    "japaneseWords": " 風間:風間 の:の 終:終 聞く:聞こ ゆるい:ゆる 声:声 解く:解き て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Wee yea ra enne ar fee, ar dor, ar ciel",
     "lyricWords": " wee yea ra enne ar fee , ar dor , ar ciel ",
-    "japanese": "願いを風に、大地に、この世界に...",
-    "japaneseWords": " 願い:願い を:を 風:風 に:に 大地:大地 に:に この:この 世界:世界 に:に ",
-    "language": "hymmnos"
+    "japanese": "願いを風に、大地に、この世界に…",
+    "japaneseWords": " 願い:願い を:を 風:風 に:に 大地:大地 に:に この:この 世界:世界 に:に …:… ",
+    "sub": true
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "森羅を抱く記憶 我が魂を重ぬ",
+    "japaneseRuby": "[森羅](しんら)を[抱](いだ)く[記憶](きおく) [我](わ)が[魂](たま)を[重](かさ)ぬ",
+    "japaneseWords": " 森:森 羅:羅 を:を 抱く:抱く 記憶:記憶 我が:我が 魂:魂 を:を 重:重 ぬ:ぬ "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Was yea ra frreie yor wart en chs manaf an yor...",
+    "lyricWords": " was yea ra frreie yor wart en chs manaf an yor . . . ",
+    "japanese": "私は歓喜に満ちている。言葉を解き放たれ、命はそなたと共にあること。",
+    "japaneseWords": " 私:私 は:は 歓喜:歓喜 に:に 満ちる:満ち て:て いる:いる 言葉:言葉 を:を 解き放つ:解き放た れる:れ 命:命 は:は そ:そ だ:な た:た と共に:と共に ある:ある こと:こと "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Synk sor al memora en knawa al tonelico.",
+    "lyricWords": " synk sor al memora en knawa al tonelico . ",
+    "japanese": "森羅万象すべての記憶と重なり、アルトネリコのすべてを知りなさい。",
+    "japaneseWords": " 森羅万象:森羅万象 すべて:すべて の:の 記憶:記憶 と:と 重なる:重なり アル:アル トネリコ:トネリコ の:の すべて:すべて を:を 知る:知り なさる:なさい ",
+    "correction": {
+      "lyric": "Synk sor ar memora en knawa ar tonelico.",
+      "lyricWords": " synk sor ar memora en knawa ar tonelico . "
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Was yea ra frreie yor wart en chs manaf an yor...",
     "lyricWords": " was yea ra frreie yor wart en chs manaf an yor . . . ",
     "japanese": "私は歓喜に満ちている。言葉を解き放たれ、命はそなたと共にあること。",
     "japaneseWords": " 私:私 は:は 歓喜:歓喜 に:に 満ちる:満ち て:て いる:いる 言葉:言葉 を:を 解き放つ:解き放た れる:れ 命:命 は:は そ:そ だ:な た:た と共に:と共に ある:ある こと:こと ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Synk sor ar memora en knawa ar tonelico.",
     "lyricWords": " synk sor ar memora en knawa ar tonelico . ",
     "japanese": "森羅万象すべての記憶と重なり、アルトネリコのすべてを知りなさい。",
     "japaneseWords": " 森羅万象:森羅万象 すべて:すべて の:の 記憶:記憶 と:と 重なる:重なり アル:アル トネリコ:トネリコ の:の すべて:すべて を:を 知る:知り なさる:なさい ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "遙に時は廻り",
+    "japaneseRuby": "[遙](はるか)に[時](とき)は[廻](めぐ)り",
+    "japaneseWords": " 遙:遙 に:に 時:時 は:は 廻り:廻り "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Was au ga chs mea eterne manaf",
     "lyricWords": " was au ga chs mea eterne manaf ",
     "japanese": "遙かなる永遠を生きて",
     "japaneseWords": " 遙:遙 か:か なる:なる 永遠:永遠 を:を 生きる:生き て:て ",
-    "language": "hymmnos"
+    "sub": true
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "照らせる者は移ろひて",
+    "japaneseRuby": "[照](て)らせる[者](もの)は[移](うつ)ろひて",
+    "japaneseWords": " 照らせる:照らせる 者:者 は:は 移る:移ろ ひる:ひ て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "愁ふる人世 離りぬ全てを捨てて 我ぞ捧げん",
+    "japaneseRuby": "[愁](うれ)ふる[人世](ひとよ) [離](さ)りぬ[全](すべ)てを[捨](す)てて [我](われ)ぞ[捧](ささ)げん",
+    "japaneseWords": " 愁:愁 ふる:ふる 人世:人世 離:離 り:り ぬ:ぬ 全て:全て を:を 捨てる:捨て て:て 我:我 ぞ:ぞ 捧げる:捧げ ん:ん "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Rrha ki ra tie yor ini en nha.",
     "lyricWords": " rrha ki ra tie yor ini en nha . ",
     "japanese": "ここへおいで",
-    "japaneseWords": " ここ:ここ へ:へ おいで:おいで ",
-    "language": "hymmnos"
+    "japaneseWords": " ここ:ここ へ:へ おいで:おいで "
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Wee ki ra parge yor ar ides.",
+    "lyricWords": " wee ki ra parge yor ar ides . ",
+    "japanese": "過去を切り離して",
+    "japaneseWords": " 過去:過去 を:を 切り離す:切り離し て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Wee ki ra parge yor ar ides.",
     "lyricWords": " wee ki ra parge yor ar ides . ",
     "japanese": "過去を切り離して",
     "japaneseWords": " 過去:過去 を:を 切り離す:切り離し て:て ",
-    "language": "hymmnos"
+    "unperformed": true
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Ma ki ga ks maya yor syec",
     "lyricWords": " ma ki ga ks maya yor syec ",
     "japanese": "怖がらないで、その身を委ねて",
-    "japaneseWords": " 怖がる:怖がら ない:ない で:で その:その 身:身 を:を 委ねる:委ね て:て ",
-    "language": "hymmnos"
+    "japaneseWords": " 怖がる:怖がら ない:ない で:で その:その 身:身 を:を 委ねる:委ね て:て "
   },
   {
-    "title": "EXEC_LINCA/. ",
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tie yor ini en nha.",
+    "lyricWords": " rrha ki ra tie yor ini en nha . ",
+    "japanese": "ここへおいで",
+    "japaneseWords": " ここ:ここ へ:へ おいで:おいで "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Wee ki ra parge yor ar ides.",
+    "lyricWords": " wee ki ra parge yor ar ides . ",
+    "japanese": "過去を切り離して",
+    "japaneseWords": " 過去:過去 を:を 切り離す:切り離し て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
     "lyric": "Whalt tim 0 chs, Diasee!",
     "lyricWords": " whalt tim 0 chs , diasee ! ",
     "japanese": "神の子よ、今こそ始まりの時！",
-    "japaneseWords": " 神:神 の:の 子:子 よ:よ 今:今 こそ:こそ 始まり:始まり の:の 時:時 ",
-    "language": "hymmnos"
+    "japaneseWords": " 神:神 の:の 子:子 よ:よ 今:今 こそ:こそ 始まり:始まり の:の 時:時 "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "いざ此身に舞降り給え",
+    "japaneseRuby": "いざ[此](この)[身](み)に[舞](まい)[降](お)り[給](たま)え",
+    "japaneseWords": " いざ:いざ 此:此 身:身 に:に 舞:舞 降りる:降り 給う:給え "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "そよめく空果つ 眼を閉じて繰れば",
+    "japaneseRuby": "そよめく[空](そら)[果](は)つ [眼](まなこ)を[閉](と)じて[繰](く)れば",
+    "japaneseWords": " す:そ よ:よ めく:めく 空:空 果:果 つ:つ 眼:眼 を:を 閉じる:閉じ て:て 繰る:繰れ ば:ば "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "深き闇の底より 溶けくる光よ",
+    "japaneseRuby": "[深](ふか)き[闇](やみ)の[底](そこ)より [溶](と)けくる[光](ひかり)よ",
+    "japaneseWords": " 深い:深き 闇:闇 の:の 底:底 より:より 溶ける:溶け くる:くる 光:光 よ:よ "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "風間の終 聞こゆる声 解きて",
+    "japaneseRuby": "[風間](かざま)の[終](つい) [聞](き)こゆる[声](こえ) [解](ほど)きて",
+    "japaneseWords": " 風間:風間 の:の 終:終 聞く:聞こ ゆるい:ゆる 声:声 解く:解き て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Wee yea ra enne ar fee, ar dor, ar ciel",
+    "lyricWords": " wee yea ra enne ar fee , ar dor , ar ciel ",
+    "japanese": "願いを風に、大地に、この世界に…",
+    "japaneseWords": " 願い:願い を:を 風:風 に:に 大地:大地 に:に この:この 世界:世界 に:に …:… ",
+    "sub": true
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "常世に通づる記憶 我が魂を重ぬ",
+    "japaneseRuby": "[常世](とこよ)に[通](つう)づる[記憶](きおく) [我](わ)が[魂](たま)を[重](かさ)ぬ",
+    "japaneseWords": " 常世:常世 に:に 通:通 づる:づる 記憶:記憶 我が:我が 魂:魂 を:を 重:重 ぬ:ぬ "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Was yea ra frreie yor wart en chs manaf an yor...",
+    "lyricWords": " was yea ra frreie yor wart en chs manaf an yor . . . ",
+    "japanese": "私は歓喜に満ちている。言葉を解き放たれ、命はそなたと共にあること。",
+    "japaneseWords": " 私:私 は:は 歓喜:歓喜 に:に 満ちる:満ち て:て いる:いる 言葉:言葉 を:を 解き放つ:解き放た れる:れ 命:命 は:は そ:そ だ:な た:た と共に:と共に ある:ある こと:こと "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Synk sor al memora en knawa al tonelico.",
+    "lyricWords": " synk sor al memora en knawa al tonelico . ",
+    "japanese": "森羅万象すべての記憶と重なり、アルトネリコのすべてを知りなさい。",
+    "japaneseWords": " 森羅万象:森羅万象 すべて:すべて の:の 記憶:記憶 と:と 重なる:重なり アル:アル トネリコ:トネリコ の:の すべて:すべて を:を 知る:知り なさる:なさい ",
+    "correction": {
+      "lyric": "Synk sor ar memora en knawa ar tonelico.",
+      "lyricWords": " synk sor ar memora en knawa ar tonelico . "
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Was yea ra frreie yor wart en chs manaf an yor...",
+    "lyricWords": " was yea ra frreie yor wart en chs manaf an yor . . . ",
+    "japanese": "私は歓喜に満ちている。言葉を解き放たれ、命はそなたと共にあること。",
+    "japaneseWords": " 私:私 は:は 歓喜:歓喜 に:に 満ちる:満ち て:て いる:いる 言葉:言葉 を:を 解き放つ:解き放た れる:れ 命:命 は:は そ:そ だ:な た:た と共に:と共に ある:ある こと:こと ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Synk sor ar memora en knawa ar tonelico.",
+    "lyricWords": " synk sor ar memora en knawa ar tonelico . ",
+    "japanese": "森羅万象すべての記憶と重なり、アルトネリコのすべてを知りなさい。",
+    "japaneseWords": " 森羅万象:森羅万象 すべて:すべて の:の 記憶:記憶 と:と 重なる:重なり アル:アル トネリコ:トネリコ の:の すべて:すべて を:を 知る:知り なさる:なさい ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "遙に時は過ぎぬ",
+    "japaneseRuby": "[遙](はるか)に[時](とき)は[過](す)ぎぬ",
+    "japaneseWords": " 遙:遙 に:に 時:時 は:は 過ぎる:過ぎ ぬ:ぬ "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Was au ga chs mea eterne manaf",
+    "lyricWords": " was au ga chs mea eterne manaf ",
+    "japanese": "遙かなる永遠を生きて",
+    "japaneseWords": " 遙:遙 か:か なる:なる 永遠:永遠 を:を 生きる:生き て:て ",
+    "sub": true
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "閃く花は移ろひて",
+    "japaneseRuby": "[閃](ひらめ)く[花](はな)は[移](うつ)ろひて",
+    "japaneseWords": " 閃く:閃く 花:花 は:は 移る:移ろ ひる:ひ て:て "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "散り紛ひし人世の",
+    "japaneseRuby": "[散](ち)り[紛](まど)ひし[人世](ひとよ)の",
+    "japaneseWords": " 散る:散り 紛:紛 ひす:ひし 人世:人世 の:の "
+  },
+  {
+    "musicId": 6,
+    "language": "japanese",
+    "japanese": "全てを捨てて 今ぞ捧げん",
+    "japaneseRuby": "[全](すべ)てを[捨](す)てて [今](いま)ぞ[捧](ささ)げん",
+    "japaneseWords": " 全て:全て を:を 捨てる:捨て て:て 今:今 ぞ:ぞ 捧げる:捧げ ん:ん "
+  },
+  {
+    "musicId": 6
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ "
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra tek wim tes yor.",
+    "lyricWords": " rrha ki ra tek wim tes yor . ",
+    "japanese": "1人の娘が貴方のところに参ります。",
+    "japaneseWords": " 1:1 人:人 の:の 娘:娘 が:が 貴方:貴方 の:の ところ:ところ に:に 参る:参り ます:ます ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 6,
+    "language": "hymmnos",
+    "lyric": "en weel waath dius manaf, Yat!",
+    "lyricWords": " en weel waath dius manaf , yat ! ",
+    "japanese": "さあ、尊き命よ蘇れ。",
+    "japaneseWords": " さあ:さあ 尊い:尊き 命:命 よ:よ 蘇る:蘇れ ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
     "title": "EXEC_PAJA/. #Orica extracting.",
