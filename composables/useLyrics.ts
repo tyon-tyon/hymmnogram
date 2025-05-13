@@ -3,11 +3,11 @@ import _musics from "@/assets/datas/musics.json";
 import type { TLyric, TMusic } from "~/types";
 
 // meaningをmeaningsに変更
-const allLyrics = _lyrics.map((lyric, id) => ({
+export const allLyrics = _lyrics.map((lyric, id) => ({
   ...lyric,
   id,
 })) as TLyric[]; // ヒュムノス語歌詞があるもの
-const musics = _musics as TMusic[];
+export const musics = _musics as TMusic[];
 export default function useLyrics() {
   const getMatch = (lyrics: TLyric[], q: string) => {
     // 正規表現のエスケープ
@@ -69,15 +69,6 @@ export default function useLyrics() {
     return getMatch(allLyrics.filter(lyric => lyric.language === 'foreluna'), q);
   };
 
-  const getFromMusicKey = (key: string): { lyrics: TLyric[], music: TMusic | null; } => {
-    const music = musics.find((music) => music.key === key);
-    if (!music) return { lyrics: [], music: null };
-    return {
-      lyrics: allLyrics.filter(lyric => lyric.musicId === music?.id),
-      music,
-    };
-  };
-
   const getMusicTags = () => {
     const tags = musics.map(music =>
       [...music.tags, ...music.arranger, ...music.composer, ...music.lyricist]
@@ -96,5 +87,5 @@ export default function useLyrics() {
     );
   };
 
-  return { getMatchHymmnos, getMatchForeluna, getFromMusicKey, getMusicTags, getMusicByTag };
+  return { getMatchHymmnos, getMatchForeluna, getMusicTags, getMusicByTag };
 }
