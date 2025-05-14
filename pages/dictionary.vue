@@ -1,7 +1,7 @@
 <template>
   <Layout :breadcrumb-links="[]">
     <ClientOnly>
-      <SearchPanel default-open/>
+      <SearchPanel/>
     </ClientOnly>
   </Layout>
 </template>
