@@ -1,28 +1,26 @@
 <template>
-  <template v-if="keyword.length">
-    <div v-if="lineWords.length" class="mb-5">
-      <div v-if="lineWords.flat().length > 5" class="text-sm">
-        長文の意味を調べる場合は<AtomLink href="/editor">ヒュムネエディタ</AtomLink>がおすすめです。
-      </div>
-      <div v-for="(line, index) in lineWords" :key="index">
-        <div :rows="lineWords" class="flex flex-wrap">
-          <WordHymmnos v-for="(word, index) in line" :word="word" :key="index" class="pr-4 pt-4" pronunciation/>
-        </div>
+  <div v-if="lineWords.length" class="mb-5">
+    <div v-if="lineWords.flat().length > 5" class="text-sm">
+      長文の意味を調べる場合は<AtomLink href="/editor">ヒュムネエディタ</AtomLink>がおすすめです。
+    </div>
+    <div v-for="(line, index) in lineWords" :key="index">
+      <div :rows="lineWords" class="flex flex-wrap">
+        <WordHymmnos v-for="(word, index) in line" :word="word" :key="index" class="pr-4 pt-4" pronunciation />
       </div>
     </div>
-    <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
-      <template #partial-match>
-        <TableHymmnos v-model:keyword="keyword" />
-      </template>
-      <template #lyrics v-if="keyword.length">
-        <LyricTable :lyrics="foundLyrics" :word="(exactMatchWord?.subWords?.length
-            ? exactMatchWord?.subWords[0]
-            : exactMatchWord ?? { ...emptyWordData, hymmnos: keyword }
-          ).hymmnos
-          " />
-      </template>
-    </UAccordion>
-  </template>
+  </div>
+  <UAccordion v-if="keyword.length" multiple :items="lineWords.length ? [items[1]] : items">
+    <template #partial-match>
+      <TableHymmnos v-model:keyword="keyword" />
+    </template>
+    <template #lyrics v-if="keyword.length">
+      <LyricTable :lyrics="foundLyrics" :word="(exactMatchWord?.subWords?.length
+        ? exactMatchWord?.subWords[0]
+        : exactMatchWord ?? { ...emptyWordData, hymmnos: keyword }
+      ).hymmnos
+        " />
+    </template>
+  </UAccordion>
 </template>
 
 <script setup lang="ts">
@@ -31,20 +29,18 @@ const dictionary = useDictionary();
 const { emptyWordData } = dictionary;
 const lyrics = useLyrics();
 
-const items = computed(() => {
-  return [
-    {
-      label: "単語",
-      slot: "partial-match",
-      defaultOpen: true,
-    },
-    {
-      label: "用例",
-      slot: "lyrics",
-      defaultOpen: true,
-    },
-  ];
-});
+const items = [
+  {
+    label: "単語",
+    slot: "partial-match",
+    defaultOpen: true,
+  },
+  {
+    label: "用例",
+    slot: "lyrics",
+    defaultOpen: true,
+  },
+];
 
 const lineWords = computed(() => {
   // ヒュムノスの文章の意味を調べる
