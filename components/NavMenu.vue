@@ -8,13 +8,16 @@
 </template>
 
 <script setup lang="ts">
-const isOpen = ref(false);
-
 const links = [
   {
-    label: "ヒュムノス辞書",
+    label: "ホーム",
     icon: "i-heroicons-home",
     to: "/",
+  },
+  {
+    label: "ヒュムノス辞書",
+    icon: "i-heroicons-table-cells",
+    to: "/dictionary",
   },
   {
     label: "歌詞一覧",

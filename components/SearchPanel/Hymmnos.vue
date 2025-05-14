@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <UAccordion v-if="keyword.length" multiple :items="lineWords.length ? [items[1]] : items">
+  <UAccordion multiple :items="lineWords.length ? [items[1]] : items">
     <template #partial-match>
       <TableHymmnos v-model:keyword="keyword" />
     </template>
