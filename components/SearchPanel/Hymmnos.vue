@@ -11,13 +11,13 @@
       </div>
     </div>
     <UAccordion multiple :items="!lineWords.length ? items : [items[1]]">
-      <template v-if="!lineWords.length" #partial-match>
-        <TableHymmnos :words="partialMatchWords" :exact-word="exactMatchWord" />
+      <template #partial-match>
+        <TableHymmnos v-model:keyword="keyword" />
       </template>
-      <template #lyrics>
+      <template #lyrics v-if="keyword.length">
         <LyricTable :lyrics="foundLyrics" :word="(exactMatchWord?.subWords?.length
             ? exactMatchWord?.subWords[0]
-            : exactMatchWord ?? { ...emptyWordData, hymmnos: props.keyword }
+            : exactMatchWord ?? { ...emptyWordData, hymmnos: keyword }
           ).hymmnos
           " />
       </template>
@@ -26,10 +26,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  keyword: string;
-}>();
-
+const keyword = defineModel<string>("keyword", { required: true });
 const dictionary = useDictionary();
 const { emptyWordData } = dictionary;
 const lyrics = useLyrics();
@@ -50,32 +47,14 @@ const items = computed(() => {
 });
 
 const lineWords = computed(() => {
-  const keyword = props.keyword;
   // ヒュムノスの文章の意味を調べる
-  if (keyword.match(/([\!\?\s,]|\/.)/)) return dictionary.getWords(keyword);
+  if (keyword.value.match(/([\!\?\s,]|\/.)/)) return dictionary.getWords(keyword.value);
   return [];
 });
 
 // 完全一致検索
 const exactMatchWord = computed(() => {
-  return dictionary.getExactMatch(props.keyword);
-});
-
-// 部分一致検索
-const partialMatchWords = computed(() => {
-  // 完全一致と重複しないようにする
-  const exactMatchWordBase = exactMatchWord.value?.subWords?.[0]?.hymmnos;
-  return dictionary
-    .getPartialMatch(props.keyword)
-    .filter(
-      (word) =>
-        !(
-          exactMatchWord.value &&
-          (word.hymmnos == exactMatchWord.value.hymmnos ||
-            word.hymmnos == exactMatchWordBase) &&
-          word.dialect == exactMatchWord.value.dialect
-        )
-    );
+  return dictionary.getExactMatch(keyword.value);
 });
 
 // 用例検索
@@ -86,6 +65,6 @@ const foundLyrics = computed(() => {
     ? lyrics.getMatchHymmnos(exactMatchWordBase)
     : [];
   // 重複を削除
-  return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(props.keyword)];
+  return [...exactMatchLyrics, ...lyrics.getMatchHymmnos(keyword.value)];
 });
 </script>

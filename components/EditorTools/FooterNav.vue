@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="px-2">
-      <FooterNavPanel :keyword="keyword" :mode="mode" />
+      <FooterNavPanel v-model:keyword="keyword" :mode="mode" />
     </div>
     <h1 class="text-xs text-cool-500 text-right p-1 sticky bottom-0 left-0 right-0 bg-white/90 dark:bg-black/90">
       ヒュムネエディタ by <nuxt-link to="/" class="text-primary">ヒュムノグラム</nuxt-link>

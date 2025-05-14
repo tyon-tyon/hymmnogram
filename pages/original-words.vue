@@ -66,11 +66,7 @@ const items = [
     label: "登録データサンプル",
     slot: "examples",
     defaultOpen: true,
-  },
-  {
-    label: "登録データ(全件)",
-    slot: "all",
-  },
+  }
 ];
 
 onMounted(() => {

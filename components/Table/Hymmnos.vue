@@ -1,57 +1,18 @@
 <template>
   <!--流派絞り込み-->
   <div class="flex flex-wrap justify-end">
-    <UPopover overlay>
-      <UButton
-        size="xs"
-        color="white"
-        :label="`表示流派:${showDialects.length}流派`"
-        trailing-icon="i-heroicons-chevron-down-20-solid"
-        class="m-1"
-      />
-      <template #panel>
-        <div class="p-2">
-          <UCheckbox
-            v-for="dialect in dialects"
-            :key="dialect.name"
-            :label="dialect.japanese"
-            :model-value="showDialects.includes(dialect.name)"
-            @change="
-              () => {
-                if (showDialects.includes(dialect.name)) {
-                  showDialects = showDialects.filter((d) => d !== dialect.name);
-                } else {
-                  showDialects.push(dialect.name);
-                }
-              }
-            "
-          />
-        </div>
-      </template>
-    </UPopover>
     <!--表示カラム-->
-    <UButtonGroup
-      size="xs"
-      orientation="horizontal"
-      class="flex-1 flex items-center justify-center m-1"
-    >
-      <UButton
-        v-for="column in columns.filter((c) => c.label)"
-        :key="column.key"
-        :color="selectedColumns[columns.indexOf(column)] ? 'primary' : 'white'"
-        @click="toggleColumn(column)"
-        class="flex-1 items-center justify-center text-nowrap"
-      >
+    <UButtonGroup size="xs" orientation="horizontal" class="flex-1 flex items-center justify-center m-1">
+      <UButton v-for="column in columns.filter((c) => c.label)" :key="column.key"
+        :color="selectedColumns[columns.indexOf(column)] ? 'primary' : 'white'" @click="toggleColumn(column)"
+        class="flex-1 items-center justify-center text-nowrap">
         {{ column.label }}
       </UButton>
     </UButtonGroup>
   </div>
-  <UTable
-    :rows="rows.slice(0, showAll ? undefined : defaultRowCount)"
-    :columns="columns.filter((_, index) => selectedColumns[index])"
-    sortable
-    :empty-state="{ icon: '', label: '単語が見つかりません...' }"
-  >
+  <UTable :rows="rows.slice(0, showAll ? undefined : defaultRowCount)"
+    :columns="columns.filter((_, index) => selectedColumns[index])" sortable
+    :empty-state="{ icon: '', label: '単語が見つかりません...' }">
     <template #hymmnos-data="{ row }">
       <span class="font-bold" :class="row.itemClass">
         {{ row.hymmnos }}
@@ -67,10 +28,22 @@
         {{ row.pronunciation }}
       </span>
     </template>
+    <template #part_of_speech-header>
+      <div class="flex items-center">
+        品詞
+        <TableFilter :items="partOfSpeeches" v-model:show-items="showPartOfSpeech" />
+      </div>
+    </template>
     <template #part_of_speech-data="{ row }">
       <span class="text-wrap" :class="row.itemClass">
         {{ row.part_of_speech }}
       </span>
+    </template>
+    <template #dialect-header>
+      <div class="flex items-center">
+        流派
+        <TableFilter :items="dialects" v-model:show-items="showDialects" />
+      </div>
     </template>
     <template #dialect-data="{ row }">
       <span class="text-wrap" :class="row.itemClass">
@@ -83,26 +56,13 @@
       </span>
     </template>
     <template #actions-data="{ row }">
-      <UButton
-        size="sm"
-        color="white"
-        square
-        variant="solid"
-        @click="() => $emit('input-word', row)"
-      >
+      <UButton size="sm" color="white" square variant="solid" @click="() => $emit('input-word', row)">
         入力
       </UButton>
     </template>
   </UTable>
-  <UButton
-    v-if="rows.length > defaultRowCount && !showAll"
-    @click="showAll = !showAll"
-    class="w-full"
-    color="primary"
-    variant="link"
-    size="xl"
-    block
-  >
+  <UButton v-if="rows.length > defaultRowCount && !showAll" @click="showAll = !showAll" class="w-full" color="primary"
+    variant="link" size="xl" block>
     全て表示 (全{{ rows.length }}件)
   </UButton>
 </template>
@@ -111,8 +71,7 @@
 import type { TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
-    words: TWord[];
-    exactWord?: TWord;
+    words?: TWord[];
     action?: boolean;
     defaultRowCount?: number;
     showColumns?: string[];
@@ -122,10 +81,11 @@ const props = withDefaults(
     action: false,
   }
 );
+const keyword = defineModel<string>("keyword");
 const { action } = props;
-const { words, exactWord } = toRefs(props);
 const { getDialectTextClass, getDialectBgClass } = useStyles();
 const { getDiarectJapanese, dialects } = useDialect();
+const dictionary = useDictionary();
 
 const columns = [
   {
@@ -160,12 +120,38 @@ const columns = [
 
 const showAll = ref<boolean>(false);
 
+// 部分一致検索
+const words = computed(() => {
+  if (props.words) return props.words;
+  if (!keyword.value?.length) return dictionary.words.value;
+  return dictionary
+    .getPartialMatch(keyword.value);
+});
+
+// 表示するカラム
 const selectedColumns = ref(new Array<boolean>(columns.length).fill(true));
 const toggleColumn = (column: any) => {
   const index = columns.indexOf(column);
   selectedColumns.value[index] = !selectedColumns.value[index];
 };
 
+// 表示する品詞
+const partOfSpeeches = ref<{ name: string; japanese: string }[]>([]);
+const showPartOfSpeech = ref<string[]>([]);
+const initPartOfSpeechFilter = () => {
+  // 品詞の出現回数をカウント
+  const partOfSpeechCounts: Record<string, number> = words.value.reduce((acc, word) => {
+    acc[word.part_of_speech] = (acc[word.part_of_speech] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  partOfSpeeches.value = Object.entries(partOfSpeechCounts)
+    .sort(([, a], [, b]) => (b as number) - (a as number)) // 出現回数の多い順にソート
+    .map(([name]) => ({ name, japanese: name }));
+  showPartOfSpeech.value = partOfSpeeches.value.map((p) => p.name);
+};
+
+// 表示する流派
 const showDialects = ref<string[]>([]);
 const initDialectFilter = () => {
   showDialects.value = dialects.value.map((dialect) => dialect.name);
@@ -176,23 +162,20 @@ const rows = ref<any[]>([]);
 defineEmits(["input-word"]);
 
 watch(
-  () => props.words,
+  () => keyword.value,
   () => {
     showAll.value = false;
   }
 );
 
-// 流派データが更新されたら表示する流派を再度全選択
-watch(
-  () => dialects.value,
-  () => {
-    initDialectFilter();
-  }
-);
+// 完全一致検索
+const exactWord = computed(() => {
+  return dictionary.getExactMatch(keyword.value ?? "");
+});
 
 // 表示する単語を更新
 watch(
-  () => [showDialects.value.length, words.value, showAll.value],
+  () => [showDialects.value, showPartOfSpeech.value, words.value, showAll.value],
   () => {
     rows.value = [
       ...(exactWord.value ? [exactWord.value] : []).map((word: TWord) => ({
@@ -202,7 +185,7 @@ watch(
       ...words.value,
     ]
       .filter((word) => {
-        return showDialects.value.includes(word.dialect);
+        return showDialects.value.includes(word.dialect) && showPartOfSpeech.value.includes(word.part_of_speech);
       })
       .map(getWordItem);
   }
@@ -210,6 +193,9 @@ watch(
 
 onMounted(() => {
   initDialectFilter();
+  initPartOfSpeechFilter();
+  // 備考列を非表示
+  selectedColumns.value[5] = false;
   if (props.showColumns) {
     // 表示する列が指定されている場合はその列を表示
     selectedColumns.value = columns.map((column) =>
@@ -223,13 +209,13 @@ onMounted(() => {
       selectedColumns.value[3] =
       selectedColumns.value[4] =
       selectedColumns.value[5] =
-        false;
+      false;
   if (!action) {
     selectedColumns.value[6] = false;
   }
 });
 
-const getWordItem = (word: TWord & { class?: string }) => {
+const getWordItem = (word: TWord & { class?: string; }) => {
   return {
     hymmnos: word.hymmnos,
     japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),
