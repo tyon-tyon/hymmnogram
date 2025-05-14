@@ -377,5 +377,5 @@ export default function () {
     return;
   }
 
-  return { getExactMatch, getPartialMatch, emptyWordData, updateWords, getWords, splitHymmnos };
+  return { getExactMatch, getPartialMatch, emptyWordData, updateWords, getWords, splitHymmnos, words };
 };

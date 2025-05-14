@@ -5,7 +5,7 @@
       <span class="truncate" :class="[selected && 'text-primary-500 dark:text-primary-400']">{{ item.label }}</span>
     </template>
     <template #item="{ item }">
-      <SearchPanelHymmnos v-if="item.key === 'hymmnos'" :keyword="keyword" />
+      <SearchPanelHymmnos v-if="item.key === 'hymmnos'" v-model:keyword="keyword" />
       <SearchPanelForeluna v-if="item.key === 'foreluna'" :keyword="keyword" />
       <SearchPanelArCiela v-if="item.key === 'arCiela'" :keyword="keyword" />
     </template>

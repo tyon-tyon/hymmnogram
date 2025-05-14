@@ -1,30 +1,15 @@
 <template>
   <template v-if="mode === 'hymmnos'">
-    <TableHymmnos
-      :words="words"
-      @input-word="addWord"
-      :action="true"
-      :defaultRowCount="5"
-      :showColumns="['hymmnos', 'japanese', 'actions']"
-    />
+    <TableHymmnos @input-word="addWord" :action="true" :defaultRowCount="5"
+      :showColumns="['hymmnos', 'japanese', 'actions']" v-model:keyword="keyword" />
     <LyricTable :lyrics="lyrics" :word="lyricWord.hymmnos" />
   </template>
   <template v-if="mode === 'arCiela'">
-    <ArCielaKeyboard
-      @input="addText"
-      @delete="deleteText"
-      @replace="replaceArCielaChar"
-      :keyword="keyword"
-      :cursorLine="cursorLine"
-      :cursorPosition="cursorPositionInLine"
-    />
+    <ArCielaKeyboard @input="addText" @delete="deleteText" @replace="replaceArCielaChar" :keyword="keyword"
+      :cursorLine="cursorLine" :cursorPosition="cursorPositionInLine" />
   </template>
   <template v-if="mode === 'foreluna'">
-    <ForelunaKeyboard
-      @input-char="addText"
-      @delete-char="deleteText"
-      :keyword="keyword"
-    />
+    <ForelunaKeyboard @input-char="addText" @delete-char="deleteText" :keyword="keyword" />
   </template>
 </template>
 
@@ -32,8 +17,8 @@
 import type { TWord, TLyric } from "~/types";
 const props = defineProps<{
   mode: "hymmnos" | "arCiela" | "foreluna";
-  keyword: string;
 }>();
+const keyword = defineModel<string>("keyword", { required: true });
 const dictionary = useDictionary();
 const lyric = useLyrics();
 const {
@@ -47,38 +32,36 @@ const {
 } = useEditor();
 const { emptyWordData } = useDictionary();
 
-const words = ref<TWord[]>([]);
 const lyrics = ref<TLyric[]>([]);
 const lyricWord = ref<TWord>(emptyWordData);
 
 let timer: NodeJS.Timeout | undefined;
 watch(
-  () => props.keyword,
+  () => keyword.value,
   () => {
     if (timer) clearTimeout(timer);
-    const { mode, keyword } = props;
+    const { mode } = props;
     if (mode !== "hymmnos") return;
 
-    if (keyword.length === 0) {
-      words.value = [];
+    if (keyword.value.length === 0) {
       lyrics.value = [];
       return;
     }
 
     timer = setTimeout(() => {
-      searchHymmnos(keyword);
+      searchHymmnos(keyword.value);
     }, 300);
   }
 );
 
 const searchHymmnos = (keyword: string) => {
   // 部分一致検索
-  words.value = dictionary.getPartialMatch(keyword);
+  const words = dictionary.getPartialMatch(keyword);
   lyrics.value = lyric.getMatchHymmnos(keyword);
   // 用例で使う単語を取得
   lyricWord.value =
     // 完全一致するヒュムノス単語がある場合はそれを使用
-    words.value.find(
+    words.find(
       (w) =>
         w.hymmnos === keyword ||
         (w.subWords?.length && w.subWords[0].hymmnos === keyword)

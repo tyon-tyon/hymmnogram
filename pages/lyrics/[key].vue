@@ -127,12 +127,18 @@
 <script setup lang="ts">
 import type { TLyric, TWord } from '@/types';
 import { useRoute } from 'vue-router';
-import _musics from '~/assets/datas/musics.json';
-import type { TMusic } from '~/types';
+import { allLyrics, musics } from '~/composables/useLyrics';
 
-const musics = _musics as TMusic[];
 const route = useRoute();
 const key = route.params.key as string;
+const music = musics.find((music) => music.key === key);
+if (!music) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Music not found',
+  });
+}
+const lyrics = allLyrics.filter(lyric => lyric.musicId === music.id);
 
 definePageMeta({
   ssr: true,
@@ -143,16 +149,24 @@ definePageMeta({
   }
 });
 
-const { getWords } = useDictionary();
-const { getFromMusicKey } = useLyrics();
-const { lyrics, music } = getFromMusicKey(key as string);
+const title = "[歌詞]" + music?.title;
+const description = `${title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
+// OGタグを設定
+useHead({
+  title: title,
+  meta: [
+    { name: "description", content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:url', content: `/lyrics/${key}` },
+    { property: 'og:description', content: description },
+  ],
+  link: [
+    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}` },
+  ],
+});
 
-if (!music) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Music not found',
-  });
-}
+
+const { getWords } = useDictionary();
 
 const items = [
   ...(music.explanation ? [{
@@ -179,30 +193,9 @@ const breadcrumbLinks = [
   },
 ];
 
-const title = computed(() => {
-  return "[歌詞]" + music?.title;
-});
-
-const description = computed(() => {
-  return `${music.title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
-});
-
 const part = (part: number) => {
   return music.parts?.[part - 1];
 };
-// OGタグを設定
-useHead({
-  title: title,
-  meta: [
-    { name: "description", content: description },
-    { property: 'og:title', content: title },
-    { property: 'og:url', content: `/lyrics/${key}` },
-    { property: 'og:description', content: description },
-  ],
-  link: [
-    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}` },
-  ],
-});
 
 const isUnofficialDialogOpen = ref(false);
 const isCorrectionDialogOpen = ref(false);
