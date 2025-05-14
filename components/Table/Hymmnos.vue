@@ -140,7 +140,7 @@ const partOfSpeeches = ref<{ name: string; japanese: string }[]>([]);
 const showPartOfSpeech = ref<string[]>([]);
 const initPartOfSpeechFilter = () => {
   // 品詞の出現回数をカウント
-  const partOfSpeechCounts: Record<string, number> = words.value.reduce((acc, word) => {
+  const partOfSpeechCounts: Record<string, number> = dictionary.words.value.reduce((acc, word) => {
     acc[word.part_of_speech] = (acc[word.part_of_speech] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
