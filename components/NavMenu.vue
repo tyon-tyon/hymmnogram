@@ -15,7 +15,7 @@ const links = [
     to: "/",
   },
   {
-    label: "ヒュムノス辞書",
+    label: "辞書",
     icon: "i-heroicons-table-cells",
     to: "/dictionary",
   },
