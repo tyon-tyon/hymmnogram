@@ -2293,8 +2293,8 @@
   {
     "musicId": 7,
     "language": "japanese",
-    "japanese": "Ah-.",
-    "japaneseRuby": "Ah-.",
+    "japanese": "Ah-. ",
+    "japaneseRuby": "[Ah-.](アー) ",
     "japaneseWords": " Ah:Ah -.:-. "
   },
   {
@@ -2846,7 +2846,7 @@
     "musicId": 7,
     "language": "japanese",
     "japanese": "Mala Mala nostra pelle nostra pelle",
-    "japaneseRuby": "Mala Mala nostra pelle nostra pelle",
+    "japaneseRuby": "[Mala](マラ) [Mala](マラ) [nostra](ノストラ) [pelle](ペレ) [nostra](ノストラ) [pelle](ペレ)",
     "japaneseWords": " Mala:Mala Mala:Mala nostra:nostra pelle:pelle nostra:nostra pelle:pelle "
   },
   {
