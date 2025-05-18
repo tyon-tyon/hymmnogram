@@ -168,19 +168,7 @@ useHead({
 
 const { getWords } = useDictionary();
 
-const items = [
-  ...(music.explanation ? [{
-    label: "解説",
-    slot: "explanation",
-    defaultOpen: false,
-  }
-  ] : []),
-  ...(music.feeling ? [{
-    label: "詩の想い",
-    slot: "feeling",
-    defaultOpen: false,
-  }] : []),
-];
+const items = ref<any[]>([]);
 
 const breadcrumbLinks = [
   {
@@ -211,6 +199,23 @@ const shareUrl = computed(() => {
 
 //　タグを設定
 const tags = [...music.tags, ...music.singer, ...music.lyricist, ...music.composer, ...music.arranger].filter((tag, index, self) => self.indexOf(tag) === index);
+
+onMounted(() => {
+  // ウィンドウ幅が640px以上の場合はデフォルトで開く
+  items.value = [
+    ...(music.explanation ? [{
+      label: "解説",
+      slot: "explanation",
+      defaultOpen: window.innerWidth >= 768,
+    }
+    ] : []),
+    ...(music.feeling ? [{
+      label: "詩の想い",
+      slot: "feeling",
+      defaultOpen: window.innerWidth >= 768,
+    }] : []),
+  ];
+});
 
 // データを表示
 const getLyricWords = (hymmnos: string) => {
