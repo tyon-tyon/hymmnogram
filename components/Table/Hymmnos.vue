@@ -185,7 +185,8 @@ watch(
       ...words.value,
     ]
       .filter((word) => {
-        return showDialects.value.includes(word.dialect) && showPartOfSpeech.value.includes(word.part_of_speech);
+        const matchPartOfSpeech = !partOfSpeeches.value.some((p) => p.name === word.part_of_speech) || showPartOfSpeech.value.includes(word.part_of_speech)
+        return showDialects.value.includes(word.dialect) && matchPartOfSpeech;
       })
       .map(getWordItem);
   }
