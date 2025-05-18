@@ -17,7 +17,7 @@ export default function useLyrics() {
     // 完全一致の例文を取得
     const exactLyricMatch = lyrics.filter((lyric) =>
       lyric.lyricWords?.match(" " + q.toLocaleLowerCase() + " ") ||
-      lyric.correction?.lyric?.match(" " + q.toLocaleLowerCase() + " ")
+      lyric.correction?.lyricWords?.match(" " + q.toLocaleLowerCase() + " ")
     );
     // 部分一致の例文を取得
     const lyricMatch = lyrics.filter(
