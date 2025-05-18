@@ -115,4 +115,9 @@ export type TMusic = {
     name: string,
     class: string,
   }[];
-}; 
+};
+
+export type TMusicTag = {
+  category: string;
+  tags: string[];
+};

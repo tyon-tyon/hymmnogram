@@ -2291,60 +2291,637 @@
     }
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
-    "lyric": "Rrha ki ra hymme Paja yor getrra, en gott wi gyas!",
-    "lyricWords": " rrha ki ra hymme paja yor getrra , en gott wi gyas ! ",
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "Ah-. ",
+    "japaneseRuby": "[Ah-.](アー) ",
+    "japaneseWords": " Ah:Ah -.:-. "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra hymme PA-JA yor getrra , en gott wi gyas!",
+    "lyricWords": " rrha ki ra hymme pa-ja yor getrra , en gott wi gyas ! ",
     "japanese": "汚れた貴方のために、歌を謳います。悪霊よ離れたまへ",
     "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 歌:歌 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "Rrha ki ra hymme PAJA yor getrra, en gott wi gyas!",
+      "japanese": "汚れた貴方のために、詩を謳います。悪霊よ離れたまへ",
+      "lyricWords": " rrha ki ra hymme paja yor getrra , en gott wi gyas ! ",
+      "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 詩:詩 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ "
+    }
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
-    "lyric": "Was yea ra chs hymmnos mea",
-    "lyricWords": " was yea ra chs hymmnos mea ",
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Was yea ra chs hymnos mea.",
+    "lyricWords": " was yea ra chs hymnos mea . ",
     "japanese": "私は謳になる",
     "japaneseWords": " 私:私 は:は 謳:謳 に:に なる:なる ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "Was yea ra chs hymmnos mea.",
+      "japanese": "私は詩になる",
+      "lyricWords": " was yea ra chs hymmnos mea . ",
+      "japaneseWords": " 私:私 は:は 詩:詩 に:に なる:なる "
+    }
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra hymme PA-JA yor getrra , en gott wi gyas!",
+    "lyricWords": " rrha ki ra hymme pa-ja yor getrra , en gott wi gyas ! ",
+    "japanese": "汚れた貴方のために、歌を謳います。悪霊よ離れたまへ",
+    "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 歌:歌 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ ",
+    "correction": {
+      "lyric": "Rrha ki ra hymme PAJA yor getrra, en gott wi gyas!",
+      "japanese": "汚れた貴方のために、詩を謳います。悪霊よ離れたまへ",
+      "lyricWords": " rrha ki ra hymme paja yor getrra , en gott wi gyas ! ",
+      "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 詩:詩 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ "
+    }
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "綾織の闇と光纏い 舞い降りる天と地の間に",
+    "japaneseRuby": "[綾織](あやおり)の[闇](やみ)と[光](ひかり)[纏](まと)い [舞](ま)い[降](お)りる[天](てん)と[地](ち)の[間](あいだ)に",
+    "japaneseWords": " 綾織:綾織 の:の 闇:闇 と:と 光:光 纏う:纏い 舞う:舞い 降りる:降りる 天:天 と:と 地:地 の:の 間:間 に:に "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
     "lyric": "Diasee",
     "lyricWords": " diasee ",
     "japanese": "神の子",
     "japaneseWords": " 神:神 の:の 子:子 ",
-    "language": "hymmnos"
+    "sub": true
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 甦れ 遥かな静寂より",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [甦](よみがえ)れ [遥](はる)かな[静寂](しじま)より",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 甦る:甦れ 遥か:遥か だ:な 静寂:静寂 より:より "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 甦れよ さあ目覚めよ",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [甦](よみがえ)れよ さあ[目覚](めざ)めよ",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 甦る:甦れ よ:よ さあ:さあ 目覚め:目覚め よ:よ ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
     "lyric": "an Spiritum Sanctum",
     "lyricWords": " an spiritum sanctum ",
-    "japanese": "魂の箱舟とともに",
-    "japaneseWords": " 魂:魂 の:の 箱:箱 舟:舟 とともに:とともに ",
-    "language": "hymmnos"
+    "japanese": "魂の方舟と共に",
+    "japaneseWords": " 魂:魂 の:の 方舟:方舟 と共に:と共に ",
+    "unofficial": {
+      "japanese": true
+    },
+    "sub": true
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 声を上げよ 歓喜と絶望と",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [声](こえ)を[上](あ)げよ [歓喜](かんき)と[絶望](ぜつぼう)と",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 声:声 を:を 上げる:上げよ 歓喜:歓喜 と:と 絶望:絶望 と:と "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 声を上げよ さあ目覚めよ",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [声](こえ)を[上](あ)げよ さあ[目覚](めざ)めよ",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 声:声 を:を 上げる:上げよ さあ:さあ 目覚め:目覚め よ:よ ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
     "lyric": "manaf O",
     "lyricWords": " manaf o ",
-    "japanese": "命Ｏ",
-    "japaneseWords": " 命:命 Ｏ:Ｏ ",
-    "language": "hymmnos"
+    "japanese": "命 O",
+    "japaneseWords": " 命:命 O:O ",
+    "unofficial": {
+      "japanese": true
+    },
+    "sub": true
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
-    "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
-    "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
-    "japanese": "私の罪Ｏそれは私の犯した最大の罪",
-    "japaneseWords": " 私:私 の:の 罪:罪 Ｏ:Ｏ それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
-    "language": "hymmnos"
+    "musicId": 7
   },
   {
-    "title": "EXEC_PAJA/. #Orica extracting.",
-    "lyric": "Was yea ra chs hymmnos mea.",
-    "lyricWords": " was yea ra chs hymmnos mea . ",
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "何を背負って生まれた",
+    "japaneseRuby": "[何](なに)を[背負](せお)って[生](う)まれた",
+    "japaneseWords": " 何:何 を:を 背負う:背負っ て:て 生まれる:生まれ た:た "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "あまたの星の一つに",
+    "japaneseRuby": "あまたの[星](ほし)の[一](ひと)つに",
+    "japaneseWords": " あまた:あまた の:の 星:星 の:の 一つ:一つ に:に "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した罪",
+      "lyricWords": " mea cupla la o mea cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Was yea ra chs hymnos mea.",
+    "lyricWords": " was yea ra chs hymnos mea . ",
     "japanese": "私は謳になる",
     "japaneseWords": " 私:私 は:は 謳:謳 に:に なる:なる ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "Was yea ra chs hymmnos mea.",
+      "japanese": "私は詩になる",
+      "lyricWords": " was yea ra chs hymmnos mea . ",
+      "japaneseWords": " 私:私 は:は 詩:詩 に:に なる:なる "
+    }
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Rrha ki ra hymme PA-JA yor getrra , en gott wi gyas!",
+    "lyricWords": " rrha ki ra hymme pa-ja yor getrra , en gott wi gyas ! ",
+    "japanese": "汚れた貴方のために、歌を謳います。悪霊よ離れたまへ",
+    "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 歌:歌 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ ",
+    "correction": {
+      "lyric": "Rrha ki ra hymme PAJA yor getrra, en gott wi gyas!",
+      "japanese": "汚れた貴方のために、詩を謳います。悪霊よ離れたまへ",
+      "lyricWords": " rrha ki ra hymme paja yor getrra , en gott wi gyas ! ",
+      "japaneseWords": " 汚れる:汚れ た:た 貴方:貴方 の:の ため:ため に:に 詩:詩 を:を 謳う:謳い ます:ます 悪霊:悪霊 よ:よ 離れる:離れ たま:たま へ:へ "
+    }
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "刻まれた罪と愛を胸に 終わらない夢と現行き交う",
+    "japaneseRuby": "[刻](きざ)まれた[罪](つみ)と[愛](あい)を[胸](むね)に [終](お)わらない[夢](ゆめ)と[現](うつつ)[行](ゆ)き[交](か)う",
+    "japaneseWords": " 刻む:刻ま れる:れ た:た 罪:罪 と:と 愛:愛 を:を 胸:胸 に:に 終わる:終わら ない:ない 夢:夢 と:と 現:現 行き交う:行き交う "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Diasee",
+    "lyricWords": " diasee ",
+    "japanese": "神の子",
+    "japaneseWords": " 神:神 の:の 子:子 ",
+    "sub": true
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "もう眠れよ 解き放て 輪廻の鎖から",
+    "japaneseRuby": "もう[眠](ねむ)れよ [解](と)き[放](はな)て [輪廻](りんね)の[鎖](くさり)から",
+    "japaneseWords": " もう:もう 眠れる:眠れよ 解き放つ:解き放て 輪廻:輪廻 の:の 鎖:鎖 から:から "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "もう眠れよ 解き放てよ もう眠れよ",
+    "japaneseRuby": "もう[眠](ねむ)れよ [解](と)き[放](はな)てよ もう[眠](ねむ)れよ",
+    "japaneseWords": " もう:もう 眠れる:眠れよ 解き放つ:解き放て よ:よ もう:もう 眠る:眠れ よ:よ ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "an Spiritum Sanctum",
+    "lyricWords": " an spiritum sanctum ",
+    "japanese": "魂の方舟と共に",
+    "japaneseWords": " 魂:魂 の:の 方舟:方舟 と共に:と共に ",
+    "unofficial": {
+      "japanese": true
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "もう眠れよ 横たわれ すべてを赦されて",
+    "japaneseRuby": "もう[眠](ねむ)れよ [横](よこ)たわれ すべてを[赦](ゆる)されて",
+    "japaneseWords": " もう:もう 眠れる:眠れよ 横たわる:横たわれ すべて:すべて を:を 赦す:赦さ れる:れ て:て "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "もう眠れよ 横たわれよ もう眠れよ",
+    "japaneseRuby": "もう[眠](ねむ)れよ [横](よこ)たわれよ もう[眠](ねむ)れよ",
+    "japaneseWords": " もう:もう 眠れる:眠れよ 横たわる:横たわれ よ:よ もう:もう 眠る:眠れ よ:よ ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "manaf O",
+    "lyricWords": " manaf o ",
+    "japanese": "命 O",
+    "japaneseWords": " 命:命 O:O ",
+    "unofficial": {
+      "japanese": true
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "何を守って旅立つ",
+    "japaneseRuby": "[何](なに)を[守](まも)って[旅立](たびた)つ",
+    "japaneseWords": " 何:何 を:を 守る:守っ て:て 旅立つ:旅立つ "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "霧に埋もれた道標",
+    "japaneseRuby": "[霧](きり)に[埋](う)もれた[道標](みちしるべ)",
+    "japaneseWords": " 霧:霧 に:に 埋もれる:埋もれ た:た 道標:道標 "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "何を背負って生まれた",
+    "japaneseRuby": "[何](なに)を[背負](せお)って[生](う)まれた",
+    "japaneseWords": " 何:何 を:を 背負う:背負っ て:て 生まれる:生まれ た:た "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "あまたの星の一つに",
+    "japaneseRuby": "あまたの[星](ほし)の[一](ひと)つに",
+    "japaneseWords": " あまた:あまた の:の 星:星 の:の 一つ:一つ に:に "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した罪",
+      "lyricWords": " mea cupla la o mea cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "…心の奥深く",
+    "japaneseRuby": "…[心](こころ)の[奥](おく)[深](ふか)く",
+    "japaneseWords": " …:… 心:心 の:の 奥深い:奥深く ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "心の奥深く かすかに確かに",
+    "japaneseRuby": "[心](こころ)の[奥](おく)[深](ふか)く かすかに[確](たし)かに",
+    "japaneseWords": " 心:心 の:の 奥深い:奥深く かすか:かすか に:に 確か:確か に:に "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "繰り返す 私の 言葉と 旋律と",
+    "japaneseRuby": "[繰](く)り[返](かえ)す [私](わたし)の [言葉](ことば)と [旋律](せんりつ)と",
+    "japaneseWords": " 繰り返す:繰り返す 私:私 の:の 言葉:言葉 と:と 旋律:旋律 と:と "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "…声が聴こえる",
+    "japaneseRuby": "…[声](こえ)が[聴](き)こえる",
+    "japaneseWords": " …:… 声:声 が:が 聴こえる:聴こえる ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "想いの裏側で 大きく小さく 息をする",
+    "japaneseRuby": "[想](おも)いの[裏側](うらがわ)で [大](おお)きく[小](ちい)さく [息](いき)をする",
+    "japaneseWords": " 想い:想い の:の 裏側:裏側 で:で 大きい:大きく 小さい:小さく 息:息 を:を する:する "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "この世の 悪夢と 現実と",
+    "japaneseRuby": "この[世](よ)の [悪夢](あくむ)と [現実](げんじつ)と",
+    "japaneseWords": " この世:この世 の:の 悪夢:悪夢 と:と 現実:現実 と:と "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "真実だけに 耳を澄まし",
+    "japaneseRuby": "[真実](しんじつ)だけに [耳](みみ)を[澄](す)まし",
+    "japaneseWords": " 真実:真実 だけ:だけ に:に 耳:耳 を:を 澄ます:澄まし ",
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "一つの声に 真実だけに 耳を澄まして",
+    "japaneseRuby": "[一](ひと)つの[声](こえ)に [真実](しんじつ)だけに [耳](みみ)を[澄](す)まして",
+    "japaneseWords": " 一つ:一つ の:の 声:声 に:に 真実:真実 だけ:だけ に:に 耳:耳 を:を 澄ます:澄まし て:て "
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "ただそれに 従う",
+    "japaneseRuby": "ただそれに [従](したが)う",
+    "japaneseWords": " ただ:ただ それ:それ に:に 従う:従う "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "ただ私は謳う…",
+    "japaneseRuby": "ただ[私](わたし)は[謳](うた)う…",
+    "japaneseWords": " ただ:ただ 私:私 は:は 謳う:謳う …:… "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "何を憎んで目覚める",
+    "japaneseRuby": "[何](なに)を[憎](にく)んで[目覚](めざ)める",
+    "japaneseWords": " 何:何 を:を 憎む:憎ん で:で 目覚める:目覚める "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "そびえる塔の歪む音",
+    "japaneseRuby": "そびえる[塔](とう)の[歪](ゆが)む[音](おと)",
+    "japaneseWords": " そびえる:そびえる 塔:塔 の:の 歪む:歪む 音:音 "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "何を信じて眠れる",
+    "japaneseRuby": "[何](なに)を[信](しん)じて[眠](ねむ)れる",
+    "japaneseWords": " 何:何 を:を 信じる:信じ て:て 眠れる:眠れる "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Maxim Et Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea maxim et cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した最大の罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Maxim Et Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した最大の罪",
+      "lyricWords": " mea cupla la o mea maxim et cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 最大:最大 の:の 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "記憶を灯す腕に",
+    "japaneseRuby": "[記憶](きおく)を[灯](とも)す[腕](うで)に",
+    "japaneseWords": " 記憶:記憶 を:を 灯す:灯す 腕:腕 に:に "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Mea Cupl La O Mea Cupl Li Sa",
+    "lyricWords": " mea cupl la o mea cupl li sa ",
+    "japanese": "私の罪 0 それは私の犯した罪",
+    "japaneseWords": " 私:私 の:の 罪:罪 0:0 それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 ",
+    "correction": {
+      "lyric": "Mea Cupla La O Mea Cupla Li Sa",
+      "japanese": "私の罪 O それは私の犯した罪",
+      "lyricWords": " mea cupla la o mea cupla li sa ",
+      "japaneseWords": " 私:私 の:の 罪:罪 O:O それ:それ は:は 私:私 の:の 犯す:犯し た:た 罪:罪 "
+    },
+    "sub": true
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "Mala Mala nostra pelle nostra pelle",
+    "japaneseRuby": "[Mala](マラ) [Mala](マラ) [nostra](ノストラ) [pelle](ペレ) [nostra](ノストラ) [pelle](ペレ)",
+    "japaneseWords": " Mala:Mala Mala:Mala nostra:nostra pelle:pelle nostra:nostra pelle:pelle "
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 甦れよ さあ目覚めよ",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [甦](よみがえ)れよ さあ[目覚](めざ)めよ",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 甦る:甦れ よ:よ さあ:さあ 目覚め:目覚め よ:よ "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "an Spiritum Sanctum",
+    "lyricWords": " an spiritum sanctum ",
+    "japanese": "魂の方舟と共に",
+    "japaneseWords": " 魂:魂 の:の 方舟:方舟 と共に:と共に ",
+    "unofficial": {
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "もう眠れよ 解き放てよ もう眠れよ",
+    "japaneseRuby": "もう[眠](ねむ)れよ [解](と)き[放](はな)てよ もう[眠](ねむ)れよ",
+    "japaneseWords": " もう:もう 眠れる:眠れよ 解き放つ:解き放て よ:よ もう:もう 眠る:眠れ よ:よ "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "an Spiritum Sanctum",
+    "lyricWords": " an spiritum sanctum ",
+    "japanese": "魂の方舟と共に",
+    "japaneseWords": " 魂:魂 の:の 方舟:方舟 と共に:と共に ",
+    "unofficial": {
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 7,
+    "language": "japanese",
+    "japanese": "さあ目覚めよ 甦れよ さあ目覚めよ",
+    "japaneseRuby": "さあ[目覚](めざ)めよ [甦](よみがえ)れよ さあ[目覚](めざ)めよ",
+    "japaneseWords": " さあ:さあ 目覚める:目覚めよ 甦る:甦れ よ:よ さあ:さあ 目覚め:目覚め よ:よ "
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "an Spiritum Sanctum",
+    "lyricWords": " an spiritum sanctum ",
+    "japanese": "魂の方舟と共に",
+    "japaneseWords": " 魂:魂 の:の 方舟:方舟 と共に:と共に ",
+    "unofficial": {
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 7
+  },
+  {
+    "musicId": 7,
+    "language": "hymmnos",
+    "lyric": "Was yea ra chs hymnos mea.",
+    "lyricWords": " was yea ra chs hymnos mea . ",
+    "japanese": "私は謳になる",
+    "japaneseWords": " 私:私 は:は 謳:謳 に:に なる:なる ",
+    "correction": {
+      "lyric": "Was yea ra chs hymmnos mea.",
+      "japanese": "私は詩になる",
+      "lyricWords": " was yea ra chs hymmnos mea . ",
+      "japaneseWords": " 私:私 は:は 詩:詩 に:に なる:なる "
+    }
   },
   {
     "title": "EXEC_RE=NATION/. ",
