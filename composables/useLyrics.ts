@@ -1,6 +1,7 @@
 import _lyrics from "@/assets/datas/lyrics.json";
 import _musics from "@/assets/datas/musics.json";
-import type { TLyric, TMusic } from "~/types";
+import _music_tags from "@/assets/datas/music_tags.json";
+import type { TLyric, TMusic, TMusicTag } from "~/types";
 
 // meaningをmeaningsに変更
 export const allLyrics = _lyrics.map((lyric, id) => ({
@@ -69,11 +70,16 @@ export default function useLyrics() {
     return getMatch(allLyrics.filter(lyric => lyric.language === 'foreluna'), q);
   };
 
-  const getMusicTags = () => {
+  const getMusicTags = (): TMusicTag[] => {
     const tags = musics.map(music =>
       [...music.tags, ...music.arranger, ...music.composer, ...music.lyricist]
-    ).flat();
-    return [...new Set(tags)];
+    ).flat().filter((tag, index, self) => self.indexOf(tag) === index);
+    const musicTags = _music_tags;
+    musicTags.push({
+      category: 'その他',
+      tags: tags.filter(tag => !musicTags.some(t => t.tags.includes(tag)))
+    });
+    return musicTags;
   };
 
   const getMusicByTag = (tag?: string) => {

@@ -43,11 +43,14 @@
       </UTable>
       <UAccordion :items="accordionItems" class="mb-4" :ui="{ wrapper: 'w-full flex flex-col' }">
         <template #tags>
-          <div class="flex flex-wrap gap-2">
-            <AtomLink v-for="(tag, index) in tags" :key="index" :href="`/lyrics/?tag=${encodeURIComponent(tag)}`"
-              class="text-sm" @click="selectedTag = tag">
-              #{{ tag }}
-            </AtomLink>
+          <div v-for="tagObject in tags" :key="tagObject.category" class="mb-4">
+            <AtomH3>{{ tagObject.category }}</AtomH3>
+            <div class="flex flex-wrap gap-2">
+              <AtomLink v-for="(tag, index) in tagObject.tags" :key="index"
+                :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm" @click="selectedTag = tag">
+                #{{ tag }}
+              </AtomLink>
+            </div>
           </div>
         </template>
       </UAccordion>
