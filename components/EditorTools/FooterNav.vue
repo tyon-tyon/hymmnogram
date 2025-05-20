@@ -1,22 +1,25 @@
 <template>
   <div class="footer-nav overflow-y-auto relative transition-all duration-300 md:h-full md:max-h-[100vh]" :class="{
-    'max-h-[68px]': !toggle,
+    'max-h-[86px]': !toggle,
     'max-h-[71vh]': toggle && mode !== 'hymmnos',
     'max-h-[50vh]': toggle && mode === 'hymmnos',
   }">
-    <div class="p-2 sticky top-0 z-10 bg-white/90 dark:bg-black/90">
+    <div class="p-2 sticky top-0 z-10 bg-white/90 dark:bg-black/90 border-b border-gray-200 dark:border-gray-800">
       <AtomH3 class="hidden md:block">入力補助ツール</AtomH3>
-      <div class="flex items-center">
-        <UInput v-model="keyword" class="shadow-none flex-1 mr-2" :placeholder="mode === 'hymmnos' ? '辞書(意味を調べる)' : '絞り込み' " />
-        <UButtonGroup size="xs" class="mr-2">
-          <UButton :color="mode === 'hymmnos' ? 'primary' : 'white'" @click="
+      <div class="flex items-center mb-1">
+        <UButtonGroup size="xs" class="mr-2 flex-1" :ui="{
+          wrapper: {
+            horizontal: 'flex',
+          },
+        }">
+          <UButton class="flex-1 justify-center" :color="mode === 'hymmnos' ? 'primary' : 'white'" @click="
             () => {
               mode = 'hymmnos';
             }
           ">
-            ヒュ
+            ヒュム
           </UButton>
-          <UButton :color="mode === 'arCiela' ? 'primary' : 'white'" @click="
+          <UButton class="flex-1 justify-center" :color="mode === 'arCiela' ? 'primary' : 'white'" @click="
             () => {
               mode = 'arCiela';
               toggle = true;
@@ -24,7 +27,7 @@
           ">
             星語
           </UButton>
-          <UButton :color="mode === 'foreluna' ? 'primary' : 'white'" @click="
+          <UButton class="flex-1 justify-center" :color="mode === 'foreluna' ? 'primary' : 'white'" @click="
             () => {
               mode = 'foreluna';
               toggle = true;
@@ -38,8 +41,15 @@
           : 'i-heroicons-chevron-double-up'
           " size="sm" color="white" square variant="solid" @click="clickToggle" />
       </div>
+      <div class="flex items-center">
+        <UInput
+          v-model="keyword"
+          class="shadow-none flex-1 mr-2"
+          :placeholder="mode === 'hymmnos' ? '辞書(意味を調べる)' : '絞り込み'"
+        />
+      </div>
     </div>
-    <div class="px-2">
+    <div class="px-2 py-4">
       <FooterNavPanel v-model:keyword="keyword" :mode="mode" />
     </div>
     <h1 class="text-xs text-cool-500 text-right p-1 sticky bottom-0 left-0 right-0 bg-white/90 dark:bg-black/90">
