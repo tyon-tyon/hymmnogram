@@ -54,7 +54,10 @@
             </AtomChipButton>
             <AtomChipButton v-if="lyric.unofficial?.lyric || lyric.unofficial?.japanese"
               @click="openUnofficialDialog(lyric)">
-              非公式{{ lyric.unofficial?.lyric ? "歌詞" : "和訳" }}
+              非公式{{ 
+                lyric.unofficial?.lyric && lyric.unofficial?.japanese ? "" : 
+                !lyric.unofficial?.lyric && lyric.unofficial?.japanese ? ": 和訳" : ": 歌詞"
+              }}
             </AtomChipButton>
             <AtomChipButton v-if="lyric.correction?.lyric || lyric.correction?.japanese"
               @click="openCorrectionDialog(lyric)">
