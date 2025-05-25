@@ -2923,69 +2923,1306 @@
       "japaneseWords": " 私:私 は:は 詩:詩 に:に なる:なる "
     }
   },
+
   {
-    "title": "EXEC_RE=NATION/. ",
-    "lyric": "Was yea ra waath near en hymme Re=nation mea.",
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "願はくば この謳を呼び聞かせ給へ",
+    "japaneseRuby": "[願](ねが)はくば この[謳](うた)を[呼](よ)び[聞](き)かせ[給](たま)へ",
+    "japaneseWords": " 願:願 はく:はく ば:ば この:この 謳:謳 を:を 呼ぶ:呼び 聞く:聞か せる:せ 給:給 へ:へ ",
+    "correction": {
+      "japanese": "願はくば この詩を呼び聞かせ給へ",
+      "japaneseRuby": "[願](ねが)はくば この[詩](うた)を[呼](よ)び[聞](き)かせ[給](たま)へ"
+    }
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "緩く吹く暁の風となりて",
+    "japaneseRuby": "[緩](ゆる)く[吹](ふ)く[暁](あかつき)の[風](かぜ)となりて",
+    "japaneseWords": " 緩い:緩く 吹く:吹く 暁:暁 の:の 風:風 と:と なる:なり て:て "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "微睡む命 凍れる夢に",
+    "japaneseRuby": "[微睡](まどろ)む[命](いのち) [凍](こお)れる[夢](ゆめ)に",
+    "japaneseWords": " 微睡む:微睡む 命:命 凍る:凍 れる:れる 夢:夢 に:に "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "漂ひて迷へる人 解き放ち給へ",
+    "japaneseRuby": "[漂](ただよ)ひて[迷](まよ)へる[人](ひと) [解](と)き[放](はな)ち[給](たま)へ",
+    "japaneseWords": " 漂:漂 ひる:ひ て:て 迷:迷 へるる:へる 人:人 解き放つ:解き放ち 給:給 へ:へ "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "天伝ひ来る鳥は 日方に直向かふ",
+    "japaneseRuby": "[天伝](あまつた)ひ[来](く)る[鳥](とり)は [日方](ひかた)に[直](ただ)[向](む)かふ",
+    "japaneseWords": " 天:天 伝:伝 ひる:ひ 来る:来る 鳥:鳥 は:は 日方:日方 に:に 直:直 向く:向か ふる:ふ "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "白に鮮やぐ翼",
+    "japaneseRuby": "[白](しろ)に[鮮](あざ)やぐ[翼](つばさ)",
+    "japaneseWords": " 白:白 に:に 鮮:鮮 や:や ぐ:ぐ 翼:翼 "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "さきに希望の明日 伝へて",
+    "japaneseRuby": "さきに[希望](きぼう)の[明日](あす) [伝](つた)へて",
+    "japaneseWords": " さき:さき に:に 希望:希望 の:の 明日:明日 伝へる:伝へ て:て "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "hymmnos",
+    "lyric": "Was yea ra waath near en hymme Re-nation mea.",
+    "lyricWords": " was yea ra waath near en hymme re-nation mea . ",
+    "japanese": "命の再生を謳いましょう",
+    "japaneseWords": " 命:命 の:の 再生:再生 を:を 謳う:謳い ます:ましょ う:う ",
+    "correction": {
+      "lyric": "Was yea ra waath near en hymme RE=NATION mea.",
+      "lyricWords": " was yea ra waath near en hymme re=nation mea . "
+    }
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "耀ふ日 目陰さし響かせる謳は",
+    "japaneseRuby": "[耀](かがよ)ふ[日](ひ) [目陰](めかげ)さし[響](ひび)かせる[謳](うた)は",
+    "japaneseWords": " 耀:耀 ふる:ふ 日:日 目:目 陰:陰 さし:さし 響かせる:響かせる 謳:謳 は:は "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "緩く吹く黎明の風となりぬる",
+    "japaneseRuby": "[緩](ゆる)く[吹](ふ)く[黎明](れいめい)の[風](かぜ)となりぬる",
+    "japaneseWords": " 緩い:緩く 吹く:吹く 黎明:黎明 の:の 風:風 と:と なる:なり ぬる:ぬる "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "生まるる命 寝覚めの夢に",
+    "japaneseRuby": "[生](う)まるる[命](いのち) [寝覚](ねざ)めの[夢](ゆめ)に",
+    "japaneseWords": " 生む:生ま る:るる 命:命 寝覚め:寝覚め の:の 夢:夢 に:に "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "漂ひて迷へる人 守らひ給へ",
+    "japaneseRuby": "[漂](ただよ)ひて[迷](まよ)へる[人](ひと) [守](まも)らひ[給](たま)へ",
+    "japaneseWords": " 漂:漂 ひる:ひ て:て 迷:迷 へるる:へる 人:人 守る:守ら ひる:ひ 給:給 へ:へ "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "留まらず行く鳥は 日方に直向かふ",
+    "japaneseRuby": "[留](とど)まらず[行](ゆ)く[鳥](とり)は [日方](ひかた)に[直](ただ)[向](む)かふ",
+    "japaneseWords": " 留まる:留まら ぬ:ず 行く:行く 鳥:鳥 は:は 日方:日方 に:に 直:直 向く:向か ふる:ふ "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "溢るる光の中",
+    "japaneseRuby": "[溢](あふ)るる[光](ひかり)の中",
+    "japaneseWords": " 溢:溢 る:るる 光:光 の:の 中:中 "
+  },
+  {
+    "musicId": 8,
+    "language": "japanese",
+    "japanese": "羽根に想いの灯を纏ひて",
+    "japaneseRuby": "[羽根](はね)に[想](おも)いの[灯](ひ)を[纏](まと)ひて",
+    "japaneseWords": " 羽根:羽根 に:に 想い:想い の:の 灯:灯 を:を 纏:纏 ひる:ひ て:て "
+  },
+  {
+    "musicId": 8
+  },
+  {
+    "musicId": 8,
+    "language": "hymmnos",
+    "lyric": "Was yea ra waath near en hymme RE=NATION mea.",
     "lyricWords": " was yea ra waath near en hymme re=nation mea . ",
     "japanese": "命の再生を謳いましょう",
     "japaneseWords": " 命:命 の:の 再生:再生 を:を 謳う:謳い ます:ましょ う:う ",
-    "language": "hymmnos"
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
   },
   {
-    "title": "EXEC_SUSPEND/. ",
+    "musicId": 8,
+    "language": "hymmnos",
+    "lyric": "Was yea ra waath near en hymme RE=NATION mea.",
+    "lyricWords": " was yea ra waath near en hymme re=nation mea . ",
+    "japanese": "命の再生を謳いましょう",
+    "japaneseWords": " 命:命 の:の 再生:再生 を:を 謳う:謳い ます:ましょ う:う ",
+    "unofficial": {
+      "lyric": true,
+      "japanese": true
+    }
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "鮮やかに 萌える緑 新しい 小さき生命 永遠に",
+    "japaneseRuby": "[鮮](あざ)やかに [萌](も)える[緑](みどり) [新](あたら)しい [小](ちい)さき[生命](いのち) [永遠](えいえん)に",
+    "japaneseWords": " 鮮やか:鮮やか に:に 萌える:萌える 緑:緑 新しい:新しい 小さい:小さき 生命:生命 永遠:永遠 に:に ",
+    "part": 1
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "水辺に 集う鳥達 水面に揺れる 太陽",
+    "japaneseRuby": "[水辺](みずべ)に [集](つど)う[鳥達](とりたち) [水面](みなも)に[揺](ゆ)れる [太陽](たいよう)",
+    "japaneseWords": " 水辺:水辺 に:に 集う:集う 鳥:鳥 達:達 水面:水面 に:に 揺れる:揺れる 太陽:太陽 ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "樹々は 風に輝き 枝を鳴らして 謳い踊る",
+    "japaneseRuby": "[樹々](きぎ)は [風](かぜ)に[輝](かがや)き [枝](えだ)を[鳴](な)らして [謳](うた)い[踊](おど)る",
+    "japaneseWords": " 樹:樹 々:々 は:は 風:風 に:に 輝く:輝き 枝:枝 を:を 鳴らす:鳴らし て:て 謳う:謳い 踊る:踊る ",
+    "part": 1
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "鮮やかに 萌える緑 新しい 小さき生命",
+    "japaneseRuby": "[鮮](あざ)やかに [萌](も)える[緑](みどり) [新](あたら)しい [小](ちい)さき[生命](いのち)",
+    "japaneseWords": " 鮮やか:鮮やか に:に 萌える:萌える 緑:緑 新しい:新しい 小さい:小さき 生命:生命 ",
+    "part": 2
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "溢れる 恵みを受けて 生きとし生ける モノ達",
+    "japaneseRuby": "[溢](あふ)れる [恵](めぐ)みを[受](う)けて [生](い)きとし[生](い)ける モノ[達](ものたち)",
+    "japaneseWords": " 溢れる:溢れる 恵み:恵み を:を 受ける:受け て:て 生き:生き と:と する:し 生ける:生ける モノ:モノ 達:達 ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
     "lyric": "na au an Diasee an Diasee eterne",
     "lyricWords": " na au an diasee an diasee eterne ",
     "japanese": "悲しい事ではない。永久に神と共にある",
     "japaneseWords": " 悲しい:悲しい 事:事 だ:で は:は ない:ない 永久:永久 に:に 神:神 と:と 共に:共に ある:ある ",
-    "language": "hymmnos"
+    "part": 3,
+    "sub": true
   },
   {
-    "title": "EXEC_SUSPEND/. ",
-    "lyric": "Yasra dius manaf yasra dius manaf",
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "時代は 傷を忘れて 再び目覚め 回り出す",
+    "japaneseRuby": "[時代](とき)は [傷](きず)を[忘](わす)れて [再](ふたた)び[目覚](めざ)め [回](まわ)り[出](だ)す",
+    "japaneseWords": " 時代:時代 は:は 傷:傷 を:を 忘れる:忘れ て:て 再び:再び 目覚める:目覚め 回る:回り 出す:出す ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "na au an Diasee an Diasee eterne",
+    "lyricWords": " na au an diasee an diasee eterne ",
+    "japanese": "悲しい事ではない。永久に神と共にある",
+    "japaneseWords": " 悲しい:悲しい 事:事 だ:で は:は ない:ない 永久:永久 に:に 神:神 と:と 共に:共に ある:ある ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "街を行き交う 人の群れ",
+    "japaneseRuby": "[街](まち)を[行](ゆ)き[交](か)う [人](ひと)の[群](む)れ",
+    "japaneseWords": " 街:街 を:を 行き交う:行き交う 人:人 の:の 群れ:群れ ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "路地を駆け抜ける 子供たち",
+    "japaneseRuby": "[路地](ろじ)を[駆](か)け[抜](ぬ)ける [子供](こども)たち",
+    "japaneseWords": " 路地:路地 を:を 駆け抜ける:駆け抜ける 子供:子供 たち:たち ",
+    "part": 1
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "蠢く欲望の化身 深い闇に封じて",
+    "japaneseRuby": "[蠢](うごめ)く[欲望](ようぼう)の[化身](けしん) [深](ふか)い[闇](やみ)に[封](ふう)じて",
+    "japaneseWords": " 蠢く:蠢く 欲望:欲望 の:の 化身:化身 深い:深い 闇:闇 に:に 封じる:封じ て:て ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "機織るように 月日を紡ぎ 奏でるように 時を爪弾く",
+    "japaneseRuby": "[機織](はたお)るように [月日](つきひ)を[紡](つむ)ぎ [奏](かな)でるように [時](とき)を[爪弾](つまび)く",
+    "japaneseWords": " 機:機 織る:織る よう:よう に:に 月日:月日 を:を 紡ぐ:紡ぎ 奏でる:奏でる よう:よう に:に 時:時 を:を 爪弾く:爪弾く ",
+    "part": 2
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "この世の苦しみのすべて 一人背負い彷徨う",
+    "japaneseRuby": "この[世](よ)の[苦](くる)しみのすべて [一人](ひとり)[背負](せお)い[彷徨](さまよ)う",
+    "japaneseWords": " この世:この世 の:の 苦しみ:苦しみ の:の すべて:すべて 一:一 人:人 背負う:背負い 彷徨:彷徨 う:う ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "夕に祈り 朝に願う",
+    "japaneseRuby": "[夕](ゆうべ)に[祈](いの)り [朝](あした)に[願](ねが)う",
+    "japaneseWords": " 夕:夕 に:に 祈る:祈り 朝:朝 に:に 願う:願う ",
+    "part": 2
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "草むら 跳ねる虫達 夕空飾る 星々",
+    "japaneseRuby": "[草](くさ)むら [跳](は)ねる[虫達](むしたち) [夕空](ゆうぞら)[飾](かざ)る [星々](ほしぼし)",
+    "japaneseWords": " 草むら:草むら 跳ねる:跳ねる 虫:虫 達:達 夕空:夕空 飾る:飾る 星:星 々:々 ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "na au an Diasee an Diasee eterne",
+    "lyricWords": " na au an diasee an diasee eterne ",
+    "japanese": "悲しい事ではない。永久に神と共にある",
+    "japaneseWords": " 悲しい:悲しい 事:事 だ:で は:は ない:ない 永久:永久 に:に 神:神 と:と 共に:共に ある:ある ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "罪は 遠く消え去り 誰も語らず 歩き出す",
+    "japaneseRuby": "[罪](つみ)は [遠](とお)く[消](き)え[去](さ)り [誰](だれ)も[語](かた)らず [歩](ある)き[出](だ)す",
+    "japaneseWords": " 罪:罪 は:は 遠い:遠く 消え去る:消え去り 誰:誰 も:も 語る:語ら ぬ:ず 歩く:歩き 出す:出す ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "na au an Diasee an Diasee eterne",
+    "lyricWords": " na au an diasee an diasee eterne ",
+    "japanese": "悲しい事ではない。永久に神と共にある",
+    "japaneseWords": " 悲しい:悲しい 事:事 だ:で は:は ない:ない 永久:永久 に:に 神:神 と:と 共に:共に ある:ある ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "鮮やかに 萌える緑 新しい 小さき生命",
+    "japaneseRuby": "[鮮](あざ)やかに [萌](も)える[緑](みどり) [新](あたら)しい [小](ちい)さき[生命](いのち)",
+    "japaneseWords": " 鮮やか:鮮やか に:に 萌える:萌える 緑:緑 新しい:新しい 小さい:小さき 生命:生命 ",
+    "part": 2
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
     "lyricWords": " yasra dius manaf yasra dius manaf ",
-    "japanese": "尊い命よ、安らかに...",
-    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に ",
-    "language": "hymmnos"
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3,
+    "sub": true
   },
   {
-    "title": "EXEC_PHANTASMAGORIA/. ",
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "店を彩る 今日の糧",
+    "japaneseRuby": "[店](みせ)を[彩](いろど)る [今日](きょう)の[糧](かて)",
+    "japaneseWords": " 店:店 を:を 彩る:彩る 今日:今日 の:の 糧:糧 ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "いつも... いつも...",
+    "japaneseRuby": "いつも... いつも...",
+    "japaneseWords": " いつも:いつも いつも:いつも ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "無事を待つ家の 窓明かり",
+    "japaneseRuby": "[無事](ぶじ)を[待](ま)つ[家](いえ)の [窓](まど)[明](あ)かり",
+    "japaneseWords": " 無事:無事 を:を 待つ:待つ 家:家 の:の 窓:窓 明かり:明かり ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "無事を... 待つ",
+    "japaneseRuby": "[無事](ぶじ)を... [待](ま)つ",
+    "japaneseWords": " 無事:無事 を:を 待つ:待つ ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "素肌を灼熱に曝し 天地を巡りて",
+    "japaneseRuby": "[素肌](すはだ)を[灼熱](しゃくねつ)に[曝](さら)し [天地](あめつち)を[巡](めぐ)りて",
+    "japaneseWords": " 素肌:素肌 を:を 灼熱:灼熱 に:に 曝す:曝し 天地:天地 を:を 巡る:巡り て:て ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "脈打つように 月は満ち欠け 呼吸のように 季節は巡る",
+    "japaneseRuby": "[脈打](みゃくう)つように [月](つき)は[満](み)ち[欠](か)け [呼吸](こきゅう)のように [季節](きせつ)は[巡](めぐ)る",
+    "japaneseWords": " 脈打つ:脈打つ よう:よう に:に 月:月 は:は 満ち欠け:満ち欠け 呼吸:呼吸 の:の よう:よう に:に 季節:季節 は:は 巡る:巡る ",
+    "part": 2
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "この世の過ちのすべて 命捧げ償う",
+    "japaneseRuby": "この[世](よ)の[過](あやま)ちのすべて [命](いのち)[捧](ささ)げ[償](つぐな)う",
+    "japaneseWords": " この世:この世 の:の 過ち:過ち の:の すべて:すべて 命:命 捧げる:捧げ 償う:償う ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "天に栄光 地に豊穣",
+    "japaneseRuby": "[天](あめ)に[栄光](えいこう) [地](つち)に[豊穣](ほうじょう)",
+    "japaneseWords": " 天:天 に:に 栄光:栄光 地:地 に:に 豊穣:豊穣 ",
+    "part": 2
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "穢れた争いの轍 瓦礫踏みて浄める",
+    "japaneseRuby": "[穢](けが)れた[争](あらそ)いの[轍](わだち) [瓦礫](がれき)[踏](ふ)みて[浄](きよ)める",
+    "japaneseWords": " 穢れる:穢れ た:た 争い:争い の:の 轍:轍 瓦礫:瓦礫 踏む:踏み て:て 浄:浄 め:め る:る ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "昨日と同じ 夢は息づく 明日と同じ 夢は息づく",
+    "japaneseRuby": "[昨日](きのう)と[同](おな)じ [夢](ゆめ)は[息](いき)づく [明日](あした)と[同](おな)じ [夢](ゆめ)は[息](いき)づく",
+    "japaneseWords": " 昨日:昨日 と:と 同じ:同じ 夢:夢 は:は 息づく:息づく 明日:明日 と:と 同じ:同じ 夢:夢 は:は 息づく:息づく ",
+    "part": 2
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "鮮やかに 萌える緑 新しい 小さき生命",
+    "japaneseRuby": "[鮮](あざ)やかに [萌](も)える[緑](みどり) [新](あたら)しい [小](ちい)さき[生命](いのち)",
+    "japaneseWords": " 鮮やか:鮮やか に:に 萌える:萌える 緑:緑 新しい:新しい 小さい:小さき 生命:生命 ",
+    "part": 4
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "この身の運命のすべて 胸に抱き微笑む",
+    "japaneseRuby": "この[身](み)の[運命](うんめい)のすべて [胸](むね)に[抱](いだ)き[微笑](ほほえ)む",
+    "japaneseWords": " この:この 身:身 の:の 運命:運命 の:の すべて:すべて 胸:胸 に:に 抱く:抱き 微笑む:微笑む ",
+    "part": 1
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "夕に祈り 朝に願う",
+    "japaneseRuby": "[夕](ゆうべ)に[祈](いの)り [朝](あした)に[願](ねが)う",
+    "japaneseWords": " 夕:夕 に:に 祈る:祈り 朝:朝 に:に 願う:願う ",
+    "part": 2
+  },
+  {
+    "musicId": 9,
+    "language": "hymmnos",
+    "lyric": "yasra dius manaf yasra dius manaf",
+    "lyricWords": " yasra dius manaf yasra dius manaf ",
+    "japanese": "尊い命よ、安らかに…",
+    "japaneseWords": " 尊い:尊い 命:命 よ:よ 安らか:安らか に:に …:… ",
+    "part": 3
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "鮮やかに 萌える緑 新しい 小さき生命",
+    "japaneseRuby": "[鮮](あざ)やかに [萌](も)える[緑](みどり) [新](あたら)しい [小](ちい)さき[生命](いのち)",
+    "japaneseWords": " 鮮やか:鮮やか に:に 萌える:萌える 緑:緑 新しい:新しい 小さい:小さき 生命:生命 ",
+    "part": 4
+  },
+  {
+    "musicId": 9
+  },
+  {
+    "musicId": 9,
+    "language": "japanese",
+    "japanese": "永遠に…",
+    "japaneseRuby": "[永遠](えいえん)に…",
+    "japaneseWords": " 永遠:永遠 に:に …:… ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "草は",
+    "japaneseRuby": "[草](くさ)は",
+    "japaneseWords": " 草:草 は:は ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  光り",
+    "japaneseRuby": "  [光](ひか)り",
+    "japaneseWords": " 光る:光り ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "    水は",
+    "japaneseRuby": "    [水](みず)は",
+    "japaneseWords": " 水:水 は:は ",
+    "part": 3
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "      跳ねる",
+    "japaneseRuby": "      [跳](は)ねる",
+    "japaneseWords": " 跳ねる:跳ねる ",
+    "part": 1
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "虫は",
+    "japaneseRuby": "[虫](むし)は",
+    "japaneseWords": " 虫:虫 は:は ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  歌い",
+    "japaneseRuby": "  [歌](うた)い",
+    "japaneseWords": " 歌う:歌い ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "    樹々は",
+    "japaneseRuby": "    [樹々](きぎ)は",
+    "japaneseWords": " 樹:樹 々:々 は:は ",
+    "part": 3
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "      踊る",
+    "japaneseRuby": "      [踊](おど)る",
+    "japaneseWords": " 踊る:踊る ",
+    "part": 1
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "hymmnos",
     "lyric": "Wee yea ra enne ar sar",
     "lyricWords": " wee yea ra enne ar sar ",
     "japanese": "空に願いを",
-    "japaneseWords": " 空:空 に:に 願い:願い を:を ",
-    "language": "hymmnos"
+    "japaneseWords": " 空:空 に:に 願い:願い を:を "
   },
   {
-    "title": "EXEC_PHANTASMAGORIA/. ",
+    "musicId": 10,
+    "language": "hymmnos",
     "lyric": "Wee yea ra enne ar dor",
     "lyricWords": " wee yea ra enne ar dor ",
     "japanese": "大地に願いを",
-    "japaneseWords": " 大地:大地 に:に 願い:願い を:を ",
-    "language": "hymmnos"
+    "japaneseWords": " 大地:大地 に:に 願い:願い を:を "
   },
   {
-    "title": "EXEC_PHANTASMAGORIA/. ",
+    "musicId": 10,
+    "language": "hymmnos",
     "lyric": "Wee yea ra enne ar ciel",
     "lyricWords": " wee yea ra enne ar ciel ",
     "japanese": "世界に願いを",
     "japaneseWords": " 世界:世界 に:に 願い:願い を:を ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "Wee yea ra enne ar dorn",
+      "japanese": "樹々に願いを",
+      "lyricWords": " wee yea ra enne ar dorn ",
+      "japaneseWords": " 樹:樹 々:々 に:に 願い:願い を:を "
+    }
   },
   {
-    "title": "EXEC_PHANTASMAGORIA/. ",
+    "musicId": 10,
+    "language": "hymmnos",
     "lyric": "Rrha yea ra ieeya en near",
     "lyricWords": " rrha yea ra ieeya en near ",
     "japanese": "いのちに希望を",
-    "japaneseWords": " いのち:いのち に:に 希望:希望 を:を ",
-    "language": "hymmnos"
+    "japaneseWords": " いのち:いのち に:に 希望:希望 を:を "
   },
   {
-    "title": "EXEC_PHANTASMAGORIA/. ",
-    "lyric": "Fou yea ra waath ar ciel, en hymme mea, weel nepo en keen ar sar",
-    "lyricWords": " fou yea ra waath ar ciel , en hymme mea , weel nepo en keen ar sar ",
-    "japanese": "想いを込めて、今こそこの世界再生の時。大地よ潤え...空よ輝け...",
-    "japaneseWords": " 想い:想い を:を 込める:込め て:て 今:今 こそ:こそ この:この 世界:世界 再生:再生 の:の 時:時 大地:大地 よ:よ 潤う:潤え 空:空 よ:よ 輝く:輝け ",
-    "language": "hymmnos"
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "朝は すべての 上に 訪れ 昨日の涙 空へ還る",
+    "japaneseRuby": "[朝](あさ)は すべての [上](うえ)に [訪](おとず)れ [昨日](きのう)の[涙](なみだ) [空](そら)へ[還](かえ)る",
+    "japaneseWords": " 朝:朝 は:は すべて:すべて の:の 上:上 に:に 訪れる:訪れ 昨日:昨日 の:の 涙:涙 空:空 へ:へ 還る:還る ",
+    "part": 1
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "Ah    傷跡    残る  大地で     まだ",
+    "japaneseRuby": "[Ah](アー)    [傷跡](きずあと)    [残](のこ)る  [大地](だいち)で     まだ",
+    "japaneseWords": " Ah:Ah 傷跡:傷跡 残る:残る 大地:大地 で:で まだ:まだ ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  いつか  終わらぬ  夢に   閉ざされたまま",
+    "japaneseRuby": "  いつか  [終](お)わらぬ  [夢](ゆめ)に   [閉](と)ざされたまま",
+    "japaneseWords": " いつか:いつか 終わる:終わら ぬ:ぬ 夢:夢 に:に 閉ざす:閉ざさ れる:れ た:た まま:まま ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "眠る芽を ゆり起こす 恵みの雨になれ",
+    "japaneseRuby": "[眠](ねむ)る[芽](め)を ゆり[起](お)こす [恵](めぐ)みの[雨](あめ)になれ",
+    "japaneseWords": " 眠る:眠る 芽:芽 を:を ゆり:ゆり 起こす:起こす 恵み:恵み の:の 雨:雨 に:に なる:なれ ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "          慈しみの雨になれ",
+    "japaneseRuby": "          [慈](いつく)しみの[雨](あめ)になれ",
+    "japaneseWords": " 慈しむ:慈しみ の:の 雨:雨 に:に なる:なれ ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "眠る芽を ゆり起こす 恵みの雨になれ",
+    "japaneseRuby": "[眠](ねむ)る[芽](め)を ゆり[起](お)こす [恵](めぐ)みの[雨](あめ)になれ",
+    "japaneseWords": " 眠る:眠る 芽:芽 を:を ゆり:ゆり 起こす:起こす 恵み:恵み の:の 雨:雨 に:に なる:なれ ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "hymmnos",
+    "lyric": "Fou yea ra waath ar ciel, en hymme mea,",
+    "lyricWords": " fou yea ra waath ar ciel , en hymme mea , ",
+    "japanese": "想いを込めて、今こそこの世界再生の時。",
+    "japaneseWords": " 想い:想い を:を 込める:込め て:て 今:今 こそ:こそ この:この 世界:世界 再生:再生 の:の 時:時 "
+  },
+  {
+    "musicId": 10,
+    "language": "hymmnos",
+    "lyric": "weel nepo en keen ar sar",
+    "lyricWords": " weel nepo en keen ar sar ",
+    "japanese": "大地よ潤え…空よ輝け…",
+    "japaneseWords": " 大地:大地 よ:よ 潤う:潤え …:… 空:空 よ:よ 輝く:輝け …:… "
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "幾つもの違うメロディー それぞれの言葉",
+    "japaneseRuby": "[幾](いく)つもの[違](ちが)うメロディー それぞれの[言葉](ことば)",
+    "japaneseWords": " 幾つ:幾つ もの:もの 違う:違う メロディー:メロディー それぞれ:それぞれ の:の 言葉:言葉 ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "                  重なる波動",
+    "japaneseRuby": "                  [重](かさ)なる[波動](はどう)",
+    "japaneseWords": " 重:重 なり:なる 波動:波動 ",
+    "part": 1,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "少しずつ一歩ずつ 近づき合える",
+    "japaneseRuby": "[少](すこ)しずつ[一歩](いっぽ)ずつ [近](ちか)づき[合](あ)える",
+    "japaneseWords": " 少し:少し ずつ:ずつ 一:一 歩:歩 ずつ:ずつ 近づく:近づき 合える:合える ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "幾つもの違う想いで 幾つもの声で",
+    "japaneseRuby": "[幾](いく)つもの[違](ちが)う[想](おも)いで [幾](いく)つもの[声](こえ)で",
+    "japaneseWords": " 幾つ:幾つ もの:もの 違う:違う 想い:想い で:で 幾つ:幾つ も:も の:の 声:声 で:で ",
+    "part": 1
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "繋ぎ合う手と手の中 一つの  同じ その願い",
+    "japaneseRuby": "[繋](つな)ぎ[合](あ)う[手](て)と[手](て)の中 [一](ひと)つの  [同](おな)じ その[願](ねが)い",
+    "japaneseWords": " 繋ぐ:繋ぎ 合う:合う 手:手 と:と 手:手 の:の 中:中 一つ:一つ の:の 同じ:同じ その:その 願い:願い ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "繋ぎ合う手と手の中 一つの 同じ その願い",
+    "japaneseRuby": "繋ぎ合う手と手の中 一つの 同じ その願い",
+    "japaneseWords": " 繋ぐ:繋ぎ 合う:合う 手:手 と:と 手:手 の:の 中:中 一つ:一つ の:の 同じ:同じ その:その 願い:願い ",
+    "correction": {
+      "japanese": "繋ぎ合う手と手の中 幾つもの 同じ その願い",
+      "japaneseRuby": "[繋](つな)ぎ[合](あ)う[手](て)と[手](て)の[中](なか) [幾](いく)つもの [同](おなじ)じ その[願](ねが)い"
+    },
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "Ah 永く 頑な歴史の上",
+    "japaneseRuby": "[Ah](アー) [永](なが)く [頑](かたく)な[歴史](れきし)の[上](うえ)",
+    "japaneseWords": " Ah:Ah 永い:永く 頑:頑 だ:な 歴史:歴史 の:の 上:上 ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  渇いた     歳月に",
+    "japaneseRuby": "  [渇](かわ)いた     [歳月](としつき)に",
+    "japaneseWords": " 渇く:渇い た:た 歳月:歳月 に:に ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  渇いた     歳月に",
+    "japaneseRuby": "  [渇](かわ)いた     [歳月](としつき)に",
+    "japaneseWords": " 渇く:渇い た:た 歳月:歳月 に:に ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "愛の水が降りる 限り無い未来を託して",
+    "japaneseRuby": "[愛](あい)の[水](みず)が[降](お)りる [限](かぎ)り[無](な)い[未来](みらい)を[託](たく)して",
+    "japaneseWords": " 愛:愛 の:の 水:水 が:が 降りる:降りる 限り:限り 無い:無い 未来:未来 を:を 託す:託し て:て ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "       水は      滲みてゆく",
+    "japaneseRuby": "       [水](みず)は      [滲](し)みてゆく",
+    "japaneseWords": " 水:水 は:は 滲みる:滲み て:て ゆく:ゆく ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "       水は      滲みてゆく",
+    "japaneseRuby": "       [水](みず)は      [滲](し)みてゆく",
+    "japaneseWords": " 水:水 は:は 滲みる:滲み て:て ゆく:ゆく ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "憎しみは 一面に枯れ果て今 赦しの花が咲く",
+    "japaneseRuby": "[憎](にく)しみは [一面](いちめん)に[枯](か)れ[果](は)て[今](いま) [赦](ゆる)しの[花](はな)が[咲](さ)く",
+    "japaneseWords": " 憎しみ:憎しみ は:は 一:一 面:面 に:に 枯れる:枯れ 果て:果て 今:今 赦す:赦し の:の 花:花 が:が 咲く:咲く ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "    花は        生きるものの",
+    "japaneseRuby": "    [花](はな)は        [生](い)きるものの",
+    "japaneseWords": " 花:花 は:は 生きる:生きる ものの:ものの ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "    花は        生きるものの",
+    "japaneseRuby": "    [花](はな)は        [生](い)きるものの",
+    "japaneseWords": " 花:花 は:は 生きる:生きる ものの:ものの ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "生きとし生けるもの すべての胸に",
+    "japaneseRuby": "[生](い)きとし[生](い)けるもの すべての[胸](むね)に",
+    "japaneseWords": " 生き:生き と:と する:し 生ける:生ける もの:もの すべて:すべて の:の 胸:胸 に:に ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "すべての         胸に",
+    "japaneseRuby": "すべての         [胸](むね)に",
+    "japaneseWords": " すべて:すべて の:の 胸:胸 に:に ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "すべての         胸に",
+    "japaneseRuby": "すべての         [胸](むね)に",
+    "japaneseWords": " すべて:すべて の:の 胸:胸 に:に ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "あの日  優しい  歌を 忘れて",
+    "japaneseRuby": "あの[日](ひ)  [優](やさ)しい  [歌](うた)を [忘](わす)れて",
+    "japaneseWords": " あの:あの 日:日 優しい:優しい 歌:歌 を:を 忘れる:忘れ て:て ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "   遠い   遥かな 風を  待ちながら",
+    "japaneseRuby": "   [遠](とお)い   [遥](はる)かな [風](かぜ)を  [待](ま)ちながら",
+    "japaneseWords": " 遠い:遠い 遥か:遥か だ:な 風:風 を:を 待つ:待ち ながら:ながら ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "あの日  優しい あの歌を 忘れ",
+    "japaneseRuby": "あの[日](ひ)  [優](やさ)しい あの[歌](うた)を [忘](わす)れ",
+    "japaneseWords": " あの:あの 日:日 優しい:優しい あの:あの 歌:歌 を:を 忘れる:忘れ ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  羽根を畳んだ   小鳥達よ",
+    "japaneseRuby": "  [羽根](はね)を[畳](たた)んだ   [小鳥達](ことりたち)よ",
+    "japaneseWords": " 羽根:羽根 を:を 畳む:畳ん だ:だ 小鳥:小鳥 達:達 よ:よ ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "羽を畳んだ 小鳥達よ",
+    "japaneseRuby": "羽を畳んだ 小鳥達よ",
+    "japaneseWords": " 羽:羽 を:を 畳む:畳ん だ:だ 小鳥:小鳥 達:達 よ:よ ",
+    "correction": {
+      "japanese": "羽根を畳んだ     小鳥達よ",
+      "japaneseRuby": "[羽根](はね)を[畳](たた)んだ     [小鳥達](ことりたち)よ"
+    },
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "  羽根を畳んだ Ah 小鳥達よ",
+    "japaneseRuby": "  [羽根](はね)を[畳](たた)んだ [Ah](アー) [小鳥達](ことりたち)よ",
+    "japaneseWords": " 羽根:羽根 を:を 畳む:畳ん だ:だ Ah:Ah 小鳥:小鳥 達:達 よ:よ ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "Ah 翔けゆく  風に  抱かれて  また舞い上がれ  高い空へ",
+    "japaneseRuby": "[Ah](アー) [翔](か)けゆく  [風](かぜ)に  [抱](だ)かれて  また[舞](ま)い[上](あが)がれ  [高](たか)い[空](そら)へ",
+    "japaneseWords": " Ah:Ah 翔ける:翔け ゆく:ゆく 風:風 に:に 抱く:抱か れる:れ て:て また:また 舞い上がる:舞い上がれ 高い:高い 空:空 へ:へ ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": " 愛の  歓び  歌い  どこまでも  届けておくれ  高い空へ",
+    "japaneseRuby": " [愛](あい)の  [歓](よろこ)び  [歌](うた)い  どこまでも  [届](とど)けておくれ  [高](たか)い[空](そら)へ",
+    "japaneseWords": " 愛:愛 の:の 歓び:歓び 歌う:歌い どこ:どこ まで:まで も:も 届ける:届け て:て おくれる:おくれ 高い:高い 空:空 へ:へ ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "Ah 翔けゆく  この風に  抱かれ また舞い上がれ  高い空へ",
+    "japaneseRuby": "[Ah](アー) [翔](か)けゆく  この[風](かぜ)に  [抱](だ)かれ また[舞](ま)い[上](あが)がれ  [高](たか)い[空](そら)へ",
+    "japaneseWords": " Ah:Ah 翔ける:翔け ゆく:ゆく この:この 風:風 に:に 抱く:抱か れる:れ また:また 舞い上がる:舞い上がれ 高い:高い 空:空 へ:へ ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "幾つもの違う形で 混ざらない色で 一つの",
+    "japaneseRuby": "[幾](いく)つもの[違](ちが)う[形](かたち)で [混](ま)ざらない[色](いろ)で [一](ひと)つの",
+    "japaneseWords": " 幾つ:幾つ もの:もの 違う:違う 形:形 で:で 混ざる:混ざら ない:ない 色:色 で:で 一つ:一つ の:の ",
+    "correction": {
+      "japanese": "幾つもの違う形で 混ざらない色で",
+      "japaneseRuby": "[幾](いく)つもの[違](ちが)う[形](かたち)で [混](ま)ざらない[色](いろ)で"
+    },
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "               生まれた命",
+    "japaneseRuby": "               [生](う)まれた[命](いのち)",
+    "japaneseWords": " 生まれる:生まれ た:た 命:命 ",
+    "part": 1,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "一人ずつ一つずつ かけがえの無い",
+    "japaneseRuby": "[一人](ひとり)ずつ[一](ひと)つずつ かけがえの[無](な)い",
+    "japaneseWords": " 一:一 人:人 ずつ:ずつ 一つ:一つ ずつ:ずつ かけがえ:かけがえ の:の 無い:無い ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "幾つもの違う食卓 幾つもの窓辺",
+    "japaneseRuby": "[幾](いく)つもの[違](ちが)う[食卓](しょくたく) [幾](いく)つもの[窓辺](まどべ)",
+    "japaneseWords": " 幾つ:幾つ もの:もの 違う:違う 食卓:食卓 幾つ:幾つ も:も の:の 窓辺:窓辺 ",
+    "part": 1
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "伝え合う心の中 一つの  同じ この願い",
+    "japaneseRuby": "[伝](つた)え[合](あ)う[心](こころ)の[中](なか) [一](ひと)つの  [同](おな)じ この[願](ねが)い",
+    "japaneseWords": " 伝える:伝え 合う:合う 心:心 の:の 中:中 一つ:一つ の:の 同じ:同じ この:この 願い:願い ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "伝え合う心の中 幾つもの 同じ その願い",
+    "japaneseRuby": "[伝](つた)え[合](あ)う[心](こころ)の[中](なか) [幾](いく)つもの [同](おな)じ その[願](ねが)い",
+    "japaneseWords": " 伝える:伝え 合う:合う 心:心 の:の 中:中 幾つ:幾つ も:も の:の 同じ:同じ その:その 願い:願い ",
+    "part": 3
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "やがて 錆びた剣を囲んで 緑の蔓が這う",
+    "japaneseRuby": "やがて [錆](さ)びた[剣](つるぎ)を[囲](かこ)んで [緑](みどり)の[蔓](つる)が[這](は)う",
+    "japaneseWords": " やがて:やがて 錆びる:錆び た:た 剣:剣 を:を 囲む:囲ん で:で 緑:緑 の:の 蔓:蔓 が:が 這う:這う ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "静かに          緑なす",
+    "japaneseRuby": "[静](しず)かに          [緑](みどり)なす",
+    "japaneseWords": " 静か:静か に:に 緑:緑 なす:なす ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "静かに          緑なす",
+    "japaneseRuby": "[静](しず)かに          [緑](みどり)なす",
+    "japaneseWords": " 静か:静か に:に 緑:緑 なす:なす ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "悲しみの記憶を包んで",
+    "japaneseRuby": "[悲](かな)しみの[記憶](きおく)を[包](つつ)んで",
+    "japaneseWords": " 悲しみ:悲しみ の:の 記憶:記憶 を:を 包む:包ん で:で ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "日射し    降り注ぐ ",
+    "japaneseRuby": "[日射](ひざ)し    [降](ふ)り[注](そそ)ぐ ",
+    "japaneseWords": " 日射し:日射し 降り注ぐ:降り注ぐ ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "日射し    降り注ぐ ",
+    "japaneseRuby": "[日射](ひざ)し    [降](ふ)り[注](そそ)ぐ ",
+    "japaneseWords": " 日射し:日射し 降り注ぐ:降り注ぐ ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "輝きは 名も知らぬ誰かの上 愛する人の上",
+    "japaneseRuby": "[輝](かがや)きは [名](な)も[知](し)らぬ[誰](だれ)かの[上](うえ) [愛](あい)する[人](ひと)の[上](うえ)",
+    "japaneseWords": " 輝き:輝き は:は 名:名 も:も 知る:知ら ぬ:ぬ 誰:誰 か:か の:の 上:上 愛する:愛する 人:人 の:の 上:上 ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "   愛は         生きるものの",
+    "japaneseRuby": "   [愛](あい)は         [生](い)きるものの",
+    "japaneseWords": " 愛:愛 は:は 生きる:生きる ものの:ものの ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "   愛は         生きるものの",
+    "japaneseRuby": "   [愛](あい)は         [生](い)きるものの",
+    "japaneseWords": " 愛:愛 は:は 生きる:生きる ものの:ものの ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "生きとし生けるもの すべての上に",
+    "japaneseRuby": "[生](い)きとし[生](い)けるもの すべての[上](うえ)に",
+    "japaneseWords": " 生き:生き と:と する:し 生ける:生ける もの:もの すべて:すべて の:の 上:上 に:に ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "          すべての上に",
+    "japaneseRuby": "          すべての[上](うえ)に",
+    "japaneseWords": " すべて:すべて の:の 上:上 に:に ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "          すべての上に",
+    "japaneseRuby": "          すべての[上](うえ)に",
+    "japaneseWords": " すべて:すべて の:の 上:上 に:に ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "いつも 愛を   優しい この日々を この歌を ",
+    "japaneseRuby": "いつも [愛](あい)を   [優](やさ)しい この[日々](ひび)を この[歌](うた)を ",
+    "japaneseWords": " いつも:いつも 愛:愛 を:を 優しい:優しい この:この 日々:日々 を:を この:この 歌:歌 を:を ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "いつも この花を ずっと この日々を きっと約束を ",
+    "japaneseRuby": "いつも この[花](はな)を ずっと この[日々](ひび)を きっと[約束](やくそく)を ",
+    "japaneseWords": " いつも:いつも この:この 花:花 を:を ずっと:ずっと この:この 日々:日々 を:を きっと:きっと 約束:約束 を:を ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "いつも この花を ずっと この日々を きっと約束を",
+    "japaneseRuby": "いつも この[花](はな)を ずっと この[日々](ひび)を きっと[約束](やくそく)を",
+    "japaneseWords": " いつも:いつも この:この 花:花 を:を ずっと:ずっと この:この 日々:日々 を:を きっと:きっと 約束:約束 を:を ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "輝く 明日へ",
+    "japaneseRuby": "[輝](かがや)く [明日](あした)へ",
+    "japaneseWords": " 輝く:輝く 明日:明日 へ:へ ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "輝く 明日へ",
+    "japaneseRuby": "[輝](かがや)く [明日](あした)へ",
+    "japaneseWords": " 輝く:輝く 明日:明日 へ:へ ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "輝く 明日へ",
+    "japaneseRuby": "[輝](かがや)く [明日](あした)へ",
+    "japaneseWords": " 輝く:輝く 明日:明日 へ:へ ",
+    "part": 3,
+    "sub": true
+  },
+  {
+    "musicId": 10
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "La La La La La La",
+    "japaneseRuby": "[La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ)",
+    "japaneseWords": " La:La La:La La:La La:La La:La La:La ",
+    "part": 1
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "La La La La La La La La…",
+    "japaneseRuby": "[La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ)…",
+    "japaneseWords": " La:La La:La La:La La:La La:La La:La La:La La:La …:… ",
+    "part": 2
+  },
+  {
+    "musicId": 10,
+    "language": "japanese",
+    "japanese": "La La La La La La La La…",
+    "japaneseRuby": "[La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ) [La](ラ)…",
+    "japaneseWords": " La:La La:La La:La La:La La:La La:La La:La La:La …:… ",
+    "part": 3
   },
   {
     "title": "月奏～ツキカナデ～",

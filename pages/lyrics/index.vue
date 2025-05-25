@@ -25,7 +25,7 @@
       </template>
       <div v-if="selectedTag" class="mb-4" id="selected-tag">
         絞り込み条件: #{{ selectedTag }}
-        <AtomChipButton @click="selectedTag = null">クリア</AtomChipButton>
+        <AtomChipButton @click="clearSelectedTag">クリア</AtomChipButton>
       </div>
       <UTable :ui="{
         th: {
@@ -62,6 +62,7 @@
 const { getMusicTags, getMusicByTag } = useLyrics();
 const tags = getMusicTags();
 const route = useRoute();
+const router = useRouter();
 const selectedTag = ref<string | null>(route.query.tag as string | null);
 const musics = ref(getMusicByTag(selectedTag.value ?? undefined));
 const title = computed(() => (selectedTag.value ? `#${selectedTag.value} の` : '') + '歌詞一覧');
@@ -106,4 +107,9 @@ const accordionItems = [
 watch(selectedTag, () => {
   musics.value = getMusicByTag(selectedTag.value ?? undefined);
 });
+
+const clearSelectedTag = () => {
+  selectedTag.value = null;
+  router.replace('/lyrics');
+};
 </script>
