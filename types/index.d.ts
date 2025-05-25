@@ -113,7 +113,7 @@ export type TMusic = {
   // パート設定
   parts?: {
     name: string,
-    class: string,
+    class?: string,
   }[];
 };
 

@@ -46,7 +46,7 @@
           <span v-if="!lyric?.lyric && !lyric?.japanese">&nbsp;</span>
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2 items-center">
-            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + part(lyric.part)?.class">
+            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + (part(lyric.part)?.class ?? '')">
               {{ part(lyric.part)?.name }}
             </div>
             <AtomChipButton v-if="lyric.unperformed">
@@ -149,7 +149,7 @@ definePageMeta({
   }
 });
 
-const title = "【歌詞】" + music?.title;
+const title = "[歌詞]" + music?.title;
 const description = `${title}の歌詞と発音（カタカナ）、および単語の意味です。 ` + (lyrics.map(lyric => lyric.lyric || lyric.japanese).join(' '));
 // OGタグを設定
 useHead({
