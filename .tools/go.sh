@@ -1,1 +1,1 @@
-node lib/src/hymmnosLyrics lyrics/exec.hym
+node lib/.tools/src/hymmnosLyrics "lyrics/1/2_月奏 ~ツキカナデ~ アルトネリコ ヒュムノスコンサート サイド 紅/8_EXEC_RE=NATION.hym"

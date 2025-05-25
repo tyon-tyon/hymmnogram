@@ -1,6 +1,6 @@
-import _words from "../in/words.json";
-import _idioms from "../in/idioms.json";
-import type { TJsonWord, TWord, TEmotionVowel, TIdiom } from "../in/types";
+import _words from "@/assets/datas/words.json";
+import _idioms from "@/assets/datas/idioms.json";
+import type { TJsonWord, TWord, TEmotionVowel, TIdiom } from "@/types/index";
 
 const emotionVowels = "(LY|Y)?[AIUEON]";
 
@@ -32,7 +32,7 @@ export default function () {
       w.hymmnos.toLowerCase().includes(lowerCaseQuery) ||
       w.japanese.some(m => m.toLowerCase().includes(lowerCaseQuery)) ||
       w.gerunds?.some(g => g.toLowerCase().includes(lowerCaseQuery)) ||
-      w.pronunciation?.toLowerCase().includes(lowerCaseQuery) ||
+      w.pronunciation?.some(p => p.toLowerCase().includes(lowerCaseQuery)) ||
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
@@ -40,7 +40,7 @@ export default function () {
 
   // 単語データを更新
   const updateWords = (originalWords: TJsonWord[]) => {
-    words.value = [..._words, ...originalWords];
+    words.value = [..._words, ...originalWords] as TWord[];
   };
 
   // 解析した文章を取得
@@ -224,7 +224,7 @@ export default function () {
         hymmnos: q,
         primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
-        pronunciation: "",
+        pronunciation: [],
         part_of_speech: "複合語",
         dialect: "unknown",
         subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
