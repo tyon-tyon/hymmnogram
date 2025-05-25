@@ -27,33 +27,49 @@
         絞り込み条件: #{{ selectedTag }}
         <AtomChipButton @click="clearSelectedTag">クリア</AtomChipButton>
       </div>
-      <UTable :ui="{
-        th: {
-          padding: 'hidden',
-        },
-        td: {
-          padding: 'px-0',
-        },
-      }" :columns="columns" :rows="musics">
-        <template #title-data="{ row }">
-          <AtomLink :href="`/lyrics/${row.key}`">
-            {{ row.title }}
-          </AtomLink>
-        </template>
-      </UTable>
-      <UAccordion :items="accordionItems" class="mb-4" :ui="{ wrapper: 'w-full flex flex-col' }">
-        <template #tags>
-          <div v-for="tagObject in tags" :key="tagObject.category" class="mb-4">
-            <AtomH3>{{ tagObject.category }}</AtomH3>
-            <div class="flex flex-wrap gap-2">
-              <AtomLink v-for="(tag, index) in tagObject.tags" :key="index"
-                :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm" @click="selectedTag = tag">
-                #{{ tag }}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <UTable :ui="{
+            th: {
+              padding: 'hidden',
+            },
+            td: {
+              padding: 'px-0',
+            },
+          }" :columns="columns" :rows="musics">
+            <template #title-data="{ row }">
+              <AtomLink :href="`/lyrics/${row.key}`" class="text-lg font-bold">
+                {{ row.title }}
               </AtomLink>
-            </div>
-          </div>
-        </template>
-      </UAccordion>
+              <div class="flex flex-wrap gap-0.5">
+                <a 
+                v-for="tag in [...row.singer, ...row.tags]"
+                  :key="tag"
+                  class="text-xs border border-gray-300 rounded-md px-1 hover:bg-gray-100 cursor-pointer"
+                  @click="selectedTag = tag"
+                >
+                  #{{ tag }}
+                </a>
+              </div>
+            </template>
+          </UTable>
+        </div>
+        <div>
+          <UAccordion :items="accordionItems" class="mb-4" :ui="{ wrapper: 'w-full flex flex-col' }">
+            <template #tags>
+              <div v-for="tagObject in tags" :key="tagObject.category" class="mb-4">
+                <AtomH3>{{ tagObject.category }}</AtomH3>
+                <div class="flex flex-wrap gap-2">
+                  <AtomLink v-for="(tag, index) in tagObject.tags" :key="index"
+                    :href="`/lyrics/?tag=${encodeURIComponent(tag)}`" class="text-sm" @click="selectedTag = tag">
+                    #{{ tag }}
+                  </AtomLink>
+                </div>
+              </div>
+            </template>
+          </UAccordion>
+        </div>
+      </div>
     </ClientOnly>
   </Layout>
 </template>
