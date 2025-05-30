@@ -123,7 +123,6 @@
       "志方あきこ"
     ],
     "tags": [
-      "アルトネリコ 世界の終わりで詩い続ける少女",
       "「星詠~ホシヨミ」-Ar tonelico hymmnos concert Side 蒼-",
       "ボーナストラック"
     ]
@@ -292,6 +291,34 @@
         "name": "オリカ",
         "class": "text-red-500"
       }
+    ]
+  },
+  {
+    "id": 11,
+    "key": "tsukikanade",
+    "title": "月奏～ツキカナデ～",
+    "singer": [
+      "霜月はるか"
+    ],
+    "lyricist": [
+      "工藤順子"
+    ],
+    "composer": [
+      "稲垣貴繁"
+    ],
+    "arranger": [
+      "稲垣貴繁"
+    ],  "parts": [
+      {
+        "name": "A-Part"
+      },
+      {
+        "name": "B-Part"
+      }
+    ],
+    "tags": [
+      "「月奏~ツキカナデ」-Ar tonelico hymmnos concert Side 紅-",
+      "ボーナストラック"
     ]
   }
 ]

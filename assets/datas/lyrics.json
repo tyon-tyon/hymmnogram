@@ -4225,92 +4225,255 @@
     "part": 3
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Rrha yea ra tie yor ini en nha.",
     "lyricWords": " rrha yea ra tie yor ini en nha . ",
     "japanese": "貴方をここへ召喚する",
-    "japaneseWords": " 貴方:貴方 を:を ここ:ここ へ:へ 召喚:召喚 する:する ",
-    "language": "hymmnos"
+    "japaneseWords": " 貴方:貴方 を:を ここ:ここ へ:へ 召喚:召喚 する:する "
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "詩よ私に 舞い降りよ",
+    "japaneseRuby": "[詩](うた)よ[私](わたし)に [舞](まい)い[降](お)りよ",
+    "japaneseWords": " 詩:詩 よ:よ 私:私 に:に 舞い降りる:舞い降り よ:よ "
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "詩よこの胸に 宿り給え",
+    "japaneseRuby": "[詩](うた)よこの[胸](むね)に [宿](やど)り[給](たま)え",
+    "japaneseWords": " 詩:詩 よ:よ この:この 胸:胸 に:に 宿り:宿り 給:給 え:え "
+  },
+  {
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Wee yea ra chs hymmnos.",
     "lyricWords": " wee yea ra chs hymmnos . ",
     "japanese": "そして、貴方は謳となる",
     "japaneseWords": " そして:そして 貴方:貴方 は:は 謳:謳 と:と なる:なる ",
-    "language": "hymmnos"
+    "correction": {
+      "japanese": "そして、貴方は詩となる",
+      "japaneseWords": " そして:そして 貴方:貴方 は:は 詩:詩 と:と なる:なる "
+    }
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "この声を 使徒として",
+    "japaneseRuby": "この[声](こえ)を [使徒](しと)として",
+    "japaneseWords": " この:この 声:声 を:を 使徒:使徒 として:として "
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "伝えよ その想い",
+    "japaneseRuby": "[伝](つた)えよ その[想](おも)い",
+    "japaneseWords": " 伝える:伝えよ その:その 想い:想い "
+  },
+  {
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "時を越え 地上に 届く波動は",
+    "japaneseRuby": "[時](とき)を[越](こ)え [地上](ちじょう)に [届](とど)く[波動](はどう)は",
+    "japaneseWords": " 時:時 を:を 越える:越え 地上:地上 に:に 届く:届く 波動:波動 は:は "
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Wee yea ra selena mea.",
     "lyricWords": " wee yea ra selena mea . ",
     "japanese": "己自身を奏でよ",
     "japaneseWords": " 己:己 自身:自身 を:を 奏でる:奏でよ ",
-    "language": "hymmnos"
+    "sub": true
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "文字の無い あなたの 綴るこの物語",
+    "japaneseRuby": "[文字](もじ)の[無](な)い あなたの [綴](つづ)るこの[物語](ものがたり)",
+    "japaneseWords": " 文字:文字 の:の 無い:無い あなた:あなた の:の 綴る:綴る この:この 物語:物語 "
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Fou paks ra kiafa wael en chs frawr.",
     "lyricWords": " fou paks ra kiafa wael en chs frawr . ",
     "japanese": "そして皆の喜びを聴き、花になれることに歓喜せよ",
     "japaneseWords": " そして:そして 皆:皆 の:の 喜び:喜び を:を 聴く:聴き 花:花 に:に なれる:なれる こと:こと に:に 歓喜:歓喜 する:せよ ",
-    "language": "hymmnos"
+    "sub": true
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "私は謳おう 朝に夕に",
+    "japaneseRuby": "[私](わたし)は[謳](うた)おう [朝](あさ)に[夕](ゆう)に",
+    "japaneseWords": " 私:私 は:は 謳う:謳お う:う 朝:朝 に:に 夕:夕 に:に "
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Harmon en mea.",
     "lyricWords": " harmon en mea . ",
     "japanese": "それこそが詩なのだ",
     "japaneseWords": " それ:それ こそ:こそ が:が 詩:詩 だ:な の:の だ:だ ",
-    "language": "hymmnos"
+    "sub": true
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "与えられし この身果つるまで",
+    "japaneseRuby": "[与](あた)えられし この[身](み)[果](は)つるまで",
+    "japaneseWords": " 与える:与え られる:られ し:し この:この 身:身 果:果 つる:つる まで:まで "
+  },
+  {
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Wee yea ra ene foul enrer.",
     "lyricWords": " wee yea ra ene foul enrer . ",
     "japanese": "詩は不思議だといつも思う",
-    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う ",
-    "language": "hymmnos"
+    "japaneseWords": " 詩:詩 は:は 不思議:不思議 だ:だ と:と いつも:いつも 思う:思う "
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Wee yea ra ene hymme syec mea.",
     "lyricWords": " wee yea ra ene hymme syec mea . ",
     "japanese": "詩は何よりも心の奥底を振るわせるものだと",
-    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と ",
-    "language": "hymmnos"
+    "japaneseWords": " 詩:詩 は:は 何:何 より:より も:も 心:心 の:の 奥底:奥底 を:を 振るう:振るわ せる:せる もの:もの だ:だ と:と "
   },
   {
-    "title": "月奏～ツキカナデ～",
-    "lyric": "Was yea ra hymme mea ks maya gyen yeal.",
-    "lyricWords": " was yea ra hymme mea ks maya gyen yeal . ",
+    "musicId": 11,
+    "language": "hymmnos",
+    "lyric": "Was yea ra hymme mea, ks maya gyen yeal.",
+    "lyricWords": " was yea ra hymme mea , ks maya gyen yeal . ",
     "japanese": "幸せの魔法紡ぐように私の琴線かき鳴らす",
-    "japaneseWords": " 幸せ:幸せ の:の 魔法:魔法 紡ぐ:紡ぐ よう:よう に:に 私:私 の:の 琴線:琴線 かき鳴らす:かき鳴らす ",
-    "language": "hymmnos"
+    "japaneseWords": " 幸せ:幸せ の:の 魔法:魔法 紡ぐ:紡ぐ よう:よう に:に 私:私 の:の 琴線:琴線 かき鳴らす:かき鳴らす "
   },
   {
-    "title": "月奏～ツキカナデ～",
-    "lyric": "hymme rol hymma, selena rol koora.",
-    "lyricWords": " hymme rol hymma , selena rol koora . ",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "この声は 風に乗り",
+    "japaneseRuby": "この[声](こえ)は [風](かぜ)に[乗](の)り",
+    "japaneseWords": " この:この 声:声 は:は 風:風 に:に 乗る:乗り "
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "希望の 種子となる きらきらと",
+    "japaneseRuby": "[希望](きぼう)の [種子](しゅし)となる きらきらと",
+    "japaneseWords": " 希望:希望 の:の 種子:種子 と:と なる:なる きらきら:きらきら と:と "
+  },
+  {
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "幾千の 心に 芽吹く未来は",
+    "japaneseRuby": "[幾千](いくせん)の [心](こころ)に [芽吹](めぶ)く[未来](みらい)は",
+    "japaneseWords": " 幾:幾 千:千 の:の 心:心 に:に 芽吹く:芽吹く 未来:未来 は:は "
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
+    "lyric": "Wee yea ra selena mea.",
+    "lyricWords": " wee yea ra selena mea . ",
+    "japanese": "己自身を奏でよ",
+    "japaneseWords": " 己:己 自身:自身 を:を 奏でる:奏でよ ",
+    "part": 1,
+    "sub": true
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
+    "lyric": "Fou paks ra kiafa wael en chs frawr.",
+    "lyricWords": " fou paks ra kiafa wael en chs frawr . ",
+    "japanese": "そして皆の喜びを聴き、花になれることに歓喜せよ",
+    "japaneseWords": " そして:そして 皆:皆 の:の 喜び:喜び を:を 聴く:聴き 花:花 に:に なれる:なれる こと:こと に:に 歓喜:歓喜 する:せよ ",
+    "part": 2,
+    "sub": true
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "姿無き あなたの 描く永遠の花",
+    "japaneseRuby": "[姿](すがた)[無](な)き あなたの [描](えが)く[永遠](えいえん)の[花](はな)",
+    "japaneseWords": " 姿:姿 無い:無き あなた:あなた の:の 描く:描く 永遠:永遠 の:の 花:花 "
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
+    "lyric": "hymme rol hymmer, selena rol koora.",
+    "lyricWords": " hymme rol hymmer , selena rol koora . ",
     "japanese": "小鳥のように謳え、小川のように奏でよ",
     "japaneseWords": " 小鳥:小鳥 の:の よう:よう に:に 謳う:謳え 小川:小川 の:の よう:よう に:に 奏でる:奏でよ ",
-    "language": "hymmnos"
+    "correction": {
+      "lyric": "hymme rol hymma, selena rol koora.",
+      "lyricWords": " hymme rol hymma , selena rol koora . "
+    },
+    "part": 1,
+    "sub": true
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Fou paks ra chs lequera, en chs frawr.",
     "lyricWords": " fou paks ra chs lequera , en chs frawr . ",
-    "japanese": "善きものとなれ、そして花となれ",
-    "japaneseWords": " 善い:善き もの:もの と:と なれる:なれ そして:そして 花:花 と:と なる:なれ ",
-    "language": "hymmnos"
+    "japanese": "善きものとなれ、そして花とな",
+    "japaneseWords": " 善い:善き もの:もの と:と なれる:なれ そして:そして 花:花 と:と な:な ",
+    "correction": {
+      "japanese": "善きものとなれ、そして花となれ",
+      "japaneseWords": " 善い:善き もの:もの と:と なれる:なれ そして:そして 花:花 と:と なる:なれ "
+    },
+    "part": 2,
+    "sub": true
   },
   {
-    "title": "月奏～ツキカナデ～",
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "japanese",
+    "japanese": "私は謳おう 今日も明日も",
+    "japaneseRuby": "[私](わたし)は[謳](うた)おう [今日](きょう)も[明日](あす)も",
+    "japaneseWords": " 私:私 は:は 謳う:謳お う:う 今日:今日 も:も 明日:明日 も:も "
+  },
+  {
+    "musicId": 11
+  },
+  {
+    "musicId": 11,
+    "language": "hymmnos",
     "lyric": "Was yea ra wael yor pak en ini pat yor.",
     "lyricWords": " was yea ra wael yor pak en ini pat yor . ",
     "japanese": "貴方の未来を祝福し、そして元の世界へ送還する",
-    "japaneseWords": " 貴方:貴方 の:の 未来:未来 を:を 祝福:祝福 する:し そして:そして 元:元 の:の 世界:世界 へ:へ 送還:送還 する:する ",
-    "language": "hymmnos"
+    "japaneseWords": " 貴方:貴方 の:の 未来:未来 を:を 祝福:祝福 する:し そして:そして 元:元 の:の 世界:世界 へ:へ 送還:送還 する:する "
   },
   {
     "title": "謳う丘～Harmonics FRELIA～",
