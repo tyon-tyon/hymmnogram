@@ -46,7 +46,7 @@
           <span v-if="!lyric?.lyric && !lyric?.japanese">&nbsp;</span>
           <!-- タグ表示 -->
           <div class="flex flex-wrap gap-2 items-center">
-            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + part(lyric.part)?.class">
+            <div v-if="lyric.part && part(lyric.part)" :class="'text-xs ' + (part(lyric.part)?.class ?? '')">
               {{ part(lyric.part)?.name }}
             </div>
             <AtomChipButton v-if="lyric.unperformed">

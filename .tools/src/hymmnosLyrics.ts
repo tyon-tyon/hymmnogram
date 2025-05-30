@@ -130,39 +130,41 @@ async function convertHymmnos(line: string[]): Promise<TLyric> {
     let japanese: string = '';
     let correction: TLyric['correction'] | null = null;
     let unofficial: { lyric?: boolean, japanese?: boolean; } | null = null;
-    for (const l of line) {
+    for (let l of line) {
         // 日本語がマッチしたら日本語歌詞または訳
         if (isJapanese(l)) {
+            japanese = l;
             if (l.match(/^!/)) {
                 // 訂正フラグがある場合は訂正フラグを削除して訂正歌詞を追加
                 correction = correction ?? {};
                 correction.japanese = l.replace(/^!/, '');
-            } else {
-                if (l.match(/^\*/)) {
-                    // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
-                    unofficial = unofficial ?? {};
-                    unofficial.japanese = true;
-                    japanese = l.replace(/^\*/, '');
-                } else {
-                    // 非公式フラグがない場合は日本語歌詞を追加
-                    japanese = l;
+                l = correction.japanese;
+            }
+            if (l.match(/^\*/)) {
+                // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
+                unofficial = unofficial ?? {};
+                unofficial.japanese = true;
+                japanese = l.replace(/^\*/, '');
+                if (correction?.japanese) {
+                    correction.japanese = correction.japanese.replace(/^\*/, '');
                 }
             }
         } else {
             // ヒュムノス歌詞
+            lyric = l;
             if (l.match(/^!/)) {
                 // 訂正フラグがある場合は訂正フラグを削除して訂正歌詞を追加
                 correction = correction ?? {};
                 correction.lyric = l.replace(/^!/, '');
-            } else {
-                if (l.match(/^\*/)) {
-                    // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
-                    unofficial = unofficial ?? {};
-                    unofficial.lyric = true;
-                    lyric = l.replace(/^\*/, '');
-                } else {
-                    // 非公式フラグがない場合はヒュムノス歌詞を追加
-                    lyric = l;
+                l = correction.lyric;
+            }
+            if (l.match(/^\*/)) {
+                // 非公式フラグがある場合は非公式フラグを削除して非公式歌詞を追加
+                unofficial = unofficial ?? {};
+                unofficial.lyric = true;
+                lyric = l.replace(/^\*/, '');
+                if (correction?.lyric) {
+                    correction.lyric = correction.lyric.replace(/^\*/, '');
                 }
             }
         }

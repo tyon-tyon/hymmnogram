@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   },
 
   gtm: {
-    id: process.env.GTM_ID ?? "",
+    id: process.env.GTM_ID ?? "GTM-0000000",
   },
 
   pwa: {
