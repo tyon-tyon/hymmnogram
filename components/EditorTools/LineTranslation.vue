@@ -20,7 +20,7 @@
         :word="getArCielaWord(word, !cursorLine.match(/[\-\!\#\$\%\&\(\'\)]/))" small />
     </div>
     <div v-else class="line pl-2 pr-10">
-      {{hymmnosWords.map((w) => w.hymmnos).join("")}}
+      {{hymmnosWords?.map((w) => w.hymmnos).join("") ?? ""}}
     </div>
     <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-white/90 dark:to-black/90"></div>
   </div>
@@ -37,7 +37,7 @@ const language = ref("ヒュムノス");
 
 // カーソル行のヒュムノスワードを取得
 const hymmnosWords = computed(() => {
-  return editorWords.value[cursorLineIndex.value];
+  return editorWords.value[cursorLineIndex.value] ?? [];
 });
 
 // カーソル行のアルシエラワードを取得
@@ -51,12 +51,12 @@ watch(
   () => [cursorLine.value, cursorLineIndex.value],
   () => {
     // 英数字を含むワードのみ抽出
-    const words = hymmnosWords.value.filter(
+    const words = hymmnosWords.value?.filter(
       (w) => !w.hymmnos.match(/^[^a-z]+$/)
-    );
+    ) ?? [];
 
     // ワードがないならヒュムノス
-    if (!words) {
+    if (!words || words.length === 0) {
       language.value = "ヒュムノス";
       return;
     }
