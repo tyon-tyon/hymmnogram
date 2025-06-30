@@ -1,8 +1,29 @@
 import _words from "@/assets/datas/words.json";
 import _idioms from "@/assets/datas/idioms.json";
 import type { TJsonWord, TWord, TEmotionVowel, TIdiom } from "~/types";
+import { convertKana } from "~/lib/strings";
 
 const emotionVowels = "(LY|Y)?[AIUEON]";
+const emotionVowelMap = {
+  "A": "ア",
+  "I": "イ",
+  "U": "ウ",
+  "E": "エ",
+  "O": "オ",
+  "N": "ン",
+  "YA": "ヤ",
+  "YI": "イィ",
+  "YU": "ユ",
+  "YE": "イェ",
+  "YO": "ヨ",
+  "YN": "イン",
+  "LYA": "リャ",
+  "LYI": "リ",
+  "LYU": "リュ",
+  "LYE": "リェ",
+  "LYO": "リョ",
+  "LYN": "リン",
+}
 
 export default function () {
   // ローカルストレージから単語データを取得
@@ -244,7 +265,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜される",
           voice: "受動",
-          pronunciation: []
+          pronunciation: [convertKana(emotionVerb.hymmnos)+"えー"]
         };
       }
     }
@@ -257,7 +278,7 @@ export default function () {
           hymmnos: q,
           primaryMeaning: emotionVerb.japanese[0] + " 〜すること",
           voice: "動名詞",
-          pronunciation: []
+          pronunciation: [convertKana(emotionVerb.hymmnos)+"ざ"]
         };
       }
     }
@@ -288,7 +309,7 @@ export default function () {
           emotionVowels: emotionVowelMeanings,
           subWords: [pastalieVerb],
           primaryMeaning: pastalieVerb.japanese[0],
-          pronunciation: []
+          pronunciation: [convertKana(q)]
         };
       }
     }
@@ -308,12 +329,15 @@ export default function () {
 
     let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
 
+    let wordPronunciation: string = "";
+    let ownerPronunciation: string = "";
     // 単語を取得
     possessiveWord = getWordExactMatch(wordSrt);
     // 単語が見つからない場合はパスタリエ所有格ではない
     if (!possessiveWord) return;
     // 単語が見つかった場合はsubWordsに追加
     subWords.push(possessiveWord);
+    wordPronunciation = possessiveWord.pronunciation?.[0] ?? "";
 
     if (ownerStr) {
       // 所有者がいる場合は完全一致で単語を検索
@@ -321,6 +345,7 @@ export default function () {
       if (possessiveOwner) {
         // 所有者の単語が見つかった場合はその意味を設定
         ownerStr = possessiveOwner.primaryMeaning ?? possessiveOwner.japanese[0];
+        ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? "";
       } else {
         // 所有者の単語が見つからない場合はEmpyWordDataを設定
         possessiveOwner = { ...emptyWordData, hymmnos: ownerStr };
@@ -345,7 +370,7 @@ export default function () {
       possessiveOwner: possessiveOwner ?? ownerStr,
       subWords,
       emotionVowels: [getEmotionVowel(emotionVowel)],
-      pronunciation: []
+      pronunciation: [emotionVowelMap[emotionVowel as keyof typeof emotionVowelMap]+wordPronunciation+" "+ ownerPronunciation]
     };
 
   }
