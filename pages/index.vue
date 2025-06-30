@@ -34,7 +34,7 @@ let timer: NodeJS.Timeout;
 watch(keyword, () => {
   clearTimeout(timer);
   timer = setTimeout(() => {
-    search();
+    if (keyword.value.length > 0) search();
   }, 1000);
 });
 </script>
