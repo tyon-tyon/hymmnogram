@@ -11,39 +11,56 @@ export default function () {
   const textareaText = useState<string>('textareaText', () => "");
   const lineHtmls = useState<string[]>('lineHtmls', () => ["\n"]);
 
+  let timer: NodeJS.Timeout;
   const changeTextarea = (text: string) => {
+    clearTimeout(timer);
     textareaText.value = text;
-    // テキストを分割
-    editorWords.value = getWords(text, true);
-    // htmlを生成
-    lineHtmls.value = editorWords.value.map((words, lineIndex) => {
-      return words
-        .map((word) => {
-          // 日本語の場合は何もしない
-          if (
-            word.hymmnos.match(
-              /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/
-            )
-          ) {
-            return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
-          }
-          const dialectClass = getDialectTextClass(word?.dialect ?? null);
-
-          // 単語が存在する場合はその言語で表示
-          if (word.dialect)
-            return `<span class="${dialectClass}">` + word.hymmnos + `</span>`;
-
-          // 英字が含まれている場合は誤字として表示
-          if (word.hymmnos.match(/^[A-Za-z\=\-\>]+$/))
-            return (
-              `<span class="text-black dark:text-white bg-cool-300 dark:bg-cool-700">` + word.hymmnos + `</span>`
-            );
-
-          // それ以外は黒文字で表示
-          return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
-        })
-        .join("");
+    const lines = text.split("\n");
+    // 編集中の行は即時更新
+    lineHtmls.value = lines.map((line, index) => {
+      if (index === cursorLineIndex.value)
+        return getLineHtml(getWords(line, true)[0] ?? []);
+      return lineHtmls.value[index];
     });
+
+    // 行数が変わった場合は全行を更新
+    timer = setTimeout(() => {
+      // テキストを分割
+      editorWords.value = getWords(text, true);
+      // htmlを生成
+      lineHtmls.value = editorWords.value.map((words) => {
+        return getLineHtml(words);
+      });
+    }, 200);
+  };
+
+  const getLineHtml = (words: TWord[]) => {
+    return words
+      .map((word) => {
+        // 日本語の場合は何もしない
+        if (
+          word.hymmnos.match(
+            /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/
+          )
+        ) {
+          return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
+        }
+        const dialectClass = getDialectTextClass(word?.dialect ?? null);
+
+        // 単語が存在する場合はその言語で表示
+        if (word.dialect)
+          return `<span class="${dialectClass}">` + word.hymmnos + `</span>`;
+
+        // 英字が含まれている場合は誤字として表示
+        if (word.hymmnos.match(/^[A-Za-z\=\-\>]+$/))
+          return (
+            `<span class="text-black dark:text-white bg-cool-300 dark:bg-cool-700">` + word.hymmnos + `</span>`
+          );
+
+        // それ以外は黒文字で表示
+        return `<span class="text-black dark:text-white">` + word.hymmnos + `</span>`;
+      })
+      .join("");
   };
 
   const changeCursorPosition = (_cursorPosition: number) => {
