@@ -166,7 +166,7 @@ export default function () {
       return {
         hymmnos: idiomWords.map(w => w.hymmnos).join(" "),
         japanese: idiom.japanese,
-        pronunciation: idiom.pronunciation ?? [idiomWords.map(w => w.pronunciation?.[0]).join(" ")],
+        pronunciation: idiom.pronunciation ?? [idiomWords.map(w => w.pronunciation?.[0] ?? convertKana(w.hymmnos)).join(" ")],
         part_of_speech: "慣用句",
         dialect: idiom.dialect ?? "unknown",
         primaryMeaning: idiom.japanese[0],
@@ -246,7 +246,7 @@ export default function () {
         hymmnos: q,
         primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
-        pronunciation: [founds.map(f => f.pronunciation?.[0]).join(" ")],
+        pronunciation: [founds.map(f => f.pronunciation?.[0] ?? convertKana(f.hymmnos)).join(" ")],
         part_of_speech: "複合語",
         dialect: "unknown",
         subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
@@ -337,7 +337,7 @@ export default function () {
     if (!possessiveWord) return;
     // 単語が見つかった場合はsubWordsに追加
     subWords.push(possessiveWord);
-    wordPronunciation = possessiveWord.pronunciation?.[0] ?? "";
+    wordPronunciation = possessiveWord.pronunciation?.[0] ?? convertKana(possessiveWord.hymmnos);
 
     if (ownerStr) {
       // 所有者がいる場合は完全一致で単語を検索
@@ -345,7 +345,7 @@ export default function () {
       if (possessiveOwner) {
         // 所有者の単語が見つかった場合はその意味を設定
         ownerStr = possessiveOwner.primaryMeaning ?? possessiveOwner.japanese[0];
-        ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? "";
+        ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? convertKana(possessiveOwner.hymmnos);
       } else {
         // 所有者の単語が見つからない場合はEmpyWordDataを設定
         possessiveOwner = { ...emptyWordData, hymmnos: ownerStr };
@@ -370,7 +370,7 @@ export default function () {
       possessiveOwner: possessiveOwner ?? ownerStr,
       subWords,
       emotionVowels: [getEmotionVowel(emotionVowel)],
-      pronunciation: [emotionVowelMap[emotionVowel as keyof typeof emotionVowelMap]+wordPronunciation+" "+ ownerPronunciation]
+      pronunciation: [emotionVowelMap[emotionVowel as keyof typeof emotionVowelMap]+wordPronunciation+"　"+ ownerPronunciation]
     };
 
   }
