@@ -99,7 +99,7 @@ const consonantMap = {
   z: "ず",
   zy: "じ",
   zh: "ず",
-  x: "ず",
+  x: "くす",
   c: "く",
   cy: "ち",
   ch: "ち",
