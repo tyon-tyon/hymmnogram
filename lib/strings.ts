@@ -211,5 +211,6 @@ export const convertKana = (roman: string) => {
     }
     parts.push(consonant);
   }
-  return parts.join("").replace(/ +/g, " ");
+  const result = parts.join("").replace(/ +/g, " ");
+  return result.length > 0 ? result : "　";
 };
