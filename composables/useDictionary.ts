@@ -183,13 +183,15 @@ export default function () {
   const splitHymmnos = (text: string): string[] => {
     const cleanedLine = text
       .replace(/([a-z\.])([\!\?,\s\"\(\)『』「」（）])/gi, "$1\r$2") // , と " の前に改行を入れる
-      .replace(/([\!\?:,\s\"\(\)『』「」（）]+)/g, "$1\r") // ! ? , " の前に改行を入れる
       .replace(/(:\/|\/:)/g, "\r$1\r") // :/ と /: の前後に改行を入れる
+      .replace(/([\!\?:,\s\"\(\)『』「」（）]+)/g, "$1\r") // 単独で使われる記号の前に改行を入れる
       .replace(/Xc= */g, "\rXc=\r") // Xc= の前後に改行を入れる
+      .replace(/([\-=>])>/g, "\r$1>\r") // 矢印の前後に改行を入れる
       .replace(/([\<\-\>]{2,})/g, "\r$1\r") // コマンドで使われる文字列の前後に改行を入れる
       .replace(/\/\./g, "\r/.\r") // /. の前後に改行を入れる
       .replace(/([a-z0-9\.])\/([a-z0-9\.])/gi, "$1\r\/\r$2") // 小文字とドットの後に改行を入れる
       .replace(/\r+/g, "\r") // 連続する改行を1つにする
+      .replace(/([^a-z0-9\.=\s])\r+([^a-z0-9\.=\s])/gi, "$1$2")
       .replace(/(^\r|\r$)/, ""); // 先頭と末尾の改行を削除
 
     // 現段階で`x.`が1つの単語として認識される。
@@ -200,6 +202,8 @@ export default function () {
         // exactMatchがないならドットを分割する
         if (!exactMatch?.japanese.length) {
           const splitWords = word.replace(/\./g, "\r.\r") // ドットの前後に改行を入れる
+            .replace(/(\.)\r+(\.)/g, "$1$2") // 記号の間にある改行は削除
+            .replace(/(\.)\r+(\.)/gi, "$1$2") // 記号の間にある改行は削除
             .replace(/(^\r|\r$)/, "") // 先頭と末尾の改行を削除
             .split("\r");
           return splitWords;
@@ -329,7 +333,7 @@ export default function () {
     if (!possessive) return;
     const emotionVowel = possessive[1]; // 想母音
 
-    let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
+    let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
 
     let wordPronunciation: string = "";
     let ownerPronunciation: string = "";
