@@ -30,6 +30,13 @@ export default function () {
   const words = useState<TWord[]>('words', () => _words as TWord[]);
   const idioms = _idioms as TIdiom[];
 
+  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: [] };
+
+
+  const getEmptyWordData = (str: string) => {
+    return { ...emptyWordData, hymmnos: str, pronunciation: [convertKana(str)] };
+  };
+
   // 完全一致の単語を取得
   const getExactMatch = (q: string, dialect?: string): TWord | undefined => {
     if (!q.length) return undefined;
@@ -43,7 +50,7 @@ export default function () {
     // 通常の完全一致
     const exactMatch = getWordExactMatch(q, dialect);
     if (exactMatch) return exactMatch;
-    return { ...emptyWordData, hymmnos: q, primaryMeaning: q };
+    return getEmptyWordData(q);
   };
 
   // 部分一致の単語を取得
@@ -58,8 +65,6 @@ export default function () {
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: [] };
-
   // 単語データを更新
   const updateWords = (originalWords: TJsonWord[]) => {
     words.value = [..._words as TWord[], ...originalWords];
@@ -85,14 +90,11 @@ export default function () {
       let hymmnosWords = words.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
-          return { ...emptyWordData, hymmnos: word };
+          return getEmptyWordData(word);
         }
         // 単語検索
         return (
-          getExactMatch(word) || {
-            ...emptyWordData,
-            hymmnos: word,
-          }
+          getExactMatch(word) || getEmptyWordData(word)
         );
       }).filter((word) => isEditor ? true : word.hymmnos !== " ");
 
@@ -181,7 +183,7 @@ export default function () {
   const splitHymmnos = (text: string): string[] => {
     const cleanedLine = text
       .replace(/([a-z\.])([\!\?,\s\"\(\)『』「」（）])/gi, "$1\r$2") // , と " の前に改行を入れる
-      .replace(/([\!\?,\s\"\(\)『』「」（）])/g, "$1\r") // ! ? , " の前に改行を入れる
+      .replace(/([\!\?:,\s\"\(\)『』「」（）]+)/g, "$1\r") // ! ? , " の前に改行を入れる
       .replace(/(:\/|\/:)/g, "\r$1\r") // :/ と /: の前後に改行を入れる
       .replace(/Xc= */g, "\rXc=\r") // Xc= の前後に改行を入れる
       .replace(/([\<\-\>]{2,})/g, "\r$1\r") // コマンドで使われる文字列の前後に改行を入れる
@@ -236,7 +238,7 @@ export default function () {
     const founds = q.split(/[_=]/g)
       .map(str =>
         words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0] ??
-        { ...emptyWordData, hymmnos: str }
+        getEmptyWordData(str)
       );
     // 全ての単語が空の場合は見つからなかったと判断
     if (founds.every(f => f.japanese.length === 0)) return;
@@ -348,7 +350,7 @@ export default function () {
         ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? convertKana(possessiveOwner.hymmnos);
       } else {
         // 所有者の単語が見つからない場合はEmpyWordDataを設定
-        possessiveOwner = { ...emptyWordData, hymmnos: ownerStr };
+        possessiveOwner = getEmptyWordData(ownerStr);
       }
       // subWordsを設定
       if (possessiveOwner.subWords) {

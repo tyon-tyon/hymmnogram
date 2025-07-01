@@ -75,10 +75,10 @@ const consonantMap = {
   sy: "し",
   sh: "し",
   sw: "す",
-  d: "づ",
+  d: "ど",
   dy: "でぃ",
-  dh: "づ",
-  dw: "づ",
+  dh: "ど",
+  dw: "ど",
   f: "ふ",
   fy: "ふぃ",
   fh: "ふぅ",
@@ -117,16 +117,16 @@ const consonantMap = {
   u: "う",
   e: "え",
   o: "お",
-  "0": "　ネル　",
-  "1": "　ノイ　",
-  "2": "　ジ　",
-  "3": "　ドリ　",
-  "4": "　フェフ　",
-  "5": "　ヴィラ　",
-  "6": "　イクサ　",
-  "7": "　へプト　",
-  "8": "　オクタ　",
-  "9": "　ネイ　",
+  "0": " ネル ",
+  "1": " ノイ ",
+  "2": " ジ ",
+  "3": " ドリ ",
+  "4": " フェフ ",
+  "5": " ヴィラ ",
+  "6": " イクサ ",
+  "7": " へプト ",
+  "8": " オクタ ",
+  "9": " ネイ ",
 };
 // 母音
 const vowelMap = {
@@ -144,17 +144,17 @@ const sortByLength = (map: Record<string, any>) => {
 // バイナリの読み専門
 const convertBinaryToKana = (binary: string) => {
   const binaryMap = {
-    "0": "　オ　",
-    "1": "　イ　",
-    x: "　グ　"
+    "0": " オ ",
+    "1": " イ ",
+    x: " グ "
   };
-  return binary.split("").map((char) => binaryMap[char as keyof typeof binaryMap]).join("").replace(/　+/g, "　");
+  return binary.split("").map((char) => binaryMap[char as keyof typeof binaryMap]).join("").replace(/ +/g, " ");
 };
 
 // ローマ字からかなに変換する関数
 export const convertKana = (roman: string) => {
   roman = roman.toLowerCase();
-  if(roman.match(/^[01x]+$/)){
+  if(roman.match(/^[01x ]+$/)){
     return convertBinaryToKana(roman);
   }
   const sortedKanaMap = sortByLength(kanaMap);
@@ -211,5 +211,5 @@ export const convertKana = (roman: string) => {
     }
     parts.push(consonant);
   }
-  return parts.join("").replace(/　+/g, "　");
+  return parts.join("").replace(/ +/g, " ");
 };
