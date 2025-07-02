@@ -113,7 +113,6 @@ export default defineNuxtConfig({
       const urls = musics.map(music => {
         return `/lyrics/${music.key}`;
       });
-      /*
       // タグを追加
       musics.forEach(music => {
         music.tags.forEach(tag => {
@@ -121,8 +120,6 @@ export default defineNuxtConfig({
           urls.push(`/lyrics/?tag=${encodedTag}`);
         });
       });
-      */
-      
       return urls;
     },
   },
