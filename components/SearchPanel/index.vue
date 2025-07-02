@@ -36,8 +36,9 @@ watch([keyword, tab], (value) => {
     router.replace({ query: { q: value[0], t: value[1] } });
   }
 });
-// ページが読み込まれたら?keyword=を取得
+
 onBeforeMount(() => {
+  // ページが読み込まれたら?keyword=を取得
   const q = router.currentRoute.value.query.q;
   const t = router.currentRoute.value.query.t;
   if (q) {
@@ -45,6 +46,12 @@ onBeforeMount(() => {
   }
   if (t) {
     tab.value = Number(t);
+  }
+});
+onMounted(() => {
+  const textarea = document.querySelector("textarea");
+  if (textarea) {
+    textarea.focus();
   }
 });
 </script>
