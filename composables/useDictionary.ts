@@ -30,6 +30,13 @@ export default function () {
   const words = useState<TWord[]>('words', () => _words as TWord[]);
   const idioms = _idioms as TIdiom[];
 
+  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: [] };
+
+
+  const getEmptyWordData = (str: string) => {
+    return { ...emptyWordData, hymmnos: str, pronunciation: [convertKana(str)] };
+  };
+
   // 完全一致の単語を取得
   const getExactMatch = (q: string, dialect?: string): TWord | undefined => {
     if (!q.length) return undefined;
@@ -43,7 +50,7 @@ export default function () {
     // 通常の完全一致
     const exactMatch = getWordExactMatch(q, dialect);
     if (exactMatch) return exactMatch;
-    return { ...emptyWordData, hymmnos: q, primaryMeaning: q };
+    return getEmptyWordData(q);
   };
 
   // 部分一致の単語を取得
@@ -58,8 +65,6 @@ export default function () {
       w.part_of_speech.toLowerCase().includes(lowerCaseQuery)
     );
   };
-  const emptyWordData: TWord = { hymmnos: "", japanese: [], part_of_speech: "", dialect: "", primaryMeaning: "", pronunciation: [] };
-
   // 単語データを更新
   const updateWords = (originalWords: TJsonWord[]) => {
     words.value = [..._words as TWord[], ...originalWords];
@@ -85,14 +90,11 @@ export default function () {
       let hymmnosWords = words.map((word) => {
         // 日本語が含まれている場合はそのまま表示
         if (word.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]+/)) {
-          return { ...emptyWordData, hymmnos: word };
+          return getEmptyWordData(word);
         }
         // 単語検索
         return (
-          getExactMatch(word) || {
-            ...emptyWordData,
-            hymmnos: word,
-          }
+          getExactMatch(word) || getEmptyWordData(word)
         );
       }).filter((word) => isEditor ? true : word.hymmnos !== " ");
 
@@ -166,7 +168,7 @@ export default function () {
       return {
         hymmnos: idiomWords.map(w => w.hymmnos).join(" "),
         japanese: idiom.japanese,
-        pronunciation: idiom.pronunciation ?? [idiomWords.map(w => w.pronunciation?.[0]).join(" ")],
+        pronunciation: idiom.pronunciation ?? [idiomWords.map(w => w.pronunciation?.[0] ?? convertKana(w.hymmnos)).join(" ")],
         part_of_speech: "慣用句",
         dialect: idiom.dialect ?? "unknown",
         primaryMeaning: idiom.japanese[0],
@@ -181,13 +183,15 @@ export default function () {
   const splitHymmnos = (text: string): string[] => {
     const cleanedLine = text
       .replace(/([a-z\.])([\!\?,\s\"\(\)『』「」（）])/gi, "$1\r$2") // , と " の前に改行を入れる
-      .replace(/([\!\?,\s\"\(\)『』「」（）])/g, "$1\r") // ! ? , " の前に改行を入れる
       .replace(/(:\/|\/:)/g, "\r$1\r") // :/ と /: の前後に改行を入れる
+      .replace(/([\!\?:,\s\"\(\)『』「」（）]+)/g, "$1\r") // 単独で使われる記号の前に改行を入れる
       .replace(/Xc= */g, "\rXc=\r") // Xc= の前後に改行を入れる
+      .replace(/([\-=>])>/g, "\r$1>\r") // 矢印の前後に改行を入れる
       .replace(/([\<\-\>]{2,})/g, "\r$1\r") // コマンドで使われる文字列の前後に改行を入れる
       .replace(/\/\./g, "\r/.\r") // /. の前後に改行を入れる
       .replace(/([a-z0-9\.])\/([a-z0-9\.])/gi, "$1\r\/\r$2") // 小文字とドットの後に改行を入れる
       .replace(/\r+/g, "\r") // 連続する改行を1つにする
+      .replace(/([^a-z0-9\.=\s])\r+([^a-z0-9\.=\s])/gi, "$1$2")
       .replace(/(^\r|\r$)/, ""); // 先頭と末尾の改行を削除
 
     // 現段階で`x.`が1つの単語として認識される。
@@ -198,6 +202,8 @@ export default function () {
         // exactMatchがないならドットを分割する
         if (!exactMatch?.japanese.length) {
           const splitWords = word.replace(/\./g, "\r.\r") // ドットの前後に改行を入れる
+            .replace(/(\.)\r+(\.)/g, "$1$2") // 記号の間にある改行は削除
+            .replace(/(\.)\r+(\.)/gi, "$1$2") // 記号の間にある改行は削除
             .replace(/(^\r|\r$)/, "") // 先頭と末尾の改行を削除
             .split("\r");
           return splitWords;
@@ -236,7 +242,7 @@ export default function () {
     const founds = q.split(/[_=]/g)
       .map(str =>
         words.value.filter(w => w.hymmnos.toLowerCase() === str.toLowerCase())[0] ??
-        { ...emptyWordData, hymmnos: str }
+        getEmptyWordData(str)
       );
     // 全ての単語が空の場合は見つからなかったと判断
     if (founds.every(f => f.japanese.length === 0)) return;
@@ -246,7 +252,7 @@ export default function () {
         hymmnos: q,
         primaryMeaning: founds.map(f => f.japanese[0]).join("・"),
         japanese: [],
-        pronunciation: [founds.map(f => f.pronunciation?.[0]).join(" ")],
+        pronunciation: [founds.map(f => f.pronunciation?.[0] ?? convertKana(f.hymmnos)).join(" ")],
         part_of_speech: "複合語",
         dialect: "unknown",
         subWords: founds.map(f => ({ ...f, primaryMeaning: f.japanese[0] })),
@@ -327,7 +333,7 @@ export default function () {
     if (!possessive) return;
     const emotionVowel = possessive[1]; // 想母音
 
-    let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.=]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
+    let [, wordSrt, ownerStr] = possessive[3].match(/([a-zA-Z\.]+)_?([a-zA-Z\.=]+)?/) ?? [];// 単語, 所有者
 
     let wordPronunciation: string = "";
     let ownerPronunciation: string = "";
@@ -337,7 +343,7 @@ export default function () {
     if (!possessiveWord) return;
     // 単語が見つかった場合はsubWordsに追加
     subWords.push(possessiveWord);
-    wordPronunciation = possessiveWord.pronunciation?.[0] ?? "";
+    wordPronunciation = possessiveWord.pronunciation?.[0] ?? convertKana(possessiveWord.hymmnos);
 
     if (ownerStr) {
       // 所有者がいる場合は完全一致で単語を検索
@@ -345,10 +351,10 @@ export default function () {
       if (possessiveOwner) {
         // 所有者の単語が見つかった場合はその意味を設定
         ownerStr = possessiveOwner.primaryMeaning ?? possessiveOwner.japanese[0];
-        ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? "";
+        ownerPronunciation = possessiveOwner.pronunciation?.[0] ?? convertKana(possessiveOwner.hymmnos);
       } else {
         // 所有者の単語が見つからない場合はEmpyWordDataを設定
-        possessiveOwner = { ...emptyWordData, hymmnos: ownerStr };
+        possessiveOwner = getEmptyWordData(ownerStr);
       }
       // subWordsを設定
       if (possessiveOwner.subWords) {
@@ -370,7 +376,7 @@ export default function () {
       possessiveOwner: possessiveOwner ?? ownerStr,
       subWords,
       emotionVowels: [getEmotionVowel(emotionVowel)],
-      pronunciation: [emotionVowelMap[emotionVowel as keyof typeof emotionVowelMap]+wordPronunciation+" "+ ownerPronunciation]
+      pronunciation: [emotionVowelMap[emotionVowel as keyof typeof emotionVowelMap]+wordPronunciation+"　"+ ownerPronunciation]
     };
 
   }

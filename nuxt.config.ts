@@ -103,10 +103,17 @@ export default defineNuxtConfig({
     name: 'HYMMNOGRAM',
   },
   sitemap: {
+    // 自動検出されたページのデフォルト設定
+    defaults: {
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly' as const,
+      priority: 0.7 as const
+    },
     urls: () => {
       const urls = musics.map(music => {
         return `/lyrics/${music.key}`;
       });
+      /*
       // タグを追加
       musics.forEach(music => {
         music.tags.forEach(tag => {
@@ -114,6 +121,8 @@ export default defineNuxtConfig({
           urls.push(`/lyrics/?tag=${encodedTag}`);
         });
       });
+      */
+      
       return urls;
     },
   },

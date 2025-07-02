@@ -29,4 +29,12 @@ useHead({
     { rel: "canonical", href: "https://hymmnogram.fau-varda.net" },
   ],
 });
+
+let timer: NodeJS.Timeout;
+watch(keyword, () => {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    if (keyword.value.length > 0) search();
+  }, 1000);
+});
 </script>
