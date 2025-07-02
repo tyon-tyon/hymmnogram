@@ -103,6 +103,12 @@ export default defineNuxtConfig({
     name: 'HYMMNOGRAM',
   },
   sitemap: {
+    // 自動検出されたページのデフォルト設定
+    defaults: {
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly' as const,
+      priority: 0.7 as const
+    },
     urls: () => {
       const urls = musics.map(music => {
         return `/lyrics/${music.key}`;
@@ -116,6 +122,7 @@ export default defineNuxtConfig({
         });
       });
       */
+      
       return urls;
     },
   },
