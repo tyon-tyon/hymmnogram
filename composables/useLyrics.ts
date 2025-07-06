@@ -29,15 +29,15 @@ export default function useLyrics() {
         !exactLyricMatch.includes(lyric)
     );
     // 日本語の用例はOR検索をする
-    const japaneseWords = q.replace(/　/g, " ").split(" ");
+    const japaneseWords = q.replace(/　/g, " ").split(" ").filter(word => word.length > 0);
     // 日本語の例文を取得
-    const japaneseReg = new RegExp(japaneseWords.join("|"), 'gi'); 
-    const japaneseMatch = japaneseWords.map(word => lyrics.filter(lyric =>
+    const japaneseReg = new RegExp(japaneseWords.join("|"), 'gi');
+    const japaneseMatch = lyrics.filter(lyric =>
       lyric.japaneseWords?.match(japaneseReg) ||
       lyric.correction?.japaneseWords?.match(japaneseReg) ||
       lyric.japanese?.match(japaneseReg) ||
       lyric.correction?.japanese?.match(japaneseReg)
-    )).flat();
+    );
     // 重複削除
     const matches = [...new Set([...exactLyricMatch, ...lyricMatch, ...japaneseMatch])];
     return matches.map((match) => {
