@@ -71,7 +71,7 @@
 import type { TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
-    words?: TWord[];
+    words?: TWord[]; // オリジナルの単語専用
     action?: boolean;
     defaultRowCount?: number;
     showColumns?: string[];
