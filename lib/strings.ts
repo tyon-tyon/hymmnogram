@@ -158,7 +158,6 @@ export const convertNumberToKana = (number: string) => {
   const numbers = number.split("").reverse();
   // 桁数ごとの読み
   const digitKana = [];
-  // 
   for (const [i, num] of numbers.entries()) {
     if (num === "0") continue;
     const numKana = consonantMap[num as keyof typeof consonantMap].replace(/ /g, "");
