@@ -44,6 +44,7 @@ const items = [
 
 const lineWords = computed(() => {
   // ヒュムノスの文章の意味を調べる
+  if (keyword.value.match(/^[^a-zA-Z0-9]+$/)) return [];　// 英字がない場合は文章と見做さない
   if (keyword.value.match(/([\!\?\s,]|\/.)/)) return dictionary.getWords(keyword.value);
   return [];
 });
