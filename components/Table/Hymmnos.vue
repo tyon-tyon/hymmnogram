@@ -71,7 +71,7 @@
 import type { TWord } from "~/types";
 const props = withDefaults(
   defineProps<{
-    words?: TWord[];
+    words?: TWord[]; // オリジナルの単語専用
     action?: boolean;
     defaultRowCount?: number;
     showColumns?: string[];
@@ -124,6 +124,11 @@ const showAll = ref<boolean>(false);
 const words = computed(() => {
   if (props.words) return props.words;
   if (!keyword.value?.length) return dictionary.words.value;
+  // 日本語の用例はOR検索をする
+  if (keyword.value.match(/^[^a-zA-Z0-9]+$/)) {
+    const words = keyword.value.replace(/　/g, " ").split(" ").map(word => dictionary.getPartialMatch(word));
+    return [...new Set(words.flat())];
+  }
   return dictionary
     .getPartialMatch(keyword.value);
 });
@@ -219,7 +224,7 @@ onMounted(() => {
 const getWordItem = (word: TWord & { class?: string; }) => {
   return {
     hymmnos: word.hymmnos,
-    japanese: word.primaryMeaning ?? "" + word.japanese.join(", "),
+    japanese: word.primaryMeaning ?? "" + word.japanese.join(", ") + (word.gerunds?.length ? " (名詞: " + word.gerunds.join(", ") + ")" : ""),
     pronunciation: word.pronunciation?.join(", "),
     part_of_speech: word.part_of_speech,
     dialect: getDiarectJapanese(word.dialect),

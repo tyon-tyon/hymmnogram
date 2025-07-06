@@ -50,6 +50,24 @@ export default function () {
     // 通常の完全一致
     const exactMatch = getWordExactMatch(q, dialect);
     if (exactMatch) return exactMatch;
+
+    // 全て数字
+    if (q.match(/^[0-9]+$/)) {
+      return {
+        ...getEmptyWordData(q),
+        primaryMeaning: q,
+        part_of_speech: "数詞",
+        dialect: "standard",
+      };
+    }
+    // 全て英字
+    if (q.match(/^[a-zA-Z]+$/)) {
+      return {
+        ...getEmptyWordData(q),
+        part_of_speech: "不明",
+        dialect: "unknown",
+      };
+    }
     return getEmptyWordData(q);
   };
 

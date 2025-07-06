@@ -153,16 +153,49 @@ const convertBinaryToKana = (binary: string) => {
   return binary.split("").map((char) => binaryMap[char as keyof typeof binaryMap]).join("").replace(/ +/g, " ");
 };
 
+// 数値の読み専門（5桁まで）
+export const convertNumberToKana = (number: string) => {
+  const numbers = number.split("").reverse();
+  // 桁数ごとの読み
+  const digitKana = [];
+  for (const [i, num] of numbers.entries()) {
+    if (num === "0") continue;
+    const numKana = consonantMap[num as keyof typeof consonantMap].replace(/ /g, "");
+    switch (i) {
+      case 0:
+        digitKana.push(numKana);
+        break;
+      case 1:
+        digitKana.push(numKana + "デー");
+        break;
+      case 2:
+        digitKana.push(numKana + "ヘー");
+        break;
+      case 3:
+        digitKana.push(numKana + "キィ");
+        break;
+      case 4:
+        digitKana.push(numKana + "ミィ");
+        break;
+    }
+  }
+  return digitKana.reverse().join(" ");
+};
+
 // ローマ字からかなに変換する関数
 export const convertKana = (roman: string) => {
   roman = roman.toLowerCase();
-  if(roman.match(/^[01x ]+$/)){
+  // 数字のみかつ5桁以内の場合は数値の読み専門を使用
+  if (roman.match(/^[0-9]{1,5}$/)) {
+    return convertNumberToKana(roman);
+  }
+  if (roman.match(/^[01x ]+$/)) {
     return convertBinaryToKana(roman);
   }
   const sortedKanaMap = sortByLength(kanaMap);
   const sortedConsonantMap = sortByLength(consonantMap);
 
-  const parts:string[] = [];
+  const parts: string[] = [];
   let currentPart = "";
   for (const char of roman) {
     // 母音ごとに処理をする
@@ -177,7 +210,7 @@ export const convertKana = (roman: string) => {
         kana = kanaMap[key as keyof typeof kanaMap][vowelIndex];
         // currentPartからマッチしたやつを削除
         currentPart = currentPart.slice(0, -key.length);
-      }else{
+      } else {
         // マッチしない場合は、currentPartに母音を追加
         currentPart += char;
       }
@@ -187,25 +220,25 @@ export const convertKana = (roman: string) => {
         if (index !== -1) {
           const key = sortedConsonantMap[index][0];
           consonant += consonantMap[key as keyof typeof consonantMap];
-          currentPart = currentPart.slice(key.length); 
+          currentPart = currentPart.slice(key.length);
         } else {
           // マッチしない場合は無限ループを避けるため処理を終了
           break;
         }
       }
       parts.push(consonant + kana);
-    }else{
+    } else {
       currentPart += char;
     }
   }
-  if(currentPart.length > 0){
+  if (currentPart.length > 0) {
     let consonant = "";
     while (currentPart.length > 0) {
       const index = sortedConsonantMap.findIndex(([key]) => currentPart.startsWith(key));
       if (index !== -1) {
         const key = sortedConsonantMap[index][0];
         consonant += consonantMap[key as keyof typeof consonantMap];
-        currentPart = currentPart.slice(key.length); 
+        currentPart = currentPart.slice(key.length);
       } else {
         // マッチしない場合は無限ループを避けるため処理を終了
         break;

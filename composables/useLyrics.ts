@@ -28,30 +28,18 @@ export default function useLyrics() {
         ) &&
         !exactLyricMatch.includes(lyric)
     );
+    // 日本語の用例はOR検索をする
+    const japaneseWords = q.replace(/　/g, " ").split(" ").filter(word => word.length > 0);
     // 日本語の例文を取得
-    const japaneseReg = new RegExp(q.replace(/:/, "\\$1"), 'gi');
-    const japaneseMatch = lyrics.filter(
-      (lyric) =>
-        (
-          lyric.japaneseWords?.match(japaneseReg) ||
-          lyric.correction?.japaneseWords?.match(japaneseReg) ||
-          lyric.japanese?.match(japaneseReg) ||
-          lyric.correction?.japanese?.match(japaneseReg)
-        ) &&
-        !exactLyricMatch.includes(lyric) &&
-        !lyricMatch.includes(lyric)
+    const japaneseReg = new RegExp(japaneseWords.join("|"), 'gi');
+    const japaneseMatch = lyrics.filter(lyric =>
+      lyric.japaneseWords?.match(japaneseReg) ||
+      lyric.correction?.japaneseWords?.match(japaneseReg) ||
+      lyric.japanese?.match(japaneseReg) ||
+      lyric.correction?.japanese?.match(japaneseReg)
     );
     // 重複削除
-    const matches = [...exactLyricMatch, ...lyricMatch, ...japaneseMatch].filter((match, index, self) =>
-      index === self.findIndex((t) =>
-        t.id === match.id ||
-        (t.lyric === match.lyric &&
-          t.correction?.lyric === match.correction?.lyric &&
-          t.japanese === match.japanese &&
-          t.correction?.japanese === match.correction?.japanese &&
-          t.musicId === match.musicId)
-      )
-    );
+    const matches = [...new Set([...exactLyricMatch, ...lyricMatch, ...japaneseMatch])];
     return matches.map((match) => {
       const music = musics.find((music) => music.id === match.musicId);
       return {
