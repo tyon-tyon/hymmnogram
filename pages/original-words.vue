@@ -1,34 +1,30 @@
 <template>
-  <Layout :breadcrumb-links="[{label: 'オリジナル単語登録', to: '/original-words' }]">
+  <Layout :breadcrumb-links="[{ label: 'オリジナル単語登録', to: '/original-words' }]">
     <AtomH2 class="flex justify-between">
       オリジナル単語登録
       <OriginalWordsHelp />
     </AtomH2>
-    <UFormGroup label="単語データ" name="words">
-      <UTextarea
-        v-model="wordsStr"
-        :rows="10"
-        class="mb-4"
-        placeholder="単語	意味	発音	品詞	流派	備考
+    <ClientOnly>
+      <UFormGroup label="単語データ" name="words">
+        <UTextarea v-model="wordsStr" :rows="10" class="mb-4" placeholder="単語	意味	発音	品詞	流派	備考
 cye	羞恥　恥ずかしい　照れ	チェ	想音	アルファ律（オリジンスペル：TOLIA属）	第Ⅱ想音
 dojy	不安　迷い　困惑	ドージュ	想音	アルファ律（オリジンスペル：TOLIA属）	第Ⅱ想音	
-dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル：TOLIA属）	第Ⅱ想音"
-      />
-    </UFormGroup>
+dott	勇敢さ　勇猛に	ドッ	想音	アルファ律（オリジンスペル：TOLIA属）	第Ⅱ想音" />
+      </UFormGroup>
 
-    <UFormGroup label="意味の区切り文字" name="delimiter">
-      <UInput v-model="delimiter" class="mb-4" placeholder="、" />
-    </UFormGroup>
-    <UFormGroup label="流派設定" name="dialect">
-      <OriginalDialectTable />
-    </UFormGroup>
-
-    <UAccordion :items="items">
-      <template #examples>
-        <!-- 冒頭5件だけ表示 -->
-        <TableHymmnos :words="originalWords" :defaultRowCount="5" />
-      </template>
-    </UAccordion>
+      <UFormGroup label="意味の区切り文字" name="delimiter">
+        <UInput v-model="delimiter" class="mb-4" placeholder="、" />
+      </UFormGroup>
+      <UFormGroup label="流派設定" name="dialect">
+        <OriginalDialectTable />
+      </UFormGroup>
+      <UAccordion :items="items">
+        <template #examples>
+          <!-- 冒頭5件だけ表示 -->
+          <TableHymmnos :words="originalWords" :defaultRowCount="5" />
+        </template>
+      </UAccordion>
+    </ClientOnly>
 
     <UButton @click="saveLocalStorage" class="my-10" size="xl" block>
       保存
