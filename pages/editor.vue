@@ -25,10 +25,10 @@ useHead({
     { name: "description", content: 'ヒュムノス、律史前月読、アルシエラの記述を支援するテキストエディタです。' },
     { property: 'og:title', content: 'ヒュムネエディタ' },
     { property: 'og:description', content: 'ヒュムノス、律史前月読、アルシエラの記述を支援するテキストエディタです。' },
-    { property: 'og:url', content: 'https://hymmnogram.fau-varda.net/editor' },
+    { property: 'og:url', content: 'https://hymmnogram.fau-varda.net/editor/' },
   ],
   link: [
-    { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net/editor' },
+    { rel: 'canonical', href: 'https://hymmnogram.fau-varda.net/editor/' },
   ],
 });
 </script>

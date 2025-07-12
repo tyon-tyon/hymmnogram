@@ -15,10 +15,10 @@ useHead({
     { name: "description", content: description },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
-    { property: "og:url", content: "https://hymmnogram.fau-varda.net/dictionary" },
+    { property: "og:url", content: "https://hymmnogram.fau-varda.net/dictionary/" },
   ],
   link: [
-    { rel: "canonical", href: "https://hymmnogram.fau-varda.net/dictionary" },
+    { rel: "canonical", href: "https://hymmnogram.fau-varda.net/dictionary/" },
   ],
 });
 </script>

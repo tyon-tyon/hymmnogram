@@ -160,11 +160,11 @@ useHead({
   meta: [
     { name: "description", content: description },
     { property: 'og:title', content: title },
-    { property: 'og:url', content: `/lyrics/${key}` },
+    { property: 'og:url', content: `https://hymmnogram.fau-varda.net/lyrics/${key}/` },
     { property: 'og:description', content: description },
   ],
   link: [
-    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}` },
+    { rel: 'canonical', href: `https://hymmnogram.fau-varda.net/lyrics/${key}/` },
   ],
 });
 

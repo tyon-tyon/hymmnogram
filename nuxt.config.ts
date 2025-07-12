@@ -111,7 +111,7 @@ export default defineNuxtConfig({
     },
     urls: () => {
       const urls = musics.map(music => {
-        return `/lyrics/${music.key}`;
+        return `/lyrics/${music.key}/`;
       });
       /*
       サチコがうまくいかないので一時的にコメントアウト
@@ -130,7 +130,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-03-20",
 
   routeRules: {
-    "/lyrics/**": { ssr: true },
+    "/lyrics/**/": { ssr: true },
   },
 
   generate: {

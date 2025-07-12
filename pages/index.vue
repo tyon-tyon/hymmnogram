@@ -23,10 +23,10 @@ useHead({
     { name: "description", content: description },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
-    { property: "og:url", content: "https://hymmnogram.fau-varda.net" },
+    { property: "og:url", content: "https://hymmnogram.fau-varda.net/" },
   ],
   link: [
-    { rel: "canonical", href: "https://hymmnogram.fau-varda.net" },
+    { rel: "canonical", href: "https://hymmnogram.fau-varda.net/" },
   ],
 });
 
