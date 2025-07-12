@@ -195,6 +195,8 @@ export const convertKana = (roman: string) => {
   const sortedKanaMap = sortByLength(kanaMap);
   const sortedConsonantMap = sortByLength(consonantMap);
 
+  // 3文字以上同じ文字が続く場合は2文字にする
+  roman = roman.replace(/(\w)\1{2,}/g, "$1$1");
   const parts: string[] = [];
   let currentPart = "";
   for (const char of roman) {
